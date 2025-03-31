@@ -1,0 +1,39 @@
+name: "✨ Docs Feature Request"
+description: Suggest an improvement or new section for the Godot Launcher documentation
+title: "[Docs Feature] "
+labels: ["enhancement", "docs"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Got an idea to improve the documentation? Help us make it better for everyone!
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: "What's missing or could be improved?"
+      description: Describe the topic or improvement you'd like to see.
+      placeholder: "I'd like to see a guide on Godot projects with Git."
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: "Why is this useful?"
+      description: Explain why this addition would help readers or what problem it solves.
+      placeholder: "Beginners often struggle to set up Git for Godot projects."
+
+  - type: textarea
+    id: layout
+    attributes:
+      label: "Where should this go?"
+      description: Suggest where it fits in the existing docs or if it needs a new section.
+      placeholder: "Maybe under the 'Advanced Usage' section or as a subpage of 'Project Setup'."
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: "Any references or examples?"
+      description: Add links, screenshots, or examples that help illustrate the idea.
+      placeholder: "e.g. A guide from another engine, or an outline of what the page could look like."

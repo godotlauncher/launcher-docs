@@ -1,0 +1,48 @@
+name: "🐛 Docs Bug Report"
+description: Report an error, typo, or problem in the documentation
+title: "[Docs Bug] "
+labels: ["bug", "docs"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping us improve the Godot Launcher documentation! Please describe the problem as clearly as possible.
+
+  - type: input
+    id: page
+    attributes:
+      label: "Which page or section?"
+      description: Copy and paste the URL of the page or describe the section name.
+      placeholder: "https://docs.godotlauncher.com/getting-started/installation/"
+    validations:
+      required: true
+
+  - type: textarea
+    id: issue
+    attributes:
+      label: "What's wrong?"
+      description: Describe the bug, mistake, or confusing part.
+      placeholder: "The setup path listed for editor_data is incorrect on Linux."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: "What should it say or show instead?"
+      description: Suggest a correction or explain what would make it clearer.
+      placeholder: "It should say: ~/.config/godot/editor_settings-4.tres"
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: "Screenshot or extra context (optional)"
+      description: Add screenshots, GitHub links, or any other useful reference.
+      placeholder: "Paste images or links here"
+
+  - type: checkboxes
+    id: log_consent
+    attributes:
+      label: "If more info is needed..."
+      options:
+        - label: I'm happy to help clarify or test if needed

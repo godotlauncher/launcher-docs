@@ -9,7 +9,7 @@ import "dotenv/config";
 const config: Config = {
   title: "Godot Launcher Docs",
 
-  tagline: "Documentation for the Godot Launcher",
+  tagline: "Documentation for Godot Launcher",
   favicon: "img/favicon-16x16.png",
 
   // Set the production url of your site here
@@ -25,6 +25,8 @@ const config: Config = {
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "throw",
+
+  baseUrlIssueBanner: false,
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -47,6 +49,9 @@ const config: Config = {
           path: "docs",
           routeBasePath: "/",
           sidebarPath: "./sidebars.ts",
+          editUrl: ({ locale, versionDocsDirPath, docPath }) => {
+            return `https://github.com/godotlauncher/launcher-docs/edit/main/${versionDocsDirPath}/${docPath}`;
+          },
         },
         blog: false,
         pages: false,

@@ -3,7 +3,10 @@ id: license
 title: License
 slug: /license
 description: "View the license for the Godot Launcher open source project."
-tags: [license, legal, open source]
+tags: 
+  - license
+  - legal
+  - open-source
 ---
 
 # License

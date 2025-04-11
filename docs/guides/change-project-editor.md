@@ -5,11 +5,11 @@ slug: /guides/change-project-editor
 description: "Learn how to change the editor version for your Godot projects in the launcher, including handling .NET and GDScript transitions, and managing missing editor versions."
 tags:
   - guides
-  - Godot
-  - editor version
-  - project settings
-  - .NET
-  - GDScript
+  - godot
+  - editor-version
+  - project-settings
+  - dotnet
+  - gdscript
 ---
 
 # Change Project Editor Version

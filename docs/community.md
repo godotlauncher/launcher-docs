@@ -3,7 +3,12 @@ id: community
 title: Community
 slug: /community
 description: "Join the Godot Launcher community on Discord to get support, share ideas, and contribute to the project."
-tags: [community, support, help, discord, open source]
+tags: 
+  - community
+  - support
+  - help
+  - discord
+  - open-source
 ---
 
 # Community

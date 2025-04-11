@@ -5,9 +5,9 @@ slug: /guides/editor-settings
 description: "Understand how the Godot Launcher handles per-project editor settings, where they're stored, and how to manage them across Godot versions."
 tags:
   - guides
-  - Godot
-  - editor settings
-  - project settings
+  - godot
+  - editor-settings
+  - project-settings
   - configuration
 ---
 

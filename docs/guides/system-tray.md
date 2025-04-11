@@ -3,7 +3,11 @@ id: system-tray
 slug: /guides/system-tray
 title: System Tray
 description: "Learn how to use the system tray feature in the Godot Launcher for quick access and efficient project management."
-tags: [system-tray, launcher, quick-launch, guides]
+tags: 
+  - guides
+  - system-tray
+  - launcher
+  - quick-launch
 ---
 
 # System Tray

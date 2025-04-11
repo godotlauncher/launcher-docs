@@ -3,7 +3,11 @@ id: help-and-support
 title: Help & Support
 slug: /help-and-support
 description: "Explore the Help section in the Godot Launcher to find links to documentation, community support, and contribution opportunities."
-tags: [help, support, community, contribute]
+tags: 
+  - help
+  - support
+  - community
+  - contribute
 ---
 
 # Help & Support

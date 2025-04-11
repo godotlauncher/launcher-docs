@@ -3,7 +3,9 @@ id: launcher-settings
 title: Launcher Settings
 slug: /guides/launcher-settings
 description: "Learn how to configure the Godot Launcher using the available settings tabs, including project locations, editor installs, appearance, behavior, tools, and update preferences."
-tags: [launcher-settings, guides]
+tags: 
+  - guides
+  - launcher-settings
 ---
 
 # Launcher Settings
@@ -67,7 +69,7 @@ The **Appearance** tab lets you customize the look and feel of the launcher inte
 
   **Looking for contributors!**  
   If you're interested in helping implement a translation system, we welcome your contributions.  
-  Visit the [contributing page](https://godotlauncher.org/contributing) for more details.
+  Visit the [contributing page](https://godotlauncher.org/contribute) for more details.
   :::
 
   :::info

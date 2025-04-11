@@ -3,7 +3,10 @@ id: contributing
 title: Contributing
 slug: /contributing
 description: "Learn how to contribute to the Godot Launcher and its ecosystem projects including the web and docs."
-tags: [contribute, open source, community]
+tags: 
+  - contribute
+  - open-source
+  - community
 ---
 
 # Contributing

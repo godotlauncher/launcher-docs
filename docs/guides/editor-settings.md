@@ -5,9 +5,9 @@ slug: /guides/editor-settings
 description: "Understand how the Godot Launcher handles per-project editor settings, where they're stored, and how to manage them across Godot versions."
 tags:
   - guides
-  - Godot
-  - editor settings
-  - project settings
+  - godot
+  - editor-settings
+  - project-settings
   - configuration
 ---
 
@@ -25,7 +25,7 @@ Editor settings for a project are saved in:
 
 :::note
 defaults to `~/Godot/Editors/` or `/home/<user>/Godot/Editors/` (user home directory).
-On Windows, this is `c:\Users\<user>\Godot/Editors\`
+On Windows, this is `c:\Users\<user>\Godot\Editors\`
 :::
 
 The file storing the settings follows this naming format (Godot Engine):

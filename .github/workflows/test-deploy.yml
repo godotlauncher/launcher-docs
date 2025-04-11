@@ -24,5 +24,7 @@ jobs:
         run: npm ci
       - name: Test build website
         env:
-          GOOGLE_TAG_MANAGER_ID: ${{ secrets.GOOGLE_TAG_MANAGER_ID }}
+          # This is a test deployment, so we use a fake Google Tag Manager ID
+          # because secrets are not available in pull requests from forks
+          GOOGLE_TAG_MANAGER_ID: "GTM-XXXXXX"
         run: npm run build

@@ -24,4 +24,4 @@ This applies to the main launcher as well as related repositories such as `launc
 You can view the full license in the GitHub repository:
 
 - [View LICENSE.txt on GitHub](https://github.com/godotlauncher/launcher/blob/main/LICENSE.txt)
-- [Detailed License Page](https://godotlauncher.org/license)
+- [Detailed License Page](https://godotlauncher.org/license/)

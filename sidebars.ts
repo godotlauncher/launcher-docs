@@ -31,6 +31,7 @@ export default {
       label: "Guides",
       collapsed: false,
       items: [
+        "guides/launch-godot-project-in-windowed-mode",
         "guides/git-setup",
         "guides/vscode-setup",
         "guides/system-tray",
@@ -39,7 +40,10 @@ export default {
         "guides/launcher-settings",
       ],
     },
-
+    {
+      type: "doc",
+      id: "project-badges",
+    },
     {
       type: "doc",
       id: "help-and-support",

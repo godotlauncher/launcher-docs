@@ -2,7 +2,7 @@
 id: project-badges
 title: "Project Badges and Tooltips"
 description: "Understand what each badge means in the Godot Launcher project list and how they help identify project types at a glance."
-slug: "/guides/project-badges"
+slug: "/project-badges"
 tags:
   - guides
   - godot
@@ -68,8 +68,8 @@ Badges improve workflow clarity and reduce configuration guesswork. They are esp
 
 ## Related Documentation
 
-- [Launch Godot Project in Windowed Mode](../launch-godot-project-in-windowed-mode/)
-- [Managing Godot Editor Versions](../change-project-editor/)
+- [Launch Godot Project in Windowed Mode](/guides/launch-godot-project-in-windowed-mode/)
+- [Managing Godot Editor Versions](/guides/change-project-editor/)
 - [Download Godot Launcher](https://godotlauncher.org/download/)
 
 ---

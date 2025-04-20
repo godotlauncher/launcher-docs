@@ -60,8 +60,8 @@ For **Godot 4.4 and newer**, you may want to leave this off and let the editor r
 ## Related
 
 - [Download Godot Launcher](https://godotlauncher.org/download/)
-- [Project Badges and Tooltips](../project-badges/)
-- [Managing Godot Editor Versions](../change-project-editor/)
+- [Project Badges and Tooltips](/project-badges/)
+- [Managing Godot Editor Versions](/guides/change-project-editor/)
 
 ---
 

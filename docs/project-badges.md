@@ -69,7 +69,7 @@ Badges improve workflow clarity and reduce configuration guesswork. They are esp
 ## Related Documentation
 
 - [Launch Godot Project in Windowed Mode](../launch-godot-project-in-windowed-mode/)
-- [Managing Godot Editor Versions](../manage-godot-versions)
+- [Managing Godot Editor Versions](../change-project-editor/)
 - [Download Godot Launcher](https://godotlauncher.org/download/)
 
 ---

@@ -4,7 +4,7 @@ slug: /getting-started/create-project
 title: Creating a Project
 description: "Learn how to create your first project with Godot Launcher."
 tags:
-  - project-setup
+  - godot-project-setup
   - getting-started
   - setup-guide
 ---

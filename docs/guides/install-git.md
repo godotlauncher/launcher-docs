@@ -6,7 +6,7 @@ slug: "/guides/install-git"
 tags:
   - guides
   - git
-  - setup
+  - setup-guide
 ---
 
 # Installing Git

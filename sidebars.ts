@@ -24,6 +24,7 @@ export default {
         "getting-started/installation",
         "getting-started/install-editor",
         "getting-started/create-project",
+        "getting-started/launcher-settings",
       ],
     },
     {
@@ -32,12 +33,12 @@ export default {
       collapsed: false,
       items: [
         "guides/launch-godot-project-in-windowed-mode",
-        "guides/git-setup",
-        "guides/vscode-setup",
+        "guides/using-git",
+        "guides/install-git",
+        "guides/vscode-setup-for-godot",
         "guides/system-tray",
         "guides/change-project-editor",
         "guides/editor-settings",
-        "guides/launcher-settings",
       ],
     },
     {

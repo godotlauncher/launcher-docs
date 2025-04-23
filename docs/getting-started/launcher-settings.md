@@ -1,10 +1,10 @@
 ---
 id: launcher-settings
 title: Launcher Settings
-slug: /guides/launcher-settings
+slug: /getting-started/launcher-settings
 description: "Learn how to configure the Godot Launcher using the available settings tabs, including project locations, editor installs, appearance, behavior, tools, and update preferences."
 tags: 
-  - guides
+  - getting-started
   - launcher-settings
 ---
 

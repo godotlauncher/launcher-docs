@@ -1,15 +1,15 @@
 ---
-id: vscode-setup
-title: "Visual Studio Code Setup"
+id: vscode-setup-for-godot
+title: "Visual Studio Code Setup For Godot"
 description: "Configure Visual Studio Code to automatically use with Godot Launcher projects."
-slug: "/guides/vscode"
+slug: "/guides/vscode-setup-for-godot"
 tags:
   - guides
   - vscode
   - editor-setup
 ---
 
-# Visual Studio Code Setup
+# Visual Studio Code Setup for Godot
 
 ## Why Use Visual Studio Code?
 
@@ -38,7 +38,7 @@ To improve your experience when working with Godot projects, the following exten
 If you use VS Code for other types of work besides game development, it is recommended to use [profiles](https://code.visualstudio.com/docs/editor/profiles) in VS Code. Profiles allow you to customize your editor settings, extensions, and configurations for different workflows, keeping your game development setup separate from other projects.
 :::
 
-To install extensions manually, open the Extensions sidebar (`Ctrl+Shift+X`) and search by name.
+To install extensions manually, open the Extensions sidebar (`Ctrl+Shift+X` or `Cmd+Shift+X` on macOS) and search by name.
 
 ## Setting Up Godot Integration
 
@@ -50,12 +50,12 @@ If you prefer to set up the integration manually, you can follow the instruction
 
 1. Open VS Code.
 2. Install the **Godot Tools** extension.
-3. Press `Ctrl+Shift+P` to open the Command Palette.
+3. Press `Ctrl+Shift+P` or `Cmd+Shift+P` on macOS to open the Command Palette.
 4. Search for `Godot: Set Godot Executable Path` and select it.
 5. Browse to the Godot executable you want to use.
-   > For projects created with Godot Launcher, it is recommended to use the path where the launcher opens the project from. You can find this path by going to the project screen, clicking the "More" menu (the three vertical dots), selecting "Open Editor Settings Folder," and then navigating up one folder to locate the Godot engine binaries.
+   > For projects created with Godot Launcher, it is recommended to use the path where the launcher opens the project from. You can find this path by going to the projects screen, clicking the "More" menu (the three vertical dots), selecting "Open Editor Settings Folder," and then navigating up one folder to locate the Godot engine binaries.
 
-> For more details on manual setup, refer to the documentation of the **Godot Tools** extension.
+> For more details on manual setup, refer to the documentation of the **[Godot Tools](https://marketplace.visualstudio.com/items?itemName=geequlim.godot-tools#godot-tools)** extension.
 
 ## Launching VS Code from Godot
 

@@ -30,10 +30,10 @@ When adding an existing project, the launcher does not move the project files. I
 
 :::note on VSCode and Git
 **Visual Studio Code**:
-If your existing project contains a `.vscode` folder, it will automatically attempt to configure settings in the editor for Visual Studio Code as text editor. See [Visual Studio Code guide](/guides/vscode) for more details.
+If your existing project contains a `.vscode` folder, it will automatically attempt to configure settings in the editor for Visual Studio Code as text editor. See [Visual Studio Code guide](/guides/vscode-setup-for-godot) for more details.
 
 **Git**:
-Adding a project will not automatically initialize Git for projects that do not already use Git. See [Git guide](/guides/git) for more details.
+Adding a project will not automatically initialize Git for projects that do not already use Git. See [Git guide](/guides/using-git-with-godot-launcher) for more details.
 :::
 
 Once completed, your project will appear in the **Projects** section, ready for you to start working on.

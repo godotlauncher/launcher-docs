@@ -101,7 +101,7 @@ You can also set these values for just one project by removing `--global`.
 - [Create a New Godot Project](/getting-started/create-project)
 - [Install Git](/guides/install-git)
 - [Launcher Settings](/getting-started/launcher-settings)
-- [VS Code Setup](/guides/vscode-setup)
+- [VS Code Setup](/guides/vscode-setup-for-godot)
 - [Editor Settings](/guides/editor-settings)
 
 

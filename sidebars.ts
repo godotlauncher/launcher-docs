@@ -35,7 +35,7 @@ export default {
         "guides/launch-godot-project-in-windowed-mode",
         "guides/using-git",
         "guides/install-git",
-        "guides/vscode-setup",
+        "guides/vscode-setup-for-godot",
         "guides/system-tray",
         "guides/change-project-editor",
         "guides/editor-settings",

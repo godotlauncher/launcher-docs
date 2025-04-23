@@ -47,7 +47,7 @@ You may also need to [configure your Git username and email](/guides/using-git-w
 
 ## Related Links
 
-- [Using Git With Godot Launcher](/guides/using-git)
+- [Using Git With Godot Launcher](/guides/using-git-with-godot-launcher)
 - [Create a New Godot Project](/getting-started/create-project)
 - [Launcher Settings](/getting-started/launcher-settings)
 - [Change Project Editor](/guides/change-project-editor)

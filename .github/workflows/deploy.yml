@@ -25,6 +25,8 @@ jobs:
       - name: Build website
         env:
           GOOGLE_TAG_MANAGER_ID: ${{ secrets.GOOGLE_TAG_MANAGER_ID }}
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
         run: npm run build
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3

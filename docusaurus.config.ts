@@ -93,6 +93,7 @@ const config: Config = {
         {
           title: "Project",
           items: [
+            { label: "Roadmap", href: "https://github.com/orgs/godotlauncher/projects/1" },
             {
               label: "Website",
               href: "https://godotlauncher.org",

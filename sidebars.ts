@@ -16,6 +16,7 @@ export default {
       type: "doc",
       id: "overview",
     },
+
     {
       type: "category",
       label: "Getting Started",
@@ -48,6 +49,11 @@ export default {
     {
       type: "doc",
       id: "help-and-support",
+    },
+    {
+      type: "link",
+      label: "Roadmap",
+      href: "https://github.com/orgs/godotlauncher/projects/1",
     },
     {
       type: "doc",

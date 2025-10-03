@@ -162,3 +162,8 @@ project-badges:
   label: "Project Badges"
   permalink: "/project-badges"
   description: Learn about the badges used in Godot Launcher to identify project configurations.
+
+windows-only:
+  label: "Windows Only"
+  permalink: "/windows-only"
+  description: Features and guides specific to the Windows version of Godot Launcher.

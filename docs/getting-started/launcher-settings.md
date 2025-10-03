@@ -16,7 +16,7 @@ The **Godot Launcher** includes a configurable **Settings** section that lets yo
 
 ## Projects Tab
 
-> ![Settings - Projects Tab](/img/launcher-settings-projects-ui.webp)
+![Settings - Projects Tab](/img/launcher-settings-projects-ui.webp)
 
 The **Projects** tab allows you to define the default location where new Godot projects are created.
 
@@ -36,7 +36,7 @@ Adding existing projects will not move them to this location
 
 ## Installs Tab
 
-> ![Settings - Installs Tab](/img/launcher-settings-installs-ui.webp)
+![Settings - Installs Tab](/img/launcher-settings-installs-ui.webp)
 
 The **Installs** tab lets you choose where Godot editor versions are stored.
 
@@ -52,7 +52,7 @@ It's helpful to store your editors on a fast local drive, especially if you work
 
 ## Appearance Tab
 
-> ![Settings - Appearance Tab](/img/launcher-settings-appearance-ui.webp)
+![Settings - Appearance Tab](/img/launcher-settings-appearance-ui.webp)
 
 The **Appearance** tab lets you customize the look and feel of the launcher interface.
 
@@ -80,7 +80,7 @@ The **Appearance** tab lets you customize the look and feel of the launcher inte
 
 ## Behavior Tab
 
-> ![Settings - Behavior Tab](/img/launcher-settings-behavior-ui.webp)
+![Settings - Behavior Tab](/img/launcher-settings-behavior-ui-win.webp)
 
 The **Behavior** tab defines how the launcher behaves when launching projects or starting with your system.
 
@@ -89,13 +89,22 @@ The **Behavior** tab defines how the launcher behaves when launching projects or
   - _Nothing_: The launcher stays open.
   - _Minimize_: Launcher minimizes after launch.
   - _Close to System Tray_: Default behavior—closes to tray after project launch.
+- **Symlink Support** (Windows only – added in 1.4.0) <br/> [See the guide on windows symlink support](/guides/windows-symlink)
+  - _Enabled_ (default: disabled): Instead of copying the Godot Editor into each project, the launcher creates a symlink to the installed Editor. This reduces disk usage, but requires the user to have **Administrator privileges** and **Developer Mode** enabled.  
+  - :::info
+      Changing this setting only affects **new projects**. Existing projects are not automatically migrated; they will switch to symlinks or copies the next time their selected release changes. [read more](/guides/windows-symlink)
+    :::
+
+
 - **Startup Preference**:
   - _Start when computer starts_: Auto-starts with your system.
   - _Start in tray_: Starts hidden in the system tray.
 
-:::tip
-Enabling "Start in tray" keeps your workspace clean and lets you access the launcher only when needed.
-:::
+  - :::tip
+    Enabling "Start in tray" keeps your workspace clean and lets you access the launcher only when needed.
+    :::
+
+
 
 ---
 
@@ -124,7 +133,7 @@ The launcher uses this information to configure external editor support, also fo
 
 ## Updates Tab
 
-> ![Settings - Updates Tab](/img/launcher-settings-updates-ui.webp)
+![Settings - Updates Tab](/img/launcher-settings-updates-ui.webp)
 
 The **Updates** tab controls how the launcher checks for updates.
 

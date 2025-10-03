@@ -40,6 +40,7 @@ export default {
         "guides/system-tray",
         "guides/change-project-editor",
         "guides/editor-settings",
+        "guides/windows-symlink",
       ],
     },
     {

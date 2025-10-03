@@ -162,3 +162,18 @@ project-badges:
   label: "Project Badges"
   permalink: "/project-badges"
   description: Learn about the badges used in Godot Launcher to identify project configurations.
+
+windows-only:
+  label: "Windows Only"
+  permalink: "/windows-only"
+  description: Features and guides specific to the Windows version of Godot Launcher.
+
+project-import:
+  label: "Project Import"
+  permalink: "/project-import"
+  description: Instructions for importing existing Godot projects into Godot Launcher.
+
+troubleshooting:
+  label: "Troubleshooting"
+  permalink: "/troubleshooting"
+  description: Solutions and tips for resolving common issues in Godot Launcher.

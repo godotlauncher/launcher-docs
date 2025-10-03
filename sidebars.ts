@@ -25,6 +25,7 @@ export default {
         "getting-started/installation",
         "getting-started/install-editor",
         "getting-started/create-project",
+        "getting-started/add-existing-project",
         "getting-started/launcher-settings",
       ],
     },
@@ -40,6 +41,8 @@ export default {
         "guides/system-tray",
         "guides/change-project-editor",
         "guides/editor-settings",
+        "guides/windows-symlink",
+        "guides/linux-no-sandbox",
       ],
     },
     {

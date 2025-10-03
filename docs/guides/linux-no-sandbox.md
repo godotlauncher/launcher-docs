@@ -44,13 +44,13 @@ Godot Launcher detects the no-sandbox option if you pass it on the command line 
 Run the AppImage or launcher binary with:
 
 ```
-./Godot_Launcher.AppImage --no-sandbox
+./Godot_Launcher-<version>-linux-<arch>.AppImage --no-sandbox
 ```
 
 or
 
 ```
-./Godot_Launcher.AppImage --disable-sandbox
+./Godot_Launcher-<version>-linux-<arch>.AppImage --disable-sandbox
 ```
 
 This only applies to that single run.
@@ -60,7 +60,7 @@ This only applies to that single run.
 Set the environment variable before launching:
 
 ```
-GODOT_LAUNCHER_DISABLE_SANDBOX=1 ./Godot_Launcher.AppImage
+GODOT_LAUNCHER_DISABLE_SANDBOX=1 ./Godot_Launcher-<version>-linux-<arch>.AppImage
 ```
 
 This tells the launcher to append the `--no-sandbox` switch internally before any windows are created.

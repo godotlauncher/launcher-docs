@@ -24,7 +24,9 @@ const config: Config = {
   projectName: "launcher-docs", // Usually your repo name.
 
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "throw",
+  markdown: {
+    hooks: { onBrokenMarkdownLinks: "throw", onBrokenMarkdownImages: "throw" },
+  },
 
   baseUrlIssueBanner: false,
   trailingSlash: true,

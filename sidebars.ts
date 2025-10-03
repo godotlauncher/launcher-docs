@@ -42,6 +42,7 @@ export default {
         "guides/change-project-editor",
         "guides/editor-settings",
         "guides/windows-symlink",
+        "guides/linux-no-sandbox",
       ],
     },
     {

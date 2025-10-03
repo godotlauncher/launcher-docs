@@ -167,3 +167,8 @@ windows-only:
   label: "Windows Only"
   permalink: "/windows-only"
   description: Features and guides specific to the Windows version of Godot Launcher.
+
+project-import:
+  label: "Project Import"
+  permalink: "/project-import"
+  description: Instructions for importing existing Godot projects into Godot Launcher.

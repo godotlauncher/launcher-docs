@@ -22,22 +22,14 @@ You can create a new project and start editing in seconds, or choose to add an e
 
 ## Add an Existing Project
 
-Click **Add** and select the folder containing your project `project.godot`.
+Already have a Godot project? Click **Add**, pick the folder that contains `project.godot`, and the launcher will register it without moving any files. The project then appears in your **Projects** list, ready to launch with the best matching editor.
 
-:::important
-When adding an existing project, the launcher does not move the project files. Instead, it creates a link to your existing location and selects the most compatible installed editor version and generates the necessary editor settings.
-:::
-
-:::note on VSCode and Git
-**Visual Studio Code**:
-If your existing project contains a `.vscode` folder, it will automatically attempt to configure settings in the editor for Visual Studio Code as text editor. See [Visual Studio Code guide](/guides/vscode-setup-for-godot) for more details.
-
-**Git**:
-Adding a project will not automatically initialize Git for projects that do not already use Git. See [Git guide](/guides/using-git-with-godot-launcher) for more details.
-:::
-
-Once completed, your project will appear in the **Projects** section, ready for you to start working on.
+For version-selection rules, Mono handling, and integration details, visit [Add an Existing Project](/getting-started/add-existing-project).
 
 :::tip
-To launch a project and start editing with Godot, simply click the project's name in the **Projects** list.
+Looking for a refresher on setup defaults or editor locations before importing? Review [Launcher Settings](/getting-started/launcher-settings).
+:::
+
+:::important
+To open any project, including ones you import, simply click its name in the **Projects** list.
 :::

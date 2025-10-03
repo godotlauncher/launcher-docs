@@ -25,6 +25,7 @@ export default {
         "getting-started/installation",
         "getting-started/install-editor",
         "getting-started/create-project",
+        "getting-started/add-existing-project",
         "getting-started/launcher-settings",
       ],
     },

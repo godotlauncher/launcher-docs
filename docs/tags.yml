@@ -188,7 +188,7 @@ translations:
   permalink: "/translations"
   description: Resources and guides for translating Godot Launcher into different languages.
 
-localization:
-  label: "Localization"
-  permalink: "/localization"
-  description: Best practices for localizing Godot Launcher for a global audience.
+localisation:
+  label: "Localisation"
+  permalink: "/localisation"
+  description: Best practices for localising Godot Launcher for a global audience.

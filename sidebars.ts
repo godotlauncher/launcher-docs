@@ -64,6 +64,10 @@ export default {
     },
     {
       type: "doc",
+      id: "contributing/translations",
+    },
+    {
+      type: "doc",
       id: "community",
     },
     {

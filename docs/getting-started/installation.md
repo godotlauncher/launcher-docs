@@ -21,6 +21,10 @@ The easiest and most reliable way to install the Godot Launcher is by visiting t
 
 ## Install
 
+:::tip
+On first launch, the launcher matches your operating system language automatically. You can change it anytime under **Settings → Appearance → Language**.
+:::
+
 ### Windows
 
 > **System Requirements:** Windows 10 or later (64-bit)

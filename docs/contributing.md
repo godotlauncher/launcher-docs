@@ -25,4 +25,6 @@ Before contributing, please read the `contributing guidelines` in the respective
 
 - [Docs Contributing Guidelines](https://github.com/godotlauncher/launcher-docs/blob/main/CONTRIBUTING.md)
 
-If you're not sure where to start, check the issues labeled `good first issue` or join the [community Discord](#) to ask.
+If you're not sure where to start, check the issues labeled `good first issue` or join the [community Discord](/community) to ask.
+
+Interested in localisation? Follow the [translation contribution guide](/contributing/translations), open a localisation issue on [GitHub](https://github.com/godotlauncher/launcher/issues/new/choose), or drop feedback in the [community Discord](/community).

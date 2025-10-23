@@ -64,7 +64,7 @@ The **Appearance** tab lets you customize the look and feel of the launcher inte
 
 - **Language**: Control the interface language for the launcher UI.
   - The launcher auto-detects your operating system language the first time you sign in (`System` option).
-  - You can manually switch between: System (auto detected) and any other available language.
+  - You can manually switch between: System (Auto-Detected) and other available language.
   - Changing the language updates the launcher UI, native menus, and tray entries instantly.
 
 :::note

@@ -52,7 +52,7 @@ It's helpful to store your editors on a fast local drive, especially if you work
 
 ## Appearance Tab
 
-![Settings - Appearance Tab](/img/launcher-settings-appearance-ui.webp)
+![Settings - Appearance Tab Showing the Language Picker](/img/godot-launcher-language-selector.webp)
 
 The **Appearance** tab lets you customize the look and feel of the launcher interface.
 
@@ -62,19 +62,22 @@ The **Appearance** tab lets you customize the look and feel of the launcher inte
   - Dark
   - System (follows your OS setting)
 
-- **Language**: Select the display language for the launcher UI.
+- **Language**: Control the interface language for the launcher UI.
+  - The launcher auto-detects your operating system language the first time you sign in (`System` option).
+  - You can manually switch between: System (auto detected) and any other available language.
+  - Changing the language updates the launcher UI, native menus, and tray entries instantly.
 
-  :::warning
-  Currently, the Godot Launcher only supports English. Language selection is not yet implemented.
+:::note
+Right-to-left languages are not available yet, but the localisation system is ready for future releases.
+:::
 
-  **Looking for contributors!**  
-  If you're interested in helping implement a translation system, we welcome your contributions.  
-  Visit the [contributing page](https://godotlauncher.org/contribute) for more details.
-  :::
+:::info
+This setting affects only the Godot Launcher interface—it does not change the language of the Godot editor.
+:::
 
-  :::info
-  This setting affects only the Godot Launcher interface—it does not change the language of the Godot editor.
-  :::
+:::tip
+Found a string that needs polish or want to help add a new locale? Follow the [translation contribution guide](/contributing/translations) to share feedback or submit improvements.
+:::
 
 ---
 

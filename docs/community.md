@@ -58,6 +58,7 @@ Not sure how to get involved? Here are a few ways to contribute:
 - Help others in the Discord who are stuck
 - Share your setup or tips with the community
 - Write or review documentation
+- Review translations or request new locales—drop feedback in the localisation channel or follow the [translation contribution guide](/contributing/translations)
 
 No experience required—everyone can contribute.
 

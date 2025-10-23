@@ -177,3 +177,18 @@ troubleshooting:
   label: "Troubleshooting"
   permalink: "/troubleshooting"
   description: Solutions and tips for resolving common issues in Godot Launcher.
+
+contributing:
+  label: "Contributing"
+  permalink: "/contributing"
+  description: Information on how to contribute to the Godot Launcher project.
+
+translations:
+  label: "Translations"
+  permalink: "/translations"
+  description: Resources and guides for translating Godot Launcher into different languages.
+
+localization:
+  label: "Localization"
+  permalink: "/localization"
+  description: Best practices for localizing Godot Launcher for a global audience.

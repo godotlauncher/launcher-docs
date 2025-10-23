@@ -58,6 +58,7 @@ If you're stuck or have questions about a feature, the community Discord is a gr
 If you’d like to improve the Godot Launcher, we welcome contributions! You can report bugs, request features, or even submit code.
 
 - [Contributing Guide](https://godotlauncher.org/contribute)
+- [Help improve translations](/contributing/translations)
 - [I think I found a bug](https://github.com/godotlauncher/launcher/issues/new?template=bug_report.md)
 - [I have a suggestion](https://github.com/godotlauncher/launcher/issues/new?template=feature_request.md)
 

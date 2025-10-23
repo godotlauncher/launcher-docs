@@ -22,6 +22,7 @@ Welcome to the official Godot Launcher documentation.
 - **Godot Version Management** – Easily install, switch, and prototype with multiple Godot versions.
 - **Per-Project Settings** – Isolated editor configurations to avoid conflicts across projects.
 - **System Tray Access** – Quickly open projects with a single click from the system tray.
+- **Multilingual Interface** – Detects your OS language and lets you switch between 14 supported locales from settings.
 - **Automatic Updates** – Stay up to date with one-click upgrades.
 - **Cross-Platform Support** – Windows ready, with Mac and Linux support coming soon.
 - **Free & Open Source** – Forever free and community-driven.

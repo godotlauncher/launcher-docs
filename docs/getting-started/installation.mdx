@@ -11,6 +11,8 @@ tags:
   - linux
 ---
 
+import { WingetCommand } from "@site/src/components/WingetCommandList";
+
 # Installation
 
 The easiest and most reliable way to install the Godot Launcher is by visiting the official website [download page](https://godotlauncher.org/download). The launcher is cross-platform, works with Windows, macOS, and Linux systems.
@@ -33,9 +35,19 @@ On first launch, the launcher matches your operating system language automatical
 
 ![Godot Launcher Setup UI - windows](../../static/img/win-installer-ui.webp)
 
-On Windows, simply run the `.exe` installer after download, This it will automatically guide you through the installation process.
+On Windows, simply run the `.exe` installer after download. It will automatically guide you through the installation process.
 
 If you did not choose to run Godot Launcher at the end of the installation, you can run it directly from the Start Menu.
+
+<WingetCommand
+  label="Install with winget"
+  command='winget install "Godot Launcher"'
+  intro="Prefer managing installs from the command line? Run this command in PowerShell or Command Prompt:"
+/>
+
+#### Read more
+
+- [Installing Godot Launcher with winget](/guides/windows-winget)
 
 ---
 
@@ -49,7 +61,7 @@ If you did not choose to run Godot Launcher at the end of the installation, you 
 
 For macOS Godot Launcher is distributed as a universal `.dmg`. Run the `.dmg` file and drag the `Godot Launcher` to the `Applications` folder when the dmg opens.
 
-Once done, Godot Launcher can be opened from the Applications
+Once done, Godot Launcher can be opened from the Applications folder.
 
 ---
 

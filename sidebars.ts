@@ -34,42 +34,62 @@ export default {
       label: "Guides",
       collapsed: false,
       items: [
-        "guides/launch-godot-project-in-windowed-mode",
-        "guides/using-git",
-        "guides/install-git",
-        "guides/vscode-setup-for-godot",
-        "guides/system-tray",
-        "guides/change-project-editor",
-        "guides/editor-settings",
-        "guides/windows-symlink",
-        "guides/windows-winget",
-        "guides/linux-no-sandbox",
+        {
+          type: "category",
+          label: "Project Workflow",
+          collapsed: false,
+          items: [
+            "guides/using-git",
+            "guides/install-git",
+            "guides/vscode-setup-for-godot",
+            "guides/change-project-editor",
+            "guides/editor-settings",
+            "project-badges",
+          ],
+        },
+        {
+          type: "category",
+          label: "Launcher Tips",
+          collapsed: false,
+          items: [
+            "guides/launch-godot-project-in-windowed-mode",
+            "guides/system-tray",
+          ],
+        },
+        {
+          type: "category",
+          label: "Platform Specific",
+          collapsed: false,
+          items: [
+            "guides/windows-winget",
+            "guides/windows-symlink",
+            "guides/linux-no-sandbox",
+          ],
+        },
       ],
     },
     {
-      type: "doc",
-      id: "project-badges",
+      type: "category",
+      label: "Support & Community",
+      collapsed: false,
+      items: [
+        "help-and-support",
+        "community",
+      ],
     },
     {
-      type: "doc",
-      id: "help-and-support",
-    },
-    {
-      type: "link",
-      label: "Roadmap",
-      href: "https://github.com/orgs/godotlauncher/projects/1",
-    },
-    {
-      type: "doc",
-      id: "contributing",
-    },
-    {
-      type: "doc",
-      id: "contributing/translations",
-    },
-    {
-      type: "doc",
-      id: "community",
+      type: "category",
+      label: "Contributing",
+      collapsed: false,
+      items: [
+        "contributing",
+        "contributing/translations",
+        {
+          type: "link",
+          label: "Roadmap",
+          href: "https://github.com/orgs/godotlauncher/projects/1",
+        },
+      ],
     },
     {
       type: "doc",

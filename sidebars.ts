@@ -42,6 +42,7 @@ export default {
             "guides/using-git",
             "guides/install-git",
             "guides/vscode-setup-for-godot",
+            "guides/project-tool-toggles",
             "guides/change-project-editor",
             "guides/editor-settings",
             "project-badges",

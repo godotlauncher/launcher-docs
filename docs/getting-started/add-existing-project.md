@@ -8,12 +8,22 @@ tags:
   - project-import
   - godot-project-setup
 ---
+
 # Add an Existing Project
 
 If you already have a Godot project, you can bring it into **Godot Launcher** instead of starting fresh.
 
 Click **Add** in the `Projects` screen and select the folder containing your project’s `project.godot` file.  
-Once added, your project will appear in the **Projects** section, ready to launch with the most compatible installed Godot Editor.
+Once added, your project appears in the **Projects** section, ready to launch with the most compatible installed Godot Editor.
+
+:::info
+Since v1.6.0 during import the launcher also:
+
+- Regenerates per-project Godot editor settings to match the detected version.
+- Updates VSCode workspace Settings files and sets the editor to use VSCode as external editor when the `.vscode` folder exists
+- Flags whether the project already contains Git (`.git` folder) or VS Code metadata so badges display immediately.
+
+:::
 
 :::important
 The launcher does **not** move or copy your project files. It simply links to your existing folder and sets up the required editor settings.  
@@ -30,17 +40,19 @@ When importing an existing project, Godot Launcher chooses an editor release usi
    The launcher first looks for an installed editor that matches the project’s Godot major version (for example, 3.x or 4.x).  
    If you have not installed any yet, see [Installing an Editor](/getting-started/install-editor).
 
-2. **Check for Mono / .NET projects**  
-   - If the project folder contains sibling `.csproj` or `.sln` files, the launcher assumes the project requires a Mono/.NET editor.  
+2. **Check for Mono / .NET projects**
+
+   - If the project folder contains sibling `.csproj` or `.sln` files, the launcher assumes the project requires a Mono/.NET editor.
    - In that case, only installed **Mono builds** are considered valid.
 
-3. **Fallback behavior**  
-   - If no C# project files are found, the launcher can use either a standard or a Mono build.  
-   - If there is no exact match, it falls back to the **best available stable release** for that major version.  
-   - If the only option is a Mono build, it will be used even for GDScript projects.
+3. **Fallback behavior**
 
-4. **When the launcher refuses to open**  
-   - If a project does contain `.csproj` files but there is no matching Mono/.NET editor installed, the launcher will **not** fall back to a GDScript build.  
+- If no C# project files are found, the launcher can use either a standard or a Mono build.
+- If there is no exact match, it falls back to the **best available stable release** for that major version.
+- If the only option is a Mono build, it will be used even for GDScript projects.
+
+4. **When the launcher refuses to open**
+   - If a project does contain `.csproj` files but there is no matching Mono/.NET editor installed, the launcher will **not** fall back to a GDScript build.
    - Instead, it stops and shows an error or notification so you know a Mono build is required.
 
 :::warning
@@ -53,11 +65,11 @@ If your project uses C#, make sure you also install a Mono/.NET release.
 ## Editor integrations
 
 - **Visual Studio Code**  
-  If your project includes a `.vscode` folder, the launcher will configure Godot to use Visual Studio Code as the external editor.  
-  See the [Visual Studio Code setup guide](/guides/vscode-setup-for-godot) for details.
+  If your project includes a `.vscode` folder, the launcher configures Godot to use Visual Studio Code as the external editor and offers a toggle in the project overflow menu so you can manage the integration later.  
+  See the [Visual Studio Code setup guide](/guides/vscode-setup-for-godot) and [Project Tool Toggles](/guides/project-tool-toggles) for details.
 
 - **Git**  
-  Adding a project does not automatically set up version control. If your project does not already use Git, you can initialize it separately.  
+  Existing repositories are detected automatically. If your project does not already use Git, you can initialize it later from the overflow menu without reimporting.  
   See the [Git guide](/guides/using-git-with-godot-launcher) for more details.
 
 ---
@@ -73,6 +85,6 @@ Godot Launcher will start it with the selected editor version.
 
 ## Next steps
 
-- [Create Your First Project](/getting-started/create-project) if you prefer starting new.  
-- [Install an Editor](/getting-started/install-editor) to ensure you always have the right versions available.  
+- [Create Your First Project](/getting-started/create-project) if you prefer starting new.
+- [Install an Editor](/getting-started/install-editor) to ensure you always have the right versions available.
 - Review [Launcher Settings](/getting-started/launcher-settings) to adjust default editor locations and behavior before importing more projects.

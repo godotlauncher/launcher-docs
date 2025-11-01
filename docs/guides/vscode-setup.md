@@ -24,7 +24,7 @@ Download and install VS Code from the official site:
 ## Recommended Extensions
 
 :::success TIP
-If you create a project in Godot Launcher with the "Use VS Code" option checked, these extensions are automatically recommended when you open the project in VS Code. You don’t need to install them manually.
+If you create or update a project in Godot Launcher with VS Code enabled, these extensions are automatically recommended when you open the project in VS Code. You don’t need to find them manually.
 :::
 
 To improve your experience when working with Godot projects, the following extensions are recommended:
@@ -40,10 +40,31 @@ If you use VS Code for other types of work besides game development, it is recom
 
 To install extensions manually, open the Extensions sidebar (`Ctrl+Shift+X` or `Cmd+Shift+X` on macOS) and search by name.
 
+## Enable VS Code from the Launcher
+
+Godot Launcher now exposes a project-level toggle so you can control VS Code integration at anytime, not only when creating it:
+
+![Godot Launcher Project Overflow Menu Open](/img/Godot_Launcher_1-6-0_UI.webp)
+
+1. In the **Projects** list, open a project’s overflow menu (three dots).
+2. Turn on **Use Visual Studio Code as Text Editor**.
+
+The launcher checks and confirm VS Code is available. If the toggle is disabled, visit **Settings → Tools** and click **Rescan tools** after installing or relocating VS Code.
+
+When enabled, the launcher:
+
+- Updates the Godot editor settings to use vscode as external text editor.
+- Creates or merges `.vscode/settings.json` and `launch.json` (for .NET) without removing your custom keys.
+- Adds VSCode icon next to the project name.
+
+
+Toggle the option off to stop using vscode as your external text editor for that project.
+
+
 ## Setting Up Godot Integration
 
 :::success TIP
-Godot Launcher automatically sets up the integration between the Godot editor and VS Code when you create a project with the "Use VS Code" option checked. This includes configuring the Godot executable path in the Godot editor and setting up the necessary settings in VS Code.
+Godot Launcher automatically sets up the integration between the Godot editor and VS Code when you create a project with the "Use VS Code" option checked or enable the project toggle later. This includes configuring the Godot executable path in the Godot editor and setting up the necessary settings in VS Code.
 :::
 
 If you prefer to set up the integration manually, you can follow the instructions provided by the **Godot Tools** extension:
@@ -65,7 +86,7 @@ Additionally, when running a scene from VS Code, it will automatically execute t
 
 ## Automatic Build and Launch Configuration for .NET
 
-When using the .NET version of Godot, the Godot Launcher will automatically add the necessary build and launch configurations to your VS Code project. This ensures that you can build and debug your C# scripts seamlessly within VS Code without requiring additional setup.
+When using the .NET version of Godot, the Godot Launcher will automatically add the necessary build and launch configurations to your VS Code project. This happens both when you create a project and whenever you change the editor version with the VS Code toggle enabled, ensuring you can build and debug your C# scripts seamlessly within VS Code without requiring additional setup.
 
 These configurations include:
 

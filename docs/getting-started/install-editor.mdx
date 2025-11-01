@@ -58,9 +58,15 @@ When [adding an existing project](/getting-started/add-existing-project), make s
 ## Managing installed editors
 
 - You can install as many versions of the Godot Editor as you need.  
-- To remove an editor, go to the **Installs** section, open the **more** (<EllipsisVertical />) menu, and click the **trash icon** (<Trash2 />Delete Release from This Device).  
+- To remove an editor, go to the **Installs** section, open the **overflow** (<EllipsisVertical />) menu, and click the **trash icon** (<Trash2 />Delete Release from This Device).  
 - Editors are stored in the launcher’s install folder (set in [settings](/getting-started/launcher-settings)).  
 - Removing an editor version does not delete your projects. If a project references a removed editor, it will be marked as **missing** until you install a compatible version again or select an available editor.
+- The launcher revalidates installs whenever the app gains focus and on a background timer. Missing editors show a warning badge with **Retry** and **Remove** actions so you can recover or clean up quickly.
+
+:::info Placeholder
+![Installs view showing missing editor warning with retry and remove buttons](pathname:///img/placeholder-installs-warning.webp)
+Swap this placeholder for an updated Installs screenshot once the warning UI is finalized.
+:::
 
 ---
 

@@ -45,7 +45,7 @@ You can switch the editor version for any project directly from the launcher:
 2. Locate your project in the **Projects** list.
 3. Use the dropdown in the **Editor** column to select a different Godot version.
 
-The launcher will update the project’s configuration and editor-specific settings accordingly.
+The launcher updates the project’s configuration, editor settings, and `.vscode` workspace files (when VS Code is enabled) to match the new editor automatically. Custom Settings remain intact, and Mono projects gain the correct .NET launch configurations.
 
 ---
 
@@ -72,22 +72,25 @@ To manually configure VS Code for C#, refer to the [official Godot documentation
 
 ## Managing Missing or Removed Editor Versions
 
-If an editor version used by a project is uninstalled or moved, the launcher detects it and marks the version as missing.
+If an editor version used by a project is uninstalled or moved, the launcher detects it and marks the version as missing. Revalidation happens when the app regains focus and on a steady background interval, keeping project status accurate without needing to restarting.
 
 When this occurs:
 
 - A warning appears in the project list.
 - The missing version is removed from the installed editors list.
-- The project will be marked as having a **missing editor version** and cannot be launched.
+- The project is marked as having a **missing editor version** and cannot be launched.
 
-You’ll need to assign a new version before you can open the project again.
+![GOdot Launcher Invalid Editor UI](/img/Godot_Launcher_1-6-0_Invalid_editor-UI.webp)
+
+Click **Retry** after restoring the editor folder or **Remove** to drop the broken install. Once the editor validates successfully, automation (including VS Code sync and tool badges) resumes automatically.
 
 :::warning
-Missing editor versions are automatically removed from the list. Projects depending on them will show a warning and become unlaunchable until resolved.
+Since 1.6.0, missing editor versions (missing on disk and not removed from the launcher) are marked as invalid in the installs list.
+Projects depending on these versions will show a warning and unable to launch until resolved.
 :::
 
 :::tip
-To fix this, use the editor dropdown in the **Projects** list to assign an available version.
+To fix this, either use the editor dropdown in the **Projects** list to assign an available version, or re install the version.
 :::
 
 ---

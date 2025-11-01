@@ -19,6 +19,7 @@ Welcome to the official Godot Launcher documentation.
 ## Features at a Glance
 
 - **Git & VSCode Integration** – Instant Git setup and ready-to-use VSCode configurations.
+- **Project Tool Toggles** – Enable Visual Studio Code integration or initialize Git from any project overflow menu.
 - **Godot Version Management** – Easily install, switch, and prototype with multiple Godot versions.
 - **Per-Project Settings** – Isolated editor configurations to avoid conflicts across projects.
 - **System Tray Access** – Quickly open projects with a single click from the system tray.

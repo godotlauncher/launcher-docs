@@ -13,7 +13,11 @@ tags:
 
 # Editor Settings Per Project
 
-The Godot Launcher supports **per-project editor settings**, allowing each project to maintain its own editor configuration. This helps prevent cross-project conflicts and ensures a consistent development environment across different Godot versions.
+The Godot Launcher supports **per-project editor settings**, allowing each project to maintain its own editor configuration. This helps prevent cross-project conflicts and ensures a consistent development environment across different Godot versions. 
+
+:::info 
+Since 1.6.0, the launcher now keeps these settings in sync automatically whenever a project is imported, toggles Visual Studio Code integration, or changes editor versions.
+:::
 
 ## Where Editor Settings Are Stored
 
@@ -55,6 +59,13 @@ The launcher does **not** support resetting editor settings. If you need to rest
 :::warning
 There is no "Reset to Default" option. Always back up your current settings before making changes.
 :::
+
+## Automatic Updates and VS Code Sync
+
+- Adding an existing project now regenerates the required editor settings and project vscode workspace files when then `.vscode` folder is detected in the project. 
+- Changing the selected editor reconciles the settings file with the new Godot version (including Mono flag updates) while preserving any custom keys you have added.
+
+If you prefer to manage settings manually, turn off the VS Code toggle from the project overflow menu. You can always re-enable it later. The launcher will merge new keys without overwriting customizations.
 
 ## Summary
 

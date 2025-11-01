@@ -29,7 +29,7 @@ Even if you're working solo, it's a good idea to use a Git hosting service like 
 
 ## Git in Godot Launcher
 
-Godot Launcher automatically detects Git and gives you the option to initialize the new Godot project with Git when created.
+Godot Launcher automatically detects Git and gives you the option to initialize the new Godot project with Git when created. You can also initialize Git later from any project’s overflow menu, no need to visit the terminal.
 
 :::info
 Git is detected using this background shell command:
@@ -42,7 +42,7 @@ git version 2.39.5 (Apple Git-154)
 
 ### Create a New Godot Project With Git
 
-When Git is detected, the `New Project` UI will show an option to enable Git:
+When Git is detected the `New Project` UI shows an option to enable Git:
 ![Godot Launcher - New Project With Git UI](/img/launcher-new-project-ui.webp)
 
 :::info
@@ -58,11 +58,29 @@ git commit -m "initial commit"
 git branch -m main
 ~~~
 
+:::note
+If you chose to add git to a project later, only `git init` is run and no commits are created
+:::
+
 This sets up your Godot project with Git and creates the first commit. It's a clean starting point that you can use later to reset your project if needed.
 
 :::warning
 If Git is installed but your `user.name` and `user.email` are not set, the launcher won’t be able to make the first commit.
 No changes are lost, but you’ll need to [configure Git](#git-user-not-configured) to start using it.
+:::
+
+## Initialize Git from the Project Menu
+
+Existing projects can adopt Git without leaving the launcher:
+
+1. Open the **Projects** list and click the overflow menu beside your project.
+2. Choose **Initialize Git Repository**.
+
+The launcher validates that Git is installed (using the cached tool check), runs `git init`, and marks the project with a Git badge. If Git is unavailable, the menu entry is disabled until you rescan tools in **Settings → Tools**. Existing repositories keep the action hidden to avoid accidental reinitialization. [learn more about settings](/getting-started/launcher-settings)
+
+:::note Placeholder
+![Project menu highlighting the Initialize Git option](pathname:///img/placeholder-git-toggle.webp)
+Replace this placeholder with the finalized overflow menu capture when ready.
 :::
 
 ### What Happens if Git Is Not Installed?
@@ -103,6 +121,4 @@ You can also set these values for just one project by removing `--global`.
 - [Launcher Settings](/getting-started/launcher-settings)
 - [VS Code Setup](/guides/vscode-setup-for-godot)
 - [Editor Settings](/guides/editor-settings)
-
-
 

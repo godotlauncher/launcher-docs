@@ -46,6 +46,12 @@ The **Installs** tab lets you choose where Godot editor versions are stored.
 It's helpful to store your editors on a fast local drive, especially if you work with multiple Godot versions.
 :::
 
+- **Refresh Release Cache**: Lets your clear the current Godot releases cached from the official Godot Engine Repository and rebuild the list. This cache is used to speed up the [Godot Editor install.](/getting-started/install-editor/)
+
+:::note
+The button have a 1 minute cooldown to prevent your from hitting the GitHub API limit.
+:::
+
 ---
 
 ## Appearance Tab

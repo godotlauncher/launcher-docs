@@ -146,6 +146,7 @@ The launcher uses this information to configure external editor support, also fo
 The **Updates** tab controls how the launcher checks for updates.
 
 - **Automatically check for updates**: Enabled by default.
+- **Prerelease updates**: Toggle this if you want the launcher to download beta builds instead of only stable releases. Beta updates may change more often and can be less stable. You can switch back to stable at any time.
 - **Manual Check**: Click **Check for updates** to check immediately.
 
 :::tip

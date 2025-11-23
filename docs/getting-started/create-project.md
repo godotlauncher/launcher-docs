@@ -22,7 +22,7 @@ You can create a new project and start editing in seconds, or choose to add an e
 
 ## Add an Existing Project
 
-Already have a Godot project? Click **Add**, pick the folder that contains `project.godot`, and the launcher will register it without moving any files. The project then appears in your **Projects** list, ready to launch with the best matching editor.
+Already have a Godot project? Drag its `project.godot` file (or several at once) into the **Projects** screen, or click **Add** and pick the folder that contains `project.godot`. The launcher registers each project without moving any files and shows progress while importing multiple items. Every project then appears in your **Projects** list, ready to launch with the best matching editor.
 
 For version-selection rules, Mono handling, and integration details, visit [Add an Existing Project](/getting-started/add-existing-project).
 

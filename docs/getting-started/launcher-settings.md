@@ -141,7 +141,7 @@ The launcher uses this information to configure external editor support, also fo
 
 ## Updates Tab
 
-![Settings - Updates Tab](/img/launcher-settings-updates-ui.webp)
+![Settings - Updates Tab](/img/screenshots/screen_settings_updates_dark.png)
 
 The **Updates** tab controls how the launcher checks for updates.
 

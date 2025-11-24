@@ -16,7 +16,7 @@ The **Godot Launcher** includes a configurable **Settings** section that lets yo
 
 ## Projects Tab
 
-![Settings - Projects Tab](/img/launcher-settings-projects-ui.webp)
+![Settings - Projects Tab](/img/screenshots/screen_settings_projects_dark.webp)
 
 The **Projects** tab allows you to define the default location where new Godot projects are created.
 
@@ -34,7 +34,7 @@ Adding existing projects will not move them to this location
 
 ## Installs Tab
 
-![Settings - Installs Tab](/img/launcher-settings-installs-ui.webp)
+![Settings - Installs Tab](/img/screenshots/screen_settings_installs_dark.webp)
 
 The **Installs** tab lets you choose where Godot editor versions are stored.
 
@@ -56,7 +56,7 @@ The button have a 1 minute cooldown to prevent your from hitting the GitHub API 
 
 ## Appearance Tab
 
-![Settings - Appearance Tab Showing the Language Picker](/img/godot-launcher-language-selector.webp)
+![Settings - Appearance Tab Showing the Language Picker](/img/screenshots/screen_settings_appearance_dark.webp)
 
 The **Appearance** tab lets you customize the look and feel of the launcher interface.
 
@@ -87,7 +87,7 @@ Found a string that needs polish or want to help add a new locale? Follow the [t
 
 ## Behavior Tab
 
-![Settings - Behavior Tab](/img/launcher-settings-behavior-ui-win.webp)
+![Settings - Behavior Tab](/img/screenshots/screen_settings_behavior_dark.webp)
 
 The **Behavior** tab defines how the launcher behaves when launching projects or starting with your system.
 
@@ -116,7 +116,7 @@ The **Behavior** tab defines how the launcher behaves when launching projects or
 
 ## Tools Tab
 
-![Settings - Tools Tab](/img/Godot_Launcher_1-6-0_Settings_tools_UI.webp)
+![Settings - Tools Tab](/img/screenshots/screen_settings_tools_dark.webp)
 
 The **Tools** tab manages integration with development tools like Git and Visual Studio Code.
 
@@ -141,7 +141,7 @@ The launcher uses this information to configure external editor support, also fo
 
 ## Updates Tab
 
-![Settings - Updates Tab](/img/screenshots/screen_settings_updates_dark.png)
+![Settings - Updates Tab](/img/screenshots/screen_settings_updates_dark.webp)
 
 The **Updates** tab controls how the launcher checks for updates.
 

@@ -31,7 +31,7 @@ On first launch, the launcher matches your operating system language automatical
 
 > **System Requirements:** Windows 10 or later (64-bit)
 
-> **Filename:** `Godot_Launcher-x.y.z-win.exe`
+> **Filename:** `Godot_Launcher-x.y.z-win_x64.exe`
 
 ![Godot Launcher Setup UI - windows](../../static/img/win-installer-ui.webp)
 
@@ -55,7 +55,7 @@ If you did not choose to run Godot Launcher at the end of the installation, you 
 
 **System Requirements:** macOS 10.15 Catalina or later
 
-**Filename:** `Godot_Launcher-x.y.z-mac.universal.dmg`
+**Filename:** `Godot_Launcher-x.y.z-mac_universal.dmg`
 
 ![Godot Launcher Setup UI - macOS dmg](/img/dmg-installer-ui.webp)
 
@@ -66,26 +66,49 @@ Once done, Godot Launcher can be opened from the Applications folder.
 
 ---
 
-### Linux (AppImage)
+### Linux
 
 **System Requirements:** Modern 64-bit distribution (Ubuntu 20.04+, Fedora 36+, Arch-based, etc.)
 
+**Available packages (1.8.0+):**
+- AppImage (`Godot_Launcher-x.y.z-linux_x64.AppImage`)
+- Debian/Ubuntu `.deb` (`Godot_Launcher-x.y.z-linux_x64.deb`)
+- Fedora/RHEL `.rpm` (`Godot_Launcher-x.y.z-linux_x64.rpm`)
+
+#### AppImage
+
 :::info
-AppImage builds include most dependencies — Make sure `FUSE` is available on your system.
+AppImage builds include most dependencies — make sure `FUSE` is available on your system.
 :::
 
-> Filename: `Godot_Launcher-x.y.z-linux.x86_64.AppImage`
-
-For Linux, the Godot Launcher is distributed as an AppImage.
-Make the `.AppImage` executable by using the GUI or by
-running:
+Make the `.AppImage` executable by using the GUI or by running:
 
 ```bash
-chmod +x Godot_Launcher-x.y.z-linux.x86_64.AppImage
+chmod +x Godot_Launcher-x.y.z-linux_x64.AppImage
 ```
 
-Then, you can run it directly by double-clicking the file or executing:
+Then run it directly by double-clicking the file or executing:
 
 ```bash
-./Godot_Launcher-x.y.z-linux.x86_64.AppImage
+./Godot_Launcher-x.y.z-linux_x64.AppImage
 ```
+
+#### Debian / Ubuntu (.deb)
+
+Install the `.deb` from the download page:
+
+```bash
+sudo apt install ./Godot_Launcher-x.y.z-linux_x64.deb
+```
+
+> If `apt` warns about missing dependencies, run `sudo apt --fix-broken install` to resolve them.
+
+#### Fedora / RHEL (.rpm)
+
+Install the `.rpm` from the download page:
+
+```bash
+sudo dnf install ./Godot_Launcher-x.y.z-linux_x64.rpm
+```
+
+> On older RHEL-based distributions using `yum`, replace `dnf` with `yum`.

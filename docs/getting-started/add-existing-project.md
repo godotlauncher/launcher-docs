@@ -15,10 +15,13 @@ If you already have a Godot project, you can bring it into **Godot Launcher** in
 
 You can add projects in two ways:
 
+![Projects View showing Add button](/img/screenshots/screen_projects_view_dark.webp)
+
+- **Add button**: Click **Add** in the **Projects** screen and select the folder containing your project’s `project.godot` file.
+
 ![Projects View - Drop Overlay](/img/screenshots/screen_projects_drop_overlay_dark.webp)
 
 - **Drag and drop**: Open the **Projects** screen and drag one or more `project.godot` files onto the window. Each project imports automatically, and a progress indicator shows how many remain when adding multiple items.
-- **Add button**: Click **Add** in the **Projects** screen and select the folder containing your project’s `project.godot` file.
 
 Once added, your project appears in the **Projects** section, ready to launch with the most compatible installed Godot Editor.
 

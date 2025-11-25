@@ -33,7 +33,7 @@ When the Godot Launcher is running, it places an icon in your system tray. This 
 
 ## Launcher Behavior Settings
 
-> ![Launcher Settings - Behavior Tab](/img/launcher-settings-behavior-ui.webp)  
+> ![Launcher Settings - Behavior Tab](/img/screenshots/screen_settings_behavior_dark.webp)  
 > _Image: Behavior tab in settings affecting system tray options_
 
 You can customize how the launcher interacts with the system tray under **Settings > Behavior**.

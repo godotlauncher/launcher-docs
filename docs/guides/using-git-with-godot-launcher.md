@@ -43,7 +43,7 @@ git version 2.39.5 (Apple Git-154)
 ### Create a New Godot Project With Git
 
 When Git is detected the `New Project` UI shows an option to enable Git:
-![Godot Launcher - New Project With Git UI](/img/launcher-new-project-ui.webp)
+![Godot Launcher - New Project With Git UI](/img/screenshots/screen_projects_new_project_dark.webp)
 
 :::info
 You can see if Git is detected in `Settings` → `Tools`. [More info here](/getting-started/launcher-settings/#tools-tab)
@@ -88,7 +88,7 @@ Replace this placeholder with the finalized overflow menu capture when ready.
 If Git is not installed, Godot Launcher still creates your project, but shows a warning. Git features are disabled, and no Git repository is initialized.
 
 This is what the UI looks like when Git is missing:
-![Godot Launcher - New Project No Git UI](/img/godot-launcher-new-project-no-git-ui.webp)
+![Godot Launcher - New Project No Git UI](/img/screenshots/screen_projects_new_project_no_git_dark.webp)
 
 :::info
 To get the most out of version control in Godot, [install Git using this guide](/guides/install-git).

@@ -23,11 +23,16 @@ The **Projects** tab allows you to define the default location where new Godot p
 - **Project Location**: Sets the base directory for newly created projects.
   - This does not affect existing projects already added to the launcher.
   - You can change this path at any time without impacting existing data.
+  - Starting with v1.9.0, you can still override this path per project from the **Create Project** dialog by enabling **Overwrite Project Path**.
 
 :::info
 Changing this location only affects _new_ projects created through the launcher.
 
 Adding existing projects will not move them to this location
+:::
+
+:::tip
+Need one project in a different place without changing your default? Use **Overwrite Project Path** while creating the project. See [Creating a Project](/getting-started/create-project).
 :::
 
 ---

@@ -19,6 +19,7 @@ Welcome to the official Godot Launcher documentation.
 ## Features at a Glance
 
 - **Drag-and-Drop Project Import** – Drop one or many `project.godot` files into the Projects list to add them quickly with visible progress.
+- **Flexible Project Location** – Create a new project in your default Projects folder or temporarily override the path for one project when your workflow needs it.
 - **Git & VSCode Integration** – Instant Git setup and ready-to-use VSCode configurations.
 - **Project Tool Toggles** – Enable Visual Studio Code integration or initialize Git from any project overflow menu.
 - **Godot Version Management** – Easily install, switch, and prototype with multiple Godot versions.

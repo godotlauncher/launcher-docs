@@ -15,10 +15,38 @@ You can create a new project and start editing in seconds, or choose to add an e
 
 ## Create a new Project
 
-![Godot Launcher - Create New Project](/img/launcher-create-project-ui-anim.gif)
+By default, the launcher creates new projects inside the folder set in **Settings -> Projects -> Project Location**. In v1.9.0 you can keep that default and still override the path for one project when needed.
+
+![Godot Launcher - Create New Project with Overwrite Project Path](/img/screenshots/screen_projects_new_project_overwrite_path_dark.webp)
 
 1. Navigate to the **Projects** section from the left-hand navigation menu.
-2. Click **Create Project** and follow the prompts to set up a new project.
+2. Click **Create Project**.
+3. Enter a project name and choose the Godot version you want to use.
+4. Leave **Overwrite Project Path** off to use your normal default location, or turn it on to pick a different parent folder for this project.
+5. Click the folder button to browse, or type a path manually.
+6. Click **Create Project** and, if enabled, **Edit now** to launch it immediately.
+
+When **Overwrite Project Path** is enabled, the launcher still creates a clean project folder using your project name. That means you choose the parent folder, and the launcher creates the final path as `{parent}/{project-name}`.
+
+Example parent folders:
+
+- Windows: `D:\Godot\Projects`
+- macOS: `/Users/you/Godot/Projects`
+- Linux: `/home/you/Godot/Projects`
+
+:::info
+Turning on **Overwrite Project Path** only changes the location for the project you are creating right now. It does not change your default Project Location in Settings.
+:::
+
+## Safety checks
+
+The launcher will not overwrite an existing project folder full of files.
+
+- If the target folder already exists and is empty, creation continues.
+- If the target folder already contains files, the launcher stops and shows an error.
+- If the selected path points to a file instead of a folder, the launcher stops and shows an error.
+
+If you meant to bring an existing project into the launcher, use [Add an Existing Project](/getting-started/add-existing-project) instead.
 
 ## Add an Existing Project
 

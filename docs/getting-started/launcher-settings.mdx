@@ -8,6 +8,8 @@ tags:
   - launcher-settings
 ---
 
+import ThemedImage from '@theme/ThemedImage';
+
 # Launcher Settings
 
 The **Godot Launcher** includes a configurable **Settings** section that lets you tailor the launcher to your workflow. This guide covers each settings tab and explains how to adjust default paths, change the appearance, configure behavior, and set up tools like Git and Visual Studio Code.
@@ -16,7 +18,13 @@ The **Godot Launcher** includes a configurable **Settings** section that lets yo
 
 ## Projects Tab
 
-![Settings - Projects Tab](/img/screenshots/screen_settings_projects_dark.webp)
+<ThemedImage
+  alt="Settings - Projects Tab"
+  sources={{
+    light: '/img/screenshots/screen_settings_projects_light.webp',
+    dark: '/img/screenshots/screen_settings_projects_dark.webp',
+  }}
+/>
 
 The **Projects** tab allows you to define the default location where new Godot projects are created.
 
@@ -32,14 +40,20 @@ Adding existing projects will not move them to this location
 :::
 
 :::tip
-Need one project in a different place without changing your default? Use **Overwrite Project Path** while creating the project. See [Creating a Project](/getting-started/create-project).
+Need one project in a different place without changing your default? Use **Overwrite Project Path** while creating a project. See [Creating a Project](/getting-started/create-project).
 :::
 
 ---
 
 ## Installs Tab
 
-![Settings - Installs Tab](/img/screenshots/screen_settings_installs_dark.webp)
+<ThemedImage
+  alt="Settings - Installs Tab"
+  sources={{
+    light: '/img/screenshots/screen_settings_installs_light.webp',
+    dark: '/img/screenshots/screen_settings_installs_dark.webp',
+  }}
+/>
 
 The **Installs** tab lets you choose where Godot editor versions are stored.
 
@@ -61,7 +75,13 @@ The button have a 1 minute cooldown to prevent your from hitting the GitHub API 
 
 ## Appearance Tab
 
-![Settings - Appearance Tab Showing the Language Picker](/img/screenshots/screen_settings_appearance_dark.webp)
+<ThemedImage
+  alt="Settings - Appearance Tab Showing the Language Picker"
+  sources={{
+    light: '/img/screenshots/screen_settings_appearance_light.webp',
+    dark: '/img/screenshots/screen_settings_appearance_dark.webp',
+  }}
+/>
 
 The **Appearance** tab lets you customize the look and feel of the launcher interface.
 
@@ -92,7 +112,13 @@ Found a string that needs polish or want to help add a new locale? Follow the [t
 
 ## Behavior Tab
 
-![Settings - Behavior Tab](/img/screenshots/screen_settings_behavior_dark.webp)
+<ThemedImage
+  alt="Settings - Behavior Tab"
+  sources={{
+    light: '/img/screenshots/screen_settings_behavior_light.webp',
+    dark: '/img/screenshots/screen_settings_behavior_dark.webp',
+  }}
+/>
 
 The **Behavior** tab defines how the launcher behaves when launching projects or starting with your system.
 
@@ -121,7 +147,13 @@ The **Behavior** tab defines how the launcher behaves when launching projects or
 
 ## Tools Tab
 
-![Settings - Tools Tab](/img/screenshots/screen_settings_tools_dark.webp)
+<ThemedImage
+  alt="Settings - Tools Tab"
+  sources={{
+    light: '/img/screenshots/screen_settings_tools_light.webp',
+    dark: '/img/screenshots/screen_settings_tools_dark.webp',
+  }}
+/>
 
 The **Tools** tab manages integration with development tools like Git and Visual Studio Code.
 
@@ -146,16 +178,24 @@ The launcher uses this information to configure external editor support, also fo
 
 ## Updates Tab
 
-![Settings - Updates Tab](/img/screenshots/screen_settings_updates_dark.webp)
+<ThemedImage
+  alt="Settings - Updates Tab"
+  sources={{
+    light: '/img/screenshots/screen_settings_updates_light.webp',
+    dark: '/img/screenshots/screen_settings_updates_dark.webp',
+  }}
+/>
 
-The **Updates** tab controls how the launcher checks for updates.
+The **Updates** tab controls how the launcher discovers and prepares launcher updates.
 
-- **Automatically check for updates**: Enabled by default.
-- **Prerelease updates**: Toggle this if you want the launcher to download beta builds instead of only stable releases. Beta updates may change more often and can be less stable. You can switch back to stable at any time.
-- **Manual Check**: Click **Check for updates** to check immediately.
+- **Automatically check for updates**: Enabled by default. This checks for a newer launcher version in the background, but it does not download the update automatically.
+- **Prerelease updates**: Toggle this if you want the launcher to look for beta builds instead of only stable releases. You can switch back to stable at any time.
+- **Manual Check**: Click **Check for updates** to check immediately. This also lets you surface a skipped version again from Settings.
+- **Update available**: When a new version is found, you can choose **Download update** or **Skip this version**.
+- **Update ready**: After the download finishes, the launcher shows **Restart now** so you can install the update when it suits you.
 
 :::tip
-Keeping this enabled ensures you always have the latest features and fixes.
+Need the full update flow, including skipped versions, manual override, retry states, and sidebar banners? See [Manage Launcher Updates](/guides/manage-launcher-updates).
 :::
 
 ---

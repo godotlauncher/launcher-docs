@@ -26,7 +26,7 @@ Welcome to the official Godot Launcher documentation.
 - **Per-Project Settings** – Isolated editor configurations to avoid conflicts across projects.
 - **System Tray Access** – Quickly open projects with a single click from the system tray.
 - **Multilingual Interface** – Detects your OS language and lets you switch between 14 supported locales from settings.
-- **Update Control** – Stay up to date automatically or opt into prerelease builds from Settings when you want to test changes early.
+- **Update Control** – Check for launcher updates automatically, download them manually, restart when ready, and opt into prerelease builds from Settings.
 - **Cross-Platform Support** – Windows ready, with Mac and Linux support coming soon.
 - **Free & Open Source** – Forever free and community-driven.
 
@@ -60,3 +60,5 @@ You can vote, comment, or submit ideas. We review everything.
 - **Godot Launcher (main app)**: [github.com/godotlauncher/launcher](https://github.com/godotlauncher/launcher)
 - **Website**: [github.com/godotlauncher/launcher-website](https://github.com/godotlauncher/launcher-website)
 - **Documentation**: [github.com/godotlauncher/launcher-docs](https://github.com/godotlauncher/launcher-docs)
+
+---

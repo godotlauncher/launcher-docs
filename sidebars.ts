@@ -55,6 +55,7 @@ export default {
           items: [
             "guides/launch-godot-project-in-windowed-mode",
             "guides/system-tray",
+            "guides/manage-launcher-updates",
           ],
         },
         {
@@ -97,4 +98,4 @@ export default {
       id: "license",
     },
   ],
-};
+} satisfies SidebarsConfig;

@@ -143,6 +143,11 @@ launcher:
   permalink: "/launcher"
   description: General information, updates, and news about Godot Launcher.
 
+launcher-updates:
+  label: "Launcher Updates"
+  permalink: "/launcher-updates"
+  description: Guides and documentation for managing Godot Launcher application updates.
+
 quick-launch:
   label: "Quick Launch"
   permalink: "/quick-launch"

@@ -11,6 +11,8 @@ tags:
   - configuration
 ---
 
+import ThemedImage from '@theme/ThemedImage';
+
 # Editor Settings Per Project
 
 The Godot Launcher supports **per-project editor settings**, allowing each project to maintain its own editor configuration. This helps prevent cross-project conflicts and ensures a consistent development environment across different Godot versions. 
@@ -47,7 +49,13 @@ The `<major.minor>` portion reflects the Godot version used by the project—for
 The launcher provides built-in options to **import** or **export** editor settings for each project. This is useful for migrating settings, keeping consistency across machines, or sharing configurations in a team.
 
 :::tip
-![Launcher Project Menu UI](/img/Per_Project_Editor_Settings_Dark.png)
+<ThemedImage
+  alt="Launcher Project Menu UI"
+  sources={{
+    light: '/img/Per_Project_Editor_Settings_Light.webp',
+    dark: '/img/Per_Project_Editor_Settings_Dark.png',
+  }}
+/>
 
 Use the project dropdown menu in the launcher to access the import and export options.
 :::

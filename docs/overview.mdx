@@ -6,26 +6,35 @@ sidebar_label: Overview
 slug: /
 ---
 
+import ThemedImage from '@theme/ThemedImage';
+
 # Godot Launcher
 
 Welcome to the official Godot Launcher documentation.
 
 **Godot Launcher** is a standalone app to streamline editor downloads, manage multiple versions, and automate new project setups — so you can focus on building great games.
 
-![Godot Launcher - Create project UI](/img/screenshots/screen_projects_new_project_dark.webp)
+<ThemedImage
+  alt="Godot Launcher - Create project UI"
+  sources={{
+    light: '/img/screenshots/screen_projects_new_project_light.webp',
+    dark: '/img/screenshots/screen_projects_new_project_dark.webp',
+  }}
+/>
 
 ---
 
 ## Features at a Glance
 
 - **Drag-and-Drop Project Import** – Drop one or many `project.godot` files into the Projects list to add them quickly with visible progress.
+- **Flexible Project Location** – Create a new project in your default Projects folder or temporarily override the path for one project when your workflow needs it.
 - **Git & VSCode Integration** – Instant Git setup and ready-to-use VSCode configurations.
 - **Project Tool Toggles** – Enable Visual Studio Code integration or initialize Git from any project overflow menu.
 - **Godot Version Management** – Easily install, switch, and prototype with multiple Godot versions.
 - **Per-Project Settings** – Isolated editor configurations to avoid conflicts across projects.
 - **System Tray Access** – Quickly open projects with a single click from the system tray.
 - **Multilingual Interface** – Detects your OS language and lets you switch between 14 supported locales from settings.
-- **Update Control** – Stay up to date automatically or opt into prerelease builds from Settings when you want to test changes early.
+- **Update Control** – Check for launcher updates automatically, download them manually, restart when ready, and opt into prerelease builds from Settings.
 - **Cross-Platform Support** – Windows ready, with Mac and Linux support coming soon.
 - **Free & Open Source** – Forever free and community-driven.
 
@@ -59,3 +68,5 @@ You can vote, comment, or submit ideas. We review everything.
 - **Godot Launcher (main app)**: [github.com/godotlauncher/launcher](https://github.com/godotlauncher/launcher)
 - **Website**: [github.com/godotlauncher/launcher-website](https://github.com/godotlauncher/launcher-website)
 - **Documentation**: [github.com/godotlauncher/launcher-docs](https://github.com/godotlauncher/launcher-docs)
+
+---

@@ -9,6 +9,8 @@ tags:
   - version-control
 ---
 
+import ThemedImage from '@theme/ThemedImage';
+
 # Using Git With Godot Launcher
 
 ## What is Git?
@@ -43,7 +45,13 @@ git version 2.39.5 (Apple Git-154)
 ### Create a New Godot Project With Git
 
 When Git is detected the `New Project` UI shows an option to enable Git:
-![Godot Launcher - New Project With Git UI](/img/screenshots/screen_projects_new_project_dark.webp)
+<ThemedImage
+  alt="Godot Launcher - New Project With Git UI"
+  sources={{
+    light: '/img/screenshots/screen_projects_new_project_light.webp',
+    dark: '/img/screenshots/screen_projects_new_project_dark.webp',
+  }}
+/>
 
 :::info
 You can see if Git is detected in `Settings` → `Tools`. [More info here](/getting-started/launcher-settings/#tools-tab)
@@ -88,7 +96,13 @@ Replace this placeholder with the finalized overflow menu capture when ready.
 If Git is not installed, Godot Launcher still creates your project, but shows a warning. Git features are disabled, and no Git repository is initialized.
 
 This is what the UI looks like when Git is missing:
-![Godot Launcher - New Project No Git UI](/img/screenshots/screen_projects_new_project_no_git_dark.webp)
+<ThemedImage
+  alt="Godot Launcher - New Project No Git UI"
+  sources={{
+    light: '/img/screenshots/screen_projects_new_project_no_git_light.webp',
+    dark: '/img/screenshots/screen_projects_new_project_no_git_dark.webp',
+  }}
+/>
 
 :::info
 To get the most out of version control in Godot, [install Git using this guide](/guides/install-git).
@@ -121,4 +135,3 @@ You can also set these values for just one project by removing `--global`.
 - [Launcher Settings](/getting-started/launcher-settings)
 - [VS Code Setup](/guides/vscode-setup-for-godot)
 - [Editor Settings](/guides/editor-settings)
-

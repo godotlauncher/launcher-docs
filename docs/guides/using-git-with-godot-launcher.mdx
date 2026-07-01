@@ -86,10 +86,13 @@ Existing projects can adopt Git without leaving the launcher:
 
 The launcher validates that Git is installed (using the cached tool check), runs `git init`, and marks the project with a Git badge. If Git is unavailable, the menu entry is disabled until you rescan tools in **Settings → Tools**. Existing repositories keep the action hidden to avoid accidental reinitialization. [learn more about settings](/getting-started/launcher-settings)
 
-:::note Placeholder
-![Project menu highlighting the Initialize Git option](pathname:///img/placeholder-git-toggle.webp)
-Replace this placeholder with the finalized overflow menu capture when ready.
-:::
+<ThemedImage
+  alt="Project menu with Git and tool actions"
+  sources={{
+    light: '/img/screenshots/screen_projects_menu_light.webp',
+    dark: '/img/screenshots/screen_projects_menu_dark.webp',
+  }}
+/>
 
 ### What Happens if Git Is Not Installed?
 

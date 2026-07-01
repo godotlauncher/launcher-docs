@@ -1,0 +1,52 @@
+---
+id: project-settings
+title: Project Settings
+slug: /guides/project-settings
+description: "Rename projects in Godot Launcher and optionally update the Godot project name stored in project.godot."
+tags:
+  - guides
+  - project-settings
+  - godot-project-setup
+---
+
+import ThemedImage from '@theme/ThemedImage';
+
+# Project Settings
+
+Project settings let you rename the project entry shown in Godot Launcher. When the launcher can access `project.godot`, it can also update the Godot project name stored inside that file.
+
+<ThemedImage
+  alt="Project settings drawer with rename options"
+  sources={{
+    light: '/img/screenshots/screen_projects_rename_drawer_light.webp',
+    dark: '/img/screenshots/screen_projects_rename_drawer_dark.webp',
+  }}
+/>
+
+## Rename a launcher project
+
+1. Open the **Projects** view.
+2. Open the project settings action for the project you want to rename.
+3. Enter the new launcher project name.
+4. Save the drawer.
+
+The launcher name is the name shown in the Projects list and launcher menus.
+
+## Also rename the Godot project
+
+When `project.godot` is available, the drawer includes **Also rename Godot project**. Turn this on if you also want the Godot project name updated inside `project.godot`.
+
+Leave it off when you only want to change the name shown by Godot Launcher.
+
+## Validation
+
+Before saving, Godot Launcher rejects names that would make the project list ambiguous or unsafe to display:
+
+- Empty names.
+- Names with line breaks.
+- Names with control characters.
+- Names that duplicate another launcher project name.
+
+## Folder names
+
+Renaming a project in this drawer does not rename the project folder on disk. It updates the launcher entry, and optionally the Godot project name inside `project.godot`.

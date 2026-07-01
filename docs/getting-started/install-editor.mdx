@@ -2,14 +2,16 @@
 id: install-editor
 slug: /getting-started/install-editor
 title: Installing Godot Editor
-description: "Learn how to install Godot Editor versions with Godot Launcher, including GDScript and .NET builds, multiple versions, and prereleases."
+description: "Learn how to install official Godot Editor versions, register custom-built Godot editors, and manage editor paths with Godot Launcher."
 tags:
   - godot
   - editor-installation
   - setup-guide
   - getting-started
+  - custom-editor
 ---
 
+import ThemedImage from '@theme/ThemedImage';
 import {
 EllipsisVertical,
 Trash2
@@ -17,61 +19,104 @@ Trash2
 
 # Installing an Editor
 
-Before you can create new projects or import existing ones, you need at least one version of the Godot Editor installed in **Godot Launcher**.
+Before you create new projects or import existing ones, install an official Godot Editor release or register a custom-built Godot editor in **Godot Launcher**.
 
 ![Godot Launcher - Install Editor Version](/img/launcher-install-editor-ui-anim.gif)
 
-## Steps to install
+## Install an official editor
 
-1. Go to the **Installs** section from the left-hand navigation menu.  
-2. Click the **Install Editor** button. This opens a popup where you can select which version of the Godot Editor to install.  
-3. In the popup, choose the version you need and click the icon for either **GDScript** or **.NET (Mono)**.  
-   - The icon updates to show the current status: **Downloading / Installing**, then **Installed** when complete.  
-4. Once the installation finishes, close the popup by clicking the **X** in the top-right corner.
+1. Go to **Installs** from the left-hand navigation menu.
+2. Click **Install Editor**.
+3. Choose the version you need, then click the icon for either **GDScript** or **.NET (Mono)**.
+4. Wait for the status to move through **Downloading** and **Installing** until the editor is **Installed**.
+5. Close the popup with the **X** in the top-right corner.
 
 :::tip
-You can install multiple editor releases side by side in the launcher. This is useful if you maintain projects across different minor versions or want to test prereleases.  
+You can install multiple editor releases side by side. This is useful when you maintain projects across different Godot versions or want to test prereleases.
 :::
 
----
+## Add a custom-built Godot editor
+
+Godot Launcher can also register custom-built Godot editors from the **Installs** view. Open the **Custom Editor** dropdown to choose one of two actions:
+
+- **Select manifest file**: register an existing `godotlauncher-editor-manifest.json`.
+- **Create custom editor manifest**: fill in the editor details and let the launcher create the manifest for you.
+
+<ThemedImage
+  alt="Custom Editor dropdown menu in the Installs view"
+  sources={{
+    light: '/img/screenshots/screen_installs_custom_editor_menu_light.webp',
+    dark: '/img/screenshots/screen_installs_custom_editor_menu_dark.webp',
+  }}
+/>
+
+If you do not already have a manifest, the in-app form writes `godotlauncher-editor-manifest.json` to the output folder you choose and registers the editor when you save.
+
+<ThemedImage
+  alt="Create custom editor manifest drawer"
+  sources={{
+    light: '/img/screenshots/screen_installs_custom_editor_drawer_light.webp',
+    dark: '/img/screenshots/screen_installs_custom_editor_drawer_dark.webp',
+  }}
+/>
+
+For the full custom-built Godot editor workflow, including manifest fields, replacement, and project selection, see [Custom-Built Godot Editors](/guides/custom-editors).
 
 ## Choosing GDScript vs .NET builds
 
-- **GDScript (standard build):** Works for most projects.  
-- **.NET (Mono build):** Required if your project uses C# (`.csproj` / `.sln` files).  
+- **GDScript (standard build):** Works for most projects.
+- **.NET (Mono build):** Required if your project uses C# (`.csproj` or `.sln` files).
 
-If you are not sure which one to pick, start with **GDScript**. You can always add a Mono build later if you begin working with C#.  
+If you are not sure which one to pick, start with **GDScript**. You can always add a .NET build later if you begin working with C#.
 
 :::important
-Godot Launcher focuses on the most commonly used versions of Godot, starting from **Godot 4 and newer**.  
-Godot 3.x projects are not supported, as adoption is steadily decreasing and custom configuration for 3.x has not been included.  
+Godot Launcher focuses on commonly used Godot 4 and newer editor builds.
 
-If you plan to use .NET builds, you also need to install the **.NET SDK** from the [Microsoft .NET website](https://dotnet.microsoft.com/download).  
-See the [Godot Engine docs on C# basics](https://docs.godotengine.org/en/stable/tutorials/scripting/c_sharp/c_sharp_basics.html) for more details.  
-
-When [adding an existing project](/getting-started/add-existing-project), make sure you already have at least one stable editor release installed in the launcher.  
+If you plan to use .NET builds, install the **.NET SDK** from the [Microsoft .NET website](https://dotnet.microsoft.com/download). See the [Godot Engine docs on C# basics](https://docs.godotengine.org/en/stable/tutorials/scripting/c_sharp/c_sharp_basics.html) for more details.
 :::
 
+## Manage editors
 
----
+- You can install or register as many editor versions as you need.
+- To remove an official editor, open the **overflow** (<EllipsisVertical />) menu in **Installs** and choose the delete action (<Trash2 /> Delete Release from This Device).
+- Official editors are stored in the launcher install folder configured in [settings](/getting-started/launcher-settings).
+- Removing an official editor does not delete your projects. Projects that reference it are marked as missing until you install a compatible version or select another editor.
+- The launcher revalidates installs when the app gains focus and on a background timer.
 
-## Managing installed editors
+## Manage custom-built Godot editors
 
-- You can install as many versions of the Godot Editor as you need.  
-- To remove an editor, go to the **Installs** section, open the **overflow** (<EllipsisVertical />) menu, and click the **trash icon** (<Trash2 />Delete Release from This Device).  
-- Editors are stored in the launcher’s install folder (set in [settings](/getting-started/launcher-settings)).  
-- Removing an editor version does not delete your projects. If a project references a removed editor, it will be marked as **missing** until you install a compatible version again or select an available editor.
-- The launcher revalidates installs whenever the app gains focus and on a background timer. Missing editors show a warning badge with **Retry** and **Remove** actions so you can recover or clean up quickly.
+Custom-built Godot editors appear in **Installs** with a **Custom** badge.
 
-:::info Placeholder
-![Installs view showing missing editor warning with retry and remove buttons](pathname:///img/placeholder-installs-warning.webp)
-Swap this placeholder for an updated Installs screenshot once the warning UI is finalized.
-:::
+<ThemedImage
+  alt="Installs view showing custom editors"
+  sources={{
+    light: '/img/screenshots/screen_installs_custom_editors_light.webp',
+    dark: '/img/screenshots/screen_installs_custom_editors_dark.webp',
+  }}
+/>
 
----
+Registering another manifest with the same custom editor version opens a replace flow.
+
+<ThemedImage
+  alt="Replace custom editor dialog"
+  sources={{
+    light: '/img/screenshots/screen_installs_custom_editor_replace_light.webp',
+    dark: '/img/screenshots/screen_installs_custom_editor_replace_dark.webp',
+  }}
+/>
+
+Removing a custom-built Godot editor unregisters it from Godot Launcher. It does not delete the editor binary or the folder that contains it.
+
+## Missing editor paths
+
+If an editor path is not reachable, Godot Launcher marks the editor or project as missing and gives recovery actions.
+
+- For official releases, restore or mount the storage location, retry validation, reinstall the editor, or remove the broken entry.
+- For custom-built Godot editors, restore the editor path or remove the custom editor registration. Removing it does not delete files from disk.
 
 ## Next steps
 
-- [Create Your First Project](/getting-started/create-project)  
-- [Add an Existing Project](/getting-started/add-existing-project)  
-- [Godot Launcher Settings](/getting-started/launcher-settings)  
+- [Create Your First Project](/getting-started/create-project)
+- [Add an Existing Project](/getting-started/add-existing-project)
+- [Custom-Built Godot Editors](/guides/custom-editors)
+- [Godot Launcher Settings](/getting-started/launcher-settings)

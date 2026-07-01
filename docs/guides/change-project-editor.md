@@ -2,99 +2,98 @@
 id: change-project-editor
 title: Change Project Editor Version
 slug: /guides/change-project-editor
-description: "Learn how to change the editor version for your Godot projects in the launcher, including handling .NET and GDScript transitions, and managing missing editor versions."
+description: "Learn how to change the editor version for your Godot projects in the launcher, including custom-built Godot editors, .NET transitions, and missing editor recovery."
 tags:
   - guides
   - godot
   - editor-version
   - project-settings
+  - custom-editor
   - dotnet
   - gdscript
 ---
+
+import ThemedImage from '@theme/ThemedImage';
 
 # Change Project Editor Version
 
 ![Changing Project Editor Version](/img/launcher-project-editor-change-ui-anim.gif)
 
-The **Godot Launcher** makes it easy to manage multiple versions of the Godot editor across your projects.  
-This guide explains how to:
+Godot Launcher lets you choose which editor each project uses. You can switch between official releases, .NET editors, and registered custom-built Godot editors from the Projects list.
 
-- Change the editor version for new or existing projects.
-- Transition smoothly between GDScript and .NET workflows.
-- Resolve missing or removed editor versions with minimal disruption.
+## Choose the editor version
 
----
+When creating a new project, choose the editor in the project setup form. For existing projects, use the editor selector in the **Projects** list.
 
-## Choosing the Editor Version
+<ThemedImage
+  alt="Create Project view with a custom editor selected"
+  sources={{
+    light: '/img/screenshots/screen_projects_new_project_custom_editor_light.webp',
+    dark: '/img/screenshots/screen_projects_new_project_custom_editor_dark.webp',
+  }}
+/>
 
-When creating a new project, the launcher lets you choose which installed editor version to use. Just select your preferred version during setup.
-
-For existing projects, the launcher reads the `project.godot` file to detect which version the project was created with and selects the closest installed match.
+For projects you import, the launcher reads `project.godot` and selects the closest compatible editor it can find.
 
 :::info
-To avoid compatibility issues, it's recommended to keep multiple Godot versions installed—especially if you're working with both GDScript and .NET or across different Godot releases.
+Keep the editor versions your projects depend on installed or registered. This is especially useful when you maintain projects across different Godot versions or switch between GDScript and .NET workflows.
 :::
 
----
+## Change an existing project
 
-## Changing the Editor Version
-
-You can switch the editor version for any project directly from the launcher:
-
-1. Open the **Godot Launcher**.
+1. Open **Godot Launcher**.
 2. Locate your project in the **Projects** list.
-3. Use the dropdown in the **Editor** column to select a different Godot version.
+3. Use the dropdown in the **Editor** column to select a different editor.
 
-The launcher updates the project’s configuration, editor settings, and `.vscode` workspace files (when VS Code is enabled) to match the new editor automatically. Custom Settings remain intact, and Mono projects gain the correct .NET launch configurations.
+The launcher updates the project setup it manages for that editor. When VS Code integration is enabled, it also updates the relevant VS Code workspace files for the selected editor.
 
----
+## Custom-built Godot editors
 
-## Handling .NET and GDScript Transitions
+Once a custom-built Godot editor is registered, it appears in project editor selectors like a regular installed editor.
 
-Switching between **GDScript** and **.NET (C#)** workflows involves more than just changing the editor version. The launcher helps manage this transition by adjusting the development environment as needed.
+Use custom-built Godot editors for locally compiled editors, team-distributed editors, or other editor binaries that are not part of the official Godot release list. See [Custom-Built Godot Editors](/guides/custom-editors) to register or replace one.
+
+## Handling .NET and GDScript transitions
+
+Switching between **GDScript** and **.NET (C#)** workflows involves more than choosing another editor binary. The launcher helps by adjusting the development environment it manages.
 
 When switching to .NET:
 
-- VS Code settings are updated automatically (if it is your external editor).
-- Existing editor settings are preserved if already configured.
-- The launcher will generate or update:
+- VS Code settings are updated automatically if VS Code integration is enabled.
+- Existing editor settings are preserved when they are already configured.
+- The launcher can generate or update:
   - A build task to compile C# scripts.
   - A launch configuration for running/debugging the project.
 - Recommended VS Code extensions for .NET and Godot are added if missing.
 
 :::warning
-The launcher defaults to **Visual Studio Code** for .NET projects, if installed. Existing editor settings for the selected version will not be overwritten. You’ll see a warning if that happens.
+The launcher defaults to **Visual Studio Code** for .NET projects when VS Code is installed. Existing editor settings for the selected version are not overwritten without warning.
 
 To manually configure VS Code for C#, refer to the [official Godot documentation](https://docs.godotengine.org/en/stable/tutorials/scripting/c_sharp/c_sharp_basics.html).
 :::
 
----
+## Missing or invalid editor paths
 
-## Managing Missing or Removed Editor Versions
+If an editor used by a project is uninstalled, moved, or unavailable, the launcher marks the project as having a missing editor and prevents launch until the problem is resolved.
 
-If an editor version used by a project is uninstalled or moved, the launcher detects it and marks the version as missing. Revalidation happens when the app regains focus and on a steady background interval, keeping project status accurate without needing to restarting.
+<ThemedImage
+  alt="Projects list showing a missing editor state"
+  sources={{
+    light: '/img/screenshots/screen_projects_missing_editor_light.webp',
+    dark: '/img/screenshots/screen_projects_missing_editor_dark.webp',
+  }}
+/>
 
-When this occurs:
+For official releases, you can:
 
-- A warning appears in the project list.
-- The missing version is removed from the installed editors list.
-- The project is marked as having a **missing editor version** and cannot be launched.
+- Mount or reconnect the storage device that contains the editor.
+- Retry validation after restoring the path.
+- Reinstall the editor.
+- Remove the broken install entry.
+- Select another compatible editor for the project.
 
-![GOdot Launcher Invalid Editor UI](/img/Godot_Launcher_1-6-0_Invalid_editor-UI.webp)
-
-Click **Retry** after restoring the editor folder or **Remove** to drop the broken install. Once the editor validates successfully, automation (including VS Code sync and tool badges) resumes automatically.
-
-:::warning
-Since 1.6.0, missing editor versions (missing on disk and not removed from the launcher) are marked as invalid in the installs list.
-Projects depending on these versions will show a warning and unable to launch until resolved.
-:::
-
-:::tip
-To fix this, either use the editor dropdown in the **Projects** list to assign an available version, or re install the version.
-:::
-
----
+For custom-built Godot editors, the launcher explains that the editor path is unavailable. Removing the custom editor unregisters it from Godot Launcher but does not delete the editor files from disk.
 
 ## Summary
 
-Godot Launcher gives you full control over which editor version each project uses. It simplifies version switching, supports transitions between GDScript and .NET, and gracefully handles missing editors. Whether you’re maintaining multiple workflows or upgrading versions, the launcher ensures your projects stay compatible and ready to run.
+Godot Launcher gives you control over which editor each project uses. It supports official releases, registered custom-built Godot editors, GDScript/.NET transitions, and clear recovery when an editor path is missing.

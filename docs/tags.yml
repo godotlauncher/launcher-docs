@@ -93,6 +93,21 @@ editor-version:
   permalink: "/editor-version"
   description: Information on different versions of the Godot Engine editor and their features.
 
+custom-editor:
+  label: "Custom-Built Godot Editor"
+  permalink: "/custom-editor"
+  description: Custom-built Godot editors.
+
+custom-engine:
+  label: "Custom-Built Godot Editor"
+  permalink: "/custom-engine"
+  description: Custom-built Godot editor support.
+
+manifest:
+  label: "Manifest"
+  permalink: "/manifest"
+  description: Launcher manifest files.
+
 project-settings:
   label: "Project Settings"
   permalink: "/project-settings"

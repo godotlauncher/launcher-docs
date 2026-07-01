@@ -9,65 +9,71 @@ tags:
   - git
   - project-settings
 ---
-import {
-EllipsisVertical,
-Trash2
-} from 'lucide-react';
 
+import {
+EllipsisVertical
+} from 'lucide-react';
+import ThemedImage from '@theme/ThemedImage';
 
 # Project Tool Toggles
 
-Godot Launcher makes it easy to manage tooling per project. You can turn on **Visual Studio Code integration** or **initialize Git** straight from a project’s overflow menu - no manual setup or command line required.
+Godot Launcher makes it easy to manage tooling per project. You can turn on **Visual Studio Code integration** or **initialize Git** from a project's overflow menu without manual setup or command-line work.
 
-![Godot Launcher Project Overflow Menu Open](/img/Godot_Launcher_1-6-0_UI.webp)
+<ThemedImage
+  alt="Godot Launcher project overflow menu"
+  sources={{
+    light: '/img/screenshots/screen_projects_menu_light.webp',
+    dark: '/img/screenshots/screen_projects_menu_dark.webp',
+  }}
+/>
 
 ## Requirements
 
 - Visual Studio Code and/or Git must be installed on your system.
-- The launcher keeps a cached record of detected tools so menus open instantly. You can refresh the cache from **Settings → Tools → Rescan tools**.
-- Projects with validation issues (missing editor, invalid path) temporarily disable tooling actions until the problem is resolved.
+- The launcher keeps a cached record of detected tools so menus open quickly. Refresh the cache from **Settings -> Tools -> Rescan tools**.
+- Projects with validation issues, such as a missing editor path, temporarily disable tooling actions until the problem is resolved.
 
 ## Enable Visual Studio Code
 
-1. In the **Projects** list, click the project’s overflow menu (<EllipsisVertical /> three dots).
+1. In the **Projects** list, click the project's overflow menu (<EllipsisVertical /> three dots).
 2. Toggle **Use Visual Studio Code as Text Editor**.
 
-When enabled the launcher:
+When enabled, the launcher:
 
-- Updates the Godot editor settings to use vscode as external text editor.
-- Creates or merges `.vscode/settings.json` and `launch.json` (for .NET) without removing your custom keys.
-- Adds VSCode icon next to the project name.
+- Updates Godot editor settings to use VS Code as the external text editor.
+- Creates or merges `.vscode/settings.json`, `.vscode/extensions.json`, and `.vscode/launch.json` where needed.
+- Adds the VS Code icon next to the project name.
 
 :::info
-When you disable the **Use Visual Studio Code as Text Editor**, all configuration stays, the launcher will only turn off the use external flag in the Godot editor settings for that project.
+When you disable **Use Visual Studio Code as Text Editor**, existing configuration files stay in place. The launcher only turns off the external editor setting it manages for that project.
 :::
+
+If VS Code config files cannot be safely read, Godot Launcher preserves timestamped `.bad` copies and recreates the files it needs. See [Visual Studio Code Setup for Godot](/guides/vscode-setup-for-godot#recover-from-invalid-vs-code-config-files) for details.
 
 ## Initialize Git
 
 1. Open the project overflow menu (<EllipsisVertical /> three dots).
 2. Click **Initialize Git Repository**.
 
-The launcher runs `git init`, confirms the repository was created, and marks the project as using Git.
-If git is not installed or the project is already using git, the **Initialize Git Repository** menu item does not show.
+The launcher runs `git init`, confirms the repository was created, and marks the project as using Git. If Git is not installed or the project already uses Git, the menu item does not show.
 
 :::tip
-If Git initialization fails (for example, missing user name/email) the launcher shows an error dialog with next steps.
+If Git initialization fails, for example because user name or email is missing, the launcher shows an error dialog with next steps.
 
-[[See Install Git for more info]](/guides/install-git)
+[See Install Git for more info](/guides/install-git)
 :::
 
-## Tool Badges and Indicators
+## Tool badges and indicators
 
-Projects that use VS Code or Git display inline badges in the Projects grid helping you spot which projects have tooling enabled at a glance.
-
+Projects that use VS Code or Git display inline badges in the Projects grid so you can see which projects have tooling enabled.
 
 ## Troubleshooting
 
-- **Menu toggle is disabled** – The cached tool lookup cannot confirm the tool is installed, or the project failed validation. Open **Settings → Tools** and click **Rescan tools** to refresh detection.
-- **VS Code opens the wrong executable** – Change the project’s editor version or rerun the toggle. Auto-sync keeps editor and project aligned whenever the editor is switched.
-- **Git action missing** – The project already contains a `.git` folder, or Git is not installed. Re-run the rescan after installing Git.
+- **Menu toggle is disabled**: the cached tool lookup cannot confirm the tool is installed, or the project failed validation. Open **Settings -> Tools** and click **Rescan tools** to refresh detection.
+- **VS Code opens the wrong executable**: change the project's editor version or rerun the toggle. Auto-sync keeps editor and project aligned whenever the editor is switched.
+- **Git action missing**: the project already contains a `.git` folder, or Git is not installed. Re-run the rescan after installing Git.
 
-## Related Guides
+## Related guides
 
 - [Visual Studio Code Setup for Godot](/guides/vscode-setup-for-godot)
 - [Using Git With Godot Launcher](/guides/using-git-with-godot-launcher)

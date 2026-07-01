@@ -2,19 +2,20 @@
 id: manage-launcher-updates
 title: Manage Launcher Updates
 slug: /guides/manage-launcher-updates
-description: "Learn how Godot Launcher 1.9.0 checks for updates, lets you download them manually, skip one version, and restart when the update is ready."
+description: "Learn how Godot Launcher checks for updates, lets you download them manually, handles immutable Linux systems, and installs updates when ready."
 tags:
   - guides
   - launcher-updates
   - quality-of-life
   - getting-started
+  - linux
 ---
 
 import ThemedImage from '@theme/ThemedImage';
 
 # Manage Launcher Updates
 
-Godot Launcher 1.9.0 uses a clear update flow. The launcher can check for updates automatically in the background, but you decide when to download an update and when to restart to install it.
+Godot Launcher uses a clear update flow. The launcher can check for updates automatically in the background, but you decide when to download an update and when to restart to install it.
 
 ## Where to manage updates
 
@@ -122,6 +123,33 @@ After the download completes, the launcher switches to a ready state. At this po
     dark: '/img/screenshots/screen_settings_updates_ready_dark.webp',
   }}
 />
+
+## Manual update required on rpm-ostree
+:::info
+New in Godot Launcher v1.10.0, immutable operating systems will suggest manual download of updates.
+:::
+
+
+
+On rpm-ostree systems, automatic installation is not supported. Godot Launcher explains that the update must be downloaded manually and opens the download page instead of starting the in-app installer.
+
+<ThemedImage
+  alt="Projects view with manual update required banner"
+  sources={{
+    light: '/img/screenshots/screen_projects_update_manual_light.webp',
+    dark: '/img/screenshots/screen_projects_update_manual_dark.webp',
+  }}
+/>
+
+<ThemedImage
+  alt="Settings - Updates Tab with manual update required"
+  sources={{
+    light: '/img/screenshots/screen_settings_updates_manual_light.webp',
+    dark: '/img/screenshots/screen_settings_updates_manual_dark.webp',
+  }}
+/>
+
+If the update version is available, you can still skip that version. This manual path is specific to systems where automatic installation is not supported; other supported updater paths still use the normal download and restart flow.
 
 ## Skip a version
 

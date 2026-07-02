@@ -2,7 +2,7 @@
 id: translations
 title: Translation Contribution Guide
 slug: /contributing/translations
-description: "Help review and expand the Godot Launcher translations shipped with version 1.5.0, including how to report fixes, submit pull requests, and request new locales."
+description: "Help review and expand the Godot Launcher translations, including how to report fixes, submit pull requests, and request new locales."
 tags:
   - contributing
   - localisation
@@ -12,7 +12,7 @@ tags:
 
 # Translation Contribution Guide
 
-Godot Launcher 1.5.0 ships with an auto-detected language, a manual picker, and 14 bundled locales. Every phrase started as an automated translation, so human review and future language additions rely on contributors like you. Use this page when you want to polish an existing language, submit a new one, or report an issue.
+Godot Launcher supports automatic language detection, a manual language picker, and a growing set of bundled locales. Every phrase started as an automated translation, so human review and future language additions rely on contributors like you. Use this page when you want to polish an existing language, submit a new one, or report an issue.
 
 ---
 
@@ -58,7 +58,7 @@ Community members can often patch small copy fixes quickly when they have that c
 
 ### 1. Create the Locale Folder
 
-Inside the launcher repo (`godotlauncher/launcher`), create a folder under `src/locales/` that matches your language code. Use [ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) and only add regional variants when the writing system demands it (for example `pt-BR`, `zh-CN`, `zh-TW`).
+Inside the launcher repository (`godotlauncher/launcher`), create a folder under `src/locales/` that matches your language code. Use [ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) and only add regional variants when the writing system demands it (for example `pt-BR`, `zh-CN`, `zh-TW`).
 
 ```bash
 src/locales/es/       # Spanish
@@ -136,7 +136,7 @@ Adding a brand-new language also means updating the language registry in `src/el
 ## Submitting Your Contribution
 
 - **Pull Request (recommended):**
-  1. Fork the repo and create a branch (for example `add-spanish-translation`).
+  1. Fork the repository and create a branch (for example `add-spanish-translation`).
   2. Add or update the JSON files and language registration.
   3. Test in development (`npm run dev`) and switch to your locale.
   4. Commit with a meaningful message like `Add Spanish translation`.
@@ -163,7 +163,7 @@ Before you press “Create pull request,” make sure:
 
 ## Current Localisation Coverage
 
-The following locales ship with 1.5.0 and will keep evolving as translators refine them:
+The following locales are currently bundled and will keep evolving as translators refine them:
 
 - English, Italiano, Português, Português (Brasil)
 - 简体中文 (zh-CN), 繁體中文 (zh-TW)

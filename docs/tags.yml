@@ -114,7 +114,7 @@ project-settings:
   description: How to configure and optimize settings for your Godot projects in Godot Launcher.
 
 dotnet:
-  label: "DotNet"
+  label: ".NET"
   permalink: "/dotnet"
   description: Guides and resources for developing Godot projects using .NET (C#).
 
@@ -174,7 +174,7 @@ quick-launch:
   description: Quickly access and manage your Godot projects using quick-launch capabilities.
 
 vscode:
-  label: "VSCode"
+  label: "VS Code"
   permalink: "/vscode"
   description: Integrate and optimize Visual Studio Code workflows with Godot Launcher.
 

@@ -33,6 +33,10 @@ export default {
       label: "Editors",
       collapsed: false,
       items: [
+        {
+          type: "ref",
+          id: "editors/install-editor",
+        },
         "editors/custom-editors",
         "editors/change-project-editor",
         "editors/editor-settings",
@@ -43,6 +47,14 @@ export default {
       label: "Projects",
       collapsed: false,
       items: [
+        {
+          type: "ref",
+          id: "projects/create-project",
+        },
+        {
+          type: "ref",
+          id: "projects/add-existing-project",
+        },
         "projects/project-tool-toggles",
         "projects/project-settings",
         "projects/launch-godot-project-in-windowed-mode",

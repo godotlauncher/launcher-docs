@@ -36,7 +36,7 @@ Our official Discord is the best place to:
 👉 [Join the Discord](https://discord.gg/Ju9jkFJGvz)
 
 :::info
-The server is open to everyone. Whether you're just getting started or you want to contribute, you’re welcome!
+The server is open to everyone. Whether you're just getting started or you want to contribute, you're welcome!
 :::
 
 ---
@@ -62,9 +62,9 @@ Not sure how to get involved? Here are a few ways to contribute:
 - Help others in the Discord who are stuck
 - Share your setup or tips with the community
 - Write or review documentation
-- Review translations or request new locales—drop feedback in the localisation channel or follow the [translation contribution guide](/contributing/translations)
+- Review translations or request new locales - drop feedback in the localisation channel or follow the [translation contribution guide](/contributing/translations)
 
-No experience required—everyone can contribute.
+No experience required - everyone can contribute.
 
 ---
 

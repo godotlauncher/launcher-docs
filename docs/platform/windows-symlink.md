@@ -46,7 +46,7 @@ The launcher needs permission to create symlinks on your behalf. Make sure these
 ### Enable Windows Developer Mode
 
 1. Open **Settings**.
-2. Go to **System → For Developers** (older builds may list **Privacy & security → For developers**).
+2. Go to **System > For Developers** (older builds may list **Privacy & security > For developers**).
 3. Turn on **Developer Mode**, then confirm the Windows prompt.
 4. Restart the machine if Windows requests it.
 

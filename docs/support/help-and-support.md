@@ -55,7 +55,7 @@ If you're stuck or have questions about a feature, the community Discord is a gr
 
 ## How to Contribute
 
-If you’d like to improve the Godot Launcher, we welcome contributions! You can report bugs, request features, or even submit code.
+If you'd like to improve the Godot Launcher, we welcome contributions! You can report bugs, request features, or even submit code.
 
 - [Contributing Guide](https://godotlauncher.org/contribute)
 - [Help improve translations](/contributing/translations)
@@ -63,7 +63,7 @@ If you’d like to improve the Godot Launcher, we welcome contributions! You can
 - [I have a suggestion](https://github.com/godotlauncher/launcher/issues/new?template=feature_request.md)
 
 :::info
-The launcher is an open source project. Contributions of any kind—code, documentation, or testing—are appreciated.
+The launcher is an open source project. Contributions of any kind - code, documentation, or testing - are appreciated.
 :::
 
 ---
@@ -76,4 +76,4 @@ A link at the top of the Help screen leads to **Third-party Notices**, which lis
 
 ## Summary
 
-The Help section in Godot Launcher connects you to everything you need: documentation, community support, the Godot ecosystem, and ways to contribute. Whether you're troubleshooting or getting involved, it’s the central hub for assistance and collaboration.
+The Help section in Godot Launcher connects you to everything you need: documentation, community support, the Godot ecosystem, and ways to contribute. Whether you're troubleshooting or getting involved, it's the central hub for assistance and collaboration.

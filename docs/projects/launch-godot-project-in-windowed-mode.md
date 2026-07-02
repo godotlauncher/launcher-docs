@@ -39,7 +39,7 @@ When enabled, Godot Launcher will pass `-w` when launching the editor for that p
 
 ## Badge Indicator
 
-If a project is set to launch in windowed mode, you’ll see a **(w)** badge next to it in the project list. Hovering over the badge shows a tooltip explaining that the project will launch with `-w`.
+If a project is set to launch in windowed mode, you'll see a **(w)** badge next to it in the project list. Hovering over the badge shows a tooltip explaining that the project will launch with `-w`.
 
 ## Where It Works
 

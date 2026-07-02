@@ -28,7 +28,7 @@ git version 2.39.5 (Apple Git-154)
 ~~~
 
 :::info
-If you see a “command not found” or similar error, Git is not installed.
+If you see a "command not found" or similar error, Git is not installed.
 :::
 
 ## Install Git
@@ -40,7 +40,7 @@ Follow the instructions for your operating system.
 
 ## Next Steps
 
-After installing Git, you’re ready to go back and [use Git with Godot Launcher](/guides/using-git-with-godot-launcher).
+After installing Git, you're ready to go back and [use Git with Godot Launcher](/guides/using-git-with-godot-launcher).
 
 You may also need to [configure your Git username and email](/guides/using-git-with-godot-launcher#git-user-not-configured) before your first commit can be created.
 

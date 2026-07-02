@@ -48,7 +48,7 @@ If you spot a typo or phrasing that feels off:
 
 1. Grab a screenshot or copy the wording and note the language.
 2. Share it in the [community Discord](/community) localisation channel **or** open a [GitHub localisation issue](https://github.com/godotlauncher/launcher/issues/new/choose).
-3. Add the screen where it appears (for example, “Settings → Updates”) and a suggested correction if you have one.
+3. Add the screen where it appears (for example, "Settings > Updates") and a suggested correction if you have one.
 
 Community members can often patch small copy fixes quickly when they have that context.
 
@@ -97,7 +97,7 @@ Keep the JSON keys as they are and translate the text on the right-hand side:
   "description": "Gestiona tus proyectos de Godot"
 }
 
-// ❌ Incorrect — keys must stay in English
+// ❌ Incorrect - keys must stay in English
 {
   "titulo": "Proyectos",
   "descripcion": "Gestiona tus proyectos de Godot"
@@ -143,7 +143,7 @@ Adding a brand-new language also means updating the language registry in `src/el
   5. Open a PR describing what changed and how you verified it.
 
 - **Issue Attachment:**
-  - If you cannot run the project locally, open an issue titled “Translation: Language Name,” attach the 11 JSON files, and share any testing notes. A maintainer will wire things up.
+  - If you cannot run the project locally, open an issue titled "Translation: Language Name," attach the 11 JSON files, and share any testing notes. A maintainer will wire things up.
 
 Where possible, keep one language per PR so reviewers can focus on the context.
 
@@ -151,7 +151,7 @@ Where possible, keep one language per PR so reviewers can focus on the context.
 
 ## Ready-to-Submit Checklist
 
-Before you press “Create pull request,” make sure:
+Before you press "Create pull request," make sure:
 
 - [ ] All 11 JSON files for your locale exist and contain valid JSON.
 - [ ] Keys remain in English and interpolation variables are untouched.
@@ -181,4 +181,4 @@ If yours is missing, we would love to add it next.
 - Review the high-level workflow in the [main contributing guide](/contributing).
 - Ask maintainers in your PR or issue if you are unsure where a string lives or how to run a specific check.
 
-Every contribution keeps the multilingual experience feeling natural for more Godot Launcher users—thanks for helping us grow it!
+Every contribution keeps the multilingual experience feeling natural for more Godot Launcher users - thanks for helping us grow it!

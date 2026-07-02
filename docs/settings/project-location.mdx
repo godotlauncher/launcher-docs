@@ -1,0 +1,45 @@
+---
+id: project-location
+title: Project Location Settings
+slug: /settings/project-location
+description: "Configure the default folder Godot Launcher uses when creating new Godot projects."
+tags:
+  - launcher-settings
+  - godot-project-setup
+  - configuration
+---
+
+import ThemedImage from '@theme/ThemedImage';
+
+# Project Location Settings
+
+The **Projects** tab in Settings controls the default folder used when Godot Launcher creates a new project.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Settings - Projects Tab"
+  sources={{
+    light: '/img/screenshots/screen_settings_projects_light.webp',
+    dark: '/img/screenshots/screen_settings_projects_dark.webp',
+  }}
+/>
+
+## Project Location
+
+**Project Location** sets the base directory for newly created projects.
+
+- Existing projects already added to the launcher are not moved.
+- You can change this path at any time without changing existing project data.
+- When creating a project, you can override this location for that project only by enabling **Overwrite Project Path**.
+
+:::info
+Changing the default project location affects only new projects created through Godot Launcher.
+
+Adding existing projects will not move them into this folder.
+:::
+
+## Create one project somewhere else
+
+Use **Overwrite Project Path** in the create project dialog when one project should live outside your default project folder.
+
+See [Creating a Project](/getting-started/create-project) for the full project creation flow.

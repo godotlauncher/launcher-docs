@@ -65,6 +65,11 @@ export default {
       collapsed: false,
       items: [
         "settings/launcher-settings",
+        "settings/project-location",
+        "settings/editor-installs-location",
+        "settings/appearance-language",
+        "settings/behavior",
+        "settings/tools",
         "settings/system-tray",
         "updates/manage-launcher-updates",
       ],

@@ -1,0 +1,60 @@
+---
+id: behavior
+title: Behavior Settings
+slug: /settings/behavior
+description: "Configure project confirmation, launch behavior, startup behavior, and optional Windows editor symlinks in Godot Launcher."
+tags:
+  - launcher-settings
+  - system-tray
+  - configuration
+---
+
+import ThemedImage from '@theme/ThemedImage';
+
+# Behavior Settings
+
+The **Behavior** tab controls how Godot Launcher behaves when removing projects, launching projects, starting with your system, and creating project editor links on Windows.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Settings - Behavior Tab"
+  sources={{
+    light: '/img/screenshots/screen_settings_behavior_light.webp',
+    dark: '/img/screenshots/screen_settings_behavior_dark.webp',
+  }}
+/>
+
+## Project Confirmation
+
+Enable **Project Confirmation** if you want Godot Launcher to ask before removing a project entry.
+
+Removing a project from Godot Launcher does not delete the project folder unless a separate delete action explicitly says so.
+
+## Project Launch Action
+
+Choose what Godot Launcher does after it launches a project:
+
+- **Nothing**: keep the launcher window open.
+- **Minimize**: minimize the launcher after launch.
+- **Close to System Tray**: keep the launcher running in the tray after launch.
+
+For tray behavior and recent project quick launch, see [System Tray](/guides/system-tray).
+
+## Editor symlinks on Windows
+
+On Windows, Godot Launcher can optionally create symbolic links to installed editors instead of copying editor files into each project.
+
+This can reduce disk usage, but Windows may require Developer Mode or administrator approval depending on your system.
+
+See [Godot Launcher Symlink Support on Windows](/guides/windows-symlink) before enabling this option.
+
+## Startup Preference
+
+Startup settings control whether Godot Launcher opens automatically when your computer starts.
+
+- **Start when computer starts**: launch Godot Launcher on system startup.
+- **Start in tray**: start hidden in the system tray.
+
+:::tip
+Use **Start in tray** when you want project quick launch available without keeping the main window open.
+:::

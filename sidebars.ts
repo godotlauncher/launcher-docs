@@ -45,7 +45,6 @@ export default {
       items: [
         "projects/project-tool-toggles",
         "projects/project-settings",
-        "projects/project-badges",
         "projects/launch-godot-project-in-windowed-mode",
       ],
     },
@@ -92,6 +91,18 @@ export default {
         "troubleshooting",
         "support/help-and-support",
         "support/community",
+      ],
+    },
+    {
+      type: "category",
+      label: "Reference",
+      collapsed: false,
+      items: [
+        "reference/reference",
+        "reference/custom-editor-manifest-reference",
+        "reference/storage-paths",
+        "projects/project-badges",
+        "reference/update-states",
       ],
     },
     {

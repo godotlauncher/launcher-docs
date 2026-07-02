@@ -133,6 +133,11 @@ configuration:
   permalink: "/configuration"
   description: General guides on configuring Godot Launcher and its features.
 
+reference:
+  label: "Reference"
+  permalink: "/reference"
+  description: Stable lookup material for Godot Launcher behavior, files, states, and formats.
+
 git:
   label: "Git"
   permalink: "/git"

@@ -44,6 +44,7 @@ If you use VS Code for other types of work, consider [profiles](https://code.vis
 Godot Launcher exposes a project-level toggle so you can control VS Code integration after project creation.
 
 <ThemedImage
+  className="docs-media-frame"
   alt="Godot Launcher project overflow menu"
   sources={{
     light: '/img/screenshots/screen_projects_menu_light.webp',
@@ -99,6 +100,7 @@ You can find these files in the `.vscode` folder inside your project directory. 
 If VS Code config files cannot be safely read or have an unsupported shape, Godot Launcher preserves the original files as timestamped `.bad` copies, recreates the config it needs, and shows a warning with the recovered file paths.
 
 <ThemedImage
+  className="docs-media-frame"
   alt="VS Code configuration recovery warning"
   sources={{
     light: '/img/screenshots/screen_projects_vscode_config_recovered_light.webp',

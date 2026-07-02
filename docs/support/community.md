@@ -19,7 +19,11 @@ The Godot Launcher project is built by and for the community. Whether you're a n
 
 ## Join the Discord Server
 
-![Discord Server](../static/img/discord-screenshot.webp)
+<img
+  className="docs-media-frame"
+  src="/img/discord-screenshot.webp"
+  alt="Discord Server"
+/>
 
 Our official Discord is the best place to:
 

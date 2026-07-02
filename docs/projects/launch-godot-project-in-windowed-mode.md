@@ -26,7 +26,11 @@ Starting with Godot 4.4, this is no longer necessary. The editor now remembers t
 
 This gives users full control over how projects are launched.
 ## How to Enable Windowed Mode for a Project
-![Change per project to open in windowed mode](/img/godot-launcher-project-windowed-mode-ui-anim.gif)
+<img
+  className="docs-media-frame"
+  src="/img/godot-launcher-project-windowed-mode-ui-anim.gif"
+  alt="Change per project to open in windowed mode"
+/>
 
 1. Open **Godot Launcher**.
 2. Find your project in the **Project View**.

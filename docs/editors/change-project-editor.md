@@ -17,7 +17,11 @@ import ThemedImage from '@theme/ThemedImage';
 
 # Change Project Editor Version
 
-![Changing Project Editor Version](/img/launcher-project-editor-change-ui-anim.gif)
+<img
+  className="docs-media-frame"
+  src="/img/launcher-project-editor-change-ui-anim.gif"
+  alt="Changing Project Editor Version"
+/>
 
 Godot Launcher lets you choose which editor each project uses. You can switch between official releases, .NET editors, and registered custom-built Godot editors from the Projects list.
 
@@ -26,6 +30,7 @@ Godot Launcher lets you choose which editor each project uses. You can switch be
 When creating a new project, choose the editor in the project setup form. For existing projects, use the editor selector in the **Projects** list.
 
 <ThemedImage
+  className="docs-media-frame"
   alt="Create Project view with a custom editor selected"
   sources={{
     light: '/img/screenshots/screen_projects_new_project_custom_editor_light.webp',
@@ -77,6 +82,7 @@ To manually configure VS Code for C#, refer to the [official Godot documentation
 If an editor used by a project is uninstalled, moved, or unavailable, the launcher marks the project as having a missing editor and prevents launch until the problem is resolved.
 
 <ThemedImage
+  className="docs-media-frame"
   alt="Projects list showing a missing editor state"
   sources={{
     light: '/img/screenshots/screen_projects_missing_editor_light.webp',

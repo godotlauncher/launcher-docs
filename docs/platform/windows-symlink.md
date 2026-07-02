@@ -66,7 +66,11 @@ If your Windows account cannot elevate or Developer Mode is unavailable (for exa
 
 ## Turn on Symlink Support in Godot Launcher
 
-![Toggle Editor Symlink Gif](/img/windows_symlink_settings.gif)
+<img
+  className="docs-media-frame"
+  src="/img/windows_symlink_settings.gif"
+  alt="Toggle Editor Symlink Gif"
+/>
 
 1. Open **Godot Launcher**.
 2. Click **Settings** from the sidebar or top-right menu.
@@ -104,7 +108,12 @@ If Windows shows the type as `Application (.exe)` instead of a `symlink (.exe)`,
 ## Troubleshooting Godot Launcher Symlink errors
 
 - **UAC prompt appears every time a change in release happens**: Make sure you have enabled `Developer Mode`.
-![Godot Launcher - UAC Prompt](/img/UAC_prompt.webp)
+
+  <img
+    className="docs-media-frame"
+    src="/img/UAC_prompt.webp"
+    alt="Godot Launcher - UAC Prompt"
+  />
 - **Corporate or school device restrictions**: Contact your administrator about enabling Developer Mode or request temporary elevation. Without it, symlink creation is blocked for security reasons.
 - **Antivirus quarantines the symlink**: Add the launcher install directory to your antivirus exclusion list so the symbolic link target remains accessible.
 

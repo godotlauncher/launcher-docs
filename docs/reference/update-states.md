@@ -37,4 +37,4 @@ On rpm-ostree systems, Godot Launcher can detect that automatic update installat
 
 ## More details
 
-For screenshots and step-by-step behavior, see [Manage Launcher Updates](/guides/manage-launcher-updates).
+For screenshots and step-by-step behavior, see [Manage Launcher Updates](/settings/updates).

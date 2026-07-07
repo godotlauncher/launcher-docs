@@ -1,7 +1,7 @@
 ---
 id: windows-symlink
 title: Godot Launcher Symlink Support on Windows
-slug: /guides/windows-symlink
+slug: /platform/windows-symlink
 description: "Learn how to enable the Godot Launcher Symlink feature on Windows to reuse editor installs, save disk space, and streamline updates."
 tags:
   - guides
@@ -14,6 +14,8 @@ keywords:
   - Windows symlink support
   - Godot Launcher
 ---
+
+import ThemedImage from '@theme/ThemedImage';
 
 # Godot Launcher Symlink Support on Windows
 
@@ -66,10 +68,13 @@ If your Windows account cannot elevate or Developer Mode is unavailable (for exa
 
 ## Turn on Symlink Support in Godot Launcher
 
-<img
+<ThemedImage
   className="docs-media-frame"
-  src="/img/windows_symlink_settings.gif"
   alt="Toggle Editor Symlink Gif"
+  sources={{
+    light: '/img/animations/windows-symlink/windows-symlink-anim_light.gif',
+    dark: '/img/animations/windows-symlink/windows-symlink-anim_dark.gif',
+  }}
 />
 
 1. Open **Godot Launcher**.
@@ -115,7 +120,8 @@ If Windows shows the type as `Application (.exe)` instead of a `symlink (.exe)`,
     alt="Godot Launcher - UAC Prompt"
   />
 - **Corporate or school device restrictions**: Contact your administrator about enabling Developer Mode or request temporary elevation. Without it, symlink creation is blocked for security reasons.
-- **Antivirus quarantines the symlink**: Add the launcher install directory to your antivirus exclusion list so the symbolic link target remains accessible.
+- **Antivirus blocks or quarantines the launcher**: Godot Launcher Windows releases are code signed. If Windows or your antivirus flags the launcher, check that the file signature is valid before allowing it. See [Windows release signing](/getting-started/installation/#windows-release-signing) for details.
+- **Antivirus blocks or quarantines the symlink target**: Check your antivirus quarantine or protection history. If the blocked file is a Godot editor executable, verify it comes from the official Godot release you installed. Add an exclusion only for the specific executable or symlink target, and avoid excluding the whole launcher install directory unless your antivirus does not support narrower exclusions.
 
 ---
 

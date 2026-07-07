@@ -2,7 +2,7 @@
 id: project-badges
 title: "Project Badges and Tooltips"
 description: "Understand what each badge means in the Godot Launcher project list and how they help identify project types at a glance."
-slug: "/project-badges"
+slug: "/reference/project-badges"
 tags:
   - guides
   - godot
@@ -16,15 +16,19 @@ tags:
 # Project Badges and Tooltips
 
 import { TriangleAlert } from "lucide-react";
+import ThemedImage from '@theme/ThemedImage';
 
 The Godot Launcher project list displays badges next to each project entry. These icons communicate configuration details at a glance and assist in identifying projects that require special attention.
 
 Each badge includes a tooltip that provides a short description when hovered.
 
-<img
+<ThemedImage
   className="docs-media-frame"
-  src="/img/Godot_Launcher1-6-0_project-badges.gif"
   alt="Project Badges UI"
+  sources={{
+    light: '/img/animations/project-badges/project-badges-anim_light.gif',
+    dark: '/img/animations/project-badges/project-badges-anim_dark.gif',
+  }}
 />
 
 ## Badge Types

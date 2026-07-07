@@ -2,7 +2,7 @@
 id: vscode-setup-for-godot
 title: "Visual Studio Code Setup For Godot"
 description: "Configure Visual Studio Code for Godot Launcher projects and recover from invalid VS Code config files."
-slug: "/guides/vscode-setup-for-godot"
+slug: "/integrations/vscode-setup-for-godot"
 tags:
   - guides
   - vscode

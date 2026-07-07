@@ -43,9 +43,18 @@ On Windows, simply run the `.exe` installer after download. It will automaticall
 
 If you did not choose to run Godot Launcher at the end of the installation, you can run it directly from the Start Menu.
 
-:::info
-Windows releases are signed as part of the release process. Free code signing provided by [SignPath.io](https://signpath.io/), certificate by [SignPath Foundation](https://signpath.org/).
-:::
+#### Windows release signing
+
+Godot Launcher Windows installers are code signed as part of the release process. If Windows SmartScreen or your antivirus flags the installer, check the file signature before allowing it:
+
+1. Right-click the downloaded `.exe` file and choose **Properties**.
+2. Open the **Digital Signatures** tab.
+3. Select the signature and confirm Windows reports that it is valid.
+4. Confirm the signer or certificate details match the release signing information below.
+
+Free code signing is provided by [SignPath.io](https://signpath.io/), certificate by [SignPath Foundation](https://signpath.org/).
+
+Code signing helps confirm the installer was signed by the Godot Launcher release process. It does not verify Godot editor executables downloaded later. For downloaded Godot editors, verify they come from the official Godot release you selected.
 
 <WingetCommand
   label="Install with winget"

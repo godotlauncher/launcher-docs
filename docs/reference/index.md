@@ -26,4 +26,4 @@ If you want step-by-step instructions instead of reference material, start with 
 - [Installing Godot Editor](/getting-started/install-editor)
 - [Custom-Built Godot Editors](/guides/custom-editors)
 - [Launcher Settings](/getting-started/launcher-settings)
-- [Manage Launcher Updates](/guides/manage-launcher-updates)
+- [Manage Launcher Updates](/settings/updates)

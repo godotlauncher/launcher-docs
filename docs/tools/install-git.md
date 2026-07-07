@@ -2,7 +2,7 @@
 id: install-git
 title: "Installing Git"
 description: "Learn how to install Git on your system to use version control with Godot Launcher."
-slug: "/guides/install-git"
+slug: "/integrations/install-git"
 tags:
   - guides
   - git

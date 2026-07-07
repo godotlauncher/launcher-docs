@@ -1,7 +1,7 @@
 ---
 id: change-project-editor
 title: Change Project Editor Version
-slug: /guides/change-project-editor
+slug: /editors/change-project-editor
 description: "Learn how to change the editor version for your Godot projects in the launcher, including custom-built Godot editors, .NET transitions, and missing editor recovery."
 tags:
   - guides
@@ -17,10 +17,13 @@ import ThemedImage from '@theme/ThemedImage';
 
 # Change Project Editor Version
 
-<img
+<ThemedImage
   className="docs-media-frame"
-  src="/img/launcher-project-editor-change-ui-anim.gif"
   alt="Changing Project Editor Version"
+  sources={{
+    light: '/img/animations/change-project-editor/change-project-editor-anim_light.gif',
+    dark: '/img/animations/change-project-editor/change-project-editor-anim_dark.gif',
+  }}
 />
 
 Godot Launcher lets you choose which editor each project uses. You can switch between official releases, .NET editors, and registered custom-built Godot editors from the Projects list.

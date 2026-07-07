@@ -1,7 +1,7 @@
 ---
 id: linux-no-sandbox
 title: Running Godot Launcher in No-Sandbox Mode on Linux
-slug: /guides/linux-no-sandbox
+slug: /platform/linux-no-sandbox
 description: "Learn how to run Godot Launcher with the --no-sandbox option on Linux if you encounter Chromium sandbox errors."
 tags:
   - guides

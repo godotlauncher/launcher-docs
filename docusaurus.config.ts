@@ -151,7 +151,6 @@ const config: Config = {
       appId: process.env.ALGOLIA_APP_ID,
       apiKey: process.env.ALGOLIA_API_KEY,
       indexName: "godotlauncher",
-      insights: true,
     },
     colorMode: {
       respectPrefersColorScheme: true,
@@ -192,6 +191,10 @@ const config: Config = {
             {
               label: "Privacy Policy",
               href: "https://godotlauncher.org/privacy",
+            },
+            {
+              label: "Cookie Policy",
+              href: "https://godotlauncher.org/cookies",
             },
             {
               html: `<a href="#cookie-settings" data-cc="c-settings" class="footer__link-item">Cookie Settings</a>`,

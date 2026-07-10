@@ -15,6 +15,8 @@ Godot Launcher registers custom-built Godot editors from a `godotlauncher-editor
 
 Most users should create this file from **Installs -> Custom Editor -> Create custom editor manifest**. Use this reference when you need to inspect, generate, or review a manifest manually.
 
+For the canonical machine-readable definition, see the [v1 engine manifest JSON schema](https://github.com/godotlauncher/launcher/blob/main/schemas/v1/engine-manifest.json).
+
 ## File name
 
 ```text

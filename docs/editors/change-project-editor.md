@@ -59,7 +59,7 @@ The launcher updates the project setup it manages for that editor. When VS Code 
 
 Once a custom-built Godot editor is registered, it appears in project editor selectors like a regular installed editor.
 
-Use custom-built Godot editors for locally compiled editors, team-distributed editors, or other editor binaries that are not part of the official Godot release list. See [Custom-Built Godot Editors](/guides/custom-editors) to register or replace one.
+Use custom-built Godot editors for locally compiled editors, team-distributed editors, or other editor binaries that are not part of the official Godot release list. See [Custom-Built Godot Editors](/editors/custom-editors) to register or replace one.
 
 ## Handling .NET and GDScript transitions
 

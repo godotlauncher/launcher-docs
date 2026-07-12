@@ -55,7 +55,7 @@ When Git is detected the `New Project` UI shows an option to enable Git:
 />
 
 :::info
-You can see if Git is detected in `Settings` > `Tools`. [More info here](/getting-started/launcher-settings/#tools-tab)
+You can see if Git is detected in `Settings` > `Tools`. [More info here](/settings/#tools-tab)
 :::
 
 If you choose to enable Git, the launcher will automatically run the following commands:
@@ -85,7 +85,7 @@ Existing projects can adopt Git without leaving the launcher:
 1. Open the **Projects** list and click the overflow menu beside your project.
 2. Choose **Initialize Git Repository**.
 
-The launcher validates that Git is installed (using the cached tool check), runs `git init`, and marks the project with a Git badge. If Git is unavailable, the menu entry is disabled until you rescan tools in **Settings > Tools**. Existing repositories keep the action hidden to avoid accidental reinitialization. [learn more about settings](/getting-started/launcher-settings)
+The launcher validates that Git is installed (using the cached tool check), runs `git init`, and marks the project with a Git badge. If Git is unavailable, the menu entry is disabled until you rescan tools in **Settings > Tools**. Existing repositories keep the action hidden to avoid accidental reinitialization. [learn more about settings](/settings)
 
 <ThemedImage
   className="docs-media-frame"
@@ -111,7 +111,7 @@ This is what the UI looks like when Git is missing:
 />
 
 :::info
-To get the most out of version control in Godot, [install Git using this guide](/guides/install-git).
+To get the most out of version control in Godot, [install Git using this guide](/integrations/install-git).
 :::
 
 ## Git User Not Configured?
@@ -137,7 +137,7 @@ You can also set these values for just one project by removing `--global`.
 ## Related Links
 
 - [Create a New Godot Project](/getting-started/create-project)
-- [Install Git](/guides/install-git)
-- [Launcher Settings](/getting-started/launcher-settings)
-- [VS Code Setup](/guides/vscode-setup-for-godot)
-- [Editor Settings](/guides/editor-settings)
+- [Install Git](/integrations/install-git)
+- [Launcher Settings](/settings)
+- [VS Code Setup](/integrations/vscode-setup-for-godot)
+- [Editor Settings](/editors/editor-settings)

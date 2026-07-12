@@ -40,14 +40,14 @@ Follow the instructions for your operating system.
 
 ## Next Steps
 
-After installing Git, you're ready to go back and [use Git with Godot Launcher](/guides/using-git-with-godot-launcher).
+After installing Git, you're ready to go back and [use Git with Godot Launcher](/integrations/using-git-with-godot-launcher).
 
-You may also need to [configure your Git username and email](/guides/using-git-with-godot-launcher#git-user-not-configured) before your first commit can be created.
+You may also need to [configure your Git username and email](/integrations/using-git-with-godot-launcher#git-user-not-configured) before your first commit can be created.
 
 
 ## Related Links
 
-- [Using Git With Godot Launcher](/guides/using-git-with-godot-launcher)
+- [Using Git With Godot Launcher](/integrations/using-git-with-godot-launcher)
 - [Create a New Godot Project](/getting-started/create-project)
-- [Launcher Settings](/getting-started/launcher-settings)
-- [Change Project Editor](/guides/change-project-editor)
+- [Launcher Settings](/settings)
+- [Change Project Editor](/editors/change-project-editor)

@@ -47,7 +47,7 @@ Right-to-left languages are on the roadmap but not activated yet.
 If you spot a typo or phrasing that feels off:
 
 1. Grab a screenshot or copy the wording and note the language.
-2. Share it in the [community Discord](/community) localisation channel **or** open a [GitHub localisation issue](https://github.com/godotlauncher/launcher/issues/new/choose).
+2. Share it in the [community Discord](/support/community) localisation channel **or** open a [GitHub localisation issue](https://github.com/godotlauncher/launcher/issues/new/choose).
 3. Add the screen where it appears (for example, "Settings > Updates") and a suggested correction if you have one.
 
 Community members can often patch small copy fixes quickly when they have that context.
@@ -177,7 +177,7 @@ If yours is missing, we would love to add it next.
 
 ## Need Help?
 
-- Visit the localisation thread in the [community Discord](/community) to coordinate with other translators.
+- Visit the localisation thread in the [community Discord](/support/community) to coordinate with other translators.
 - Review the high-level workflow in the [main contributing guide](/contributing).
 - Ask maintainers in your PR or issue if you are unsure where a string lives or how to run a specific check.
 

@@ -118,5 +118,5 @@ Valid JSONC files with comments or trailing commas are supported and updated. Th
 
 ## Related guides
 
-- [Project Tool Toggles](/guides/project-tool-toggles)
-- [Change Project Editor Version](/guides/change-project-editor)
+- [Project Tool Toggles](/projects/project-tool-toggles)
+- [Change Project Editor Version](/editors/change-project-editor)

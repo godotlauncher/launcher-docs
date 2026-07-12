@@ -23,7 +23,7 @@ Godot Launcher keeps user-selected project/editor locations separate from small 
 
 On Windows, `<home>` is your user profile folder, such as `C:\Users\You`. On Linux and macOS, `<home>` is your home directory, such as `/home/you` or `/Users/you`.
 
-You can change the project and editor install locations from [Launcher Settings](/getting-started/launcher-settings).
+You can change the project and editor install locations from [Launcher Settings](/settings).
 
 ## Config files
 
@@ -57,7 +57,7 @@ The settings file name follows this pattern:
 editor_settings-<major.minor>.tres
 ```
 
-For the full explanation, see [Editor Settings Per Project](/guides/editor-settings).
+For the full explanation, see [Editor Settings Per Project](/editors/editor-settings).
 
 ## Custom editor manifests
 

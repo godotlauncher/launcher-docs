@@ -29,7 +29,7 @@ Because Windows treats symlink creation as an administrative task, you need to p
 
 - Reduce disk usage by keeping only one copy of each Godot editor release.
 - Speed up new project setup because the launcher links instead of copying large files.
-- Keep projects aligned with the same editor build, making it easier to switch versions or follow the [Change Project Editor Version](/guides/change-project-editor) workflow.
+- Keep projects aligned with the same editor build, making it easier to switch versions or follow the [Change Project Editor Version](/editors/change-project-editor) workflow.
 
 :::tip
 Symlink support affects only new projects or projects that switch to a new release. Existing projects keep their current editor copy or symlink until you change the selected release.
@@ -43,7 +43,7 @@ The launcher needs permission to create symlinks on your behalf. Make sure these
 
 - **Windows Developer Mode** enabled.
 - **Administrator privileges** for the Windows account you use with Godot Launcher.
-- Godot Launcher 1.4.0 or later, where the setting first appears in the [Launcher Settings](/getting-started/launcher-settings/#behavior-tab).
+- Godot Launcher 1.4.0 or later, where the setting first appears in the [Launcher Settings](/settings/#behavior-tab).
 
 ### Enable Windows Developer Mode
 
@@ -127,4 +127,4 @@ If Windows shows the type as `Application (.exe)` instead of a `symlink (.exe)`,
 
 ## Summary
 
-With the Godot Launcher Symlink feature configured, Windows projects stay lightweight while sharing a single editor install. Keep Developer Mode enabled, leave the launcher toggle on, and reuse the same releases across every project. From here you can explore other workflow optimizations, like fine-tuning [Launcher Settings](/getting-started/launcher-settings) or [changing editor versions](/guides/change-project-editor) per project.
+With the Godot Launcher Symlink feature configured, Windows projects stay lightweight while sharing a single editor install. Keep Developer Mode enabled, leave the launcher toggle on, and reuse the same releases across every project. From here you can explore other workflow optimizations, like fine-tuning [Launcher Settings](/settings) or [changing editor versions](/editors/change-project-editor) per project.

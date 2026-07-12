@@ -92,4 +92,4 @@ When registering a manifest, Godot Launcher:
 - Verifies the optional console path when it is present.
 - Registers the editor as a custom install without deleting or moving the editor files.
 
-For the full user workflow, see [Custom-Built Godot Editors](/guides/custom-editors).
+For the full user workflow, see [Custom-Built Godot Editors](/editors/custom-editors).

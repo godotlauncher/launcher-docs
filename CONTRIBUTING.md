@@ -5,7 +5,7 @@ This guide is for anyone who wants to contribute to the **Godot Launcher Documen
 If you're looking to contribute to the Godot Launcher app itself, check out the [main Godot Launcher repository](https://github.com/godotlauncher/launcher), or visit the [website](https://godotlauncher.org) for more information.  
 If you want to contribute to the **Godot Launcher website**, visit the [launcher-website repository](https://github.com/godotlauncher/launcher-website).
 
-We welcome your feedback, ideas, and pull requests—whether it’s fixing a typo or writing an entirely new guide.
+We welcome your feedback, ideas, and pull requests, whether you're fixing a typo or writing an entirely new guide.
 
 ---
 
@@ -40,10 +40,10 @@ Please follow the folder structure when adding or editing pages.
 > Before creating a new issue, check the [open issues](https://github.com/godotlauncher/launcher-docs/issues) and [closed issues](https://github.com/godotlauncher/launcher-docs/issues?q=is%3Aissue%20state%3Aclosed) to avoid duplicates.
 
 Submit documentation issues [here](https://github.com/godotlauncher/launcher-docs/issues/new?template=bug_report.md).  
-We’ve added templates to make it easier to share your idea.
+We've added templates to make it easier to share your idea.
 
 - Submit a **separate issue for each problem or suggestion**.
-- If you’re reporting outdated or incorrect documentation, include the affected page or section.
+- If you're reporting outdated or incorrect documentation, include the affected page or section.
 - Suggestions are welcome even if you're not submitting a fix yourself.
 
 ---
@@ -54,7 +54,7 @@ We’ve added templates to make it easier to share your idea.
 > Before creating a new feature request, please check the [open issues](https://github.com/godotlauncher/launcher-docs/issues) and [closed issues](https://github.com/godotlauncher/launcher-docs/issues?q=is%3Aissue%20state%3Aclosed).
 
 Submit proposals [here](https://github.com/godotlauncher/launcher-docs/issues/new?template=feature_request.md).  
-We’ve added templates to make it easier to explain your suggestions.
+We've added templates to make it easier to explain your suggestions.
 
 - **Create one suggestion per issue** to keep feedback focused.
 - For major structural or content changes, discuss them first on [Discord](https://discord.gg/Ju9jkFJGvz).
@@ -67,7 +67,7 @@ Thank you for helping improve the documentation!
 
 - Fix typos, clarify steps, or add missing information.
 - For large changes, start a discussion or open an issue first.
-- No contribution is too small—every fix helps users.
+- No contribution is too small because every fix helps users.
 
 ---
 
@@ -126,16 +126,16 @@ git pull --rebase upstream main
 4. Run `npm install && npm run start` to preview the site locally.
 5. Commit your changes and open a pull request.
 
-If you’re unsure, open a [discussion](https://github.com/godotlauncher/launcher-docs/discussions) or ask on [Discord](https://discord.gg/Ju9jkFJGvz).
+If you're unsure before opening a pull request, ask in the [Godot Launcher Discord](https://discord.gg/Ju9jkFJGvz).
 
 ---
 
 ## Need Help?
 
-If you're unsure how to contribute or want feedback on an idea, join the [Discord community](https://discord.gg/Ju9jkFJGvz) or open a [discussion thread](https://github.com/godotlauncher/launcher-docs/discussions).
+Join the [Godot Launcher Discord](https://discord.gg/Ju9jkFJGvz) to ask contribution questions or get early feedback on an idea.
 
 ---
 
 ## Thank You!
 
-Every contribution improves the experience for users around the world. Whether you're fixing a typo, rewriting a section, or writing new guides—**thank you for supporting Godot Launcher**.
+Every contribution improves the experience for users around the world. Whether you're fixing a typo, rewriting a section, or writing new guides, **thank you for supporting Godot Launcher**.

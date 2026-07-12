@@ -1,0 +1,58 @@
+---
+id: tools
+title: Tool Detection Settings
+slug: /settings/tools
+description: "Configure Git and Visual Studio Code detection for Godot Launcher project workflows."
+tags:
+  - launcher-settings
+  - git
+  - vscode
+  - configuration
+---
+
+import ThemedImage from '@theme/ThemedImage';
+
+# Tool Detection Settings
+
+The **Tools** tab shows whether Godot Launcher can use Git and Visual Studio Code on your system.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Settings - Tools Tab"
+  sources={{
+    light: '/img/screenshots/screen_settings_tools_light.webp',
+    dark: '/img/screenshots/screen_settings_tools_dark.webp',
+  }}
+/>
+
+## Git
+
+When Git is detected, Godot Launcher can:
+
+- Initialize Git while creating a new project.
+- Initialize Git later from a project menu.
+- Show Git indicators in the Projects list.
+
+If Git is missing, see [Installing Git](/integrations/install-git).
+
+## Visual Studio Code
+
+When VS Code is detected, Godot Launcher can:
+
+- Configure Godot to use VS Code as the external script editor.
+- Create or update `.vscode` workspace files.
+- Add recommended extensions for Godot and .NET workflows.
+
+If VS Code is installed in a non-standard location, choose the executable manually from this settings tab.
+
+See [Visual Studio Code Setup for Godot](/integrations/vscode-setup-for-godot) for the project workflow.
+
+## Rescan tools
+
+Godot Launcher keeps a cached record of detected tools so menus can open quickly.
+
+Click **Rescan tools** after installing, moving, or updating Git or VS Code.
+
+:::info
+Tool detection controls whether related project actions are enabled. It does not install Git or VS Code for you.
+:::

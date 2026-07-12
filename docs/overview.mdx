@@ -1,21 +1,20 @@
 ---
 id: overview
-title: Welcome to Godot Launcher
-description: "Official Documentation for Godot Launcher, a standalone app to streamline editor downloads, manage multiple versions, and automate new project setups—so you can focus on building great games."
+title: Godot Launcher Documentation
+description: "Official documentation for Godot Launcher, an independent desktop companion for Godot Engine that manages editor versions, projects, custom-built editors, and development-tool setup."
 sidebar_label: Overview
 slug: /
 ---
 
 import ThemedImage from '@theme/ThemedImage';
 
-# Godot Launcher
+# Godot Launcher Documentation
 
-Welcome to the official Godot Launcher documentation.
-
-**Godot Launcher** is a standalone app to streamline editor downloads, manage multiple versions, and automate new project setups — so you can focus on building great games.
+**Godot Launcher** is an independent, cross-platform desktop companion for Godot Engine. It helps you download official Godot editor releases, register custom-built Godot editors, organize projects, and configure common development tools without repeating setup work for every project.
 
 <ThemedImage
-  alt="Godot Launcher - Create project UI"
+  className="docs-media-frame"
+  alt="Godot Launcher create project screen"
   sources={{
     light: '/img/screenshots/screen_projects_new_project_light.webp',
     dark: '/img/screenshots/screen_projects_new_project_dark.webp',
@@ -24,49 +23,52 @@ Welcome to the official Godot Launcher documentation.
 
 ---
 
-## Features at a Glance
+## Start here
 
-- **Drag-and-Drop Project Import** – Drop one or many `project.godot` files into the Projects list to add them quickly with visible progress.
-- **Flexible Project Location** – Create a new project in your default Projects folder or temporarily override the path for one project when your workflow needs it.
-- **Git & VSCode Integration** – Instant Git setup and ready-to-use VSCode configurations.
-- **Project Tool Toggles** – Enable Visual Studio Code integration or initialize Git from any project overflow menu.
-- **Godot Version Management** – Easily install, switch, and prototype with multiple Godot versions.
-- **Per-Project Settings** – Isolated editor configurations to avoid conflicts across projects.
-- **System Tray Access** – Quickly open projects with a single click from the system tray.
-- **Multilingual Interface** – Detects your OS language and lets you switch between 14 supported locales from settings.
-- **Update Control** – Check for launcher updates automatically, download them manually, restart when ready, and opt into prerelease builds from Settings.
-- **Cross-Platform Support** – Windows ready, with Mac and Linux support coming soon.
-- **Free & Open Source** – Forever free and community-driven.
+If you are new to Godot Launcher, follow these pages in order:
 
----
+1. [Install Godot Launcher](/getting-started/installation)
+2. [Install a Godot editor](/getting-started/install-editor)
+3. [Create your first project](/getting-started/create-project)
+4. [Add an existing project](/getting-started/add-existing-project)
+5. [Configure launcher settings](/settings)
 
-## Contributing
+## Common tasks
 
-Godot Launcher is built with the community in mind — and we welcome your input.
+- [Register a custom-built Godot editor](/editors/custom-editors)
+- [Change the editor version for a project](/editors/change-project-editor)
+- [Use Git with Godot Launcher](/integrations/using-git-with-godot-launcher)
+- [Set up Visual Studio Code for Godot](/integrations/vscode-setup-for-godot)
+- [Manage launcher updates](/settings/updates)
+- [Troubleshoot a problem](/troubleshooting)
 
-Whether you're fixing a bug, suggesting a feature, improving the docs, or just sharing feedback, your contributions help shape the future of this tool.
+## What Godot Launcher manages
 
-👉 [Contributing Guide](https://github.com/godotlauncher/launcher/blob/main/CONTRIBUTING.md)  
-👉 [GitHub Discussions](https://github.com/godotlauncher/launcher/discussions)
-
----
-
-## Roadmap
-
-Want to know what we’re working on, what’s coming next, and what already shipped?
-
-The **public roadmap** is the best way to follow active development and help shape where the launcher goes next.
-
-📍 [View the Roadmap on GitHub](https://github.com/orgs/godotlauncher/projects/1)
-
-You can vote, comment, or submit ideas. We review everything.
+- **Editor installs**: Download official Godot releases and register custom-built Godot editors.
+- **Projects**: Create new projects, import existing `project.godot` files, and choose the right editor per project.
+- **Development tools**: Initialize Git and configure VS Code from project workflows.
+- **Project-specific settings**: Keep Godot editor settings isolated across projects and editor versions.
+- **Launcher behavior**: Configure appearance, language, startup behavior, system tray access, update checks, and tool detection.
+- **Platform-specific workflows**: Use winget on Windows, optional Windows editor symlinks, and Linux startup workarounds when needed.
 
 ---
 
-## Source Repositories
+## Community and contributing
+
+Godot Launcher is free, open source, and community-driven.
+
+Use these links when you want to report an issue, help with docs, contribute code, or follow planned work.
+
+- [Contributing Guide](/contributing)
+- [Translation Contribution Guide](/contributing/translations)
+- [Join the Godot Launcher Discord](https://discord.gg/Ju9jkFJGvz)
+- [Report a bug or suggest a feature](https://github.com/godotlauncher/launcher/issues/new/choose)
+- [Roadmap on GitHub](https://github.com/orgs/godotlauncher/projects/1)
+
+---
+
+## Source repositories
 
 - **Godot Launcher (main app)**: [github.com/godotlauncher/launcher](https://github.com/godotlauncher/launcher)
 - **Website**: [github.com/godotlauncher/launcher-website](https://github.com/godotlauncher/launcher-website)
 - **Documentation**: [github.com/godotlauncher/launcher-docs](https://github.com/godotlauncher/launcher-docs)
-
----

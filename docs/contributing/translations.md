@@ -2,7 +2,7 @@
 id: translations
 title: Translation Contribution Guide
 slug: /contributing/translations
-description: "Help review and expand the Godot Launcher translations shipped with version 1.5.0, including how to report fixes, submit pull requests, and request new locales."
+description: "Help review and expand the Godot Launcher translations, including how to report fixes, submit pull requests, and request new locales."
 tags:
   - contributing
   - localisation
@@ -12,7 +12,7 @@ tags:
 
 # Translation Contribution Guide
 
-Godot Launcher 1.5.0 ships with an auto-detected language, a manual picker, and 14 bundled locales. Every phrase started as an automated translation, so human review and future language additions rely on contributors like you. Use this page when you want to polish an existing language, submit a new one, or report an issue.
+Godot Launcher supports automatic language detection, a manual language picker, and a growing set of bundled locales. Every phrase started as an automated translation, so human review and future language additions rely on contributors like you. Use this page when you want to polish an existing language, submit a new one, or report an issue.
 
 ---
 
@@ -47,8 +47,8 @@ Right-to-left languages are on the roadmap but not activated yet.
 If you spot a typo or phrasing that feels off:
 
 1. Grab a screenshot or copy the wording and note the language.
-2. Share it in the [community Discord](/community) localisation channel **or** open a [GitHub localisation issue](https://github.com/godotlauncher/launcher/issues/new/choose).
-3. Add the screen where it appears (for example, “Settings → Updates”) and a suggested correction if you have one.
+2. Share it in the [community Discord](/support/community) localisation channel **or** open a [GitHub localisation issue](https://github.com/godotlauncher/launcher/issues/new/choose).
+3. Add the screen where it appears (for example, "Settings > Updates") and a suggested correction if you have one.
 
 Community members can often patch small copy fixes quickly when they have that context.
 
@@ -58,7 +58,7 @@ Community members can often patch small copy fixes quickly when they have that c
 
 ### 1. Create the Locale Folder
 
-Inside the launcher repo (`godotlauncher/launcher`), create a folder under `src/locales/` that matches your language code. Use [ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) and only add regional variants when the writing system demands it (for example `pt-BR`, `zh-CN`, `zh-TW`).
+Inside the launcher repository (`godotlauncher/launcher`), create a folder under `src/locales/` that matches your language code. Use [ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) and only add regional variants when the writing system demands it (for example `pt-BR`, `zh-CN`, `zh-TW`).
 
 ```bash
 src/locales/es/       # Spanish
@@ -97,7 +97,7 @@ Keep the JSON keys as they are and translate the text on the right-hand side:
   "description": "Gestiona tus proyectos de Godot"
 }
 
-// ❌ Incorrect — keys must stay in English
+// ❌ Incorrect - keys must stay in English
 {
   "titulo": "Proyectos",
   "descripcion": "Gestiona tus proyectos de Godot"
@@ -136,14 +136,14 @@ Adding a brand-new language also means updating the language registry in `src/el
 ## Submitting Your Contribution
 
 - **Pull Request (recommended):**
-  1. Fork the repo and create a branch (for example `add-spanish-translation`).
+  1. Fork the repository and create a branch (for example `add-spanish-translation`).
   2. Add or update the JSON files and language registration.
   3. Test in development (`npm run dev`) and switch to your locale.
   4. Commit with a meaningful message like `Add Spanish translation`.
   5. Open a PR describing what changed and how you verified it.
 
 - **Issue Attachment:**
-  - If you cannot run the project locally, open an issue titled “Translation: Language Name,” attach the 11 JSON files, and share any testing notes. A maintainer will wire things up.
+  - If you cannot run the project locally, open an issue titled "Translation: Language Name," attach the 11 JSON files, and share any testing notes. A maintainer will wire things up.
 
 Where possible, keep one language per PR so reviewers can focus on the context.
 
@@ -151,7 +151,7 @@ Where possible, keep one language per PR so reviewers can focus on the context.
 
 ## Ready-to-Submit Checklist
 
-Before you press “Create pull request,” make sure:
+Before you press "Create pull request," make sure:
 
 - [ ] All 11 JSON files for your locale exist and contain valid JSON.
 - [ ] Keys remain in English and interpolation variables are untouched.
@@ -163,7 +163,7 @@ Before you press “Create pull request,” make sure:
 
 ## Current Localisation Coverage
 
-The following locales ship with 1.5.0 and will keep evolving as translators refine them:
+The following locales are currently bundled and will keep evolving as translators refine them:
 
 - English, Italiano, Português, Português (Brasil)
 - 简体中文 (zh-CN), 繁體中文 (zh-TW)
@@ -177,8 +177,8 @@ If yours is missing, we would love to add it next.
 
 ## Need Help?
 
-- Visit the localisation thread in the [community Discord](/community) to coordinate with other translators.
+- Visit the localisation thread in the [community Discord](/support/community) to coordinate with other translators.
 - Review the high-level workflow in the [main contributing guide](/contributing).
 - Ask maintainers in your PR or issue if you are unsure where a string lives or how to run a specific check.
 
-Every contribution keeps the multilingual experience feeling natural for more Godot Launcher users—thanks for helping us grow it!
+Every contribution keeps the multilingual experience feeling natural for more Godot Launcher users - thanks for helping us grow it!

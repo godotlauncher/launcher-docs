@@ -1,0 +1,81 @@
+---
+id: editor-settings
+title: Editor Settings Per Project
+slug: /editors/editor-settings
+description: "Understand how the Godot Launcher handles per-project editor settings, where they're stored, and how to manage them across Godot versions."
+tags:
+  - guides
+  - godot
+  - editor-settings
+  - project-settings
+  - configuration
+---
+
+import ThemedImage from '@theme/ThemedImage';
+
+# Editor Settings Per Project
+
+The Godot Launcher supports **per-project editor settings**, allowing each project to maintain its own editor configuration. This helps prevent cross-project conflicts and ensures a consistent development environment across different Godot versions. 
+
+:::info 
+Since 1.6.0, the launcher now keeps these settings in sync automatically whenever a project is imported, toggles Visual Studio Code integration, or changes editor versions.
+:::
+
+## Where Editor Settings Are Stored
+
+Editor settings for a project are saved in:
+
+```
+<editor-location-settings>/.editor_settings/<project-name>/editor_data/
+```
+
+:::note
+defaults to `~/Godot/Editors/` or `/home/<user>/Godot/Editors/` (user home directory).
+On Windows, this is `c:\Users\<user>\Godot\Editors\`
+:::
+
+The file storing the settings follows this naming format (Godot Engine):
+
+```
+editor_settings-<major.minor>.tres
+```
+
+:::info
+The `<major.minor>` portion reflects the Godot version used by the project. For example, `editor_settings-4.4.tres`. Patch versions like `4.4.1` are not included in the filename.
+:::
+
+## Importing and Exporting Settings
+
+The launcher provides built-in options to **import** or **export** editor settings for each project. This is useful for migrating settings, keeping consistency across machines, or sharing configurations in a team.
+
+:::tip
+<ThemedImage
+  className="docs-media-frame"
+  alt="Launcher Project Menu UI"
+  sources={{
+    light: '/img/screenshots/screen_projects_menu_light.webp',
+    dark: '/img/screenshots/screen_projects_menu_dark.webp',
+  }}
+/>
+
+Use the project dropdown menu in the launcher to access the import and export options.
+:::
+
+## Resetting Settings
+
+The launcher does **not** support resetting editor settings. If you need to restore defaults, you can manually remove the settings file or import a clean configuration.
+
+:::warning
+There is no "Reset to Default" option. Always back up your current settings before making changes.
+:::
+
+## Automatic Updates and VS Code Sync
+
+- Adding an existing project now regenerates the required editor settings and project vscode workspace files when then `.vscode` folder is detected in the project. 
+- Changing the selected editor reconciles the settings file with the new Godot version (including Mono flag updates) while preserving any custom keys you have added.
+
+If you prefer to manage settings manually, turn off the VS Code toggle from the project overflow menu. You can always re-enable it later. The launcher will merge new keys without overwriting customizations.
+
+## Summary
+
+Godot Launcher isolates editor settings per project and per Godot version (major.minor). With import and export support, it's easy to manage and share editor configurations without affecting other projects.

@@ -1,0 +1,98 @@
+---
+id: create-project
+slug: /getting-started/create-project
+title: Creating a Project
+description: "Learn how to create your first project with Godot Launcher, choose an official release or custom-built Godot editor, and rename projects later."
+tags:
+  - godot-project-setup
+  - getting-started
+  - setup-guide
+  - custom-editor
+---
+
+import ThemedImage from '@theme/ThemedImage';
+
+# Create Your First Project
+
+You can create a new project and start editing in seconds, or add an existing project to start using it with Godot Launcher.
+
+## Create a new project
+
+By default, the launcher creates new projects inside the folder set in **Settings -> Projects -> Project Location**. You can keep that default or override the parent folder for one project when needed.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Godot Launcher creating a new project"
+  sources={{
+    light: '/img/animations/create-project/create-project-anim_light.gif',
+    dark: '/img/animations/create-project/create-project-anim_dark.gif',
+  }}
+/>
+
+1. Navigate to **Projects** from the left-hand navigation menu.
+2. Click **Create Project**.
+3. Enter a project name and choose the editor you want to use.
+4. Leave **Overwrite Project Path** off to use your normal default location, or turn it on to pick a different parent folder for this project.
+5. Click **Create Project** and, if enabled, **Edit now** to launch it immediately.
+
+If you need to create the project somewhere else, turn on **Overwrite Project Path** and choose a different parent folder.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Godot Launcher - Create New Project with Overwrite Project Path"
+  sources={{
+    light: '/img/screenshots/screen_projects_new_project_overwrite_path_light.webp',
+    dark: '/img/screenshots/screen_projects_new_project_overwrite_path_dark.webp',
+  }}
+/>
+
+Registered custom-built Godot editors appear in the same editor selector as regular installed editors.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Create Project view with a custom editor selected"
+  sources={{
+    light: '/img/screenshots/screen_projects_new_project_custom_editor_light.webp',
+    dark: '/img/screenshots/screen_projects_new_project_custom_editor_dark.webp',
+  }}
+/>
+
+To add a custom-built Godot editor to the selector, see [Custom-Built Godot Editors](/editors/custom-editors).
+
+When **Overwrite Project Path** is enabled, the launcher still creates a clean project folder using your project name. You choose the parent folder, and the launcher creates the final path as `{parent}/{project-name}`.
+
+Example parent folders:
+
+- Windows: `D:\Godot\Projects`
+- macOS: `/Users/you/Godot/Projects`
+- Linux: `/home/you/Godot/Projects`
+
+:::info
+Turning on **Overwrite Project Path** only changes the location for the project you are creating right now. It does not change your default Project Location in Settings.
+:::
+
+## Safety checks
+
+The launcher will not overwrite an existing project folder full of files.
+
+- If the target folder already exists and is empty, creation continues.
+- If the target folder already contains files, creation stops and shows an error.
+- If the selected path points to a file instead of a folder, creation stops and shows an error.
+
+If you meant to bring an existing project into the launcher, use [Add an Existing Project](/getting-started/add-existing-project) instead.
+
+## Rename a project later
+
+After a project exists in the launcher, you can rename its launcher entry from project settings. When `project.godot` is available, you can also update the Godot project name.
+
+See [Project Settings](/projects/project-settings) for the rename workflow and validation rules.
+
+## Add an existing project
+
+Already have a Godot project? Drag its `project.godot` file into the **Projects** screen, or click **Add** and pick the folder that contains `project.godot`. The launcher registers each project without moving files and shows progress while importing multiple items.
+
+For version-selection rules, missing editor recovery, .NET handling, and integration details, visit [Add an Existing Project](/getting-started/add-existing-project).
+
+:::important
+To open any project, including ones you import, click its name in the **Projects** list.
+:::

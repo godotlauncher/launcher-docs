@@ -24,7 +24,7 @@ The easiest and most reliable way to install the Godot Launcher is by visiting t
 ## Install
 
 :::tip
-On first launch, the launcher matches your operating system language automatically. You can change it anytime under **Settings → Appearance → Language**.
+On first launch, the launcher matches your operating system language automatically. You can change it anytime under **Settings > Appearance > Language**.
 :::
 
 ### Windows
@@ -33,11 +33,28 @@ On first launch, the launcher matches your operating system language automatical
 
 > **Filename:** `Godot_Launcher-x.y.z-win_x64.exe`
 
-![Godot Launcher Setup UI - windows](../../static/img/win-installer-ui.webp)
+<img
+  className="docs-media-frame"
+  src="/img/win-installer-ui.webp"
+  alt="Godot Launcher Setup UI - windows"
+/>
 
 On Windows, simply run the `.exe` installer after download. It will automatically guide you through the installation process.
 
 If you did not choose to run Godot Launcher at the end of the installation, you can run it directly from the Start Menu.
+
+#### Windows release signing
+
+Godot Launcher Windows installers are code signed as part of the release process. If Windows SmartScreen or your antivirus flags the installer, check the file signature before allowing it:
+
+1. Right-click the downloaded `.exe` file and choose **Properties**.
+2. Open the **Digital Signatures** tab.
+3. Select the signature and confirm Windows reports that it is valid.
+4. Confirm the signer or certificate details match the release signing information below.
+
+Free code signing is provided by [SignPath.io](https://signpath.io/), certificate by [SignPath Foundation](https://signpath.org/).
+
+Code signing helps confirm the installer was signed by the Godot Launcher release process. It does not verify Godot editor executables downloaded later. For downloaded Godot editors, verify they come from the official Godot release you selected.
 
 <WingetCommand
   label="Install with winget"
@@ -47,7 +64,7 @@ If you did not choose to run Godot Launcher at the end of the installation, you 
 
 #### Read more
 
-- [Installing Godot Launcher with winget](/guides/windows-winget)
+- [Installing Godot Launcher with winget](/platform/windows-winget)
 
 ---
 
@@ -57,7 +74,11 @@ If you did not choose to run Godot Launcher at the end of the installation, you 
 
 **Filename:** `Godot_Launcher-x.y.z-mac_universal.dmg`
 
-![Godot Launcher Setup UI - macOS dmg](/img/dmg-installer-ui.webp)
+<img
+  className="docs-media-frame"
+  src="/img/dmg-installer-ui.webp"
+  alt="Godot Launcher Setup UI - macOS dmg"
+/>
 
 For macOS Godot Launcher is distributed as a universal `.dmg`. Run the `.dmg` file and drag the `Godot Launcher` to the `Applications` folder when the dmg opens.
 
@@ -78,7 +99,7 @@ Once done, Godot Launcher can be opened from the Applications folder.
 #### AppImage
 
 :::info
-AppImage builds include most dependencies — make sure `FUSE` is available on your system.
+AppImage builds include most dependencies - make sure `FUSE` is available on your system.
 :::
 
 Make the `.AppImage` executable by using the GUI or by running:

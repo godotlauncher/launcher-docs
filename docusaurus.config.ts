@@ -39,7 +39,87 @@ const config: Config = {
     locales: ["en"],
   },
 
-  plugins: [],
+  plugins: [
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        redirects: [
+          {
+            from: "/getting-started/launcher-settings",
+            to: "/settings",
+          },
+          {
+            from: "/guides/custom-editors",
+            to: "/editors/custom-editors",
+          },
+          {
+            from: "/guides/change-project-editor",
+            to: "/editors/change-project-editor",
+          },
+          {
+            from: "/guides/editor-settings",
+            to: "/editors/editor-settings",
+          },
+          {
+            from: "/guides/project-settings",
+            to: "/projects/project-settings",
+          },
+          {
+            from: "/guides/project-tool-toggles",
+            to: "/projects/project-tool-toggles",
+          },
+          {
+            from: "/guides/launch-godot-project-in-windowed-mode",
+            to: "/projects/launch-godot-project-in-windowed-mode",
+          },
+          {
+            from: "/guides/install-git",
+            to: "/integrations/install-git",
+          },
+          {
+            from: "/guides/using-git-with-godot-launcher",
+            to: "/integrations/using-git-with-godot-launcher",
+          },
+          {
+            from: "/guides/vscode-setup-for-godot",
+            to: "/integrations/vscode-setup-for-godot",
+          },
+          {
+            from: "/guides/system-tray",
+            to: "/settings/system-tray",
+          },
+          {
+            from: "/guides/manage-launcher-updates",
+            to: "/settings/updates",
+          },
+          {
+            from: "/guides/windows-winget",
+            to: "/platform/windows-winget",
+          },
+          {
+            from: "/guides/windows-symlink",
+            to: "/platform/windows-symlink",
+          },
+          {
+            from: "/guides/linux-no-sandbox",
+            to: "/platform/linux-no-sandbox",
+          },
+          {
+            from: "/help-and-support",
+            to: "/support/help-and-support",
+          },
+          {
+            from: "/community",
+            to: "/support/community",
+          },
+          {
+            from: "/project-badges",
+            to: "/reference/project-badges",
+          },
+        ],
+      },
+    ],
+  ],
   presets: [
     [
       "classic",
@@ -71,7 +151,6 @@ const config: Config = {
       appId: process.env.ALGOLIA_APP_ID,
       apiKey: process.env.ALGOLIA_API_KEY,
       indexName: "godotlauncher",
-      insights: true,
     },
     colorMode: {
       respectPrefersColorScheme: true,
@@ -112,6 +191,10 @@ const config: Config = {
             {
               label: "Privacy Policy",
               href: "https://godotlauncher.org/privacy",
+            },
+            {
+              label: "Cookie Policy",
+              href: "https://godotlauncher.org/cookies",
             },
             {
               html: `<a href="#cookie-settings" data-cc="c-settings" class="footer__link-item">Cookie Settings</a>`,

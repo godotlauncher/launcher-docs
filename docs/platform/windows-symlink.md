@@ -29,7 +29,7 @@ Because Windows treats symlink creation as an administrative task, you need to p
 
 - Reduce disk usage by keeping only one copy of each Godot editor release.
 - Speed up new project setup because the launcher links instead of copying large files.
-- Keep projects aligned with the same editor build, making it easier to switch versions or follow the [Change Project Editor Version](/editors/change-project-editor) workflow.
+- Keep projects aligned with the same editor build, making it easier to switch versions or follow the [Change Project Editor Version](../editors/change-project-editor.md) workflow.
 
 :::tip
 Symlink support affects only new projects or projects that switch to a new release. Existing projects keep their current editor copy or symlink until you change the selected release.
@@ -43,7 +43,7 @@ The launcher needs permission to create symlinks on your behalf. Make sure these
 
 - **Windows Developer Mode** enabled.
 - **Administrator privileges** for the Windows account you use with Godot Launcher.
-- Godot Launcher 1.4.0 or later, where the setting first appears in the [Launcher Settings](/settings/#behavior-tab).
+- Godot Launcher 1.4.0 or later, where the setting first appears in the [Launcher Settings](../settings/launcher-settings.mdx#behavior-tab).
 
 ### Enable Windows Developer Mode
 
@@ -120,11 +120,11 @@ If Windows shows the type as `Application (.exe)` instead of a `symlink (.exe)`,
     alt="Godot Launcher - UAC Prompt"
   />
 - **Corporate or school device restrictions**: Contact your administrator about enabling Developer Mode or request temporary elevation. Without it, symlink creation is blocked for security reasons.
-- **Antivirus blocks or quarantines the launcher**: Godot Launcher Windows releases are code signed. If Windows or your antivirus flags the launcher, check that the file signature is valid before allowing it. See [Windows release signing](/getting-started/installation/#windows-release-signing) for details.
+- **Antivirus blocks or quarantines the launcher**: Godot Launcher Windows releases are code signed. If Windows or your antivirus flags the launcher, check that the file signature is valid before allowing it. See [Windows release signing](../getting-started/installation.mdx#windows-release-signing) for details.
 - **Antivirus blocks or quarantines the symlink target**: Check your antivirus quarantine or protection history. If the blocked file is a Godot editor executable, verify it comes from the official Godot release you installed. Add an exclusion only for the specific executable or symlink target, and avoid excluding the whole launcher install directory unless your antivirus does not support narrower exclusions.
 
 ---
 
 ## Summary
 
-With the Godot Launcher Symlink feature configured, Windows projects stay lightweight while sharing a single editor install. Keep Developer Mode enabled, leave the launcher toggle on, and reuse the same releases across every project. From here you can explore other workflow optimizations, like fine-tuning [Launcher Settings](/settings) or [changing editor versions](/editors/change-project-editor) per project.
+With the Godot Launcher Symlink feature configured, Windows projects stay lightweight while sharing a single editor install. Keep Developer Mode enabled, leave the launcher toggle on, and reuse the same releases across every project. From here you can explore other workflow optimizations, like fine-tuning [Launcher Settings](../settings/launcher-settings.mdx) or [changing editor versions](../editors/change-project-editor.md) per project.

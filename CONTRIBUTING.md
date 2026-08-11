@@ -27,11 +27,29 @@ We welcome your feedback, ideas, and pull requests, whether you're fixing a typo
 
 The documentation site is built with [Docusaurus](https://docusaurus.io), a static site generator powered by Markdown.
 
-- All content lives in the `docs/` folder.
-- Sidebar structure is defined in `sidebars.js`.
-- Static assets (e.g., images) go in `static/`.
+- Upcoming-release content lives in the `docs/` folder.
+- Published minor releases are frozen under `versioned_docs/`.
+- The current sidebar is defined in `sidebars.ts`; frozen sidebars live under
+  `versioned_sidebars/`.
+- Shared assets and immutable version media live in `static/`.
 
 Please follow the folder structure when adding or editing pages.
+
+### Version-Aware Links And Media
+
+- Link to another documentation file with a relative `.md` or `.mdx` path.
+  Do not use a root-relative documentation URL such as `/settings` because it
+  can leave the version the reader selected.
+- Use current media under `/img/screenshots/`, `/img/features/`, and
+  `/img/animations/` only from `docs/`. The workspace media sync selects
+  screenshots from literal current-source references and removes unreferenced
+  files from the mutable screenshot folder.
+- Frozen documentation must reference its immutable media under
+  `/img/docs/<major.minor>/`.
+- Keep logos, icons, and other release-independent assets in their shared
+  paths.
+- Do not edit a frozen version for a new launcher release. Apply corrections
+  there only when the published version itself is inaccurate.
 
 ---
 

@@ -103,8 +103,8 @@ If VS Code config files cannot be safely read or have an unsupported shape, Godo
   className="docs-media-frame"
   alt="VS Code configuration recovery warning"
   sources={{
-    light: '/img/screenshots/screen_projects_vscode_config_recovered_light.webp',
-    dark: '/img/screenshots/screen_projects_vscode_config_recovered_dark.webp',
+    light: '/img/docs/1.10/screenshots/screen_projects_vscode_config_recovered_light.webp',
+    dark: '/img/docs/1.10/screenshots/screen_projects_vscode_config_recovered_dark.webp',
   }}
 />
 
@@ -118,5 +118,5 @@ Valid JSONC files with comments or trailing commas are supported and updated. Th
 
 ## Related guides
 
-- [Project Tool Toggles](/projects/project-tool-toggles)
-- [Change Project Editor Version](/editors/change-project-editor)
+- [Project Tool Toggles](../projects/project-tool-toggles.mdx)
+- [Change Project Editor Version](../editors/change-project-editor.md)

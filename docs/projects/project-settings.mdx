@@ -2,7 +2,7 @@
 id: project-settings
 title: Project Settings
 slug: /projects/project-settings
-description: "Rename projects in Godot Launcher and optionally update the Godot project name stored in project.godot."
+description: "Configure a project's name, Godot editor, source control, code editor, and launch behavior in Godot Launcher."
 tags:
   - guides
   - project-settings
@@ -13,41 +13,110 @@ import ThemedImage from '@theme/ThemedImage';
 
 # Project Settings
 
-Project settings let you rename the project entry shown in Godot Launcher. When the launcher can access `project.godot`, it can also update the Godot project name stored inside that file.
+Use Project Settings to configure how Godot Launcher manages an existing project. You can change its name and Godot editor, initialize Git, choose a code editor, and control how the Godot editor opens.
+
+To open Project Settings:
+
+1. Open the **Projects** view.
+2. Find the project you want to configure.
+3. Select **Project settings** on the project card.
+
+The drawer opens on the **Project** tab. Use the tabs at the top to move between **Project**, **Source Control**, **Code Editor**, and **Launch** settings.
+
+## Project
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Project settings drawer with rename options"
+  alt="Project Settings drawer showing the Project tab"
   sources={{
     light: '/img/screenshots/screen_projects_rename_drawer_light.webp',
     dark: '/img/screenshots/screen_projects_rename_drawer_dark.webp',
   }}
 />
 
-## Rename a launcher project
+The **Project** tab controls the project name and the Godot editor used to open it.
 
-1. Open the **Projects** view.
-2. Open the project settings action for the project you want to rename.
-3. Enter the new launcher project name.
-4. Save the drawer.
+### Change the project name
 
-The launcher name is the name shown in the Projects list and launcher menus.
+Edit **Project name** to change the name shown in Godot Launcher. The project folder on disk is not renamed.
 
-## Also rename the Godot project
+When `project.godot` is available, select **Also rename Godot project** to update the project name stored inside that file as well. Leave it cleared when you only want to change the launcher entry.
 
-When `project.godot` is available, the drawer includes **Also rename Godot project**. Turn this on if you also want the Godot project name updated inside `project.godot`.
-
-Leave it off when you only want to change the name shown by Godot Launcher.
-
-## Validation
-
-Before saving, Godot Launcher rejects names that would make the project list ambiguous or unsafe to display:
+Godot Launcher rejects:
 
 - Empty names.
-- Names with line breaks.
-- Names with control characters.
-- Names that duplicate another launcher project name.
+- Names containing line breaks or control characters.
+- Names already used by another project in the launcher.
 
-## Folder names
+### Change the Godot editor
 
-Renaming a project in this drawer does not rename the project folder on disk. It updates the launcher entry, and optionally the Godot project name inside `project.godot`.
+Use **Godot Editor** to choose a compatible installed or registered editor from the same major Godot version. An unavailable current editor remains visible, but you must restore its files or choose another editor.
+
+If the project has an available code editor selected, Godot Launcher reapplies the relevant code editor configuration for the new Godot editor.
+
+Select **Update** to apply changes made on this tab.
+
+## Source Control
+
+The **Source Control** tab shows whether Git has been initialized directly in the project folder.
+
+- If a Git repository is present, the tab shows it as **Active**.
+- If Git is available but the project does not have a repository, select **Initialize Git**.
+- If Git is not detected, install Git and rescan it from **Settings > Tools** before returning to the project.
+
+:::warning
+Do not initialize Git here if the project is already managed by a repository higher in the folder tree. Godot Launcher checks only for a `.git` folder inside the project and would create a nested repository.
+:::
+
+Initializing Git for an existing project runs `git init`. It does not stage files, create an initial commit, or require a configured Git name or email. This action is applied immediately, so you do not need to select **Update** afterward.
+
+See [Installing Git](../tools/install-git.md) if Git is not available.
+
+## Code Editor
+
+Use the **Code Editor** tab to choose the external code editor used for the project.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Project Settings Code Editor tab with Visual Studio Code selected and the Reset config action"
+  sources={{
+    light: '/img/screenshots/screen_projects_settings_code_editor_light.webp',
+    dark: '/img/screenshots/screen_projects_settings_code_editor_dark.webp',
+  }}
+/>
+
+- Select an available integration such as Visual Studio Code or VSCodium.
+- Select **None** to stop using a launcher-managed external code editor for the project.
+- Integrations marked **Disabled** or **Not found** remain visible but cannot be newly selected.
+
+Select **Update** after changing the code editor. Godot Launcher updates the external editor setting and applies the project configuration managed by that integration.
+
+The selection is stored in this Godot Launcher installation. It is not written to the project's portable `.godotlauncher` file.
+
+When you add the project to another Godot Launcher installation, the launcher can infer a code editor only when the existing editor configuration identifies one supported integration unambiguously.
+
+Manage code editor detection, defaults, executable paths, and launch arguments from **Settings > Code Editors**.
+
+### Reset code editor configuration
+
+When the project already has a saved code editor selection, **Reset config** appears beside the section heading. Use it to reapply the integration's managed project configuration without changing the selected code editor.
+
+Godot Launcher asks for confirmation before resetting the configuration. If a managed configuration file cannot be read safely, the launcher preserves the original as a timestamped `.bad` copy before creating a usable replacement.
+
+The reset uses the integration's current global settings. The integration must be enabled and detected. The reset is applied immediately and does not change those global settings.
+
+## Launch
+
+Use the **Launch** tab to control how the Godot editor opens the project.
+
+Select **Use windowed mode** to open the Godot editor in a regular window. Clear it to let the editor use its normal window behavior.
+
+Select **Update** to save the launch setting.
+
+See [Launch a Project in Windowed Mode](./launch-godot-project-in-windowed-mode.md) for the focused workflow.
+
+## Save project settings
+
+Select **Update** after changing the Project, Code Editor, or Launch tabs. The button remains unavailable until one of those settings changes.
+
+Select **Cancel** or close the drawer to leave those unsaved changes unapplied. Source Control initialization and **Reset config** are separate actions that take effect immediately.

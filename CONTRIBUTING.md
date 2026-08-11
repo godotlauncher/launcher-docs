@@ -15,6 +15,7 @@ We welcome your feedback, ideas, and pull requests, whether you're fixing a typo
 - [Reporting Issues](#reporting-issues)
 - [Proposing Improvements](#proposing-improvements)
 - [Contributing Pull Requests](#contributing-pull-requests)
+- [AI-Assisted Contributions](#ai-assisted-contributions)
 - [Pull Request Guidelines](#pull-request-guidelines)
 - [Documentation Standards](#documentation-standards)
 - [Quickstart: How to Contribute](#quickstart-how-to-contribute)
@@ -68,6 +69,12 @@ Thank you for helping improve the documentation!
 - Fix typos, clarify steps, or add missing information.
 - For large changes, start a discussion or open an issue first.
 - No contribution is too small because every fix helps users.
+
+---
+
+## AI-Assisted Contributions
+
+This repository follows the project-wide [AI-Assisted Contributions Policy](https://github.com/godotlauncher/launcher/blob/main/AI_POLICY.md). AI-assisted tools may be used, but their output is treated as untrusted input. Contributors remain responsible for understanding, reviewing, adapting, testing, and maintaining everything they submit.
 
 ---
 

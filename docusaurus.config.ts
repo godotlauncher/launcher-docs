@@ -133,7 +133,7 @@ const config: Config = {
           routeBasePath: "/",
           sidebarPath: "./sidebars.ts",
           editUrl: ({ locale, versionDocsDirPath, docPath }) => {
-            return `https://github.com/godotlauncher/launcher-docs/edit/main/${versionDocsDirPath}/${docPath}`;
+            return `https://github.com/godotlauncher/launcher-docs/edit/develop/${versionDocsDirPath}/${docPath}`;
           },
         },
         blog: false,

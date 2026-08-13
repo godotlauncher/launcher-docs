@@ -1,7 +1,7 @@
 ---
 id: installation
 slug: /getting-started/installation
-description: "The easiest and most reliable way to install the Godot Launcher is by visiting https://godotlauncher.org/download. The launcher is cross-platform, works with Windows, macOS, and Linux systems."
+description: "Install Godot Launcher on Windows, macOS, or Linux, then complete the four-step first-run setup."
 title: Installation
 tags:
   - setup-guide
@@ -12,49 +12,34 @@ tags:
 ---
 
 import { WingetCommand } from "@site/src/components/WingetCommandList";
+import ThemedImage from '@theme/ThemedImage';
 
 # Installation
 
-The easiest and most reliable way to install the Godot Launcher is by visiting the official website [download page](https://godotlauncher.org/download). The launcher is cross-platform, works with Windows, macOS, and Linux systems.
+Download Godot Launcher from the official [download page](https://godotlauncher.org/download). Choose the package for Windows, macOS, or Linux, then follow the platform instructions below.
 
-## Download
-
-[Download Godot Launcher](https://godotlauncher.org/download)
+For older versions or a specific installer file, see [Godot Launcher releases on GitHub](https://github.com/godotlauncher/launcher/releases).
 
 ## Install
 
-:::tip
-On first launch, the launcher matches your operating system language automatically. You can change it anytime under **Settings > Appearance > Language**.
-:::
-
 ### Windows
 
-> **System Requirements:** Windows 10 or later (64-bit)
+<div className="platform-download-panel">
+  <div className="platform-download-panel__details">
+    <strong className="platform-download-panel__title">Windows installer</strong>
+    <span className="platform-download-panel__meta">Windows 10 or later. Choose x64 for most PCs or ARM64 for Windows on ARM.</span>
+    <span className="platform-download-panel__file"><code>Godot_Launcher-x.y.z-win_x64.exe</code> or <code>Godot_Launcher-x.y.z-win_arm64.exe</code></span>
+  </div>
+  <a className="button button--primary" href="https://godotlauncher.org/download">Download Windows installer</a>
+</div>
 
-> **Filename:** `Godot_Launcher-x.y.z-win_x64.exe`
-
-<img
-  className="docs-media-frame"
-  src="/img/win-installer-ui.webp"
-  alt="Godot Launcher Setup UI - windows"
-/>
-
-On Windows, simply run the `.exe` installer after download. It will automatically guide you through the installation process.
+On Windows, run the `.exe` installer and follow the steps on screen.
 
 If you did not choose to run Godot Launcher at the end of the installation, you can run it directly from the Start Menu.
 
-#### Windows release signing
+#### Check Windows release signing {#windows-release-signing}
 
-Godot Launcher Windows installers are code signed as part of the release process. If Windows SmartScreen or your antivirus flags the installer, check the file signature before allowing it:
-
-1. Right-click the downloaded `.exe` file and choose **Properties**.
-2. Open the **Digital Signatures** tab.
-3. Select the signature and confirm Windows reports that it is valid.
-4. Confirm the signer or certificate details match the release signing information below.
-
-Free code signing is provided by [SignPath.io](https://signpath.io/), certificate by [SignPath Foundation](https://signpath.org/).
-
-Code signing helps confirm the installer was signed by the Godot Launcher release process. It does not verify Godot editor executables downloaded later. For downloaded Godot editors, verify they come from the official Godot release you selected.
+Windows installers are code signed through [SignPath.io](https://signpath.io/), with a certificate from the [SignPath Foundation](https://signpath.org/). See [Troubleshooting](../troubleshooting.md#installation-and-startup) if Windows blocks or warns about the installer.
 
 <WingetCommand
   label="Install with winget"
@@ -70,31 +55,31 @@ Code signing helps confirm the installer was signed by the Godot Launcher releas
 
 ### macOS
 
-**System Requirements:** macOS 10.15 Catalina or later
+<div className="platform-download-panel">
+  <div className="platform-download-panel__details">
+    <strong className="platform-download-panel__title">macOS disk image</strong>
+    <span className="platform-download-panel__meta">macOS 12 Monterey or later. The universal build supports Intel and Apple silicon.</span>
+    <span className="platform-download-panel__file"><code>Godot_Launcher-x.y.z-mac_universal.dmg</code></span>
+  </div>
+  <a className="button button--primary" href="https://godotlauncher.org/download">Download macOS disk image</a>
+</div>
 
-**Filename:** `Godot_Launcher-x.y.z-mac_universal.dmg`
+On macOS, Godot Launcher is distributed as a universal `.dmg`. Open the `.dmg`, then drag **Godot Launcher** to the **Applications** folder.
 
-<img
-  className="docs-media-frame"
-  src="/img/dmg-installer-ui.webp"
-  alt="Godot Launcher Setup UI - macOS dmg"
-/>
-
-For macOS Godot Launcher is distributed as a universal `.dmg`. Run the `.dmg` file and drag the `Godot Launcher` to the `Applications` folder when the dmg opens.
-
-Once done, Godot Launcher can be opened from the Applications folder.
+You can then open Godot Launcher from the Applications folder.
 
 
 ---
 
 ### Linux
 
-**System Requirements:** Modern 64-bit distribution (Ubuntu 20.04+, Fedora 36+, Arch-based, etc.)
-
-**Available packages (1.8.0+):**
-- AppImage (`Godot_Launcher-x.y.z-linux_x64.AppImage`)
-- Debian/Ubuntu `.deb` (`Godot_Launcher-x.y.z-linux_x64.deb`)
-- Fedora/RHEL `.rpm` (`Godot_Launcher-x.y.z-linux_x64.rpm`)
+<div className="platform-download-panel">
+  <div className="platform-download-panel__details">
+    <strong className="platform-download-panel__title">Linux packages</strong>
+    <span className="platform-download-panel__meta">Choose AppImage, <code>.deb</code>, or <code>.rpm</code> for x64 or ARM64. The examples below use x64 filenames.</span>
+  </div>
+  <a className="button button--primary" href="https://godotlauncher.org/download">Choose a Linux package</a>
+</div>
 
 #### AppImage
 
@@ -122,8 +107,6 @@ Install the `.deb` from the download page:
 sudo apt install ./Godot_Launcher-x.y.z-linux_x64.deb
 ```
 
-> If `apt` warns about missing dependencies, run `sudo apt --fix-broken install` to resolve them.
-
 #### Fedora / RHEL (.rpm)
 
 Install the `.rpm` from the download page:
@@ -133,3 +116,34 @@ sudo dnf install ./Godot_Launcher-x.y.z-linux_x64.rpm
 ```
 
 > On older RHEL-based distributions using `yum`, replace `dnf` with `yum`.
+
+---
+
+## Complete first-run setup
+
+On the first run, complete four steps to set up the launcher for your workflow.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Godot Launcher Welcome screen showing the four first-run setup steps"
+  sources={{
+    light: '/img/screenshots/screen_onboarding_welcome_light.webp',
+    dark: '/img/screenshots/screen_onboarding_welcome_dark.webp',
+  }}
+/>
+
+1. **Welcome** introduces the setup.
+2. **Appearance** lets you choose the launcher theme.
+3. **Setup** confirms the project and editor locations and lets you choose a default code editor. On Windows, you can also enable editor symlinks to reduce disk use.
+4. **Preferences** lets you choose what happens after opening a project. On Windows and macOS, you can also choose whether the launcher starts with your computer.
+
+When setup finishes:
+
+- If no Godot editor is installed, **Finish and install an editor** opens the editor catalog.
+- If an editor is already available, **Finish and view projects** opens the Projects view.
+
+:::tip
+Godot Launcher matches your operating system language automatically. Change it later under **Settings > Appearance > Language**. The other setup choices remain available in [Launcher Settings](../settings/launcher-settings.mdx), [Code Editor Settings](../settings/code-editors.mdx), and [Behavior Settings](../settings/behavior.mdx).
+:::
+
+For package or startup problems, see [Installation and startup troubleshooting](../troubleshooting.md#installation-and-startup). For Linux tray problems, see [System tray troubleshooting](../troubleshooting.md#system-tray).

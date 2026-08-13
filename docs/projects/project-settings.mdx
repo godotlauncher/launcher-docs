@@ -2,7 +2,7 @@
 id: project-settings
 title: Project Settings
 slug: /projects/project-settings
-description: "Configure a project's name, Godot editor, source control, code editor, and launch behavior in Godot Launcher."
+description: "Rename a project, choose its Godot and code editors, add Git, and control how Godot opens."
 tags:
   - guides
   - project-settings
@@ -10,20 +10,18 @@ tags:
 ---
 
 import ThemedImage from '@theme/ThemedImage';
+import { Settings } from 'lucide-react';
 
 # Project Settings
 
-Use Project Settings to configure how Godot Launcher manages an existing project. You can change its name and Godot editor, initialize Git, choose a code editor, and control how the Godot editor opens.
+Project Settings keep the choices for one project together. Use them to rename the project, change its Godot editor, add Git, choose a code editor, or open Godot in windowed mode.
 
-To open Project Settings:
+## Open Project Settings
 
 1. Open the **Projects** view.
-2. Find the project you want to configure.
-3. Select **Project settings** on the project card.
+2. Select <span className="docs-inline-action"><Settings aria-hidden="true" /></span> on the project card.
 
-The drawer opens on the **Project** tab. Use the tabs at the top to move between **Project**, **Source Control**, **Code Editor**, and **Launch** settings.
-
-## Project
+The drawer opens on the **Project** tab. The other tabs are **Source Control**, **Code Editor**, and **Launch**.
 
 <ThemedImage
   className="docs-media-frame"
@@ -34,47 +32,33 @@ The drawer opens on the **Project** tab. Use the tabs at the top to move between
   }}
 />
 
-The **Project** tab controls the project name and the Godot editor used to open it.
-
-### Change the project name
+## Rename a project
 
 Edit **Project name** to change the name shown in Godot Launcher. The project folder on disk is not renamed.
 
-When `project.godot` is available, select **Also rename Godot project** to update the project name stored inside that file as well. Leave it cleared when you only want to change the launcher entry.
+Select **Also rename Godot project** if you also want to change the name stored in `project.godot`. Leave it off to change only the launcher entry.
 
-Godot Launcher rejects:
+The name must be unique in the launcher and cannot be empty. Select **Update** to save it.
 
-- Empty names.
-- Names containing line breaks or control characters.
-- Names already used by another project in the launcher.
+## Change the Godot editor
 
-### Change the Godot editor
+Choose an installed or registered editor from **Godot Editor**, then select **Update**. The project will use that editor the next time you open it.
 
-Use **Godot Editor** to choose a compatible installed or registered editor from the same major Godot version. An unavailable current editor remains visible, but you must restore its files or choose another editor.
+You can choose an editor from the same major Godot version. If the project uses Visual Studio Code or VSCodium, the launcher also updates that editor's project setup.
 
-If the project has an available code editor selected, Godot Launcher reapplies the relevant code editor configuration for the new Godot editor.
+See [Change Project Editor Version](../editors/change-project-editor.md) for .NET editors, custom builds, and missing editor recovery.
 
-Select **Update** to apply changes made on this tab.
+## Add Git to an existing project {#source-control}
 
-## Source Control
-
-The **Source Control** tab shows whether Git has been initialized directly in the project folder.
-
-- If a Git repository is present, the tab shows it as **Active**.
-- If Git is available but the project does not have a repository, select **Initialize Git**.
-- If Git is not detected, install Git and rescan it from **Settings > Tools** before returning to the project.
+Open **Source Control**. If the project does not have a Git repository, select **Initialize Git**.
 
 :::warning
-Do not initialize Git here if the project is already managed by a repository higher in the folder tree. Godot Launcher checks only for a `.git` folder inside the project and would create a nested repository.
+Do not use **Initialize Git** if the project is already inside a larger Git repository. The launcher may create a second repository inside it.
 :::
 
-Initializing Git for an existing project runs `git init`. It does not stage files, create an initial commit, or require a configured Git name or email. This action is applied immediately, so you do not need to select **Update** afterward.
+This creates the repository immediately. It does not add Git template files or create a first commit. See [Using Git With Godot Launcher](../tools/using-git-with-godot-launcher.mdx) for new-project Git setup and help when Git is unavailable.
 
-See [Installing Git](../tools/install-git.md) if Git is not available.
-
-## Code Editor
-
-Use the **Code Editor** tab to choose the external code editor used for the project.
+## Choose a code editor {#code-editor}
 
 <ThemedImage
   className="docs-media-frame"
@@ -85,38 +69,14 @@ Use the **Code Editor** tab to choose the external code editor used for the proj
   }}
 />
 
-- Select an available integration such as Visual Studio Code or VSCodium.
-- Select **None** to stop using a launcher-managed external code editor for the project.
-- Integrations marked **Disabled** or **Not found** remain visible but cannot be newly selected.
+Open **Code Editor** and choose Visual Studio Code, VSCodium, or **None**. Select **Update** to save the choice. Godot will open project scripts in the selected editor.
 
-Select **Update** after changing the code editor. Godot Launcher updates the external editor setting and applies the project configuration managed by that integration.
+### Restore the code editor setup {#reset-code-editor-configuration}
 
-The selection is stored in this Godot Launcher installation. It is not written to the project's portable `.godotlauncher` file.
+This choice applies only on this computer. Use **Reset config** if Godot stops opening scripts in the selected editor. See [Code Editor Settings](../settings/code-editors.mdx) to set up an editor or change its location.
 
-When you add the project to another Godot Launcher installation, the launcher can infer a code editor only when the existing editor configuration identifies one supported integration unambiguously.
+## Open Godot in windowed mode
 
-Manage code editor detection, defaults, executable paths, and launch arguments from **Settings > Code Editors**.
+Open **Launch**, enable **Use windowed mode**, and select **Update**. Godot Launcher will request a regular window each time it opens this project.
 
-### Reset code editor configuration
-
-When the project already has a saved code editor selection, **Reset config** appears beside the section heading. Use it to reapply the integration's managed project configuration without changing the selected code editor.
-
-Godot Launcher asks for confirmation before resetting the configuration. If a managed configuration file cannot be read safely, the launcher preserves the original as a timestamped `.bad` copy before creating a usable replacement.
-
-The reset uses the integration's current global settings. The integration must be enabled and detected. The reset is applied immediately and does not change those global settings.
-
-## Launch
-
-Use the **Launch** tab to control how the Godot editor opens the project.
-
-Select **Use windowed mode** to open the Godot editor in a regular window. Clear it to let the editor use its normal window behavior.
-
-Select **Update** to save the launch setting.
-
-See [Launch a Project in Windowed Mode](./launch-godot-project-in-windowed-mode.md) for the focused workflow.
-
-## Save project settings
-
-Select **Update** after changing the Project, Code Editor, or Launch tabs. The button remains unavailable until one of those settings changes.
-
-Select **Cancel** or close the drawer to leave those unsaved changes unapplied. Source Control initialization and **Reset config** are separate actions that take effect immediately.
+Leave this setting off if you want Godot to use its normal window behavior. See [Launch a Project in Windowed Mode](./launch-godot-project-in-windowed-mode.md) for more information.

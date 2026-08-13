@@ -2,7 +2,7 @@
 id: change-project-editor
 title: Change Project Editor Version
 slug: /editors/change-project-editor
-description: "Learn how to change the editor version for your Godot projects in the launcher, including custom-built Godot editors, .NET transitions, and missing editor recovery."
+description: "Choose which official, .NET, or custom-built Godot editor opens a project."
 tags:
   - guides
   - godot
@@ -17,92 +17,48 @@ import ThemedImage from '@theme/ThemedImage';
 
 # Change Project Editor Version
 
+Each project can use a different installed or registered Godot editor. Change it when a project needs another release, a .NET build, or a custom build.
+
 <ThemedImage
   className="docs-media-frame"
-  alt="Changing Project Editor Version"
+  alt="Opening Project Settings and changing the Godot editor version"
   sources={{
     light: '/img/animations/change-project-editor/change-project-editor-anim_light.gif',
     dark: '/img/animations/change-project-editor/change-project-editor-anim_dark.gif',
   }}
 />
 
-Godot Launcher lets you choose which editor each project uses. You can switch between official releases, .NET editors, and registered custom-built Godot editors from the Projects list.
+## Choose another Godot editor
 
-## Choose the editor version
+1. Open the **Projects** view.
+2. Select **Project settings** on the project card.
+3. Stay on the **Project** tab.
+4. Choose an available version from **Godot Editor**.
+5. Select **Update**.
 
-When creating a new project, choose the editor in the project setup form. For existing projects, use the editor selector in the **Projects** list.
-
-<ThemedImage
-  className="docs-media-frame"
-  alt="Create Project view with a custom editor selected"
-  sources={{
-    light: '/img/screenshots/screen_projects_new_project_custom_editor_light.webp',
-    dark: '/img/screenshots/screen_projects_new_project_custom_editor_dark.webp',
-  }}
-/>
-
-For projects you import, the launcher reads `project.godot` and selects the closest compatible editor it can find.
+The project uses the selected editor the next time you open it. Its folder and `project.godot` file do not move.
 
 :::info
-Keep the editor versions your projects depend on installed or registered. This is especially useful when you maintain projects across different Godot versions or switch between GDScript and .NET workflows.
+Godot Launcher only changes a project between editors from the same major Godot version. Follow the [official Godot upgrading guide](https://docs.godotengine.org/en/stable/tutorials/migrating/upgrading_to_godot_4.html) before opening a project with a different major version.
 :::
 
-## Change an existing project
+## Use an official or custom build
 
-1. Open **Godot Launcher**.
-2. Locate your project in the **Projects** list.
-3. Use the dropdown in the **Editor** column to select a different editor.
+Official releases and registered custom builds appear together in **Godot Editor**. Custom builds are useful for locally compiled or team-provided versions.
 
-The launcher updates the project setup it manages for that editor. When VS Code integration is enabled, it also updates the relevant VS Code workspace files for the selected editor.
+See [Custom-Built Godot Editors](./custom-editors.mdx) to register or replace one.
 
-## Custom-built Godot editors
+## Keep the code editor working
 
-Once a custom-built Godot editor is registered, it appears in project editor selectors like a regular installed editor.
+Changing the Godot editor does not change the project's Visual Studio Code or VSCodium choice.
 
-Use custom-built Godot editors for locally compiled editors, team-distributed editors, or other editor binaries that are not part of the official Godot release list. See [Custom-Built Godot Editors](./custom-editors.mdx) to register or replace one.
+If the project uses either editor and it is available, the launcher updates its project setup for the new Godot version. This includes supported build and debug setup when you choose a .NET editor.
 
-## Handling .NET and GDScript transitions
+To choose another code editor, open [Project Settings > Code Editor](../projects/project-settings.mdx#code-editor).
 
-Switching between **GDScript** and **.NET (C#)** workflows involves more than choosing another editor binary. The launcher helps by adjusting the development environment it manages.
+If the selected editor is no longer available, see [Troubleshooting](../troubleshooting.md#project-editor-selection).
 
-When switching to .NET:
+## Related guides
 
-- VS Code settings are updated automatically if VS Code integration is enabled.
-- Existing editor settings are preserved when they are already configured.
-- The launcher can generate or update:
-  - A build task to compile C# scripts.
-  - A launch configuration for running/debugging the project.
-- Recommended VS Code extensions for .NET and Godot are added if missing.
-
-:::warning
-The launcher defaults to **Visual Studio Code** for .NET projects when VS Code is installed. Existing editor settings for the selected version are not overwritten without warning.
-
-To manually configure VS Code for C#, refer to the [official Godot documentation](https://docs.godotengine.org/en/stable/tutorials/scripting/c_sharp/c_sharp_basics.html).
-:::
-
-## Missing or invalid editor paths
-
-If an editor used by a project is uninstalled, moved, or unavailable, the launcher marks the project as having a missing editor and prevents launch until the problem is resolved.
-
-<ThemedImage
-  className="docs-media-frame"
-  alt="Projects list showing a missing editor state"
-  sources={{
-    light: '/img/screenshots/screen_projects_missing_editor_light.webp',
-    dark: '/img/screenshots/screen_projects_missing_editor_dark.webp',
-  }}
-/>
-
-For official releases, you can:
-
-- Mount or reconnect the storage device that contains the editor.
-- Retry validation after restoring the path.
-- Reinstall the editor.
-- Remove the broken install entry.
-- Select another compatible editor for the project.
-
-For custom-built Godot editors, the launcher explains that the editor path is unavailable. Removing the custom editor unregisters it from Godot Launcher but does not delete the editor files from disk.
-
-## Summary
-
-Godot Launcher gives you control over which editor each project uses. It supports official releases, registered custom-built Godot editors, GDScript/.NET transitions, and clear recovery when an editor path is missing.
+- [Project Settings](../projects/project-settings.mdx)
+- [Editor Settings Per Project](./editor-settings.mdx)

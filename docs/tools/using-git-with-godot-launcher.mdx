@@ -1,7 +1,7 @@
 ---
 id: using-git
 title: "Using Git With Godot Launcher"
-description: "Learn how Git is used and configured in your Godot Launcher projects."
+description: "Prepare Git for new or existing Godot projects and understand what Godot Launcher adds."
 slug: "/integrations/using-git-with-godot-launcher"
 tags:
   - guides
@@ -13,131 +13,67 @@ import ThemedImage from '@theme/ThemedImage';
 
 # Using Git With Godot Launcher
 
-## What is Git?
+Git keeps a history of changes to your project. Godot Launcher can prepare Git when you create a project or add a repository later from Project Settings.
 
-Git is a distributed version control system. It helps you track changes to files over time. Whether you're working alone or in a team, Git makes it easier to manage your work, recover from mistakes, and collaborate smoothly.
+The result depends on when you add Git:
 
-## Why Use Git With Godot?
+- A **new project** gets the recommended Git files, a `main` branch, and an initial commit.
+- An **existing project** gets an empty repository. The launcher does not change or commit its files.
 
-Using Git with Godot projects makes your development safer and more efficient. When you add Git to a Godot project, you can:
+## Set up Git for a new project
 
-- Track changes in both code and assets
-- Revert to earlier versions when needed
-- Collaborate with others without overwriting work
+Open **Projects > New Project** and keep **Initialize Git Repository** enabled.
 
-:::info
-Even if you're working solo, it's a good idea to use a Git hosting service like [GitHub](https://github.com) to store backups of your Godot projects.
-:::
-
-## Git in Godot Launcher
-
-Godot Launcher automatically detects Git and gives you the option to initialize the new Godot project with Git when created. You can also initialize Git later from any project's overflow menu, no need to visit the terminal.
-
-:::info
-Git is detected using this background shell command:
-
-~~~bash
-$ git --version
-git version 2.39.5 (Apple Git-154)
-~~~
-:::
-
-### Create a New Godot Project With Git
-
-When Git is detected the `New Project` UI shows an option to enable Git:
 <ThemedImage
   className="docs-media-frame"
-  alt="Godot Launcher - New Project With Git UI"
+  alt="New Project drawer with Initialize Git Repository enabled"
   sources={{
     light: '/img/screenshots/screen_projects_new_project_light.webp',
     dark: '/img/screenshots/screen_projects_new_project_dark.webp',
   }}
 />
 
-:::info
-You can see if Git is detected in `Settings` > `Tools`. [More info here](../settings/launcher-settings.mdx#tools-tab)
+The launcher creates `.gitignore` and `.gitattributes`, initializes the repository on a `main` branch, and creates an `Initial commit`.
+
+The first commit needs your Git name and email. If they are missing, you can add them for this project or all repositories on the computer. You can also skip the first commit. See [Troubleshooting](../troubleshooting.md#git) for this recovery flow.
+
+## Understand the generated Git files
+
+The generated `.gitignore` is designed for Godot 4.3 and later. It ignores:
+
+- Godot cache and generated build directories such as `.godot/` and `/android/`.
+- Generated translations and .NET output.
+- Launcher-managed `.vscode/` configuration, which can contain local paths.
+- Common local `build/` and `builds/` output.
+
+The file also contains commented compatibility rules for older Godot project layouts. Enable only the rules your project needs.
+
+The generated `.gitattributes` treats detected text files as text and normalizes their repository line endings to LF.
+
+:::warning Godot 4.0 and export credentials
+Godot 4.0 may store sensitive credentials in `export_presets.cfg`. The generated template does not ignore this file by default. Read the compatibility warning in `.gitignore` and uncomment its `export_presets.cfg` rule before committing that file when it can contain credentials.
+
+If the file is already tracked, follow the `git rm --cached -- export_presets.cfg` guidance in the generated file. Removing it from the current index does not remove it from Git history. Rotate credentials that may already have been committed.
 :::
 
-If you choose to enable Git, the launcher will automatically run the following commands:
+## Add Git to an existing project
 
-~~~bash
-git init
-git add .
-git commit -m "initial commit"
-git branch -m main
-~~~
+1. Open **Projects**.
+2. Click the project's settings button.
+3. Open **Source Control**.
+4. Click **Initialize Git**.
 
-:::note
-If you chose to add git to a project later, only `git init` is run and no commits are created
+This action creates a Git repository in the project folder. It does not add template files, change the branch name, or create a commit.
+
+The project card shows the **Git** status after initialization.
+
+:::warning Parent repositories
+Do not use **Initialize Git** if the project is already inside a larger Git repository. The launcher may create a second repository inside it.
 :::
 
-This sets up your Godot project with Git and creates the first commit. It's a clean starting point that you can use later to reset your project if needed.
+## Related guides
 
-:::warning
-If Git is installed but your `user.name` and `user.email` are not set, the launcher won't be able to make the first commit.
-No changes are lost, but you'll need to [configure Git](#git-user-not-configured) to start using it.
-:::
-
-## Initialize Git from the Project Menu
-
-Existing projects can adopt Git without leaving the launcher:
-
-1. Open the **Projects** list and click the overflow menu beside your project.
-2. Choose **Initialize Git Repository**.
-
-The launcher validates that Git is installed (using the cached tool check), runs `git init`, and marks the project with a Git badge. If Git is unavailable, the menu entry is disabled until you rescan tools in **Settings > Tools**. Existing repositories keep the action hidden to avoid accidental reinitialization. [learn more about settings](../settings/launcher-settings.mdx)
-
-<ThemedImage
-  className="docs-media-frame"
-  alt="Project menu with Git and tool actions"
-  sources={{
-    light: '/img/screenshots/screen_projects_menu_light.webp',
-    dark: '/img/screenshots/screen_projects_menu_dark.webp',
-  }}
-/>
-
-### What Happens if Git Is Not Installed?
-
-If Git is not installed, Godot Launcher still creates your project, but shows a warning. Git features are disabled, and no Git repository is initialized.
-
-This is what the UI looks like when Git is missing:
-<ThemedImage
-  className="docs-media-frame"
-  alt="Godot Launcher - New Project No Git UI"
-  sources={{
-    light: '/img/screenshots/screen_projects_new_project_no_git_light.webp',
-    dark: '/img/screenshots/screen_projects_new_project_no_git_dark.webp',
-  }}
-/>
-
-:::info
-To get the most out of version control in Godot, [install Git using this guide](./install-git.md).
-:::
-
-## Git User Not Configured?
-
-If Git is installed but the `user.name` and `user.email` values are missing, the first commit in your Godot Git project will fail.
-
-:::warning
-You need to have set a `user.name` and `user.email` to create commits.
-:::
-
-To fix this, run the following commands from terminal:
-
-~~~bash
-cd /path/to/your/project/directory
-git config --global user.name "Your Name"
-git config --global user.email "your.email@example.com"
-~~~
-
-You can also set these values for just one project by removing `--global`.
-
----
-
-## Related Links
-
-- [Create a New Godot Project](../projects/create-project.mdx)
-- [Install Git](./install-git.md)
-- [Launcher Settings](../settings/launcher-settings.mdx)
-- [VS Code Setup](./vscode-setup.md)
-- [Editor Settings](../editors/editor-settings.mdx)
+- [Create Your First Project](../projects/create-project.mdx)
+- [Add an Existing Project](../projects/add-existing-project.mdx)
+- [Project Settings](../projects/project-settings.mdx)
+- [Installing Git](./install-git.md)

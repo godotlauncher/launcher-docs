@@ -47,6 +47,7 @@ export default {
       label: "Projects",
       collapsed: false,
       items: [
+        "projects/manage-projects",
         {
           type: "ref",
           id: "projects/create-project",
@@ -55,7 +56,6 @@ export default {
           type: "ref",
           id: "projects/add-existing-project",
         },
-        "projects/project-tool-toggles",
         "projects/project-settings",
         "projects/launch-godot-project-in-windowed-mode",
       ],
@@ -68,6 +68,7 @@ export default {
         "tools/using-git",
         "tools/install-git",
         "tools/vscode-setup-for-godot",
+        "tools/vscodium-setup-for-godot",
       ],
     },
     {
@@ -80,6 +81,7 @@ export default {
         "settings/editor-installs-location",
         "settings/appearance-language",
         "settings/behavior",
+        "settings/code-editors",
         "settings/tools",
         "settings/system-tray",
         "updates/manage-launcher-updates",

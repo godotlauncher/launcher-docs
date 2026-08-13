@@ -1,74 +1,46 @@
 ---
 id: launch-godot-project-in-windowed-mode
 title: "Launch Godot Project in Windowed Mode"
-description: "Learn how to enable or disable windowed mode for each project in Godot Launcher and use Godot 4.4's window size memory."
+description: "Choose whether Godot Launcher requests windowed mode when opening a project."
 slug: "/projects/launch-godot-project-in-windowed-mode"
 tags:
   - godot
   - godot-project-setup
   - quality-of-life
-  - open-source
 ---
 
 import ThemedImage from '@theme/ThemedImage';
 
-# Launch Godot Project in Windowed Mode
+# Launch a Godot Project in Windowed Mode
 
-## Overview
+Use windowed mode when you want a project to open in a regular window every time.
 
-Before Godot 4.4, the editor would always launch in fullscreen unless the `-w` flag was passed to force windowed mode. To avoid fullscreen launches (especially annoying on ultrawide displays), Godot Launcher used to always launch the editor with `-w`.
+## Change the project setting
 
-Starting with Godot 4.4, this is no longer necessary. The editor now remembers the window state. Godot Launcher reflects this by:
+1. Open **Projects**.
+2. Click the project's settings button.
+3. Open **Launch**.
+4. Enable or disable **Use windowed mode**.
+5. Click **Update**.
 
-- Defaulting to **not** pass `-w` (non-windowed mode).
-- Providing a **per-project option** to enable windowed mode if desired.
-
-This gives users full control over how projects are launched.
-## How to Enable Windowed Mode for a Project
 <ThemedImage
   className="docs-media-frame"
-  alt="Change per project to open in windowed mode"
+  alt="Enabling windowed mode from the Launch tab in Project Settings"
   sources={{
     light: '/img/animations/windowed-mode/windowed-mode-anim_light.gif',
     dark: '/img/animations/windowed-mode/windowed-mode-anim_dark.gif',
   }}
 />
 
-1. Open **Godot Launcher**.
-2. Find your project in the **Project View**.
-3. Click the **3-dot menu** next to the project.
-4. Click **Use Windowed Mode** to toggle the setting.
+The setting applies when you open the project from the main window or the system tray.
 
-When enabled, Godot Launcher will pass `-w` when launching the editor for that project. The setting is saved per project.
+The project card shows a **Windowed** status chip while the option is enabled.
 
-## Badge Indicator
+## When to enable it
 
-If a project is set to launch in windowed mode, you'll see a **(w)** badge next to it in the project list. Hovering over the badge shows a tooltip explaining that the project will launch with `-w`.
+Godot 4.4 and later can remember the editor window state. Leave **Use windowed mode** off when you want Godot to restore that state. Enable it when you always want this project to open in a regular window.
 
-## Where It Works
+## Related guides
 
-The windowed mode setting is respected no matter how you launch:
-
-- From the **main Godot Launcher window**
-- From the **Godot System Tray** menu
-
-## When to Use This
-
-If you prefer the editor to always open in a smaller window, you can enable this option. Otherwise, you can let the Godot Editor manage the window size automatically.
-
-For **Godot 4.4 and newer**, you may want to leave this off and let the editor restore your last layout automatically.
-
-## Requirements
-
-- **Godot Launcher** version 1.2.0 or later
-- **Godot Editor** version 4.4 or newer (for window memory support)
-
-## Related
-
-- [Download Godot Launcher](https://godotlauncher.org/download/)
-- [Project Badges and Tooltips](./project-badges.mdx)
-- [Managing Godot Editor Versions](../editors/change-project-editor.md)
-
----
-
-This feature improves quality of life and gives you more flexibility when launching Godot projects.
+- [Project Settings](./project-settings.mdx)
+- [Godot command-line display options](https://docs.godotengine.org/en/4.4/tutorials/editor/command_line_tutorial.html#display-options)

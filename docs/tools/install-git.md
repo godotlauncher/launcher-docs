@@ -1,7 +1,7 @@
 ---
 id: install-git
 title: "Installing Git"
-description: "Learn how to install Git on your system to use version control with Godot Launcher."
+description: "Install Git and make it available for new and existing Godot Launcher projects."
 slug: "/integrations/install-git"
 tags:
   - guides
@@ -11,43 +11,37 @@ tags:
 
 # Installing Git
 
-To use Git with your Godot projects in Godot Launcher, you must have Git installed on your system.
+Install Git before asking Godot Launcher to create a repository for a project.
 
-## Check if Git is Installed
+## Check whether Git is installed
 
 Open a terminal and run:
 
-~~~bash
+```bash
 git --version
-~~~
+```
 
-If Git is installed, you'll see something like:
+If the command is not found, install Git from the [official Git downloads page](https://git-scm.com/downloads) and follow the instructions for your operating system.
 
-~~~bash
-git version 2.39.5 (Apple Git-154)
-~~~
+## Rescan in Godot Launcher
 
-:::info
-If you see a "command not found" or similar error, Git is not installed.
-:::
+After installation:
 
-## Install Git
+1. Open **Settings > Tools**.
+2. Click **Rescan tools**.
+3. Confirm that Git is marked **Available**.
 
-You can download and install Git from the official website:  
-👉 [https://git-scm.com/downloads](https://git-scm.com/downloads)
+## Initialize a repository
 
-Follow the instructions for your operating system.
+- For a new project, open **Projects > New Project** and enable **Initialize Git Repository**.
+- For an existing project, open its settings and choose **Source Control > Initialize Git**. This creates the repository without changing or committing project files.
 
-## Next Steps
+See [Using Git With Godot Launcher](./using-git-with-godot-launcher.mdx) for the different setup results and generated files.
 
-After installing Git, you're ready to go back and [use Git with Godot Launcher](./using-git-with-godot-launcher.mdx).
+If Git remains unavailable after a rescan, see [Troubleshooting](../troubleshooting.md#git).
 
-You may also need to [configure your Git username and email](./using-git-with-godot-launcher.mdx#git-user-not-configured) before your first commit can be created.
+## Related guides
 
-
-## Related Links
-
-- [Using Git With Godot Launcher](./using-git-with-godot-launcher.mdx)
 - [Create a New Godot Project](../projects/create-project.mdx)
-- [Launcher Settings](../settings/launcher-settings.mdx)
-- [Change Project Editor](../editors/change-project-editor.md)
+- [Add an Existing Project](../projects/add-existing-project.mdx)
+- [Project Settings](../projects/project-settings.mdx)

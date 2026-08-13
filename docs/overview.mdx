@@ -1,7 +1,7 @@
 ---
 id: overview
 title: Godot Launcher Documentation
-description: "Official documentation for Godot Launcher, an independent desktop companion for Godot Engine that manages editor versions, projects, custom-built editors, and development-tool setup."
+description: "Official documentation for Godot Launcher, an independent desktop companion for managing Godot editors, projects, Git setup, and per-project code editors."
 sidebar_label: Overview
 slug: /
 ---
@@ -10,7 +10,7 @@ import ThemedImage from '@theme/ThemedImage';
 
 # Godot Launcher Documentation
 
-**Godot Launcher** is an independent, cross-platform desktop companion for Godot Engine. It helps you download official Godot editor releases, register custom-built Godot editors, organize projects, and configure common development tools without repeating setup work for every project.
+**Godot Launcher** is an independent desktop companion for Godot Engine. Use it to install Godot editors, organize projects, prepare Git, and choose a code editor for each project.
 
 <ThemedImage
   className="docs-media-frame"
@@ -31,25 +31,28 @@ If you are new to Godot Launcher, follow these pages in order:
 2. [Install a Godot editor](./editors/install-editor.mdx)
 3. [Create your first project](./projects/create-project.mdx)
 4. [Add an existing project](./projects/add-existing-project.mdx)
-5. [Configure launcher settings](./settings/launcher-settings.mdx)
+5. [Manage your projects](./projects/manage-projects.mdx)
+6. [Configure launcher settings](./settings/launcher-settings.mdx)
 
 ## Common tasks
 
 - [Register a custom-built Godot editor](./editors/custom-editors.mdx)
 - [Change the editor version for a project](./editors/change-project-editor.md)
+- [Configure code editor detection and defaults](./settings/code-editors.mdx)
 - [Use Git with Godot Launcher](./tools/using-git-with-godot-launcher.mdx)
 - [Set up Visual Studio Code for Godot](./tools/vscode-setup.md)
+- [Set up VSCodium for Godot](./tools/vscodium-setup.md)
 - [Manage launcher updates](./updates/manage-launcher-updates.mdx)
 - [Troubleshoot a problem](./troubleshooting.md)
 
-## What Godot Launcher manages
+## What you can manage
 
 - **Editor installs**: Download official Godot releases and register custom-built Godot editors.
-- **Projects**: Create new projects, import existing `project.godot` files, and choose the right editor per project.
-- **Development tools**: Initialize Git and configure VS Code from project workflows.
+- **Projects**: Create or add projects, organize them, and choose a Godot editor for each one.
+- **Development tools**: Prepare Git and use Visual Studio Code or VSCodium for project scripts.
 - **Project-specific settings**: Keep Godot editor settings isolated across projects and editor versions.
 - **Launcher behavior**: Configure appearance, language, startup behavior, system tray access, update checks, and tool detection.
-- **Platform-specific workflows**: Use winget on Windows, optional Windows editor symlinks, and Linux startup workarounds when needed.
+- **Platform options**: Use winget on Windows, optional Windows editor links, and the system tray when available.
 
 ---
 

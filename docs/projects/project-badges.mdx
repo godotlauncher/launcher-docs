@@ -1,114 +1,60 @@
 ---
 id: project-badges
 title: "Project Badges and Tooltips"
-description: "Understand what each badge means in the Godot Launcher project list and how they help identify project types at a glance."
+description: "Understand the Godot editor, code editor, Git, windowed mode, and warning status shown on project cards."
 slug: "/reference/project-badges"
 tags:
   - guides
   - godot
-  - configuration
   - project-settings
   - dotnet
   - version-control
-  - quality-of-life
+  - project-badges
 ---
+
+import ThemedImage from '@theme/ThemedImage';
 
 # Project Badges and Tooltips
 
-import { TriangleAlert } from "lucide-react";
-import ThemedImage from '@theme/ThemedImage';
-
-The Godot Launcher project list displays badges next to each project entry. These icons communicate configuration details at a glance and assist in identifying projects that require special attention.
-
-Each badge includes a tooltip that provides a short description when hovered.
+Project cards show the tools and launch choices used by each project. Hover a status for more information.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Project Badges UI"
+  alt="Project cards showing Godot editor, prerelease, code editor, Git, windowed, and warning statuses"
   sources={{
     light: '/img/animations/project-badges/project-badges-anim_light.gif',
     dark: '/img/animations/project-badges/project-badges-anim_dark.gif',
   }}
 />
 
-## Badge Types
+## Godot editor
 
-### `(c#)` - .NET Project Indicator
+The Godot editor chip shows the selected editor version.
 
-**Condition:** Displayed when the project is using the .NET (C#) variant of the Godot editor.
+- **.NET** means the project uses a .NET Godot build.
+- A flask icon marks an alpha, beta, release candidate, or other prerelease build.
+- A warning icon means the selected Godot editor is unavailable.
 
-**Purpose:** Indicates that the project uses C# scripts and has a .NET Godot Editor version.
+A warning beside the project name means the project itself needs attention. Hover it to see the reason.
 
-**Tooltip:** _This is a .NET project_
+## Code editor
 
-### `(pr)` - Pre-release Version Indicator
+When a code editor is selected, its chip shows the editor icon and name. Visual Studio Code and VSCodium use different icons.
 
-**Condition:** Displayed when the selected Godot version is labeled as a pre-release (e.g. alpha, beta, or release candidate).
+If the selected code editor is unavailable, a warning replaces its normal icon. You can still open the project in Godot, but scripts may not open in that code editor.
 
-**Purpose:** Helps identify projects running potentially unstable or experimental builds.
+## Git
 
-**Tooltip:** _Using a pre-release Godot Editor version_
+The **Git** chip means the project folder has a Git repository.
 
-### `(w)` - Windowed Launch Mode Indicator
+## Windowed mode
 
-**Condition:** Displayed when the "Open Windowed" setting is enabled for the project.
+The **Windowed** chip means the launcher will request a regular window when it opens the project.
 
-**Purpose:** Indicates that the Godot Editor will be launched with the `-w` flag, forcing windowed mode.
+For warning and recovery steps, see [Troubleshooting](../troubleshooting.md#project-editor-selection).
 
-**Tooltip:** _This project is opened in windowed mode_
+## Related documentation
 
-### <img src="/img/icons/vscode.svg" alt="VS Code badge icon" width="24" /> VS Code Badge - External Editor Integration
-
-**Condition:** Appears when the project has **Use Visual Studio Code as Text Editor** enabled.
-
-**Purpose:** Confirms that the launcher manages `.vscode` workspace files and will open VS Code for script editing.
-
-**Tooltip:** _VS Code integration enabled_ (localized).
-
-### <img src="/img/icons/git_icon_color.svg" alt="Git badge icon" width="24" /> Git Badge - Version Control Status
-
-**Condition:** Displayed when the project directory contains a Git repository or the launcher initialized Git from the overflow menu.
-
-**Purpose:** Signals that version control is active so collaborators can quickly spot tracked projects.
-
-**Tooltip:** _Git repository detected_ (localized).
-
-### <TriangleAlert size={24} style={{color: "orange"} } /> - Missing or Invalid Editor
-
-**Condition:** Shows when the assigned Godot editor is missing, moved, or fails validation.
-
-**Purpose:** Highlights projects that cannot launch until the editor is repaired or reassigned. A matching warning appears in the Installs view with **Retry** and **Remove** actions.
-
-**Tooltip:** _Editor unavailable - retry or choose a new version_ (localized).
-
-> **Badge icons**  
-> The VS Code and Git badges shown above use the same artwork as the launcher UI, ensuring the documentation matches what you see in-app.
-
-## Badge Placement
-
-Badges appear in the following locations:
-
-- In the **Project View** within the Godot Launcher main interface.
-- Inline with each project entry.
-
-Tooltips are accessible by hovering over the badge.
-
-## Use Cases
-
-Badges improve workflow clarity and reduce configuration guesswork. They are especially useful when:
-
-- Managing mixed language environments (GDScript and C#)
-- Working with experimental Godot versions
-- Highlighting projects that use/not use Git
-- Highlighting projects that are set up to use VS Code as the external editor
-
-## Related Documentation
-
-- [Launch Godot Project in Windowed Mode](./launch-godot-project-in-windowed-mode.md)
-- [Managing Godot Editor Versions](../editors/change-project-editor.md)
-- [Download Godot Launcher](https://godotlauncher.org/download/)
-- [Add an Existing Project](./add-existing-project.mdx)
-
----
-
-Badges are a lightweight but effective tool to communicate project-specific configurations directly from the project list.
+- [Manage Projects](./manage-projects.mdx)
+- [Project Settings](./project-settings.mdx)
+- [Launch a Godot Project in Windowed Mode](./launch-godot-project-in-windowed-mode.md)

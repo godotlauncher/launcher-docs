@@ -2,129 +2,56 @@
 id: launcher-settings
 title: Launcher Settings
 slug: /settings
-description: "Learn how to configure the Godot Launcher using the available settings tabs, including project locations, editor installs, appearance, behavior, tools, and update preferences."
+description: "Learn how to configure Godot Launcher using settings for project locations, editor installs, appearance, behavior, code editors, Git, and updates."
 tags:
   - getting-started
   - launcher-settings
 ---
 
-import ThemedImage from '@theme/ThemedImage';
-
 # Launcher Settings
 
-The **Settings** section lets you tailor Godot Launcher to your workflow. Use it to choose where new projects and editor installs are stored, adjust appearance and startup behavior, configure tool detection, and manage launcher updates.
+Use **Settings** to choose where projects and editors are stored, change the launcher appearance and behavior, set up development tools, and manage updates.
 
 This page is the settings overview. Each section links to a focused guide with the details for that settings area.
 
----
-
-## Projects Tab
-
-<ThemedImage
-  className="docs-media-frame"
-  alt="Settings - Projects Tab"
-  sources={{
-    light: '/img/screenshots/screen_settings_projects_light.webp',
-    dark: '/img/screenshots/screen_settings_projects_dark.webp',
-  }}
-/>
+## Choose where new projects are stored {#projects-tab}
 
 The **Projects** tab controls the default folder used for new projects created through Godot Launcher. Existing projects are not moved when this path changes.
 
 [Project Location Settings](./project-location.mdx)
 
----
+## Choose where Godot editors are stored {#installs-tab}
 
-## Installs Tab
-
-<ThemedImage
-  className="docs-media-frame"
-  alt="Settings - Installs Tab"
-  sources={{
-    light: '/img/screenshots/screen_settings_installs_light.webp',
-    dark: '/img/screenshots/screen_settings_installs_dark.webp',
-  }}
-/>
-
-The **Installs** tab controls where downloaded Godot editor versions are stored and lets you refresh cached release metadata.
+The **Installs** tab controls where downloaded Godot editors are stored and lets you refresh the release list.
 
 [Editor Install Location Settings](./editor-installs-location.mdx)
 
----
-
-## Appearance Tab
-
-<ThemedImage
-  className="docs-media-frame"
-  alt="Settings - Appearance Tab Showing the Language Picker"
-  sources={{
-    light: '/img/screenshots/screen_settings_appearance_light.webp',
-    dark: '/img/screenshots/screen_settings_appearance_dark.webp',
-  }}
-/>
+## Change appearance and language {#appearance-tab}
 
 The **Appearance** tab controls the launcher theme and interface language. These settings affect Godot Launcher only; they do not change the language of the Godot editor.
 
 [Appearance and Language Settings](./appearance-language.mdx)
 
----
-
-## Behavior Tab
-
-<ThemedImage
-  className="docs-media-frame"
-  alt="Settings - Behavior Tab"
-  sources={{
-    light: '/img/screenshots/screen_settings_behavior_light.webp',
-    dark: '/img/screenshots/screen_settings_behavior_dark.webp',
-  }}
-/>
+## Change launcher behavior {#behavior-tab}
 
 The **Behavior** tab controls confirmation prompts, what happens after launching a project, startup behavior, and optional Windows editor symlink behavior.
 
 [Behavior Settings](./behavior.mdx)
 
----
+## Set up code editors {#code-editors-tab}
 
-## Tools Tab
+The **Code Editors** tab finds Visual Studio Code and VSCodium. Use it to choose which editors projects can use, set the default for new projects, rescan an installation, or choose an editor's location.
 
-<ThemedImage
-  className="docs-media-frame"
-  alt="Settings - Tools Tab"
-  sources={{
-    light: '/img/screenshots/screen_settings_tools_light.webp',
-    dark: '/img/screenshots/screen_settings_tools_dark.webp',
-  }}
-/>
+[Code Editor Settings](./code-editors.mdx)
 
-The **Tools** tab shows whether Git and Visual Studio Code are available. Godot Launcher uses these checks to enable Git initialization and VS Code project integration.
+## Check Git {#tools-tab}
 
-[Tool Detection Settings](./tools.mdx)
+The **Tools** tab shows whether Git is available. Godot Launcher uses this check to enable Git initialization in Create Project and Project Settings.
 
----
+[Git Tool Detection](./tools.mdx)
 
-## Updates Tab
-
-<ThemedImage
-  className="docs-media-frame"
-  alt="Settings - Updates Tab"
-  sources={{
-    light: '/img/screenshots/screen_settings_updates_light.webp',
-    dark: '/img/screenshots/screen_settings_updates_dark.webp',
-  }}
-/>
+## Manage launcher updates {#updates-tab}
 
 The **Updates** tab controls background update checks, prerelease updates, manual checks, skipped versions, and update installation prompts.
 
 [Manage Launcher Updates](../updates/manage-launcher-updates.mdx)
-
----
-
-## Summary
-
-The Settings section helps you:
-
-- Customize default paths for projects and editors.
-- Adjust theme, language, and startup behavior.
-- Integrate external tools like Git and VS Code.
-- Stay up to date with new launcher releases.

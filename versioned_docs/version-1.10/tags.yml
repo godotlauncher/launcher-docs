@@ -1,0 +1,224 @@
+community:
+  label: "Community"
+  permalink: "/community"
+  description: Connect, collaborate, and engage with the Godot Launcher user community.
+
+support:
+  label: "Support"
+  permalink: "/support"
+  description: Get technical support and troubleshooting help for Godot Launcher.
+
+help:
+  label: "Help"
+  permalink: "/help"
+  description: Find answers, guidance, and step-by-step assistance for using Godot Launcher.
+
+discord:
+  label: "Discord"
+  permalink: "/discord"
+  description: Join discussions and community support via the official Godot Launcher Discord server.
+
+open-source:
+  label: "Open Source"
+  permalink: "/open-source"
+  description: Explore Godot Launcher's open-source contributions, codebase, and development efforts.
+
+contribute:
+  label: "Contribute"
+  permalink: "/contribute"
+  description: Learn how to contribute to Godot Launcher through code, documentation, and community efforts.
+
+license:
+  label: "License"
+  permalink: "/license"
+  description: View licensing details and usage terms for Godot Launcher.
+
+legal:
+  label: "Legal"
+  permalink: "/legal"
+  description: Access legal notices, terms, and compliance information about Godot Launcher.
+
+godot-project-setup:
+  label: "Project Setup"
+  permalink: "/godot-project-setup"
+  description: Detailed guides for setting up and managing Godot projects using Godot Launcher.
+
+getting-started:
+  label: "Getting Started"
+  permalink: "/getting-started"
+  description: Beginner-friendly resources to quickly start using Godot Launcher.
+
+setup-guide:
+  label: "Setup Guide"
+  permalink: "/setup-guide"
+  description: Comprehensive instructions for installing and configuring Godot Launcher.
+
+godot:
+  label: "Godot"
+  permalink: "/godot"
+  description: Articles and resources related to the Godot Engine.
+
+editor-installation:
+  label: "Editor Installation"
+  permalink: "/editor-installation"
+  description: Step-by-step guides for installing various Godot Engine editor versions.
+
+windows:
+  label: "Windows"
+  permalink: "/windows"
+  description: Instructions and support tailored specifically for Godot Launcher on Windows.
+
+winget:
+  label: "winget"
+  permalink: "/winget"
+  description: Use the Windows Package Manager to install and maintain Godot Launcher.
+
+macos:
+  label: "macOS"
+  permalink: "/macos"
+  description: Instructions and support tailored specifically for Godot Launcher on macOS.
+
+linux:
+  label: "Linux"
+  permalink: "/linux"
+  description: Instructions and support tailored specifically for Godot Launcher on Linux.
+
+guides:
+  label: "Guides"
+  permalink: "/guides"
+  description: Extensive tutorials and documentation covering various Godot Launcher topics.
+
+editor-version:
+  label: "Editor Version"
+  permalink: "/editor-version"
+  description: Information on different versions of the Godot Engine editor and their features.
+
+custom-editor:
+  label: "Custom-Built Godot Editor"
+  permalink: "/custom-editor"
+  description: Custom-built Godot editors.
+
+custom-engine:
+  label: "Custom-Built Godot Editor"
+  permalink: "/custom-engine"
+  description: Custom-built Godot editor support.
+
+manifest:
+  label: "Manifest"
+  permalink: "/manifest"
+  description: Launcher manifest files.
+
+project-settings:
+  label: "Project Settings"
+  permalink: "/project-settings"
+  description: How to configure and optimize settings for your Godot projects in Godot Launcher.
+
+dotnet:
+  label: ".NET"
+  permalink: "/dotnet"
+  description: Guides and resources for developing Godot projects using .NET (C#).
+
+gdscript:
+  label: "GDScript"
+  permalink: "/gdscript"
+  description: Articles, tutorials, and best practices for programming with GDScript.
+
+editor-settings:
+  label: "Editor Settings"
+  permalink: "/editor-settings"
+  description: Customize and configure your Godot editor settings effectively.
+
+configuration:
+  label: "Configuration"
+  permalink: "/configuration"
+  description: General guides on configuring Godot Launcher and its features.
+
+reference:
+  label: "Reference"
+  permalink: "/reference"
+  description: Stable lookup material for Godot Launcher behavior, files, states, and formats.
+
+git:
+  label: "Git"
+  permalink: "/git"
+  description: Manage your Godot projects using Git version control through Godot Launcher.
+
+version-control:
+  label: "Version Control"
+  permalink: "/version-control"
+  description: Learn about integrating and using version control systems in Godot Launcher.
+
+launcher-settings:
+  label: "Launcher Settings"
+  permalink: "/launcher-settings"
+  description: Customize and manage Godot Launcher-specific settings and preferences.
+
+system-tray:
+  label: "System Tray"
+  permalink: "/system-tray"
+  description: Enhance productivity with Godot Launcher's system tray features.
+
+launcher:
+  label: "Launcher"
+  permalink: "/launcher"
+  description: General information, updates, and news about Godot Launcher.
+
+launcher-updates:
+  label: "Launcher Updates"
+  permalink: "/launcher-updates"
+  description: Guides and documentation for managing Godot Launcher application updates.
+
+quick-launch:
+  label: "Quick Launch"
+  permalink: "/quick-launch"
+  description: Quickly access and manage your Godot projects using quick-launch capabilities.
+
+vscode:
+  label: "VS Code"
+  permalink: "/vscode"
+  description: Integrate and optimize Visual Studio Code workflows with Godot Launcher.
+
+editor-setup:
+  label: "Editor Setup"
+  permalink: "/editor-setup"
+  description: Guides on setting up your Godot Engine editor environment for development.
+
+quality-of-life:
+  label: "Quality of Life"
+  permalink: "/quality-of-life"
+  description: Features and tools that enhance usability and productivity in Godot Launcher.
+
+project-badges:
+  label: "Project Badges"
+  permalink: "/project-badges"
+  description: Learn about the badges used in Godot Launcher to identify project configurations.
+
+windows-only:
+  label: "Windows Only"
+  permalink: "/windows-only"
+  description: Features and guides specific to the Windows version of Godot Launcher.
+
+project-import:
+  label: "Project Import"
+  permalink: "/project-import"
+  description: Instructions for importing existing Godot projects into Godot Launcher.
+
+troubleshooting:
+  label: "Troubleshooting"
+  permalink: "/troubleshooting"
+  description: Solutions and tips for resolving common issues in Godot Launcher.
+
+contributing:
+  label: "Contributing"
+  permalink: "/contributing"
+  description: Information on how to contribute to the Godot Launcher project.
+
+translations:
+  label: "Translations"
+  permalink: "/translations"
+  description: Resources and guides for translating Godot Launcher into different languages.
+
+localisation:
+  label: "Localisation"
+  permalink: "/localisation"
+  description: Best practices for localising Godot Launcher for a global audience.

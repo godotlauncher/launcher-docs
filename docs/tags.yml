@@ -178,6 +178,16 @@ vscode:
   permalink: "/vscode"
   description: Integrate and optimize Visual Studio Code workflows with Godot Launcher.
 
+vscodium:
+  label: "VSCodium"
+  permalink: "/vscodium"
+  description: Configure VSCodium workflows with Godot Launcher.
+
+code-editor:
+  label: "Code Editor"
+  permalink: "/code-editor"
+  description: Configure external code editors for Godot projects.
+
 editor-setup:
   label: "Editor Setup"
   permalink: "/editor-setup"

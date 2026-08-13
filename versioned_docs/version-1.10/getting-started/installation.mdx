@@ -1,0 +1,135 @@
+---
+id: installation
+slug: /getting-started/installation
+description: "The easiest and most reliable way to install the Godot Launcher is by visiting https://godotlauncher.org/download. The launcher is cross-platform, works with Windows, macOS, and Linux systems."
+title: Installation
+tags:
+  - setup-guide
+  - getting-started
+  - windows
+  - macos
+  - linux
+---
+
+import { WingetCommand } from "@site/src/components/WingetCommandList";
+
+# Installation
+
+The easiest and most reliable way to install the Godot Launcher is by visiting the official website [download page](https://godotlauncher.org/download). The launcher is cross-platform, works with Windows, macOS, and Linux systems.
+
+## Download
+
+[Download Godot Launcher](https://godotlauncher.org/download)
+
+## Install
+
+:::tip
+On first launch, the launcher matches your operating system language automatically. You can change it anytime under **Settings > Appearance > Language**.
+:::
+
+### Windows
+
+> **System Requirements:** Windows 10 or later (64-bit)
+
+> **Filename:** `Godot_Launcher-x.y.z-win_x64.exe`
+
+<img
+  className="docs-media-frame"
+  src="/img/docs/1.10/win-installer-ui.webp"
+  alt="Godot Launcher Setup UI - windows"
+/>
+
+On Windows, simply run the `.exe` installer after download. It will automatically guide you through the installation process.
+
+If you did not choose to run Godot Launcher at the end of the installation, you can run it directly from the Start Menu.
+
+#### Windows release signing
+
+Godot Launcher Windows installers are code signed as part of the release process. If Windows SmartScreen or your antivirus flags the installer, check the file signature before allowing it:
+
+1. Right-click the downloaded `.exe` file and choose **Properties**.
+2. Open the **Digital Signatures** tab.
+3. Select the signature and confirm Windows reports that it is valid.
+4. Confirm the signer or certificate details match the release signing information below.
+
+Free code signing is provided by [SignPath.io](https://signpath.io/), certificate by [SignPath Foundation](https://signpath.org/).
+
+Code signing helps confirm the installer was signed by the Godot Launcher release process. It does not verify Godot editor executables downloaded later. For downloaded Godot editors, verify they come from the official Godot release you selected.
+
+<WingetCommand
+  label="Install with winget"
+  command='winget install "Godot Launcher"'
+  intro="Prefer managing installs from the command line? Run this command in PowerShell or Command Prompt:"
+/>
+
+#### Read more
+
+- [Installing Godot Launcher with winget](../platform/windows-winget.mdx)
+
+---
+
+### macOS
+
+**System Requirements:** macOS 10.15 Catalina or later
+
+**Filename:** `Godot_Launcher-x.y.z-mac_universal.dmg`
+
+<img
+  className="docs-media-frame"
+  src="/img/docs/1.10/dmg-installer-ui.webp"
+  alt="Godot Launcher Setup UI - macOS dmg"
+/>
+
+For macOS Godot Launcher is distributed as a universal `.dmg`. Run the `.dmg` file and drag the `Godot Launcher` to the `Applications` folder when the dmg opens.
+
+Once done, Godot Launcher can be opened from the Applications folder.
+
+
+---
+
+### Linux
+
+**System Requirements:** Modern 64-bit distribution (Ubuntu 20.04+, Fedora 36+, Arch-based, etc.)
+
+**Available packages (1.8.0+):**
+- AppImage (`Godot_Launcher-x.y.z-linux_x64.AppImage`)
+- Debian/Ubuntu `.deb` (`Godot_Launcher-x.y.z-linux_x64.deb`)
+- Fedora/RHEL `.rpm` (`Godot_Launcher-x.y.z-linux_x64.rpm`)
+
+#### AppImage
+
+:::info
+AppImage builds include most dependencies - make sure `FUSE` is available on your system.
+:::
+
+Make the `.AppImage` executable by using the GUI or by running:
+
+```bash
+chmod +x Godot_Launcher-x.y.z-linux_x64.AppImage
+```
+
+Then run it directly by double-clicking the file or executing:
+
+```bash
+./Godot_Launcher-x.y.z-linux_x64.AppImage
+```
+
+#### Debian / Ubuntu (.deb)
+
+Install the `.deb` from the download page:
+
+```bash
+sudo apt install ./Godot_Launcher-x.y.z-linux_x64.deb
+```
+
+> If `apt` warns about missing dependencies, run `sudo apt --fix-broken install` to resolve them.
+
+#### Fedora / RHEL (.rpm)
+
+Install the `.rpm` from the download page:
+
+```bash
+sudo dnf install ./Godot_Launcher-x.y.z-linux_x64.rpm
+```
+
+> On older RHEL-based distributions using `yum`, replace `dnf` with `yum`.

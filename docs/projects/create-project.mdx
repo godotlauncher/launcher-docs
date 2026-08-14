@@ -2,97 +2,73 @@
 id: create-project
 slug: /getting-started/create-project
 title: Creating a Project
-description: "Learn how to create your first project with Godot Launcher, choose an official release or custom-built Godot editor, and rename projects later."
+description: "Create a Godot project, choose where to save it, and set up its editors and Git repository."
 tags:
   - godot-project-setup
   - getting-started
   - setup-guide
   - custom-editor
+  - git
 ---
 
 import ThemedImage from '@theme/ThemedImage';
 
 # Create Your First Project
 
-You can create a new project and start editing in seconds, or add an existing project to start using it with Godot Launcher.
-
-## Create a new project
-
-By default, the launcher creates new projects inside the folder set in **Settings -> Projects -> Project Location**. You can keep that default or override the parent folder for one project when needed.
+Create a Godot project and choose the tools you want to use with it. Godot Launcher can also prepare a Git repository and open the project when it is ready.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Godot Launcher creating a new project"
+  alt="Creating a project from the New Project drawer"
   sources={{
     light: '/img/animations/create-project/create-project-anim_light.gif',
     dark: '/img/animations/create-project/create-project-anim_dark.gif',
   }}
 />
 
-1. Navigate to **Projects** from the left-hand navigation menu.
-2. Click **Create Project**.
-3. Enter a project name and choose the editor you want to use.
-4. Leave **Overwrite Project Path** off to use your normal default location, or turn it on to pick a different parent folder for this project.
-5. Click **Create Project** and, if enabled, **Edit now** to launch it immediately.
+## Create a project
 
-If you need to create the project somewhere else, turn on **Overwrite Project Path** and choose a different parent folder.
+1. Open **Projects** and click **New Project**.
+2. Enter the project name and check the folder shown below it.
+3. Choose the Godot editor and renderer.
+4. Choose whether to set up Git and which code editor to use.
+5. Leave **Edit now** enabled to open the project when it is ready, then click **Create Project**.
+
+## Choose the project folder
+
+New projects use the folder set in **Settings > Projects > Project Location**. Enable **Overwrite Project Path** to choose a different parent folder for this project only.
+
+The folder preview shows the folder that will be created. For example, a project named `My Next Awesome Game` uses `My-Next-Awesome-Game` as its folder name.
+
+The launcher can use an empty folder, but it will not overwrite one that already contains files. Use [Add an Existing Project](./add-existing-project.mdx) if the folder already contains a Godot project.
+
+## Choose the Godot editor
+
+Choose the Godot editor that will open the project. Registered custom-built editors appear with official installed releases.
+
+See [Custom-Built Godot Editors](../editors/custom-editors.mdx) to register your own build.
+
+## Choose a code editor
+
+Choose Visual Studio Code or VSCodium if you want Godot to open project scripts in that editor. Choose **None** if you do not want to use a code editor for this project.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Godot Launcher - Create New Project with Overwrite Project Path"
+  alt="New Project code editor options with None, Visual Studio Code, and VSCodium"
   sources={{
-    light: '/img/screenshots/screen_projects_new_project_overwrite_path_light.webp',
-    dark: '/img/screenshots/screen_projects_new_project_overwrite_path_dark.webp',
+    light: '/img/screenshots/screen_projects_new_project_code_editor_options_light.webp',
+    dark: '/img/screenshots/screen_projects_new_project_code_editor_options_dark.webp',
   }}
 />
 
-Registered custom-built Godot editors appear in the same editor selector as regular installed editors.
+Your default code editor is preselected when it is available. See [Code Editor Settings](../settings/code-editors.mdx) to set the default or make an editor available.
 
-<ThemedImage
-  className="docs-media-frame"
-  alt="Create Project view with a custom editor selected"
-  sources={{
-    light: '/img/screenshots/screen_projects_new_project_custom_editor_light.webp',
-    dark: '/img/screenshots/screen_projects_new_project_custom_editor_dark.webp',
-  }}
-/>
+## Set up Git
 
-To add a custom-built Godot editor to the selector, see [Custom-Built Godot Editors](/editors/custom-editors).
+When Git is available, **Initialize Git Repository** is enabled by default. The new project gets recommended Godot ignore rules, a `main` branch, and an initial commit.
 
-When **Overwrite Project Path** is enabled, the launcher still creates a clean project folder using your project name. You choose the parent folder, and the launcher creates the final path as `{parent}/{project-name}`.
+Git needs your name and email for the first commit. If the launcher asks for them, choose **Add Git identity** or **Skip initial commit**.
 
-Example parent folders:
+If Git is unavailable, you can still create the project. See [Troubleshooting](../troubleshooting.md#git) to set up Git or complete the first commit.
 
-- Windows: `D:\Godot\Projects`
-- macOS: `/Users/you/Godot/Projects`
-- Linux: `/home/you/Godot/Projects`
-
-:::info
-Turning on **Overwrite Project Path** only changes the location for the project you are creating right now. It does not change your default Project Location in Settings.
-:::
-
-## Safety checks
-
-The launcher will not overwrite an existing project folder full of files.
-
-- If the target folder already exists and is empty, creation continues.
-- If the target folder already contains files, creation stops and shows an error.
-- If the selected path points to a file instead of a folder, creation stops and shows an error.
-
-If you meant to bring an existing project into the launcher, use [Add an Existing Project](/getting-started/add-existing-project) instead.
-
-## Rename a project later
-
-After a project exists in the launcher, you can rename its launcher entry from project settings. When `project.godot` is available, you can also update the Godot project name.
-
-See [Project Settings](/projects/project-settings) for the rename workflow and validation rules.
-
-## Add an existing project
-
-Already have a Godot project? Drag its `project.godot` file into the **Projects** screen, or click **Add** and pick the folder that contains `project.godot`. The launcher registers each project without moving files and shows progress while importing multiple items.
-
-For version-selection rules, missing editor recovery, .NET handling, and integration details, visit [Add an Existing Project](/getting-started/add-existing-project).
-
-:::important
-To open any project, including ones you import, click its name in the **Projects** list.
-:::
+See [Using Git With Godot Launcher](../tools/using-git-with-godot-launcher.mdx) for the generated files, Git identity choices, and guidance for older Godot projects.

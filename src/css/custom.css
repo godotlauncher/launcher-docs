@@ -111,3 +111,71 @@ html {
   box-shadow: var(--docs-media-shadow);
   background: var(--ifm-background-color);
 }
+
+.platform-download-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1rem 0 1.25rem;
+  padding: 1rem 1.125rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color);
+}
+
+.platform-download-panel__details {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.platform-download-panel__title {
+  font-weight: var(--ifm-font-weight-bold);
+}
+
+.platform-download-panel__meta,
+.platform-download-panel__file {
+  color: var(--ifm-color-content-secondary);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.platform-download-panel > .button {
+  display: inline-flex;
+  min-height: 44px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.docs-inline-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.1rem 0.4rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 4px;
+  background: var(--ifm-color-emphasis-100);
+  font-weight: var(--ifm-font-weight-semibold);
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.docs-inline-action > svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 576px) {
+  .platform-download-panel {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .platform-download-panel > .button {
+    width: 100%;
+  }
+}

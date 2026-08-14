@@ -19,7 +19,7 @@ Make sure to follow the existing structure and style for consistency.
 
 ## 🚀 Development
 
-This website is built using **Node.js 22+** and **npm**. To run it locally:
+This website is built using **Node.js 24 LTS** and **npm**. To run it locally:
 
 ### 1. Fork the repository
 
@@ -65,11 +65,40 @@ npm run serve
 
 ## 🧩 Project Structure
 
-- `/blog` - Blog articles
-- `/src` - Website source (components, pages, etc.)
-- `/src/pages` - Website pages
-- `/static` - Static assets (images, icons, etc.)
-- `docusaurus.config.js` - Site configuration
+- `/docs` - Documentation for the upcoming launcher release.
+- `/versioned_docs` - Frozen documentation for published minor releases.
+- `/versioned_sidebars` - Frozen sidebar definitions for published minor releases.
+- `/versions.json` - Published documentation versions, newest first.
+- `/src` - Documentation site components and styles.
+- `/static` - Shared assets and version-specific media.
+- `docusaurus.config.ts` - Site and documentation-version configuration.
+
+## Documentation Versions
+
+Documentation is versioned by launcher minor release, not by beta or patch
+release. The latest stable documentation remains at the site root. Work for an
+upcoming release lives in `docs/` and is published under `/next/` until the
+stable documentation version is cut.
+
+Create a frozen version only after the current documentation is ready:
+
+```bash
+npm run docusaurus docs:version <major.minor>
+```
+
+The Docusaurus command freezes document and sidebar files, but it does not
+freeze files under `static/`. After cutting a version, copy every referenced
+UI image into `static/img/docs/<major.minor>/` and update the frozen documents
+to reference it from that location.
+
+Keep internal documentation links relative and include the `.md` or `.mdx`
+extension. Docusaurus then keeps navigation within the version a reader is
+viewing.
+
+For current documentation, place screenshots in `static/img/screenshots/`,
+feature images in `static/img/features/`, and animations in
+`static/img/animations/`. Place media for frozen versions in
+`static/img/docs/<major.minor>/`.
 
 ---
 

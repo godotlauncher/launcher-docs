@@ -24,6 +24,7 @@ const config: Config = {
   projectName: "launcher-docs", // Usually your repo name.
 
   onBrokenLinks: "throw",
+  onBrokenAnchors: "throw",
   markdown: {
     hooks: { onBrokenMarkdownLinks: "throw", onBrokenMarkdownImages: "throw" },
   },
@@ -132,8 +133,20 @@ const config: Config = {
           path: "docs",
           routeBasePath: "/",
           sidebarPath: "./sidebars.ts",
+          lastVersion: "1.10",
+          versions: {
+            current: {
+              label: "1.11 (Beta)",
+              banner: "unreleased",
+              noIndex: true,
+            },
+            "1.10": {
+              label: "1.10",
+              banner: "none",
+            },
+          },
           editUrl: ({ locale, versionDocsDirPath, docPath }) => {
-            return `https://github.com/godotlauncher/launcher-docs/edit/main/${versionDocsDirPath}/${docPath}`;
+            return `https://github.com/godotlauncher/launcher-docs/edit/develop/${versionDocsDirPath}/${docPath}`;
           },
         },
         blog: false,
@@ -166,7 +179,12 @@ const config: Config = {
         src: "img/logo.svg",
         srcDark: "img/logo-dark.svg",
       },
-      items: [],
+      items: [
+        {
+          type: "docsVersionDropdown",
+          position: "right",
+        },
+      ],
     },
     footer: {
       style: "dark",

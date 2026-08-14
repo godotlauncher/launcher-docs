@@ -146,7 +146,7 @@ const config: Config = {
             },
           },
           editUrl: ({ locale, versionDocsDirPath, docPath }) => {
-            return `https://github.com/godotlauncher/launcher-docs/edit/develop/${versionDocsDirPath}/${docPath}`;
+            return `https://github.com/godotlauncher/launcher-docs/edit/main/${versionDocsDirPath}/${docPath}`;
           },
         },
         blog: false,

@@ -128,7 +128,7 @@ Provides a clearer explanation for resolving missing editor warnings.
 Before submitting your PR, update your branch:
 
 ```
-git pull --rebase upstream develop
+git pull --rebase upstream main
 ```
 
 ---

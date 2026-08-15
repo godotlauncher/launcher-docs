@@ -1,0 +1,74 @@
+---
+id: create-project
+slug: /getting-started/create-project
+title: Creating a Project
+description: "Create a Godot project, choose where to save it, and set up its editors and Git repository."
+tags:
+  - godot-project-setup
+  - getting-started
+  - setup-guide
+  - custom-editor
+  - git
+---
+
+import ThemedImage from '@theme/ThemedImage';
+
+# Create Your First Project
+
+Create a Godot project and choose the tools you want to use with it. Godot Launcher can also prepare a Git repository and open the project when it is ready.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Creating a project from the New Project drawer"
+  sources={{
+    light: '/img/docs/1.11/animations/create-project/create-project-anim_light.gif',
+    dark: '/img/docs/1.11/animations/create-project/create-project-anim_dark.gif',
+  }}
+/>
+
+## Create a project
+
+1. Open **Projects** and click **New Project**.
+2. Enter the project name and check the folder shown below it.
+3. Choose the Godot editor and renderer.
+4. Choose whether to set up Git and which code editor to use.
+5. Leave **Edit now** enabled to open the project when it is ready, then click **Create Project**.
+
+## Choose the project folder
+
+New projects use the folder set in **Settings > Projects > Project Location**. Enable **Overwrite Project Path** to choose a different parent folder for this project only.
+
+The folder preview shows the folder that will be created. For example, a project named `My Next Awesome Game` uses `My-Next-Awesome-Game` as its folder name.
+
+The launcher can use an empty folder, but it will not overwrite one that already contains files. Use [Add an Existing Project](./add-existing-project.mdx) if the folder already contains a Godot project.
+
+## Choose the Godot editor
+
+Choose the Godot editor that will open the project. Registered custom-built editors appear with official installed releases.
+
+See [Custom-Built Godot Editors](../editors/custom-editors.mdx) to register your own build.
+
+## Choose a code editor
+
+Choose Visual Studio Code or VSCodium if you want Godot to open project scripts in that editor. Choose **None** if you do not want to use a code editor for this project.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="New Project code editor options with None, Visual Studio Code, and VSCodium"
+  sources={{
+    light: '/img/docs/1.11/screenshots/screen_projects_new_project_code_editor_options_light.webp',
+    dark: '/img/docs/1.11/screenshots/screen_projects_new_project_code_editor_options_dark.webp',
+  }}
+/>
+
+Your default code editor is preselected when it is available. See [Code Editor Settings](../settings/code-editors.mdx) to set the default or make an editor available.
+
+## Set up Git
+
+When Git is available, **Initialize Git Repository** is enabled by default. The new project gets recommended Godot ignore rules, a `main` branch, and an initial commit.
+
+Git needs your name and email for the first commit. If the launcher asks for them, choose **Add Git identity** or **Skip initial commit**.
+
+If Git is unavailable, you can still create the project. See [Troubleshooting](../troubleshooting.md#git) to set up Git or complete the first commit.
+
+See [Using Git With Godot Launcher](../tools/using-git-with-godot-launcher.mdx) for the generated files, Git identity choices, and guidance for older Godot projects.

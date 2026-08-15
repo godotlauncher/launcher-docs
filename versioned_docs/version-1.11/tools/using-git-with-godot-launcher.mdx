@@ -1,0 +1,79 @@
+---
+id: using-git
+title: "Using Git With Godot Launcher"
+description: "Prepare Git for new or existing Godot projects and understand what Godot Launcher adds."
+slug: "/integrations/using-git-with-godot-launcher"
+tags:
+  - guides
+  - git
+  - version-control
+---
+
+import ThemedImage from '@theme/ThemedImage';
+
+# Using Git With Godot Launcher
+
+Git keeps a history of changes to your project. Godot Launcher can prepare Git when you create a project or add a repository later from Project Settings.
+
+The result depends on when you add Git:
+
+- A **new project** gets the recommended Git files, a `main` branch, and an initial commit.
+- An **existing project** gets an empty repository. The launcher does not change or commit its files.
+
+## Set up Git for a new project
+
+Open **Projects > New Project** and keep **Initialize Git Repository** enabled.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="New Project drawer with Initialize Git Repository enabled"
+  sources={{
+    light: '/img/docs/1.11/screenshots/screen_projects_new_project_light.webp',
+    dark: '/img/docs/1.11/screenshots/screen_projects_new_project_dark.webp',
+  }}
+/>
+
+The launcher creates `.gitignore` and `.gitattributes`, initializes the repository on a `main` branch, and creates an `Initial commit`.
+
+The first commit needs your Git name and email. If they are missing, you can add them for this project or all repositories on the computer. You can also skip the first commit. See [Troubleshooting](../troubleshooting.md#git) for this recovery flow.
+
+## Understand the generated Git files
+
+The generated `.gitignore` is designed for Godot 4.3 and later. It ignores:
+
+- Godot cache and generated build directories such as `.godot/` and `/android/`.
+- Generated translations and .NET output.
+- Launcher-managed `.vscode/` configuration, which can contain local paths.
+- Common local `build/` and `builds/` output.
+
+The file also contains commented compatibility rules for older Godot project layouts. Enable only the rules your project needs.
+
+The generated `.gitattributes` treats detected text files as text and normalizes their repository line endings to LF.
+
+:::warning Godot 4.0 and export credentials
+Godot 4.0 may store sensitive credentials in `export_presets.cfg`. The generated template does not ignore this file by default. Read the compatibility warning in `.gitignore` and uncomment its `export_presets.cfg` rule before committing that file when it can contain credentials.
+
+If the file is already tracked, follow the `git rm --cached -- export_presets.cfg` guidance in the generated file. Removing it from the current index does not remove it from Git history. Rotate credentials that may already have been committed.
+:::
+
+## Add Git to an existing project
+
+1. Open **Projects**.
+2. Click the project's settings button.
+3. Open **Source Control**.
+4. Click **Initialize Git**.
+
+This action creates a Git repository in the project folder. It does not add template files, change the branch name, or create a commit.
+
+The project card shows the **Git** status after initialization.
+
+:::warning Parent repositories
+Do not use **Initialize Git** if the project is already inside a larger Git repository. The launcher may create a second repository inside it.
+:::
+
+## Related guides
+
+- [Create Your First Project](../projects/create-project.mdx)
+- [Add an Existing Project](../projects/add-existing-project.mdx)
+- [Project Settings](../projects/project-settings.mdx)
+- [Installing Git](./install-git.md)

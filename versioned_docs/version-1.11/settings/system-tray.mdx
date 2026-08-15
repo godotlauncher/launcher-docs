@@ -1,0 +1,64 @@
+---
+id: system-tray
+slug: /settings/system-tray
+title: System Tray
+description: "Use the system tray to reopen Godot Launcher, launch recent projects, or quit the application."
+tags: 
+  - guides
+  - system-tray
+  - launcher
+  - quick-launch
+---
+
+import ThemedImage from '@theme/ThemedImage';
+
+# System Tray
+
+When Godot Launcher can use the system tray, it can keep running without showing its main window. Use the tray menu to reopen the launcher, launch a recent project, or quit.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Godot Launcher tray menu with recent projects, Show Godot Launcher, and Quit actions"
+  sources={{
+    light: '/img/docs/1.11/features/System_Tray_Docs_Light.webp',
+    dark: '/img/docs/1.11/features/System_Tray_Docs_Dark.webp',
+  }}
+/>
+
+## Open the tray menu
+
+Open the tray menu for your platform:
+
+:::info
+- **Windows**: Left-click opens the launcher window. Right-click opens the tray menu.
+- **macOS**: Left-click or right-click opens the tray menu. Select **Show Godot Launcher** to reopen the window.
+- **Linux**: Open the tray icon's context menu, then select **Show Godot Launcher** to reopen the window.
+:::
+
+Select **Quit** to stop Godot Launcher completely.
+
+## Choose post-launch behavior
+
+Open **Settings > Behavior** and use **Project Launch Action** to choose what happens after a project opens:
+
+- **Nothing** keeps the launcher visible.
+- **Minimize** minimizes the launcher window.
+- **Close to system tray** hides the launcher when a usable tray is available.
+
+See [Behavior Settings](./behavior.mdx) for the other launch choices.
+
+## When the tray is unavailable on Linux
+
+:::info
+Some Linux desktops do not provide a usable system tray. When Godot Launcher cannot use the tray, it keeps the window visible or quits instead of hiding it. See [Linux system tray troubleshooting](../troubleshooting.md#system-tray) for details.
+:::
+
+## Start with your computer
+
+On Windows and macOS, open **Settings > Behavior** and enable **Start when computer starts**. Enable its nested **Start in tray** option to start without showing the main window.
+
+Automatic startup is not currently supported by the launcher on Linux.
+
+## Quick-launch recent projects
+
+The tray menu lists up to the last three projects opened through Godot Launcher on this computer. Select one to open it in its chosen Godot editor.

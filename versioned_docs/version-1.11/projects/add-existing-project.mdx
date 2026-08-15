@@ -1,0 +1,70 @@
+---
+id: add-existing-project
+slug: /getting-started/add-existing-project
+title: Add an Existing Project
+description: "Add an existing Godot project without moving its files and choose the editors it uses."
+tags:
+  - getting-started
+  - project-import
+  - godot-project-setup
+  - editor-version
+---
+
+import ThemedImage from '@theme/ThemedImage';
+
+# Add an Existing Project
+
+Add a project that is already on your computer without moving its files.
+
+## Add the project
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Projects view with the Add button"
+  sources={{
+    light: '/img/docs/1.11/screenshots/screen_projects_view_light.webp',
+    dark: '/img/docs/1.11/screenshots/screen_projects_view_dark.webp',
+  }}
+/>
+
+Use either method to add one or more projects:
+
+- Click **Add** in the **Projects** view and select the project's `project.godot` file.
+- Drag one or more `project.godot` files onto the **Projects** view.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Projects view accepting dropped project.godot files"
+  sources={{
+    light: '/img/docs/1.11/screenshots/screen_projects_drop_overlay_light.webp',
+    dark: '/img/docs/1.11/screenshots/screen_projects_drop_overlay_dark.webp',
+  }}
+/>
+
+The launcher adds the project without moving its files.
+
+## Choose the Godot editor
+
+The launcher reads `project.godot` and chooses a compatible installed Godot editor. If it finds a C# project, it looks for a compatible .NET editor instead of a Standard build.
+
+If the project includes a `.godotlauncher` file, the launcher first tries to use the saved Godot version. If that version is not installed, you can download it, choose a compatible editor, or add the project and resolve the editor later.
+
+See [Troubleshooting](../troubleshooting.md#project-editor-selection) if the project cannot find a compatible editor.
+
+## Choose the code editor
+
+The code editor choice applies only on this computer.
+
+If the project clearly uses Visual Studio Code or VSCodium, the launcher selects it. Otherwise, the project is added without a code editor choice.
+
+After import, open the project's settings button and use **Code Editor** to choose or change the selection. See [Project Settings](./project-settings.mdx) and [Code Editor Settings](../settings/code-editors.mdx).
+
+## Keep or add Git
+
+The launcher keeps an existing Git repository unchanged. A larger repository that contains the project may not appear as active on its project card.
+
+To create a repository for the project, open **Project settings > Source Control** and select **Initialize Git**. This does not add Git template files or create a commit.
+
+See [Using Git With Godot Launcher](../tools/using-git-with-godot-launcher.mdx) before creating a repository for a project that is already inside a larger one.
+
+See [Manage Projects](./manage-projects.mdx) for project groups, search, pins, and project actions.

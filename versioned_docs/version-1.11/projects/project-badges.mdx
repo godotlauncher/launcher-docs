@@ -1,0 +1,60 @@
+---
+id: project-badges
+title: "Project Badges and Tooltips"
+description: "Understand the Godot editor, code editor, Git, windowed mode, and warning status shown on project cards."
+slug: "/reference/project-badges"
+tags:
+  - guides
+  - godot
+  - project-settings
+  - dotnet
+  - version-control
+  - project-badges
+---
+
+import ThemedImage from '@theme/ThemedImage';
+
+# Project Badges and Tooltips
+
+Project cards show the tools and launch choices used by each project. Hover a status for more information.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Project cards showing Godot editor, prerelease, code editor, Git, windowed, and warning statuses"
+  sources={{
+    light: '/img/docs/1.11/animations/project-badges/project-badges-anim_light.gif',
+    dark: '/img/docs/1.11/animations/project-badges/project-badges-anim_dark.gif',
+  }}
+/>
+
+## Godot editor
+
+The Godot editor chip shows the selected editor version.
+
+- **.NET** means the project uses a .NET Godot build.
+- A flask icon marks an alpha, beta, release candidate, or other prerelease build.
+- A warning icon means the selected Godot editor is unavailable.
+
+A warning beside the project name means the project itself needs attention. Hover it to see the reason.
+
+## Code editor
+
+When a code editor is selected, its chip shows the editor icon and name. Visual Studio Code and VSCodium use different icons.
+
+If the selected code editor is unavailable, a warning replaces its normal icon. You can still open the project in Godot, but scripts may not open in that code editor.
+
+## Git
+
+The **Git** chip means the project folder has a Git repository.
+
+## Windowed mode
+
+The **Windowed** chip means the launcher will request a regular window when it opens the project.
+
+For warning and recovery steps, see [Troubleshooting](../troubleshooting.md#project-editor-selection).
+
+## Related documentation
+
+- [Manage Projects](./manage-projects.mdx)
+- [Project Settings](./project-settings.mdx)
+- [Launch a Godot Project in Windowed Mode](./launch-godot-project-in-windowed-mode.md)

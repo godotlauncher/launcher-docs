@@ -1,0 +1,80 @@
+---
+id: manage-projects
+title: Manage Projects
+slug: /projects/manage-projects
+description: "Find, open, pin, search, and manage projects from the Godot Launcher Projects view."
+tags:
+  - guides
+  - godot-project-setup
+  - project-settings
+  - quality-of-life
+---
+
+import ThemedImage from '@theme/ThemedImage';
+
+# Manage Projects
+
+Use the **Projects** view to find and open projects or change how they are organized.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Godot Launcher Projects view with New, Pinned, and Recents groups"
+  sources={{
+    light: '/img/docs/1.11/screenshots/screen_projects_view_light.webp',
+    dark: '/img/docs/1.11/screenshots/screen_projects_view_dark.webp',
+  }}
+/>
+
+## Find a project
+
+Projects appear in one of three groups:
+
+- **New** contains projects you have not opened from the launcher.
+- **Pinned** keeps chosen projects in the order you set.
+- **Recents** contains projects you opened recently.
+
+The order is based on projects opened from this computer. Activity on another computer does not change it.
+
+Enter part of a project name in **Search** to filter all three groups.
+
+## Open or manage a project
+
+Each project card shows its folder and selected tools. Use its actions to:
+
+- Click **Edit in Godot** to launch the project with its selected Godot editor.
+- Use the pin button to move the project into or out of **Pinned**.
+- Use the folder button to open either the project folder or its Godot editor settings folder.
+- Use the settings button to open [Project Settings](./project-settings.mdx).
+- Use the more-actions button to import or export Godot editor settings, or remove the project from the launcher.
+
+Removing a project from the launcher list does not delete its project folder.
+
+See [Project Badges and Tooltips](./project-badges.mdx) for the status shown on each card. See [Troubleshooting](../troubleshooting.md#project-editor-selection) when a card shows a warning.
+
+## Reorder pinned projects
+
+Drag a pinned project's reorder handle to move it. The new order is saved on this computer.
+
+You can also reorder with the keyboard:
+
+1. Focus the reorder button for a pinned project.
+2. Press <kbd>Space</kbd> or <kbd>Enter</kbd> to pick it up.
+3. Use the arrow keys to move it.
+4. Press <kbd>Space</kbd> or <kbd>Enter</kbd> to drop it, or <kbd>Escape</kbd> to cancel.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Reordering pinned projects by pointer and keyboard"
+  sources={{
+    light: '/img/docs/1.11/animations/pinned-projects/pinned-projects-anim_light.gif',
+    dark: '/img/docs/1.11/animations/pinned-projects/pinned-projects-anim_dark.gif',
+  }}
+/>
+
+Clear any search before reordering pinned projects.
+
+## Related guides
+
+- [Create Your First Project](./create-project.mdx)
+- [Add an Existing Project](./add-existing-project.mdx)
+- [Project Settings](./project-settings.mdx)

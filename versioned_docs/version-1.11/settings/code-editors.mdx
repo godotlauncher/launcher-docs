@@ -1,0 +1,93 @@
+---
+id: code-editors
+title: Code Editor Settings
+slug: /settings/code-editors
+description: "Set up Visual Studio Code or VSCodium and choose the default code editor for new projects."
+tags:
+  - launcher-settings
+  - code-editor
+  - vscode
+  - vscodium
+  - project-settings
+---
+
+import ThemedImage from '@theme/ThemedImage';
+
+# Code Editor Settings
+
+Godot Launcher supports **Visual Studio Code** and **VSCodium**. Use **Settings > Code Editors** to make either editor available to projects and choose the default for new projects.
+
+Godot Launcher does not install either code editor. Install it separately, then return to this tab to set it up.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Code Editors settings showing Visual Studio Code and VSCodium available"
+  sources={{
+    light: '/img/docs/1.11/screenshots/screen_settings_code_editors_available_light.webp',
+    dark: '/img/docs/1.11/screenshots/screen_settings_code_editors_available_dark.webp',
+  }}
+/>
+
+## Make an editor available
+
+Each editor card shows whether the launcher can use it:
+
+- **Available** means the launcher found the editor. Its location appears on the card.
+- **Enabled** means you can choose the editor for a project.
+- **Default code editor** is marked with a filled star and is preselected for new projects.
+
+Godot Launcher checks common installation locations automatically. Select **Rescan** after you install, move, or update an editor.
+
+If the editor is not found, see [Troubleshooting](../troubleshooting.md#code-editors).
+
+## Choose the default for new projects
+
+Select the star on an enabled, available editor to make it the default. The [Create Project](../projects/create-project.mdx) drawer then preselects it.
+
+If only one editor is available, the launcher can preselect it even when you have not set a default. You can still choose another editor or **None** while creating a project.
+
+Existing projects keep their current code editor.
+
+## Enable or disable an editor
+
+Use the toggle on an editor card to show or hide it as a choice for new and imported projects.
+
+Disabling an editor removes it from new choices. Projects that already use it keep their current choice and can continue to use it while it is installed.
+
+## Use a custom executable path
+
+Select **Edit** on an enabled editor card to open its settings.
+
+Choose a custom path when you want to use an installation outside the usual locations. Select the editor's executable or application bundle.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Visual Studio Code integration with a custom executable path and overridden launch arguments"
+  sources={{
+    light: '/img/docs/1.11/screenshots/screen_settings_code_editors_drawer_overrides_light.webp',
+    dark: '/img/docs/1.11/screenshots/screen_settings_code_editors_drawer_overrides_dark.webp',
+  }}
+/>
+
+Select **Use automatic detection** to clear the custom path and let the launcher find the editor again.
+
+## Override launch arguments
+
+The **Launch arguments** field controls how Godot opens a file in the code editor. The built-in defaults work for most users.
+
+Advanced overrides can use these Godot placeholders:
+
+- `{project}` - project path.
+- `{file}` - file path.
+- `{line}` - line number.
+- `{col}` - column number.
+
+An empty value is a valid override. Select **Reset to default** to restore the editor's built-in arguments, then select **Save**.
+
+For unavailable editors, launch warnings, and project setup recovery, see [Troubleshooting](../troubleshooting.md#code-editors).
+
+## Related guides
+
+- [Project Settings](../projects/project-settings.mdx)
+- [Visual Studio Code Setup for Godot](../tools/vscode-setup.md)
+- [VSCodium Setup for Godot](../tools/vscodium-setup.md)

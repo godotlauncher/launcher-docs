@@ -74,7 +74,20 @@ You can save a separate **Project identity preset** in [Git Settings](../setting
 - When automatic use is enabled, the launcher writes the preset only to the new repository before its first commit.
 - When automatic use is disabled, the launcher asks whether to use the preset or your global identity. If the global identity is incomplete, you can enter a different identity or skip the initial commit.
 
-Without a preset, an incomplete global identity keeps the existing recovery choices: **Add Git identity** or **Skip initial commit**.
+Without a preset, an incomplete global identity keeps the existing recovery choices: **Add Git identity** or **Skip initial commit**. When you add an identity, choose what should happen for future projects:
+
+- **Always ask me** writes the identity only to the new repository and saves no default.
+- **Save as default local identity** writes it to the new repository and saves an automatic project identity preset for future repositories created by Godot Launcher.
+- **Save as default global identity** writes it to Git's global configuration for repositories without a local override.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Git identity form with choices to ask again or save a local or global default"
+  sources={{
+    light: '/img/screenshots/screen_projects_new_project_git_identity_form_light.webp',
+    dark: '/img/screenshots/screen_projects_new_project_git_identity_form_dark.webp',
+  }}
+/>
 
 If Git is unavailable, you can still create the project. See [Troubleshooting](../troubleshooting.md#git) to set up Git or complete the first commit.
 

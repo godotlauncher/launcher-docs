@@ -56,6 +56,40 @@ If no saved list is available, the launcher needs a working connection before it
 
 Check your connection and select the same Standard or .NET action again. If GitHub is limiting requests or temporarily unavailable, wait a few minutes before retrying.
 
+### An editor archive cannot be verified
+
+Godot Launcher verifies official editor archives before extracting them. If
+the checksum information is unavailable or the downloaded file does not match,
+the installation stops and partial files are removed.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Godot Launcher rejecting an editor archive that failed its integrity check"
+  sources={{
+    light: '/img/screenshots/screen_installs_archive_integrity_mismatch_light.webp',
+    dark: '/img/screenshots/screen_installs_archive_integrity_mismatch_dark.webp',
+  }}
+/>
+
+1. Check your connection and select **Refresh** in the Install Editor drawer.
+2. Select the same Standard or .NET action again.
+3. If the error continues, update Godot Launcher to the latest release and try
+   again later.
+
+Do not extract or register the failed download manually. If the same official
+release continues to fail, include the release version and Launcher logs when
+reporting the problem.
+
+### An editor archive or installed executable is rejected
+
+The launcher stops an installation when the archive cannot be extracted
+safely or the resulting editor executable is not valid inside its managed
+install directory. Partial installation files are removed automatically.
+
+Retry the installation once. If the same official release fails again, report
+the release version, operating system, architecture, and Launcher logs. Use a
+different verified release until the problem is resolved.
+
 ### An installed editor is unavailable
 
 Open **Installs** and use the action that matches the problem:

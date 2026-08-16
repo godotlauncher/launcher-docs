@@ -56,6 +56,15 @@ To use C# in your project, install the **.NET SDK** from the [Microsoft .NET web
 
 The drawer shows download and installation progress. You can close it while an installation continues.
 
+Before extracting an official editor archive, Godot Launcher verifies it
+against checksum information from the same release. The launcher stops the
+installation and removes partial files if verification or safe extraction
+fails.
+
+After upgrading Godot Launcher, the release list may perform one complete
+refresh to add the checksum information needed for existing cached releases.
+Later checks return to the normal cached refresh behavior.
+
 ## Manage installed editors
 
 The **Installs** view groups official and custom editors by Godot version. Standard, .NET, prerelease, and custom entries remain distinct within those groups.

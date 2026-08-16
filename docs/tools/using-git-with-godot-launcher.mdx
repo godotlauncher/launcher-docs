@@ -71,6 +71,8 @@ If the project is not already inside a Git work tree, this action creates an emp
 
 After setup, Source Control remains selected and shows a checked **Active** state so you can see that Git is ready for the project.
 
+The **Commit identity** section shows the effective name and email, including values inherited from Git's wider configuration. Select **Update** to write both values as a repository-local identity when the project is the exact repository root. Parent repositories and linked worktrees remain read-only in Godot Launcher.
+
 :::info Existing repositories
 If the project already belongs to a repository, including a parent repository, linked worktree, or submodule, Godot Launcher recognises the existing work tree and makes no Git setup changes. It does not create a nested repository, add metadata, change Git identity, rename a branch, stage files, or create a commit.
 :::

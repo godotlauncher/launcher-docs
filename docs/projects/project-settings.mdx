@@ -52,11 +52,20 @@ See [Change Project Editor Version](../editors/change-project-editor.md) for .NE
 
 Open **Source Control**. If the project does not have a Git repository, select **Initialize Git**.
 
-:::warning
-Do not use **Initialize Git** if the project is already inside a larger Git repository. The launcher may create a second repository inside it.
-:::
-
 This creates the repository immediately. It does not add Git template files or create a first commit. See [Using Git With Godot Launcher](../tools/using-git-with-godot-launcher.mdx) for new-project Git setup and help when Git is unavailable.
+
+When Git is active, **Commit identity** shows the name and email Git will use. Select **Update** to save a repository-local identity for a project that is the root of its repository.
+
+Projects inside a parent repository and linked worktrees show the effective identity as read-only. Change that identity with Git from the repository that owns it.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Project Settings Source Control tab showing the effective commit identity and Update action"
+  sources={{
+    light: '/img/screenshots/screen_projects_settings_source_control_active_light.webp',
+    dark: '/img/screenshots/screen_projects_settings_source_control_active_dark.webp',
+  }}
+/>
 
 ## Choose a code editor {#code-editor}
 

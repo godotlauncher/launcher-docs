@@ -18,7 +18,7 @@ Git keeps a history of changes to your project. Godot Launcher can prepare Git w
 The result depends on when you add Git:
 
 - A **new project** gets the recommended Git files, a `main` branch, and an initial commit.
-- An **existing project** gets an empty repository. The launcher does not change or commit its files.
+- An **existing project** gets an empty repository when it is not already inside a Git work tree. The launcher does not change or commit its files.
 
 ## Set up Git for a new project
 
@@ -63,13 +63,22 @@ If the file is already tracked, follow the `git rm --cached -- export_presets.cf
 3. Open **Source Control**.
 4. Click **Initialize Git**.
 
-This action creates a Git repository in the project folder. It does not add template files, change the branch name, or create a commit.
+If the project is not already inside a Git work tree, this action creates an empty Git repository in the project folder. It does not add template files, change the branch name, or create a commit.
 
-The project card shows the **Git** status after initialization.
+After setup, Source Control remains selected and shows a checked **Active** state so you can see that Git is ready for the project.
 
-:::warning Parent repositories
-Do not use **Initialize Git** if the project is already inside a larger Git repository. The launcher may create a second repository inside it.
+:::info Existing repositories
+If the project already belongs to a repository, including a parent repository, linked worktree, or submodule, Godot Launcher recognises the existing work tree and makes no Git setup changes. It does not create a nested repository, add metadata, change Git identity, rename a branch, stage files, or create a commit.
 :::
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Source Control settings showing an active existing Git repository"
+  sources={{
+    light: '/img/screenshots/screen_projects_settings_source_control_existing_repository_light.webp',
+    dark: '/img/screenshots/screen_projects_settings_source_control_existing_repository_dark.webp',
+  }}
+/>
 
 ## Related guides
 

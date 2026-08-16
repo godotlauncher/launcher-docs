@@ -1,8 +1,8 @@
 ---
 id: tools
-title: Git Tool Detection
+title: Git Settings
 slug: /settings/tools
-description: "Check whether Git is available to Godot Launcher and rescan its installation after it changes."
+description: "Check the Git installation used by Godot Launcher and manage global and project identity settings."
 tags:
   - launcher-settings
   - git
@@ -11,16 +11,16 @@ tags:
 
 import ThemedImage from '@theme/ThemedImage';
 
-# Git Tool Detection
+# Git Settings
 
-The **Tools** tab shows whether Godot Launcher can use Git on your system.
+The **Tools** tab shows the command-line tools used by Godot Launcher. Open Git to check its installation and manage the identities used for commits.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Settings - Tools Tab showing Git availability and version"
+  alt="Git settings with installation details and identity controls"
   sources={{
-    light: '/img/screenshots/screen_settings_tools_light.webp',
-    dark: '/img/screenshots/screen_settings_tools_dark.webp',
+    light: '/img/screenshots/screen_settings_git_identity_light.webp',
+    dark: '/img/screenshots/screen_settings_git_identity_dark.webp',
   }}
 />
 
@@ -38,7 +38,18 @@ Godot Launcher does not install Git. See [Installing Git](../tools/install-git.m
 
 ## Rescan Git
 
-Select **Rescan tools** after you install, move, or update Git.
+Select the rescan button beside Git after you install, move, or update it. The Git drawer shows the executable path and version that Godot Launcher validated.
+
+## Manage Git identities
+
+Open Git from the **Tools** tab to manage two separate identity sources:
+
+- **Global Git identity** writes `user.name` and `user.email` to Git's global configuration. Git uses these values when a repository has no local override.
+- **Project identity preset** is saved by Godot Launcher. It does not change Git on its own. The launcher can suggest it during project creation or apply it as a repository-local identity before the first commit.
+
+Enable **Use automatically for new repositories** if every new repository created by Godot Launcher should receive the preset without another identity prompt. Leave it disabled to review the preset whenever you create a project.
+
+You can edit the preset even when Git is unavailable. Global identity controls remain unavailable until Godot Launcher can validate Git again.
 
 Code editor detection is managed separately. Use [Code Editor Settings](./code-editors.mdx) to rescan Visual Studio Code or VSCodium and configure custom executable paths.
 

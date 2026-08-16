@@ -35,7 +35,11 @@ Open **Projects > New Project** and keep **Initialize Git Repository** enabled.
 
 The launcher creates `.gitignore` and `.gitattributes`, initializes the repository on a `main` branch, and creates an `Initial commit`.
 
-The first commit needs your Git name and email. If they are missing, you can add them for this project or all repositories on the computer. You can also skip the first commit. See [Troubleshooting](../troubleshooting.md#git) for this recovery flow.
+The first commit needs your Git name and email. Godot Launcher can use Git's global identity or write an explicit identity only to the new repository.
+
+Open [Settings > Tools > Git](../settings/tools.mdx#manage-git-identities) to inspect or edit the global Git identity and save one separate project identity preset. A preset has no effect until you confirm it during project creation or enable automatic use for new repositories. Automatic use writes the preset as a repository-local identity before the initial commit, so it does not replace the global identity.
+
+If no usable identity is available, you can enter one for this project or all repositories on the computer. You can also skip the first commit. See [Troubleshooting](../troubleshooting.md#git) for this recovery flow.
 
 ## Understand the generated Git files
 

@@ -67,7 +67,14 @@ Your default code editor is preselected when it is available. See [Code Editor S
 
 When Git is available, **Initialize Git Repository** is enabled by default. The new project gets recommended Godot ignore rules, a `main` branch, and an initial commit.
 
-Git needs your name and email for the first commit. If the launcher asks for them, choose **Add Git identity** or **Skip initial commit**.
+Git needs your name and email for the first commit. The launcher uses your complete global Git identity when no project preset is saved.
+
+You can save a separate **Project identity preset** in [Git Settings](../settings/tools.mdx#manage-git-identities):
+
+- When automatic use is enabled, the launcher writes the preset only to the new repository before its first commit.
+- When automatic use is disabled, the launcher asks whether to use the preset or your global identity. If the global identity is incomplete, you can enter a different identity or skip the initial commit.
+
+Without a preset, an incomplete global identity keeps the existing recovery choices: **Add Git identity** or **Skip initial commit**.
 
 If Git is unavailable, you can still create the project. See [Troubleshooting](../troubleshooting.md#git) to set up Git or complete the first commit.
 

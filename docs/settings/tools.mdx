@@ -1,26 +1,27 @@
 ---
 id: tools
-title: Git Settings
+title: Tool Settings
 slug: /settings/tools
-description: "Check the Git installation used by Godot Launcher and manage global and project identity settings."
+description: "Check the Git and Git LFS installations used by Godot Launcher and manage Git identity settings."
 tags:
   - launcher-settings
   - git
+  - git-lfs
   - configuration
 ---
 
 import ThemedImage from '@theme/ThemedImage';
 
-# Git Settings
+# Tool Settings
 
-The **Tools** tab shows the command-line tools used by Godot Launcher. Open Git to check its installation and manage the identities used for commits.
+The **Tools** tab shows the command-line tools used by Godot Launcher. Git and Git LFS each show their availability, validated executable path, and version.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Git settings with installation details and identity controls"
+  alt="Tool settings showing available Git and Git LFS installations"
   sources={{
-    light: '/img/screenshots/screen_settings_git_identity_light.webp',
-    dark: '/img/screenshots/screen_settings_git_identity_dark.webp',
+    light: '/img/screenshots/screen_settings_tools_light.webp',
+    dark: '/img/screenshots/screen_settings_tools_dark.webp',
   }}
 />
 
@@ -36,13 +37,28 @@ When Git is available, Godot Launcher can:
 
 Godot Launcher does not install Git. See [Installing Git](../tools/install-git.md) to add it.
 
-## Rescan Git
+## Check Git LFS
 
-Select the rescan button beside Git after you install, move, or update it. The Git drawer shows the executable path and version that Godot Launcher validated.
+When Git LFS is **Available**, Godot Launcher can configure it while creating a new Git repository. The Git LFS option remains unavailable until both Git and Git LFS are ready.
+
+Godot Launcher does not install or update Git LFS. Install it through your operating system or from the [Git LFS project](https://git-lfs.com/), then rescan the tools. See [Creating a Project](../projects/create-project.mdx#set-up-git) for the new-project workflow.
+
+## Rescan tools
+
+Select the rescan button beside a tool after you install, move, or update it. The tool drawer shows the executable path and version that Godot Launcher validated.
 
 ## Manage Git identities
 
 Open Git from the **Tools** tab to manage two separate identity sources:
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Git settings with installation details and identity controls"
+  sources={{
+    light: '/img/screenshots/screen_settings_git_identity_light.webp',
+    dark: '/img/screenshots/screen_settings_git_identity_dark.webp',
+  }}
+/>
 
 - **Global Git identity** writes `user.name` and `user.email` to Git's global configuration. Git uses these values when a repository has no local override.
 - **Project identity preset** is saved by Godot Launcher. It does not change Git on its own. The launcher can suggest it during project creation or apply it as a repository-local identity before the first commit.

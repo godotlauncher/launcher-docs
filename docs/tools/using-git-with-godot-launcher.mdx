@@ -1,11 +1,12 @@
 ---
 id: using-git
 title: "Using Git With Godot Launcher"
-description: "Prepare Git for new or existing Godot projects and understand what Godot Launcher adds."
+description: "Prepare Git and Git LFS for Godot projects and understand what Godot Launcher adds."
 slug: "/integrations/using-git-with-godot-launcher"
 tags:
   - guides
   - git
+  - git-lfs
   - version-control
 ---
 
@@ -34,6 +35,16 @@ Open **Projects > New Project** and keep **Initialize Git Repository** enabled.
 />
 
 The launcher creates `.gitignore` and `.gitattributes`, initializes the repository on a `main` branch, and creates an `Initial commit`.
+
+### Track large assets with Git LFS
+
+When both Git and Git LFS are available, enable **Use Git LFS for large assets** before creating the project. The help panel lists the fixed policy's tracked patterns for 3D models, images, audio, fonts and icons, and Godot binary resources.
+
+Godot Launcher runs the repository-local Git LFS setup, adds those patterns to `.gitattributes`, and verifies the result before it can rename the branch or create the initial commit. The existing text normalization rule remains in the file. If setup fails or the project path becomes part of another work tree, project creation stops and the launcher rolls back only the files it created.
+
+Git LFS replaces matching files in Git with small pointer files while their content is stored by the configured Git LFS host. The launcher selects file types, not individual files by size, and does not manage your host's storage or bandwidth allowance.
+
+This option applies only when Godot Launcher creates a new, standalone repository. It does not run for an existing repository, parent repository, submodule, or linked worktree, and it does not migrate tracked files or rewrite history.
 
 The first commit needs your Git name and email. Godot Launcher can use Git's global identity or write an explicit identity only to the new repository.
 
@@ -68,6 +79,8 @@ If the file is already tracked, follow the `git rm --cached -- export_presets.cf
 4. Click **Initialize Git**.
 
 If the project is not already inside a Git work tree, this action creates an empty Git repository in the project folder. It does not add template files, change the branch name, or create a commit.
+
+Project Settings does not configure Git LFS. To add or migrate Git LFS in an existing repository, follow the Git LFS documentation and review the repository's history and hosting limits before making changes.
 
 After setup, Source Control remains selected and shows a checked **Active** state so you can see that Git is ready for the project.
 

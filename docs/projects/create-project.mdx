@@ -31,7 +31,7 @@ Create a Godot project and choose the tools you want to use with it. Godot Launc
 1. Open **Projects** and click **New Project**.
 2. Enter the project name and check the folder shown below it.
 3. Choose the Godot editor and renderer.
-4. Choose whether to set up Git and which code editor to use.
+4. Choose whether to set up Git, Git LFS, and a code editor.
 5. Leave **Edit now** enabled to open the project when it is ready, then click **Create Project**.
 
 ## Choose the project folder
@@ -67,6 +67,21 @@ Your default code editor is preselected when it is available. See [Code Editor S
 
 When Git is available, **Initialize Git Repository** is enabled by default. The new project gets recommended Godot ignore rules, a `main` branch, and an initial commit.
 
+If Git LFS is also available, enable **Use Git LFS for large assets** to add the launcher's documented Godot asset policy to the new repository. Open the help panel beside the option to review every tracked file pattern before creating the project.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="New Project drawer showing the Git LFS tracking policy help panel"
+  sources={{
+    light: '/img/screenshots/screen_projects_new_project_git_lfs_light.webp',
+    dark: '/img/screenshots/screen_projects_new_project_git_lfs_dark.webp',
+  }}
+/>
+
+The launcher initializes Git LFS locally, writes the selected tracking rules to `.gitattributes`, and verifies them before the first commit. If you skip the initial commit, `.gitattributes` remains unstaged with the other new project files. Git LFS setup stops safely if the tool becomes unavailable or the folder is already inside another Git work tree.
+
+Git LFS setup is available only for a new repository created by Godot Launcher. It does not migrate existing files or rewrite Git history. Your Git LFS host may apply storage and bandwidth limits.
+
 Git needs your name and email for the first commit. The launcher uses your complete global Git identity when no project preset is saved.
 
 You can save a separate **Project identity preset** in [Git Settings](../settings/tools.mdx#manage-git-identities):
@@ -89,6 +104,17 @@ Without a preset, an incomplete global identity keeps the existing recovery choi
   }}
 />
 
-If Git is unavailable, you can still create the project. See [Troubleshooting](../troubleshooting.md#git) to set up Git or complete the first commit.
+If Git is unavailable, you can still create the project without a repository. If Git LFS is unavailable, its option stays disabled and the project can still use standard Git.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="New Project drawer showing that Git LFS is unavailable"
+  sources={{
+    light: '/img/screenshots/screen_projects_new_project_no_git_lfs_light.webp',
+    dark: '/img/screenshots/screen_projects_new_project_no_git_lfs_dark.webp',
+  }}
+/>
+
+Open **Settings > Tools** to check both installations. See [Troubleshooting](../troubleshooting.md#git) to set up Git or complete the first commit.
 
 See [Using Git With Godot Launcher](../tools/using-git-with-godot-launcher.mdx) for the generated files, Git identity choices, and guidance for older Godot projects.

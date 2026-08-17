@@ -67,6 +67,19 @@ Projects inside a parent repository and linked worktrees show the effective iden
   }}
 />
 
+### When Git is unavailable
+
+If an existing repository is still active but Godot Launcher cannot find Git, the commit identity remains visible as unavailable and **Update** is disabled. Install Git or open **Settings > Tools > Git** and rescan it, then return to Project Settings.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Project Settings Source Control tab with unavailable commit identity controls"
+  sources={{
+    light: '/img/screenshots/screen_projects_settings_source_control_identity_unavailable_light.webp',
+    dark: '/img/screenshots/screen_projects_settings_source_control_identity_unavailable_dark.webp',
+  }}
+/>
+
 ## Choose a code editor {#code-editor}
 
 <ThemedImage

@@ -54,7 +54,24 @@ Godot Launcher works with Godot 4 and newer editor builds.
 To use C# in your project, install the **.NET SDK** from the [Microsoft .NET website](https://dotnet.microsoft.com/download) as well as a .NET-enabled Godot editor. See the [Godot Engine C# documentation](https://docs.godotengine.org/en/stable/tutorials/scripting/c_sharp/index.html) for current requirements.
 :::
 
-The drawer shows download and installation progress. You can close it while an installation continues.
+The drawer shows queued, download, and installation progress. You can close it
+while an installation continues. If you started an install from **Installs**,
+select the cancel icon while it is queued, preparing, or downloading to stop
+it and remove its partial download.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Install Godot Editor drawer with a cancellable download and a queued editor install"
+  sources={{
+    light: '/img/screenshots/screen_installs_download_progress_light.webp',
+    dark: '/img/screenshots/screen_installs_download_progress_dark.webp',
+  }}
+/>
+
+Cancellation is unavailable after extraction starts. An editor install started
+for a project is also not cancellable, because the project is waiting for that
+editor. If a project starts waiting for the same editor as a cancellable
+install, the cancel action becomes unavailable.
 
 Before extracting an official editor archive, Godot Launcher verifies it
 against checksum information from the same release. The launcher stops the

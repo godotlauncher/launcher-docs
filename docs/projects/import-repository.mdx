@@ -82,7 +82,7 @@ When the cloned repository declares Git submodules, Launcher pauses before proje
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Repository import warning with options to initialise or skip Git submodules"
+  alt="Repository import information with options to initialise or skip Git submodules"
   sources={{
     light: '/img/screenshots/screen_projects_remote_submodules_detected_light.webp',
     dark: '/img/screenshots/screen_projects_remote_submodules_detected_dark.webp',
@@ -94,7 +94,18 @@ When the cloned repository declares Git submodules, Launcher pauses before proje
 
 Launcher supports anonymous public submodules declared with absolute HTTPS URLs. It validates each level before making another network request and stops if a submodule is private, requires credentials, uses a relative or unsupported URL, redirects, or resolves to a private network destination.
 
-The modal lists each validation and initialisation step. You can cancel while the current stage supports cancellation. Launcher proceeds to project review only after every supported submodule is initialised and the repository has been scanned again.
+The modal lists each validation and initialisation step. You can cancel while the current stage supports cancellation. Because the main repository has already been cloned, Launcher then offers **Open clone folder** and **Delete clone and close**. Deleting the clone lets you restart the repository import without removing partial submodule files manually.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Cancelled submodule initialisation with options to open or delete the retained clone"
+  sources={{
+    light: '/img/screenshots/screen_projects_remote_submodules_cancelled_light.webp',
+    dark: '/img/screenshots/screen_projects_remote_submodules_cancelled_dark.webp',
+  }}
+/>
+
+Launcher proceeds to project review only after every supported submodule is initialised and the repository has been scanned again.
 
 If any submodule cannot be initialised, Launcher stops and keeps the partially initialised clone. You can retry, continue without the remaining submodules, or close the modal and finish the repository manually.
 

@@ -143,6 +143,11 @@ git:
   permalink: "/git"
   description: Manage your Godot projects using Git version control through Godot Launcher.
 
+git-lfs:
+  label: "Git LFS"
+  permalink: "/git-lfs"
+  description: Configure Git Large File Storage for supported Godot project assets.
+
 version-control:
   label: "Version Control"
   permalink: "/version-control"

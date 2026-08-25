@@ -33,6 +33,8 @@ Godot Launcher stores small internal files in the config folder:
 | --- | --- |
 | `prefs.json` | User preferences such as paths, language, update settings, and launch behavior. |
 | `projects.json` | The local project list, including device-specific project organization and activity. |
+| `app-integrations.json` | Non-secret connection details used to show connected accounts, installations, and connection health. |
+| `app-integration-secrets.json` | Credentials encrypted with the operating system's secure credential storage. Launcher does not use this file when secure storage is unavailable. |
 | `editor-catalog.json` | Saved official editor catalog data used when a refresh is unavailable. |
 | `tool-integrations.json` | Launcher-managed tool settings and cached installation details. |
 | `releases.json` | Cached official stable Godot release metadata. |

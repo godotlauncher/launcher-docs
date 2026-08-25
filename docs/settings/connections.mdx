@@ -1,0 +1,73 @@
+---
+id: connections
+title: Connections
+slug: /settings/connections
+description: "Connect GitHub to Godot Launcher, choose repository access, and manage or disconnect saved connections."
+tags:
+  - launcher-settings
+  - git
+  - version-control
+---
+
+import ThemedImage from '@theme/ThemedImage';
+
+# Connections
+
+Use **Settings > Connections** to connect GitHub and manage the repositories Godot Launcher can import. The **Connections** shortcut in the main navigation opens the same settings while the feature is new.
+
+Public Git repositories do not need a connection. You can clone them from **Projects > Add > Clone public Git repository**. Connect GitHub when you want to select from repositories available to your GitHub App installation, including private repositories you have allowed it to access.
+
+## Connect GitHub
+
+1. Open **Settings > Connections**.
+2. Select **Connect GitHub**.
+3. Complete the request in your normal web browser.
+4. If GitHub offers more than one personal or organization installation, select the connections you want to keep in Launcher.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Connections settings before a GitHub account is connected"
+  sources={{
+    light: '/img/screenshots/screen_settings_connections_disconnected_light.webp',
+    dark: '/img/screenshots/screen_settings_connections_disconnected_dark.webp',
+  }}
+/>
+
+Godot Launcher stores each selected installation under the GitHub user who authorized it. **Add connection** can authorize another GitHub user or another set of installations.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Connections settings with GitHub installations ready for repository import"
+  sources={{
+    light: '/img/screenshots/screen_settings_connections_connected_light.webp',
+    dark: '/img/screenshots/screen_settings_connections_connected_dark.webp',
+  }}
+/>
+
+## Manage repository access
+
+Select **Manage GitHub connections** to see the saved installations. For each connection, you can:
+
+- select **Manage repository access** to review the GitHub App installation and change which repositories it can access;
+- reconnect when authorization is no longer usable; or
+- disconnect the installation from Launcher.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="GitHub connections drawer with repository access and disconnect actions"
+  sources={{
+    light: '/img/screenshots/screen_settings_github_connections_light.webp',
+    dark: '/img/screenshots/screen_settings_github_connections_dark.webp',
+  }}
+/>
+
+Disconnecting removes the local Launcher connection. It does not uninstall the GitHub App or change its repository selection on GitHub. Use **Manage repository access** when you want to change or revoke that GitHub-side access.
+
+## Connection recovery
+
+- If a connection needs authorization again, select **Reconnect** and complete the browser flow with the same GitHub user.
+- If an installation is unavailable, open **Manage repository access** and confirm that the GitHub App is still installed and can access the repositories you expect.
+- If secure credential storage is unavailable, Launcher does not save the connection. Enable your operating system's secure credential service, restart Launcher, and try again.
+- Canceling the browser flow or connection selection leaves existing connections unchanged.
+
+See [How GitHub Connections Are Protected](../connections/github-connection-security.mdx) for credential storage, permissions, and privacy behavior. See [Import a Git Repository](../projects/import-repository.mdx) for the project workflow.

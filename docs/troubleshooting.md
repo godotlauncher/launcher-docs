@@ -182,6 +182,40 @@ You can create the first commit later after configuring Git. See [Using Git With
 
 Godot Launcher detects Git only when the project folder has its own `.git` entry. Do not select **Initialize Git** when the project is already inside a larger repository, because this may create a second repository inside it.
 
+## Repository import {#repository-import}
+
+### Remote import choices are disabled
+
+Open **Settings > Tools** and confirm that Git is available. The local file option remains available while Launcher checks Git or when Git cannot be found.
+
+### No GitHub repositories are available
+
+Open **Settings > Connections** and confirm that at least one GitHub installation is connected and available. Select **Manage repository access** to confirm that the GitHub App can access the repository, or reconnect when authorization has expired.
+
+### The clone destination is rejected
+
+Choose a parent folder that Launcher can create or write to, and use a project folder name that does not already exist. Launcher does not overwrite an existing destination.
+
+### Submodule initialisation stops
+
+Launcher initialises only anonymous public submodules declared with absolute HTTPS URLs. It stops before requesting a private, credentialed, relative, redirected, non-HTTPS, or private-network source.
+
+Review the activity list to find the submodule where initialisation stopped. You can retry, continue without the remaining submodules, or close the modal and finish the partially initialised clone with Git. Launcher does not remove submodules that completed before the failure.
+
+If you continue without submodules, projects or GDExtension files stored inside them may be unavailable. See [Import a Git Repository](./projects/import-repository.mdx#initialise-public-submodules) for the supported workflow.
+
+### No Godot projects were found
+
+Open the retained clone and confirm that it contains a regular `project.godot` file. Launcher skips symlinks, generated and dependency folders, malformed files, and repositories beyond its safe scan limits. If the project is inside a submodule, initialise the supported submodules before continuing to project review.
+
+Select **Delete clone and close** if you do not need the retained repository and no project from it was added. If deletion fails, close applications using the folder and try again. Launcher refuses deletion if the destination has been replaced since the import.
+
+### Only some projects were added
+
+Review the result shown for each project. Duplicate names or paths are skipped, while editor or project errors are reported independently. When at least one project was added, Launcher keeps the clone because the registered project depends on that folder.
+
+See [Import a Git Repository](./projects/import-repository.mdx) for the complete workflow.
+
 ## System tray
 
 System tray support varies across Linux desktops. When the launcher cannot use the tray:

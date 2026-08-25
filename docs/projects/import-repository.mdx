@@ -126,7 +126,20 @@ All discovered projects start selected. For each project, review:
 - the Godot editor requirement detected from `.godotlauncher` or `project.godot`; and
 - the code editor choice: automatic detection, none, Visual Studio Code, or VSCodium when configured.
 
-If the matching Godot editor is missing, Launcher offers the same install or recovery choices used when adding a local project. Install progress remains visible in the repository modal, and multiple projects are resolved one at a time.
+After you confirm the projects, Launcher checks all selected projects before asking you to resolve missing Godot editors. The **Editors required** step groups projects that need the same exact editor version and flavour, so one choice can cover several projects. Choose whether to download each available editor, use the shared compatible fallback when one exists, or add the affected projects without an editor.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Repository import showing two required Godot editors and their affected projects"
+  sources={{
+    light: '/img/screenshots/screen_projects_remote_editors_required_light.webp',
+    dark: '/img/screenshots/screen_projects_remote_editors_required_dark.webp',
+  }}
+/>
+
+Launcher adds the selected projects first, submits the chosen downloads to the existing editor queue, and completes the repository import without waiting. Open **Installs** if you want to follow queued and active downloads. Downloads continue one at a time, and each affected project updates automatically when its editor is ready.
+
+If an editor download fails, later queued downloads continue. The affected project remains marked as missing its editor until you install that editor from **Installs**.
 
 ## Recover a retained clone
 

@@ -26,6 +26,7 @@ export default {
         "editors/install-editor",
         "projects/create-project",
         "projects/add-existing-project",
+        "projects/import-repository",
       ],
     },
     {

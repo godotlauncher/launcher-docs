@@ -1,0 +1,63 @@
+---
+id: import-repository
+slug: /getting-started/import-repository
+title: Import a Git Repository
+description: "Clone a public Git repository or a repository from a connected GitHub account, then add its Godot projects."
+tags:
+  - getting-started
+  - project-import
+  - git
+  - github
+---
+
+# Import a Git Repository
+
+Godot Launcher can clone a repository and add one or more Godot projects found inside it. You can use an anonymous public HTTPS URL or choose a repository available through a connected GitHub account.
+
+## Before you start
+
+Install Git and confirm that **Settings > Tools > Git** reports it as available. Public URL imports do not require a GitHub connection. To import a private GitHub repository, connect the GitHub App and grant it access to that repository first.
+
+## Choose and clone a repository
+
+1. Open **Projects** and select **Add**.
+2. Choose **Clone public Git repository** or **From GitHub**.
+3. For a public repository, enter its anonymous HTTPS URL. For GitHub, select one of the repositories available to a healthy connection.
+4. Review the parent folder and repository folder name, then select **Clone repository**.
+
+The destination must not already exist. Clone progress stays in the import dialog and can be cancelled while the current Git operation allows it. The finished repository keeps a normal token-free Git remote.
+
+## Set the commit identity
+
+After cloning succeeds, Launcher checks which Git name and email future commits in the repository will use. This happens before submodule handling or project review.
+
+- A complete global Git identity is inherited without another prompt.
+- An automatic project identity preset is written only to the cloned repository.
+- A saved non-automatic preset is offered for confirmation.
+- If no complete identity is available, select **Add Git identity** or **Continue without identity**.
+
+When adding an identity, choose what should happen for future repositories:
+
+- **Always ask me** writes the identity only to this clone.
+- **Save as default local identity** writes it to this clone and saves an automatic Launcher preset for future repositories.
+- **Save as default global identity** writes it to Git's global configuration for repositories on this computer.
+
+The repository-local choice changes only the clone's `.git/config`. If an identity or preset cannot be saved, Launcher keeps the clone and continues the import with a warning. Importing does not create a commit, so you can also continue without an identity and configure it later.
+
+See [Using Git With Godot Launcher](../tools/using-git-with-godot-launcher.mdx) to manage identities and understand repository-local and global settings.
+
+## Review submodules and projects
+
+If the repository declares submodules, Launcher asks before initialising them. After that step, it lists valid root and nested `project.godot` files found by the bounded repository scan.
+
+All discovered projects start selected. Clear any project you do not want to add, then review its required Godot editor and code editor choice. Missing Godot editors are grouped so you can add projects and submit the selected editor downloads to **Installs** without waiting for every download to finish.
+
+Launcher does not rename or edit `project.godot`. Duplicate or invalid projects are reported independently, so one problem does not prevent the remaining selected projects from being added.
+
+## Keep or remove an unfinished clone
+
+A finalised clone is kept when discovery or registration cannot complete, or when you close project review. The recovery view can open its folder. If no project from that clone was added, you can also choose **Delete clone and close**.
+
+Deletion is limited to the exact clone created by that import attempt. If the folder changed or cannot be verified, Launcher preserves it and reports the failure instead of deleting another path.
+
+See [Troubleshooting](../troubleshooting.md) if Git is unavailable, the destination conflicts with an existing folder, or no valid Godot project is discovered.

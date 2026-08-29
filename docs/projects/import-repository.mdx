@@ -76,6 +76,25 @@ Review the repository and the complete destination path. You can edit the parent
 
 Select **Clone repository** to start. Progress stays in the modal. You can cancel while the current stage supports cancellation. A canceled or failed Git clone removes its temporary files and does not leave a final clone.
 
+## Set the commit identity
+
+After cloning succeeds, Launcher checks which Git name and email future commits in the repository will use. This happens before submodule handling or project review.
+
+- A complete global Git identity is inherited without another prompt.
+- An automatic project identity preset is written only to the cloned repository.
+- A saved non-automatic preset is offered for confirmation.
+- If no complete identity is available, select **Add Git identity** or **Continue without identity**.
+
+When adding an identity, choose what should happen for future repositories:
+
+- **Always ask me** writes the identity only to this clone.
+- **Save as default local identity** writes it to this clone and saves an automatic Launcher preset for future repositories.
+- **Save as default global identity** writes it to Git's global configuration for repositories on this computer.
+
+The repository-local choice changes only the clone's `.git/config`. If an identity or preset cannot be saved, Launcher keeps the clone and continues the import with a warning. Importing does not create a commit, so you can also continue without an identity and configure it later.
+
+See [Using Git With Godot Launcher](../tools/using-git-with-godot-launcher.mdx) to manage identities and understand repository-local and global settings.
+
 ## Initialise public submodules
 
 When the cloned repository declares Git submodules, Launcher pauses before project review and asks how you want to continue.

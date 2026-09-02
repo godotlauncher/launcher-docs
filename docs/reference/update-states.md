@@ -1,6 +1,6 @@
 ---
 id: update-states
-title: Launcher Update States
+title: Godot Launcher Update States
 slug: /reference/update-states
 description: "Reference for the launcher update states shown in Settings and the main project view."
 tags:
@@ -8,7 +8,7 @@ tags:
   - reference
 ---
 
-# Launcher Update States
+# Godot Launcher Update States
 
 Godot Launcher can check for new launcher releases in the background, but it does not download updates automatically. The user decides when to download and when to restart.
 
@@ -37,4 +37,4 @@ On rpm-ostree systems, Godot Launcher can detect that automatic update installat
 
 ## More details
 
-For screenshots and step-by-step behavior, see [Manage Launcher Updates](../updates/manage-launcher-updates.mdx).
+For screenshots and step-by-step behavior, see [Manage Godot Launcher Updates](../updates/manage-launcher-updates.mdx).

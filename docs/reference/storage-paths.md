@@ -19,11 +19,11 @@ Use this page to find the folders and files created or managed by Godot Launcher
 | --- | --- |
 | New projects | `<home>/Godot/Projects` |
 | Downloaded editor installs | `<home>/Godot/Editors` |
-| Launcher config files | `<home>/.gd-launcher` |
+| Godot Launcher configuration files | `<home>/.gd-launcher` |
 
 On Windows, `<home>` is your user profile folder, such as `C:\Users\You`. On Linux and macOS, `<home>` is your home directory, such as `/home/you` or `/Users/you`.
 
-You can change the project and editor install locations from [Launcher Settings](../settings/launcher-settings.mdx).
+You can change the project and editor install locations from [Godot Launcher Settings](../settings/launcher-settings.mdx).
 
 ## Config files
 
@@ -34,9 +34,9 @@ Godot Launcher stores small internal files in the config folder:
 | `prefs.json` | User preferences such as paths, language, update settings, and launch behavior. |
 | `projects.json` | The local project list, including device-specific project organization and activity. |
 | `app-integrations.json` | Non-secret connection details used to show connected accounts, installations, and connection health. |
-| `app-integration-secrets.json` | Credentials encrypted with the operating system's secure credential storage. Launcher does not use this file when secure storage is unavailable. |
+| `app-integration-secrets.json` | Credentials encrypted with the operating system's secure credential storage. The launcher does not use this file when secure storage is unavailable. |
 | `editor-catalog.json` | Saved official editor catalog data used when a refresh is unavailable. |
-| `tool-integrations.json` | Launcher-managed tool settings and cached installation details. |
+| `tool-integrations.json` | Tool settings and cached installation details managed by the launcher. |
 | `releases.json` | Cached official stable Godot release metadata. |
 | `prereleases.json` | Cached official prerelease metadata. |
 | `installed-releases.json` | Registered official and custom editor installs. |

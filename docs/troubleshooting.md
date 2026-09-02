@@ -77,8 +77,10 @@ the installation stops and partial files are removed.
    again later.
 
 Do not extract or register the failed download manually. If the same official
-release continues to fail, include the release version and Launcher logs when
-reporting the problem.
+release continues to fail, include the release version and Godot Launcher logs when
+reporting the problem. Before sharing logs, remove project names, local paths,
+usernames, and other personal information. Never share passwords, access
+tokens, or other credentials.
 
 ### An editor archive or installed executable is rejected
 
@@ -87,7 +89,9 @@ safely or the resulting editor executable is not valid inside its managed
 install directory. Partial installation files are removed automatically.
 
 Retry the installation once. If the same official release fails again, report
-the release version, operating system, architecture, and Launcher logs. Use a
+the release version, operating system, architecture, and Godot Launcher logs. Before
+sharing logs, remove project names, local paths, usernames, and other personal
+information. Never share passwords, access tokens, or other credentials. Use a
 different verified release until the problem is resolved.
 
 ### An installed editor is unavailable
@@ -180,15 +184,15 @@ You can create the first commit later after configuring Git. See [Using Git With
 
 ### A new project is inside another Git repository
 
-Before creating the project, Launcher identifies the parent repository and asks whether you want to continue. If you continue, it creates the project without initialising another repository, changing Git LFS settings in the parent, or publishing to GitHub. The final message lists the actions that were skipped.
+Before creating the project, the launcher identifies the parent repository and asks whether you want to continue. If you continue, it creates the project without initialising another repository, changing Git LFS settings in the parent, or publishing to GitHub. The final message lists the actions that were skipped.
 
-Cancel the warning and choose a location outside the parent repository if you want Launcher to create and publish a standalone repository. See [Create Your First Project](./projects/create-project.mdx#choose-the-project-folder) for the warning and completion states.
+Cancel the warning and choose a location outside the parent repository if you want the launcher to create and publish a standalone repository. See [Create Your First Project](./projects/create-project.mdx#choose-the-project-folder) for the warning and completion states.
 
 ### GitHub publishing is unavailable
 
 - Confirm that **Initialize Git Repository** is enabled and that Git is available in **Settings > Tools**.
 - Open **Settings > Connections** and connect GitHub, reconnect an unavailable installation, or approve updated publishing permissions.
-- Complete the Git identity when Launcher asks. Publishing needs the initial commit and cannot continue after **Skip initial commit**.
+- Complete the Git identity when the launcher asks. Publishing needs the initial commit and cannot continue after **Skip initial commit**.
 - If Git LFS is selected, confirm that Git LFS remains available.
 
 You can turn off **Publish to GitHub** and create the project locally while resolving a connection or permission problem.
@@ -197,7 +201,7 @@ You can turn off **Publish to GitHub** and create the project locally while reso
 
 The local project is complete and safe. Use the recovery dialog to correct the owner or repository name and retry, or select **Continue locally**.
 
-After an ambiguous network failure, use **Check and retry**. Launcher checks the exact intended repository before it makes another creation request. It may ask whether to use an exact empty repository that GitHub already created. Launcher never deletes that remote automatically.
+After an ambiguous network failure, use **Check and retry**. The launcher checks the exact intended repository before it makes another creation request. It may ask whether to use an exact empty repository that GitHub already created. The launcher never deletes that remote automatically.
 
 See [Publish a new project to GitHub](./projects/create-project.mdx#publish-a-new-project-to-github) for the complete workflow.
 
@@ -205,7 +209,7 @@ See [Publish a new project to GitHub](./projects/create-project.mdx#publish-a-ne
 
 ### Remote import choices are disabled
 
-Open **Settings > Tools** and confirm that Git is available. The local file option remains available while Launcher checks Git or when Git cannot be found.
+Open **Settings > Tools** and confirm that Git is available. The local file option remains available while the launcher checks Git or when Git cannot be found.
 
 ### No GitHub repositories are available
 
@@ -213,25 +217,25 @@ Open **Settings > Connections** and confirm that at least one GitHub installatio
 
 ### The clone destination is rejected
 
-Choose a parent folder that Launcher can create or write to, and use a project folder name that does not already exist. Launcher does not overwrite an existing destination.
+Choose a parent folder that the launcher can create or write to, and use a project folder name that does not already exist. The launcher does not overwrite an existing destination.
 
 ### Submodule initialisation stops
 
-Launcher initialises only anonymous public submodules declared with absolute HTTPS URLs. It stops before requesting a private, credentialed, relative, redirected, non-HTTPS, or private-network source.
+The launcher initialises only anonymous public submodules declared with absolute HTTPS URLs. It stops before requesting a private, credentialed, relative, redirected, non-HTTPS, or private-network source.
 
-Review the activity list to find the submodule where initialisation stopped. You can retry, continue without the remaining submodules, or close the modal and finish the partially initialised clone with Git. Launcher does not remove submodules that completed before the failure.
+Review the activity list to find the submodule where initialisation stopped. You can retry, continue without the remaining submodules, or close the modal and finish the partially initialised clone with Git. The launcher does not remove submodules that completed before the failure.
 
 If you continue without submodules, projects or GDExtension files stored inside them may be unavailable. See [Import a Git Repository](./projects/import-repository.mdx#initialise-public-submodules) for the supported workflow.
 
 ### No Godot projects were found
 
-Open the retained clone and confirm that it contains a regular `project.godot` file. Launcher skips symlinks, generated and dependency folders, malformed files, and repositories beyond its safe scan limits. If the project is inside a submodule, initialise the supported submodules before continuing to project review.
+Open the retained clone and confirm that it contains a regular `project.godot` file. The launcher skips symlinks, generated and dependency folders, malformed files, and repositories beyond its safe scan limits. If the project is inside a submodule, initialise the supported submodules before continuing to project review.
 
-Select **Delete clone and close** if you do not need the retained repository and no project from it was added. If deletion fails, close applications using the folder and try again. Launcher refuses deletion if the destination has been replaced since the import.
+Select **Delete clone and close** if you do not need the retained repository and no project from it was added. If deletion fails, close applications using the folder and try again. The launcher refuses deletion if the destination has been replaced since the import.
 
 ### Only some projects were added
 
-Review the result shown for each project. Duplicate names or paths are skipped, while editor or project errors are reported independently. When at least one project was added, Launcher keeps the clone because the registered project depends on that folder.
+Review the result shown for each project. Duplicate names or paths are skipped, while editor or project errors are reported independently. When at least one project was added, the launcher keeps the clone because the registered project depends on that folder.
 
 See [Import a Git Repository](./projects/import-repository.mdx) for the complete workflow.
 
@@ -256,8 +260,8 @@ The saved preference does not change. The launcher can use it again when a tray 
 
 ## Updates and platform options
 
-- For launcher update download or retry problems, see [Manage Launcher Updates](./updates/manage-launcher-updates.mdx#errors-and-retry).
-- For manual updates on rpm-ostree systems, see [Manage Launcher Updates](./updates/manage-launcher-updates.mdx#manual-update-required-on-rpm-ostree).
+- For launcher update download or retry problems, see [Manage Godot Launcher Updates](./updates/manage-launcher-updates.mdx#errors-and-retry).
+- For manual updates on rpm-ostree systems, see [Manage Godot Launcher Updates](./updates/manage-launcher-updates.mdx#manual-update-required-on-rpm-ostree).
 - For Windows editor link or UAC problems, see [Godot Launcher Symlink Support on Windows](./platform/windows-symlink.md#troubleshooting-godot-launcher-symlink-errors).
 - For winget package problems, see [Installing Godot Launcher with winget](./platform/windows-winget.mdx#troubleshooting-tips).
 

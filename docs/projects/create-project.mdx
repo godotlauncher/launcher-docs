@@ -43,7 +43,7 @@ The folder preview shows the folder that will be created. For example, a project
 
 The launcher can use an empty folder, but it will not overwrite one that already contains files. Use [Add an Existing Project](./add-existing-project.mdx) if the folder already contains a Godot project.
 
-Before writing any files, Launcher warns you if the planned project folder is inside another Git repository.
+Before writing any files, the launcher warns you if the planned project folder is inside another Git repository.
 
 <ThemedImage
   className="docs-media-frame"
@@ -54,7 +54,7 @@ Before writing any files, Launcher warns you if the planned project folder is in
   }}
 />
 
-Select **Cancel** to return to the unchanged form. If you select **Continue**, Launcher creates the project without creating a nested repository, changing Git LFS settings in the parent repository, or publishing to GitHub. The completion message repeats every action that was skipped.
+Select **Cancel** to return to the unchanged form. If you select **Continue**, the launcher creates the project without creating a nested repository, changing Git LFS settings in the parent repository, or publishing to GitHub. The completion message repeats every action that was skipped.
 
 <ThemedImage
   className="docs-media-frame"
@@ -90,7 +90,7 @@ Your default code editor is preselected when it is available. See [Code Editor S
 
 When Git is available, **Initialize Git Repository** is enabled by default. The new project gets recommended Godot ignore rules, a `main` branch, and an initial commit.
 
-Launcher creates the default `.gitignore` and `.gitattributes` files even when Git is disabled or unavailable, so the project is ready for version control later.
+The launcher creates the default `.gitignore` and `.gitattributes` files even when Git is disabled or unavailable, so the project is ready for version control later.
 
 If Git LFS is also available, enable **Use Git LFS for large assets** to add the launcher's documented Godot asset policy to the new repository. Open the help panel beside the option to review every tracked file pattern before creating the project.
 
@@ -147,9 +147,9 @@ Enable **Publish to GitHub** to create one new private GitHub repository and pus
   }}
 />
 
-Choose the connected personal account or organization that will own the repository. Launcher suggests a repository name from the project name, but you can edit it before creation. Only private repositories are supported in this workflow.
+Choose the connected personal account or organization that will own the repository. The launcher suggests a repository name from the project name, but you can edit it before creation. Only private repositories are supported in this workflow.
 
-After you stop typing, Launcher checks whether the name appears available. A green **Name looks available** result lets you continue, but GitHub makes the final decision when the repository is created.
+After you stop typing, the launcher checks whether the name appears available. A green **Name looks available** result lets you continue, but GitHub makes the final decision when the repository is created.
 
 <ThemedImage
   className="docs-media-frame"
@@ -160,7 +160,7 @@ After you stop typing, Launcher checks whether the name appears available. A gre
   }}
 />
 
-A confirmed **Name already in use** result blocks creation until you choose another name. Network, rate-limit, or permission checks may be inconclusive; Launcher does not describe those results as proof that a name is available.
+A confirmed **Name already in use** result blocks creation until you choose another name. Network, rate-limit, or permission checks may be inconclusive; the launcher does not describe those results as proof that a name is available.
 
 <ThemedImage
   className="docs-media-frame"
@@ -171,9 +171,9 @@ A confirmed **Name already in use** result blocks creation until you choose anot
   }}
 />
 
-Launcher completes and registers the local project before creating the remote repository. It then adds a token-free HTTPS `origin`, uploads required Git LFS objects, pushes `main`, and verifies the remote. A remote failure never removes the local project or a repository that GitHub may already have created.
+The launcher completes and registers the local project before creating the remote repository. It then adds a token-free HTTPS `origin`, uploads required Git LFS objects, pushes `main`, and verifies the remote. A remote failure never removes the local project or a repository that GitHub may already have created.
 
-If publication cannot finish, use the recovery dialog to correct an owner or name and retry. For an ambiguous network result, **Check and retry** verifies the exact intended repository before another creation request. Launcher asks before using an exact empty repository found during that check. Select **Continue locally** when you want to keep the completed local project without finishing publication in this Launcher session.
+If publication cannot finish, use the recovery dialog to correct an owner or name and retry. For an ambiguous network result, **Check and retry** verifies the exact intended repository before another creation request. The launcher asks before using an exact empty repository found during that check. Select **Continue locally** when you want to keep the completed local project without finishing publication in this launcher session.
 
 <ThemedImage
   className="docs-media-frame"

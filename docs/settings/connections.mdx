@@ -22,7 +22,7 @@ Public Git repositories do not need a connection. You can clone them from **Proj
 1. Open **Settings > Connections**.
 2. Select **Connect GitHub**.
 3. Complete the request in your normal web browser.
-4. If GitHub offers more than one personal or organization installation, select the connections you want to keep in Launcher.
+4. If GitHub offers more than one personal or organization installation, select the connections you want to keep in the launcher.
 
 <ThemedImage
   className="docs-media-frame"
@@ -50,7 +50,7 @@ Select **Manage GitHub connections** to see the saved installations. For each co
 
 - select **Manage repository access** to review the GitHub App installation and change which repositories it can access;
 - reconnect when authorization is no longer usable; or
-- disconnect the installation from Launcher.
+- disconnect the installation from the launcher.
 
 <ThemedImage
   className="docs-media-frame"
@@ -61,15 +61,15 @@ Select **Manage GitHub connections** to see the saved installations. For each co
   }}
 />
 
-Disconnecting removes the local Launcher connection. It does not uninstall the GitHub App or change its repository selection on GitHub. Use **Manage repository access** when you want to change or revoke that GitHub-side access.
+Disconnecting removes the local Godot Launcher connection. It does not uninstall the GitHub App or change its repository selection on GitHub. Use **Manage repository access** when you want to change or revoke that GitHub-side access.
 
-If Launcher reports **Updated permissions required**, open the connection action and approve the GitHub App's current permissions in your browser. Existing import access can remain available while publishing stays disabled. GitHub shows the requested permission change before you approve it.
+If the launcher reports **Updated permissions required**, open the connection action and approve the GitHub App's current permissions in your browser. Existing import access can remain available while publishing stays disabled. GitHub shows the requested permission change before you approve it.
 
 ## Connection recovery
 
 - If a connection needs authorization again, select **Reconnect** and complete the browser flow with the same GitHub user.
 - If an installation is unavailable, open **Manage repository access** and confirm that the GitHub App is still installed and can access the repositories you expect.
-- If secure credential storage is unavailable, Launcher does not save the connection. Enable your operating system's secure credential service, restart Launcher, and try again.
+- If secure credential storage is unavailable, the launcher does not save the connection. Enable your operating system's secure credential service, restart the launcher, and try again.
 - Canceling the browser flow or connection selection leaves existing connections unchanged.
 
-See [How GitHub Connections Are Protected](../connections/github-connection-security.mdx) for credential storage, permissions, and privacy behavior. See [Create Your First Project](../projects/create-project.mdx#publish-a-new-project-to-github) to publish a new project or [Import a Git Repository](../projects/import-repository.mdx) to bring an existing repository into Launcher.
+See [How GitHub Connections Are Protected](../connections/github-connection-security.mdx) for credential storage, permissions, and privacy behavior. See [Create Your First Project](../projects/create-project.mdx#publish-a-new-project-to-github) to publish a new project or [Import a Git Repository](../projects/import-repository.mdx) to bring an existing repository into Godot Launcher.

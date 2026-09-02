@@ -12,7 +12,7 @@ tags:
 
 # Translation Contribution Guide
 
-Godot Launcher supports automatic language detection, a manual language picker, and a growing set of bundled locales. Every phrase started as an automated translation, so human review and future language additions rely on contributors like you. Use this page when you want to polish an existing language, submit a new one, or report an issue.
+Godot Launcher supports automatic language detection, a manual language picker, and a growing set of bundled locales. Every locale benefits from human review, and future language additions rely on contributors like you. Use this page when you want to polish an existing language, submit a new one, or report an issue.
 
 ---
 
@@ -36,10 +36,6 @@ The launcher currently offers:
 - Türkçe (`tr`)
 - Malti (`mt`)
 
-:::note
-Right-to-left languages are on the roadmap but not activated yet.
-:::
-
 ---
 
 ## Quick Feedback (No Files Needed)
@@ -58,23 +54,22 @@ Community members can often patch small copy fixes quickly when they have that c
 
 ### 1. Create the Locale Folder
 
-Inside the launcher repository (`godotlauncher/launcher`), create a folder under `src/locales/` that matches your language code. Use [ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) and only add regional variants when the writing system demands it (for example `pt-BR`, `zh-CN`, `zh-TW`).
+Inside the launcher repository (`godotlauncher/launcher`), create a folder under `locales/` that matches your language code. Use [ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) and only add regional variants when the writing system demands it (for example `pt-BR`, `zh-CN`, `zh-TW`).
 
 ```bash
-src/locales/es/       # Spanish
-src/locales/fr/       # French
-src/locales/de/       # German
-src/locales/pt-BR/    # Brazilian Portuguese
-src/locales/ja/       # Japanese
-src/locales/zh-CN/    # Simplified Chinese
-src/locales/zh-TW/    # Traditional Chinese
+locales/es/       # Spanish
+locales/fr/       # French
+locales/de/       # German
+locales/pt-BR/    # Brazilian Portuguese
+locales/ja/       # Japanese
+locales/zh-CN/    # Simplified Chinese
+locales/zh-TW/    # Traditional Chinese
 ```
 
 ### 2. Copy the English Templates
 
-Duplicate every JSON file from `src/locales/en/` into your new folder. There are 11 namespaces to translate:
+Duplicate every JSON file from `locales/en/` into your new folder. There are 10 namespaces to translate:
 
-- `translation.json`
 - `dialogs.json`
 - `menus.json`
 - `common.json`
@@ -128,7 +123,7 @@ Once the files are translated, switch the launcher to your language and do a qui
 - Step through the Welcome wizard if you touched those strings.
 
 :::tip
-Adding a brand-new language also means updating the language registry in `src/electron/i18n/index.ts`, `src/ui/i18n/index.ts`, and `src/ui/components/settings/LanguageSelector.tsx`. If you are unsure how to do that, mention it in your pull request and a maintainer can assist.
+Adding a brand-new language also means updating the language registry in `main/src/i18n/config.ts`, `renderer/src/i18n/index.ts`, and `renderer/src/components/settings/LanguageSelector.tsx`. If you are unsure how to do that, mention it in your pull request and a maintainer can assist.
 :::
 
 ---
@@ -143,7 +138,7 @@ Adding a brand-new language also means updating the language registry in `src/el
   5. Open a PR describing what changed and how you verified it.
 
 - **Issue Attachment:**
-  - If you cannot run the project locally, open an issue titled "Translation: Language Name," attach the 11 JSON files, and share any testing notes. A maintainer will wire things up.
+  - If you cannot run the project locally, open an issue titled "Translation: Language Name," attach the 10 JSON files, and share any testing notes. A maintainer will wire things up.
 
 Where possible, keep one language per PR so reviewers can focus on the context.
 
@@ -153,7 +148,7 @@ Where possible, keep one language per PR so reviewers can focus on the context.
 
 Before you press "Create pull request," make sure:
 
-- [ ] All 11 JSON files for your locale exist and contain valid JSON.
+- [ ] All 10 JSON files for your locale exist and contain valid JSON.
 - [ ] Keys remain in English and interpolation variables are untouched.
 - [ ] Terminology is consistent across the files.
 - [ ] You tested the main screens or noted anything you could not verify.

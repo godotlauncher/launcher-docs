@@ -29,11 +29,11 @@ The project-operated sign-in service handles the GitHub sign-in exchange. It doe
 
 ## Repository permissions
 
-The initial repository import feature requests read access needed to list and clone repositories. It does not request repository administration access.
+Repository import uses read access to list and clone repositories. Publishing a new project also requires Contents write access to push its initial commit and Administration write access to create the private repository. Launcher requests these permissions through the GitHub App and uses them only for a publishing action you start.
 
 When installing the GitHub App, you choose which repositories it can access. Use **Manage repository access** in **Settings > Connections** to review or change that selection through GitHub.
 
-If a future feature needs broader permissions, GitHub must ask you to approve that change before Launcher can use it.
+If an existing installation has not approved the publishing permissions, Launcher keeps supported import access available but disables publishing for that connection. GitHub must show and receive approval for the updated permissions before Launcher can create or write to a repository.
 
 ## Disconnecting and revoking access
 
@@ -47,4 +47,4 @@ No sign-in design can protect credentials from malicious software that already c
 
 Keep your operating system and Godot Launcher updated. Report suspected security problems through the project's published [Security Policy](https://github.com/godotlauncher/launcher/security/policy).
 
-See [Connections](../settings/connections.mdx) to connect or manage GitHub and [Import a Git Repository](../projects/import-repository.mdx) to use the connection.
+See [Connections](../settings/connections.mdx) to connect or manage GitHub, [Create Your First Project](../projects/create-project.mdx#publish-a-new-project-to-github) to publish a new project, and [Import a Git Repository](../projects/import-repository.mdx) to import a repository.

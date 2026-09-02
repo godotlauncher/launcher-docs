@@ -2,7 +2,7 @@
 id: create-project
 slug: /getting-started/create-project
 title: Creating a Project
-description: "Create a Godot project, choose where to save it, and set up its editors and Git repository."
+description: "Create a Godot project, choose where to save it, and set up its editors, Git repository, and optional GitHub publication."
 tags:
   - godot-project-setup
   - getting-started
@@ -15,7 +15,7 @@ import ThemedImage from '@theme/ThemedImage';
 
 # Create Your First Project
 
-Create a Godot project and choose the tools you want to use with it. Godot Launcher can also prepare a Git repository and open the project when it is ready.
+Create a Godot project and choose the tools you want to use with it. Godot Launcher can prepare a Git repository, publish it to a new private GitHub repository, and open the project when it is ready.
 
 <ThemedImage
   className="docs-media-frame"
@@ -31,8 +31,9 @@ Create a Godot project and choose the tools you want to use with it. Godot Launc
 1. Open **Projects** and click **New Project**.
 2. Enter the project name and check the folder shown below it.
 3. Choose the Godot editor and renderer.
-4. Choose whether to set up Git, Git LFS, and a code editor.
-5. Leave **Edit now** enabled to open the project when it is ready, then click **Create Project**.
+4. Choose whether to set up Git, Git LFS, a code editor, and GitHub publishing.
+5. Leave **Edit now** enabled to open the project when it is ready.
+6. Select **Create Project**, or **Create and publish to GitHub** when publishing is enabled.
 
 ## Choose the project folder
 
@@ -41,6 +42,28 @@ New projects use the folder set in **Settings > Projects > Project Location**. E
 The folder preview shows the folder that will be created. For example, a project named `My Next Awesome Game` uses `My-Next-Awesome-Game` as its folder name.
 
 The launcher can use an empty folder, but it will not overwrite one that already contains files. Use [Add an Existing Project](./add-existing-project.mdx) if the folder already contains a Godot project.
+
+Before writing any files, Launcher warns you if the planned project folder is inside another Git repository.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Warning that the new project folder is inside another Git repository"
+  sources={{
+    light: '/img/screenshots/screen_projects_new_project_existing_repository_warning_light.webp',
+    dark: '/img/screenshots/screen_projects_new_project_existing_repository_warning_dark.webp',
+  }}
+/>
+
+Select **Cancel** to return to the unchanged form. If you select **Continue**, Launcher creates the project without creating a nested repository, changing Git LFS settings in the parent repository, or publishing to GitHub. The completion message repeats every action that was skipped.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Project created message listing the Git and GitHub actions skipped inside a parent repository"
+  sources={{
+    light: '/img/screenshots/screen_projects_new_project_existing_repository_completion_light.webp',
+    dark: '/img/screenshots/screen_projects_new_project_existing_repository_completion_dark.webp',
+  }}
+/>
 
 ## Choose the Godot editor
 
@@ -66,6 +89,8 @@ Your default code editor is preselected when it is available. See [Code Editor S
 ## Set up Git
 
 When Git is available, **Initialize Git Repository** is enabled by default. The new project gets recommended Godot ignore rules, a `main` branch, and an initial commit.
+
+Launcher creates the default `.gitignore` and `.gitattributes` files even when Git is disabled or unavailable, so the project is ready for version control later.
 
 If Git LFS is also available, enable **Use Git LFS for large assets** to add the launcher's documented Godot asset policy to the new repository. Open the help panel beside the option to review every tracked file pattern before creating the project.
 
@@ -103,6 +128,65 @@ Without a preset, an incomplete global identity keeps the existing recovery choi
     dark: '/img/screenshots/screen_projects_new_project_git_identity_form_dark.webp',
   }}
 />
+
+## Publish a new project to GitHub
+
+Enable **Publish to GitHub** to create one new private GitHub repository and push the initial `main` branch. Publishing requires:
+
+- **Initialize Git Repository** and an initial commit;
+- a complete Git identity;
+- an available GitHub connection with the current publishing permissions; and
+- Git LFS when **Use Git LFS for large assets** is selected.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="New Project drawer with private GitHub repository owner and name fields"
+  sources={{
+    light: '/img/screenshots/screen_projects_new_project_github_light.webp',
+    dark: '/img/screenshots/screen_projects_new_project_github_dark.webp',
+  }}
+/>
+
+Choose the connected personal account or organization that will own the repository. Launcher suggests a repository name from the project name, but you can edit it before creation. Only private repositories are supported in this workflow.
+
+After you stop typing, Launcher checks whether the name appears available. A green **Name looks available** result lets you continue, but GitHub makes the final decision when the repository is created.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="New Project drawer confirming that a private GitHub repository name looks available"
+  sources={{
+    light: '/img/screenshots/screen_projects_new_project_github_available_light.webp',
+    dark: '/img/screenshots/screen_projects_new_project_github_available_dark.webp',
+  }}
+/>
+
+A confirmed **Name already in use** result blocks creation until you choose another name. Network, rate-limit, or permission checks may be inconclusive; Launcher does not describe those results as proof that a name is available.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="New Project drawer showing that a private GitHub repository name is already in use"
+  sources={{
+    light: '/img/screenshots/screen_projects_new_project_github_unavailable_light.webp',
+    dark: '/img/screenshots/screen_projects_new_project_github_unavailable_dark.webp',
+  }}
+/>
+
+Launcher completes and registers the local project before creating the remote repository. It then adds a token-free HTTPS `origin`, uploads required Git LFS objects, pushes `main`, and verifies the remote. A remote failure never removes the local project or a repository that GitHub may already have created.
+
+If publication cannot finish, use the recovery dialog to correct an owner or name and retry. For an ambiguous network result, **Check and retry** verifies the exact intended repository before another creation request. Launcher asks before using an exact empty repository found during that check. Select **Continue locally** when you want to keep the completed local project without finishing publication in this Launcher session.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="GitHub publishing recovery dialog for a project that was created safely on the computer"
+  sources={{
+    light: '/img/screenshots/screen_projects_new_project_github_recovery_light.webp',
+    dark: '/img/screenshots/screen_projects_new_project_github_recovery_dark.webp',
+  }}
+/>
+
+After publication, use the project folder menu and select **Open in GitHub** to open its safely recognised `github.com` repository page.
+
+See [Connections](../settings/connections.mdx) to connect GitHub or approve updated permissions. See [How GitHub Connections Are Protected](../connections/github-connection-security.mdx) for credential and permission details.
 
 If Git is unavailable, you can still create the project without a repository. If Git LFS is unavailable, its option stays disabled and the project can still use standard Git.
 

@@ -178,9 +178,28 @@ The first commit for a new project needs an author identity. Choose:
 
 You can create the first commit later after configuring Git. See [Using Git With Godot Launcher](./tools/using-git-with-godot-launcher.mdx) for the files prepared by the launcher.
 
-### Git appears inactive for a project inside a larger repository
+### A new project is inside another Git repository
 
-Godot Launcher detects Git only when the project folder has its own `.git` entry. Do not select **Initialize Git** when the project is already inside a larger repository, because this may create a second repository inside it.
+Before creating the project, Launcher identifies the parent repository and asks whether you want to continue. If you continue, it creates the project without initialising another repository, changing Git LFS settings in the parent, or publishing to GitHub. The final message lists the actions that were skipped.
+
+Cancel the warning and choose a location outside the parent repository if you want Launcher to create and publish a standalone repository. See [Create Your First Project](./projects/create-project.mdx#choose-the-project-folder) for the warning and completion states.
+
+### GitHub publishing is unavailable
+
+- Confirm that **Initialize Git Repository** is enabled and that Git is available in **Settings > Tools**.
+- Open **Settings > Connections** and connect GitHub, reconnect an unavailable installation, or approve updated publishing permissions.
+- Complete the Git identity when Launcher asks. Publishing needs the initial commit and cannot continue after **Skip initial commit**.
+- If Git LFS is selected, confirm that Git LFS remains available.
+
+You can turn off **Publish to GitHub** and create the project locally while resolving a connection or permission problem.
+
+### A project was created locally but GitHub publishing failed
+
+The local project is complete and safe. Use the recovery dialog to correct the owner or repository name and retry, or select **Continue locally**.
+
+After an ambiguous network failure, use **Check and retry**. Launcher checks the exact intended repository before it makes another creation request. It may ask whether to use an exact empty repository that GitHub already created. Launcher never deletes that remote automatically.
+
+See [Publish a new project to GitHub](./projects/create-project.mdx#publish-a-new-project-to-github) for the complete workflow.
 
 ## Repository import {#repository-import}
 

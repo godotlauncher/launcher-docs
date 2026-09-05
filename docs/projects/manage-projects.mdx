@@ -14,7 +14,7 @@ import ThemedImage from '@theme/ThemedImage';
 
 # Manage Projects
 
-Use the **Projects** view to find and open projects or change how they are organized.
+Use the **Projects** view in Godot Launcher to find and open projects or change how they are organised.
 
 <ThemedImage
   className="docs-media-frame"
@@ -22,6 +22,24 @@ Use the **Projects** view to find and open projects or change how they are organ
   sources={{
     light: '/img/screenshots/screen_projects_view_light.webp',
     dark: '/img/screenshots/screen_projects_view_dark.webp',
+  }}
+/>
+
+## Start with an empty Projects view
+
+You can start creating or adding projects before installing an editor. Select
+**Create project** to choose an editor and start a new project. Select **From
+this computer** to add a project already on your computer, or **From GitHub**
+to connect GitHub and import a repository. When Git is unavailable, **From
+GitHub** stays visible but disabled with an explanation; local import remains
+available.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Empty Projects view with choices to create a project or add an existing project"
+  sources={{
+    light: '/img/screenshots/screen_projects_welcome_no_editor_light.webp',
+    dark: '/img/screenshots/screen_projects_welcome_no_editor_dark.webp',
   }}
 />
 
@@ -50,6 +68,24 @@ Each project card shows its folder and selected tools. Use its actions to:
 Removing a project from the launcher list does not delete its project folder.
 
 See [Project Badges and Tooltips](./project-badges.mdx) for the status shown on each card. See [Troubleshooting](../troubleshooting.md#project-editor-selection) when a card shows a warning.
+
+### Install a missing editor
+
+When a project needs an official editor that is not installed, its card can
+show a download icon labelled **Install required editor**. Select it to download
+that exact editor.
+The launcher repairs every listed project that is waiting for the same editor
+when the download finishes. Custom-built editors cannot be downloaded this way;
+register the build instead.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Project card offering to install its required Godot editor"
+  sources={{
+    light: '/img/screenshots/screen_projects_missing_editor_download_light.webp',
+    dark: '/img/screenshots/screen_projects_missing_editor_download_dark.webp',
+  }}
+/>
 
 ## Reorder pinned projects
 

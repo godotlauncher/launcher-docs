@@ -28,20 +28,37 @@ Create a Godot project and choose the tools you want to use with it. Godot Launc
 
 ## Create a project
 
-1. Open **Projects** and click **New Project**.
-2. Enter the project name and check the folder shown below it.
-3. Choose the Godot editor and renderer.
+1. Open **Projects**. Select **New Project** when you already have projects, or **Create project** from the empty welcome screen.
+2. Enter the project name and check the project location shown below it.
+3. Choose the Godot editor and renderer. You can choose an installed editor or browse releases to download one.
 4. Choose whether to set up Git, Git LFS, a code editor, and GitHub publishing.
 5. Leave **Edit now** enabled to open the project when it is ready.
-6. Select **Create Project**, or **Create and publish to GitHub** when publishing is enabled.
+6. Select **Create Project**, or **Create and publish to GitHub** when publishing is enabled. If the selected editor needs downloading, these actions become **Install and create project** or **Install, create and publish**.
 
 ## Choose the project folder
 
-New projects use the folder set in **Settings > Projects > Project Location**. Enable **Overwrite Project Path** to choose a different parent folder for this project only.
+New projects use the folder set in **Settings > Projects > Project Location**.
+Edit **Project location** directly or use its browse button to select a different
+parent folder for this project only. Select **Use default location** to return
+to the saved setting.
 
 The folder preview shows the folder that will be created. For example, a project named `My Next Awesome Game` uses `My-Next-Awesome-Game` as its folder name.
 
-The launcher can use an empty folder, but it will not overwrite one that already contains files. Use [Add an Existing Project](./add-existing-project.mdx) if the folder already contains a Godot project.
+The launcher checks the complete project location while you fill in the form.
+It enables creation only when that location is available, then checks it again
+before it downloads an editor or writes files. The launcher can use an empty
+folder, but it will not overwrite one that already contains files. Use [Add an
+Existing Project](./add-existing-project.mdx) if the folder already contains a
+Godot project.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="New Project drawer reporting that the selected project location cannot be used"
+  sources={{
+    light: '/img/screenshots/screen_projects_new_project_destination_blocked_light.webp',
+    dark: '/img/screenshots/screen_projects_new_project_destination_blocked_dark.webp',
+  }}
+/>
 
 Before writing any files, the launcher warns you if the planned project folder is inside another Git repository.
 
@@ -67,7 +84,37 @@ Select **Cancel** to return to the unchanged form. If you select **Continue**, t
 
 ## Choose the Godot editor
 
-Choose the Godot editor that will open the project. Registered custom-built editors appear with official installed releases.
+Choose the Godot editor that will open the project. Registered custom-built
+editors appear with official installed releases. Select **Browse releases** to
+search the release catalogue, switch between stable and pre-release builds,
+and choose Standard or .NET. Releases are grouped by major and minor version.
+A selected release that is not installed is downloaded before the launcher
+creates the project. If the catalogue cannot load or refresh, select **Retry**;
+the form and selected editor stay in place.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="New Project editor picker browsing downloadable stable and pre-release Godot editors"
+  sources={{
+    light: '/img/screenshots/screen_projects_new_project_editor_catalogue_light.webp',
+    dark: '/img/screenshots/screen_projects_new_project_editor_catalogue_dark.webp',
+  }}
+/>
+
+After you select a downloadable editor, the create button describes the work
+it will do. A progress panel shows editor installation, project creation, and
+optional editor launch. If the editor installation fails, no new project is
+created. If installation or creation fails, acknowledge the alert to return to
+your retained form and try again.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Project setup progress showing an editor download before project creation"
+  sources={{
+    light: '/img/screenshots/screen_projects_new_project_installing_editor_light.webp',
+    dark: '/img/screenshots/screen_projects_new_project_installing_editor_dark.webp',
+  }}
+/>
 
 See [Custom-Built Godot Editors](../editors/custom-editors.mdx) to register your own build.
 
@@ -137,6 +184,11 @@ Enable **Publish to GitHub** to create one new private GitHub repository and pus
 - a complete Git identity;
 - an available GitHub connection with the current publishing permissions; and
 - Git LFS when **Use Git LFS for large assets** is selected.
+
+If GitHub needs a connection or updated permissions, select **Connect GitHub**.
+The shared connection flow keeps the project form available while you complete
+the browser steps, then reloads the available repository owners when you
+return.
 
 <ThemedImage
   className="docs-media-frame"

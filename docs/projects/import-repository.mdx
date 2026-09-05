@@ -46,11 +46,18 @@ This source is anonymous. It does not use a saved GitHub connection, the host cr
 
 ## Choose a connected GitHub repository
 
-1. [Connect GitHub](../settings/connections.mdx) and allow the GitHub App to access the repositories you want to import.
-2. Open **Projects > Add > From GitHub**.
+1. Select **From GitHub** on the Projects welcome screen, or open **Projects > Add > From GitHub**.
+2. If prompted, connect GitHub in the import window and allow access to the repositories you want to import. See [Connections](../settings/connections.mdx) for the browser and account-selection steps.
 3. Select a repository, then select **Continue**.
 
 Search filters the repositories already loaded. Select **Load more** to request the next page. A repository already represented by a project in the launcher is disabled.
+
+The **Don't see your repository?** guidance is available beneath the repository
+list. Select **Manage accounts and access** if the repository is not listed. The
+shared GitHub connection flow lets you reconnect, add an account, or change
+repository access while keeping you in the import task. When it finishes, the
+launcher refreshes the repository list and keeps your current selection when it
+is still available.
 
 <ThemedImage
   className="docs-media-frame"
@@ -169,7 +176,7 @@ After you confirm the projects, the launcher checks all selected projects before
 
 The launcher adds the selected projects first, submits the chosen downloads to the existing editor queue, and completes the repository import without waiting. Open **Installs** if you want to follow queued and active downloads. Downloads continue one at a time, and each affected project updates automatically when its editor is ready.
 
-If an editor download fails, later queued downloads continue. The affected project remains marked as missing its editor until you install that editor from **Installs**.
+If an editor download fails, later queued downloads continue. The affected project remains marked as missing its editor. Use **Install required editor** on its card when available, or install the editor from **Installs**.
 
 ## Recover a retained clone
 

@@ -191,7 +191,7 @@ Cancel the warning and choose a location outside the parent repository if you wa
 ### GitHub publishing is unavailable
 
 - Confirm that **Initialize Git Repository** is enabled and that Git is available in **Settings > Tools**.
-- Open **Settings > Connections** and connect GitHub, reconnect an unavailable installation, or approve updated publishing permissions.
+- Use the connection action in the project form to connect GitHub, reconnect an unavailable installation, or approve updated publishing permissions without losing the form. You can also manage connections in **Settings > Connections**.
 - Complete the Git identity when the launcher asks. Publishing needs the initial commit and cannot continue after **Skip initial commit**.
 - If Git LFS is selected, confirm that Git LFS remains available.
 
@@ -213,7 +213,11 @@ Open **Settings > Tools** and confirm that Git is available. The local file opti
 
 ### No GitHub repositories are available
 
-Open **Settings > Connections** and confirm that at least one GitHub installation is connected and available. Select **Manage repository access** to confirm that the GitHub App can access the repository, or reconnect when authorization has expired.
+Select **Manage accounts and access** beneath the repository list. Connect or
+reconnect an account, or use **Manage repository access** to allow the GitHub
+App to access the repository. Return to the launcher and refresh the list. The
+connection flow keeps you in the import task. You can also manage connections
+in **Settings > Connections**.
 
 ### The clone destination is rejected
 

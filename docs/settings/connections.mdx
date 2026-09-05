@@ -63,11 +63,25 @@ Select **Manage GitHub connections** to see the saved installations. For each co
 
 Disconnecting removes the local Godot Launcher connection. It does not uninstall the GitHub App or change its repository selection on GitHub. Use **Manage repository access** when you want to change or revoke that GitHub-side access.
 
-If the launcher reports **Updated permissions required**, open the connection action and approve the GitHub App's current permissions in your browser. Existing import access can remain available while publishing stays disabled. GitHub shows the requested permission change before you approve it.
+If the launcher reports **Updated permissions required**, select the recovery
+action wherever it appears, including when importing a repository or publishing
+a new project. The shared GitHub connection flow keeps you in the current task,
+so you can complete the browser flow and return to it. Existing import access can
+remain available while publishing stays disabled. GitHub shows the requested
+permission change before you approve it.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="GitHub connection dialog offering recovery for a connection that needs authorisation"
+  sources={{
+    light: '/img/screenshots/screen_github_connection_recovery_light.webp',
+    dark: '/img/screenshots/screen_github_connection_recovery_dark.webp',
+  }}
+/>
 
 ## Connection recovery
 
-- If a connection needs authorization again, select **Reconnect** and complete the browser flow with the same GitHub user.
+- If a connection needs authorization again, select **Reconnect** and complete the browser flow with the same GitHub user. The launcher can direct you to this recovery from **Connections**, repository import, or new-project publishing.
 - If an installation is unavailable, open **Manage repository access** and confirm that the GitHub App is still installed and can access the repositories you expect.
 - If secure credential storage is unavailable, the launcher does not save the connection. Enable your operating system's secure credential service, restart the launcher, and try again.
 - Canceling the browser flow or connection selection leaves existing connections unchanged.

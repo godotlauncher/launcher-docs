@@ -18,10 +18,32 @@ Use the **Projects** view in Godot Launcher to find and open projects or change 
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Godot Launcher Projects view with New, Pinned, and Recents groups"
+  alt="Godot Launcher Projects view in Cards mode with New, Pinned, and Recents groups"
   sources={{
     light: '/img/screenshots/screen_projects_view_light.webp',
     dark: '/img/screenshots/screen_projects_view_dark.webp',
+  }}
+/>
+
+## Choose a project view
+
+Cards are the default view. They show each project's details and its **Edit in
+Godot** button together.
+
+To see more projects at once, select the **List** icon to the left of
+**Search**. List rows keep the same groups, order, search results, pinning,
+and project actions. Select the project icon or name to open it in Godot; use
+the copy control beside its path to copy the path without opening the project.
+
+Godot Launcher remembers your selected view after you close and reopen the
+app. Select the **Cards** icon to return to the card layout.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Godot Launcher Projects view in List mode with compact project rows and the List and Cards view selector"
+  sources={{
+    light: '/img/screenshots/screen_projects_compact_view_light.webp',
+    dark: '/img/screenshots/screen_projects_compact_view_dark.webp',
   }}
 />
 
@@ -57,7 +79,8 @@ Enter part of a project name in **Search** to filter all three groups.
 
 ## Open or manage a project
 
-Each project card shows its folder and selected tools. Use its actions to:
+Each project shows its folder, selected tools, and status. In Cards view, use
+the card actions to:
 
 - Click **Edit in Godot** to launch the project with its selected Godot editor.
 - Use the pin button to move the project into or out of **Pinned**.
@@ -67,13 +90,17 @@ Each project card shows its folder and selected tools. Use its actions to:
 
 Removing a project from the launcher list does not delete its project folder.
 
-See [Project Badges and Tooltips](./project-badges.mdx) for the status shown on each card. See [Troubleshooting](../troubleshooting.md#project-editor-selection) when a card shows a warning.
+In List view, small icons beside the project name show the selected code
+editor, Git repository, and windowed-mode setting. The Godot version and last
+opened time appear below the actions. Hover an icon for its description.
+
+See [Project Badges and Tooltips](./project-badges.mdx) for the status shown on each project. See [Troubleshooting](../troubleshooting.md#project-editor-selection) when a project shows a warning.
 
 ### Install a missing editor
 
-When a project needs an official editor that is not installed, its card can
-show a download icon labelled **Install required editor**. Select it to download
-that exact editor.
+When a project needs an official editor that is not installed, its Godot
+version shows a warning and the project cannot be opened. Select the download
+icon labelled **Install required editor** to download that exact editor.
 The launcher repairs every listed project that is waiting for the same editor
 when the download finishes. Custom-built editors cannot be downloaded this way;
 register the build instead.
@@ -84,6 +111,19 @@ register the build instead.
   sources={{
     light: '/img/screenshots/screen_projects_missing_editor_download_light.webp',
     dark: '/img/screenshots/screen_projects_missing_editor_download_dark.webp',
+  }}
+/>
+
+In List view, the same warning appears beside the required Godot version. The
+download action remains available in the row so you can recover without
+changing views.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Compact project row showing a missing Godot editor warning beside the required version and an install action"
+  sources={{
+    light: '/img/screenshots/screen_projects_compact_missing_editor_light.webp',
+    dark: '/img/screenshots/screen_projects_compact_missing_editor_dark.webp',
   }}
 />
 

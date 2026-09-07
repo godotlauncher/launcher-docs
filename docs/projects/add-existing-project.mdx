@@ -49,9 +49,29 @@ Godot Launcher adds the project without moving its files.
 
 ## Choose the Godot editor
 
-The launcher reads `project.godot` and chooses a compatible installed Godot editor. If it finds a C# project, it looks for a compatible .NET editor instead of a Standard build.
+The launcher reads `project.godot` to identify the Godot major.minor version and checks for C# project files to choose the Standard or .NET flavour. When it can identify that version and the project has no saved editor metadata, it offers matching official stable editors that are installed or available to download for your platform. The newest stable option is recommended. If no stable option is available, it offers only the newest matching prerelease. Registered matching custom editors appear below a divider after the official options.
 
-If the project includes a `.godotlauncher` file, the launcher first tries to use the saved Godot version. If that version is not installed, you can download it, choose a compatible editor, or add the project and resolve the editor later.
+<ThemedImage
+  className="docs-media-frame"
+  alt="Editor version required dialog for a project without saved editor metadata"
+  sources={{
+    light: '/img/screenshots/screen_projects_editor_resolution_light.webp',
+    dark: '/img/screenshots/screen_projects_editor_resolution_dark.webp',
+  }}
+/>
+
+Choose an installed editor to use it immediately, or choose a downloadable editor to add the project first and download the editor in the background. The launcher retains the exact editor you chose if the download fails, so you can retry or repair it later.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Editor version required options showing recommended official and custom editor choices"
+  sources={{
+    light: '/img/screenshots/screen_projects_editor_resolution_options_light.webp',
+    dark: '/img/screenshots/screen_projects_editor_resolution_options_dark.webp',
+  }}
+/>
+
+If the project includes a `.godotlauncher` file, the launcher keeps its requested editor unless you explicitly choose a different available editor. You can also select **Add With Missing Editor** or **Cancel**. Adding with a missing editor does not change `project.godot`.
 
 See [Troubleshooting](../troubleshooting.md#project-editor-selection) if the project cannot find a compatible editor.
 

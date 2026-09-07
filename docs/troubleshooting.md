@@ -108,11 +108,17 @@ Removing a custom editor registration does not delete its files. See [Installing
 
 ### An added project needs a Godot editor
 
-When the project requests a version that is not installed, choose one of the available actions:
+When the project has no saved editor metadata, Godot Launcher reads its major.minor version from `project.godot` and checks for C# project files to choose the Standard or .NET flavour. If it can identify the version, it lists matching official stable editors that are installed or available to download for your platform and recommends the newest. If no stable option is available, it lists only the newest matching prerelease. Matching registered custom editors appear below a divider after the official options.
 
-- Download the requested official editor.
-- Use a compatible installed editor.
-- Add the project now and choose an editor later.
+Choose an installed editor to use it immediately, or choose a downloadable editor to add the project first and download the editor in the background. If the download fails, the project retains the exact editor you selected and stays marked as missing its editor until you retry or repair the installation.
+
+When a project includes `.godotlauncher`, its requested editor remains selected unless you explicitly choose a different available editor. You can also choose **Add With Missing Editor** or **Cancel**. Adding with a missing editor does not change `project.godot`.
+
+For an editor that is not installed, the available actions are:
+
+- Download an available official editor.
+- Use an available installed editor.
+- Add the project with a missing editor.
 
 <ThemedImage
   className="docs-media-frame"

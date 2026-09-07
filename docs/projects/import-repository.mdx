@@ -163,7 +163,9 @@ All discovered projects start selected. For each project, review:
 - the Godot editor requirement detected from `.godotlauncher` or `project.godot`; and
 - the code editor choice: automatic detection, none, Visual Studio Code, or VSCodium when configured.
 
-After you confirm the projects, the launcher checks all selected projects before asking you to resolve missing Godot editors. The **Editors required** step groups projects that need the same exact editor version and flavour, so one choice can cover several projects. Choose whether to download each available editor, use the shared compatible fallback when one exists, or add the affected projects without an editor.
+After you confirm the projects, the launcher checks all selected projects before showing **Editors required**. Projects with the same editor requirement are grouped so one choice can cover several projects. For projects without saved editor metadata, each group offers matching installed and downloadable official editors for your platform, with the newest stable option recommended. If no stable option is available, the group offers only the newest matching prerelease. Matching registered custom editors appear after the official options.
+
+Choose an installed editor to use it immediately, or a downloadable editor to add the projects and download the editor in the background. You can also choose **Add With Missing Editor** for a group. Projects that include `.godotlauncher` keep their requested editor unless you explicitly choose another available editor.
 
 <ThemedImage
   className="docs-media-frame"
@@ -176,7 +178,7 @@ After you confirm the projects, the launcher checks all selected projects before
 
 The launcher adds the selected projects first, submits the chosen downloads to the existing editor queue, and completes the repository import without waiting. Open **Installs** if you want to follow queued and active downloads. Downloads continue one at a time, and each affected project updates automatically when its editor is ready.
 
-If an editor download fails, later queued downloads continue. The affected project remains marked as missing its editor. Use **Install required editor** on its card when available, or install the editor from **Installs**.
+If an editor download fails, later queued downloads continue. The affected project retains the exact editor selected for it and remains marked as missing its editor. Use **Install required editor** on its card when available, or install the editor from **Installs**.
 
 ## Recover a retained clone
 

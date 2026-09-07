@@ -21,19 +21,29 @@ Public Git repositories do not need a connection. You can clone them from **Proj
 
 1. Open **Settings > Connections**.
 2. Select **Connect GitHub**.
-3. Complete the request in your normal web browser.
-4. If GitHub offers more than one personal or organization installation, select the connections you want to keep in the launcher.
+3. Select **Continue in browser**, authorise access in your normal browser, then return to the launcher.
+4. Select the personal account or organisation installations you want to keep. Use **Select all** to select every available installation, or **Add account or organisation** to grant access to another installation.
+5. Select **Connect selected**. The button shows how many connections you have selected. The launcher shows **Connecting...** while it saves your selection.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Connections settings before a GitHub account is connected"
+  alt="GitHub connection dialog explaining the browser authorisation step"
   sources={{
-    light: '/img/screenshots/screen_settings_connections_disconnected_light.webp',
-    dark: '/img/screenshots/screen_settings_connections_disconnected_dark.webp',
+    light: '/img/screenshots/screen_settings_github_connection_intro_light.webp',
+    dark: '/img/screenshots/screen_settings_github_connection_intro_dark.webp',
   }}
 />
 
-Godot Launcher stores each selected installation under the GitHub user who authorized it. **Add connection** can authorize another GitHub user or another set of installations.
+<ThemedImage
+  className="docs-media-frame"
+  alt="GitHub connection chooser with one organisation selected"
+  sources={{
+    light: '/img/screenshots/screen_settings_github_connection_selection_light.webp',
+    dark: '/img/screenshots/screen_settings_github_connection_selection_dark.webp',
+  }}
+/>
+
+Godot Launcher stores each selected installation under the GitHub user who authorised it. **Add connection** can authorise another GitHub user or another set of installations.
 
 <ThemedImage
   className="docs-media-frame"
@@ -46,10 +56,10 @@ Godot Launcher stores each selected installation under the GitHub user who autho
 
 ## Manage repository access
 
-Select **Manage GitHub connections** to see the saved installations. For each connection, you can:
+Select **Manage GitHub connections** to see the saved installations and their status. Hover over an action icon or focus it with the keyboard to show its label. For each connection, you can:
 
 - select **Manage repository access** to review the GitHub App installation and change which repositories it can access;
-- reconnect when authorization is no longer usable; or
+- reconnect when authorisation is no longer usable; or
 - disconnect the installation from the launcher.
 
 <ThemedImage
@@ -81,9 +91,9 @@ permission change before you approve it.
 
 ## Connection recovery
 
-- If a connection needs authorization again, select **Reconnect** and complete the browser flow with the same GitHub user. The launcher can direct you to this recovery from **Connections**, repository import, or new-project publishing.
+- If a connection needs authorisation again, select **Reconnect** and complete the browser flow with the same GitHub user. The launcher can direct you to this recovery from **Connections**, repository import, or new-project publishing.
 - If an installation is unavailable, open **Manage repository access** and confirm that the GitHub App is still installed and can access the repositories you expect.
 - If secure credential storage is unavailable, the launcher does not save the connection. Enable your operating system's secure credential service, restart the launcher, and try again.
-- Canceling the browser flow or connection selection leaves existing connections unchanged.
+- Cancelling the browser flow or closing the chooser before selecting **Connect selected** leaves existing connections unchanged. Once saving has started, closing the dialog does not undo the save.
 
-See [How GitHub Connections Are Protected](../connections/github-connection-security.mdx) for credential storage, permissions, and privacy behavior. See [Create Your First Project](../projects/create-project.mdx#publish-a-new-project-to-github) to publish a new project or [Import a Git Repository](../projects/import-repository.mdx) to bring an existing repository into Godot Launcher.
+See [How GitHub Connections Are Protected](../connections/github-connection-security.mdx) for credential storage, permissions, and privacy behaviour. See [Create Your First Project](../projects/create-project.mdx#publish-a-new-project-to-github) to publish a new project or [Import a Git Repository](../projects/import-repository.mdx) to bring an existing repository into Godot Launcher.

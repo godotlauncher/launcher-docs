@@ -150,7 +150,7 @@ After cloning completes, the launcher scans the repository for regular `project.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Cloned repository review with Godot version and code editor choices for each project"
+  alt="Cloned repository review with project names, Godot editor choices, and code editor choices"
   sources={{
     light: '/img/screenshots/screen_projects_remote_project_review_light.webp',
     dark: '/img/screenshots/screen_projects_remote_project_review_dark.webp',
@@ -160,16 +160,19 @@ After cloning completes, the launcher scans the repository for regular `project.
 All discovered projects start selected. For each project, review:
 
 - the folder inside the repository;
+- the name shown in Godot Launcher;
 - the Godot editor requirement detected from `.godotlauncher` or `project.godot`; and
 - the code editor choice: automatic detection, none, Visual Studio Code, or VSCodium when configured.
 
-After you confirm the projects, the launcher checks all selected projects before showing **Editors required**. Projects with the same editor requirement are grouped so one choice can cover several projects. For projects without saved editor metadata, each group offers matching installed and downloadable official editors for your platform, with the newest stable option recommended. If no stable option is available, the group offers only the newest matching prerelease. Matching registered custom editors appear after the official options.
+The launcher checks all selected projects together before adding them. If a name conflicts with another selected or registered project, change the name shown in Godot Launcher or clear that project's selection. Changing the name does not rename `project.godot` or its folder. A project whose folder is already registered cannot be added again, so clear its selection and continue with the others.
 
-Choose an installed editor to use it immediately, or a downloadable editor to add the projects and download the editor in the background. You can also choose **Add With Missing Editor** for a group. Projects that include `.godotlauncher` keep their requested editor unless you explicitly choose another available editor.
+For each project without saved editor metadata, the review offers matching installed and downloadable official editors for your platform, with the newest stable option recommended. If no stable option is available, it offers only the newest matching prerelease. Matching registered custom editors appear after the official options.
+
+Choose an installed editor to use it immediately, or a downloadable editor to add the project and download the editor in the background. You can also choose **Add With Missing Editor** for a project. Projects that include `.godotlauncher` keep their requested editor unless you explicitly choose another available editor.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Repository import showing two required Godot editors and their affected projects"
+  alt="Repository project review showing editor choices for each selected project"
   sources={{
     light: '/img/screenshots/screen_projects_remote_editors_required_light.webp',
     dark: '/img/screenshots/screen_projects_remote_editors_required_dark.webp',
@@ -179,6 +182,8 @@ Choose an installed editor to use it immediately, or a downloadable editor to ad
 The launcher adds the selected projects first, submits the chosen downloads to the existing editor queue, and completes the repository import without waiting. Open **Installs** if you want to follow queued and active downloads. Downloads continue one at a time, and each affected project updates automatically when its editor is ready.
 
 If an editor download fails, later queued downloads continue. The affected project retains the exact editor selected for it and remains marked as missing its editor. Use **Install required editor** on its card when available, or install the editor from **Installs**.
+
+The import result lists each project's outcome, including renamed, skipped, and failed projects. Projects added successfully stay added. Select **Review and retry** to return failed projects to the review and try them again without re-adding the successful ones.
 
 ## Recover a retained clone
 

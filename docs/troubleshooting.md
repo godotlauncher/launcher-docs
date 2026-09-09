@@ -122,7 +122,7 @@ For an editor that is not installed, the available actions are:
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Editor version required dialog with download and compatible editor choices"
+  alt="Project import review with downloadable and compatible Godot editor choices"
   sources={{
     light: '/img/screenshots/screen_projects_editor_resolution_options_light.webp',
     dark: '/img/screenshots/screen_projects_editor_resolution_options_dark.webp',
@@ -245,7 +245,9 @@ Select **Delete clone and close** if you do not need the retained repository and
 
 ### Only some projects were added
 
-Review the result shown for each project. Duplicate names or paths are skipped, while editor or project errors are reported independently. When at least one project was added, the launcher keeps the clone because the registered project depends on that folder.
+Review the result shown for each project. For a conflicting name, return to the review and choose another name shown in Godot Launcher, or skip that project. A project whose folder is already registered must be skipped. The review does not rename `project.godot` or its folder.
+
+Select **Review and retry** to try failed projects again. Projects that were added successfully remain added. When at least one project was added, the launcher keeps the clone because the registered project depends on that folder.
 
 See [Import a Git Repository](./projects/import-repository.mdx) for the complete workflow.
 

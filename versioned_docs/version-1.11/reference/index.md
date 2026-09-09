@@ -17,7 +17,7 @@ Reference pages are for stable details you may need to look up while configuring
 - [Custom Editor Manifest Format](./custom-editor-manifest.md)
 - [Storage Paths and Files](./storage-paths.md)
 - [Project Badges and Tooltips](../projects/project-badges.mdx)
-- [Launcher Update States](./update-states.md)
+- [Godot Launcher Update States](./update-states.md)
 
 ## Workflow guides
 
@@ -25,5 +25,5 @@ If you want step-by-step instructions instead of reference material, start with 
 
 - [Installing Godot Editor](../editors/install-editor.mdx)
 - [Custom-Built Godot Editors](../editors/custom-editors.mdx)
-- [Launcher Settings](../settings/launcher-settings.mdx)
-- [Manage Launcher Updates](../updates/manage-launcher-updates.mdx)
+- [Godot Launcher Settings](../settings/launcher-settings.mdx)
+- [Manage Godot Launcher Updates](../updates/manage-launcher-updates.mdx)

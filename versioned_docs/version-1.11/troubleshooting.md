@@ -169,8 +169,8 @@ The saved preference does not change. The launcher can use it again when a tray 
 
 ## Updates and platform options
 
-- For launcher update download or retry problems, see [Manage Launcher Updates](./updates/manage-launcher-updates.mdx#errors-and-retry).
-- For manual updates on rpm-ostree systems, see [Manage Launcher Updates](./updates/manage-launcher-updates.mdx#manual-update-required-on-rpm-ostree).
+- For launcher update download or retry problems, see [Manage Godot Launcher Updates](./updates/manage-launcher-updates.mdx#errors-and-retry).
+- For manual updates on rpm-ostree systems, see [Manage Godot Launcher Updates](./updates/manage-launcher-updates.mdx#manual-update-required-on-rpm-ostree).
 - For Windows editor link or UAC problems, see [Godot Launcher Symlink Support on Windows](./platform/windows-symlink.md#troubleshooting-godot-launcher-symlink-errors).
 - For winget package problems, see [Installing Godot Launcher with winget](./platform/windows-winget.mdx#troubleshooting-tips).
 

@@ -19,7 +19,7 @@ Godot Launcher is a community-driven open source project. Contributions are welc
 
 Before contributing, please read the `contributing guidelines` in the respective repository.
 
-- [Launcher Contributing Guidelines](https://github.com/godotlauncher/launcher/blob/main/CONTRIBUTING.md)
+- [Godot Launcher Contributing Guidelines](https://github.com/godotlauncher/launcher/blob/main/CONTRIBUTING.md)
 
 - [Website Contributing Guidelines](https://github.com/godotlauncher/launcher-website/blob/main/CONTRIBUTING.md)
 

@@ -106,7 +106,7 @@ custom-engine:
 manifest:
   label: "Manifest"
   permalink: "/manifest"
-  description: Launcher manifest files.
+  description: Godot Launcher manifest files.
 
 project-settings:
   label: "Project Settings"
@@ -149,7 +149,7 @@ version-control:
   description: Learn about integrating and using version control systems in Godot Launcher.
 
 launcher-settings:
-  label: "Launcher Settings"
+  label: "Godot Launcher Settings"
   permalink: "/launcher-settings"
   description: Customize and manage Godot Launcher-specific settings and preferences.
 
@@ -159,12 +159,12 @@ system-tray:
   description: Enhance productivity with Godot Launcher's system tray features.
 
 launcher:
-  label: "Launcher"
+  label: "Godot Launcher"
   permalink: "/launcher"
   description: General information, updates, and news about Godot Launcher.
 
 launcher-updates:
-  label: "Launcher Updates"
+  label: "Godot Launcher Updates"
   permalink: "/launcher-updates"
   description: Guides and documentation for managing Godot Launcher application updates.
 

@@ -22,7 +22,7 @@ The **Help** section in the Godot Launcher provides quick access to documentatio
   [https://godotlauncher.org](https://godotlauncher.org)<br />
   Visit the official website for general information, downloads, and updates.
 
-- **Launcher Docs**<br />
+- **Godot Launcher Docs**<br />
   [https://docs.godotlauncher.org](https://docs.godotlauncher.org)<br />
   Access full documentation covering features, settings, and usage guides.
 

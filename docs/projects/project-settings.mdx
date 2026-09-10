@@ -14,7 +14,7 @@ import { Settings } from 'lucide-react';
 
 # Project Settings
 
-Project Settings keep the choices for one project together. Use them to rename the project, change its Godot editor, add Git, choose a code editor, or open Godot in windowed mode.
+Project Settings in Godot Launcher keep the choices for one project together. Use them to rename the project, change its Godot editor, add Git, choose a code editor, or open Godot in windowed mode.
 
 ## Open Project Settings
 
@@ -48,17 +48,21 @@ Choose an installed or registered editor from **Godot Editor**, or select
 for an installed editor. The project will use the saved editor the next time
 you open it.
 
-For a download, the launcher closes Project Settings and continues the save in
-the background. You can continue using the app; keep Godot Launcher open until
-the save finishes. Reopen that project's settings
-to see the pending save or recover the same draft if the installation fails.
-While the save is pending, the fields and save action stay disabled; you can
-still close the drawer. When saving finishes, an open drawer refreshes with the
-saved settings.
+For a download, the launcher saves your changes first, then closes Project
+Settings and starts installing the selected editor. The project immediately
+shows the selected version and download progress in both Cards and List views.
+You can continue using the app or reopen Project Settings while the editor
+installs. Keep Godot Launcher open until installation finishes.
+
+If the download fails or is cancelled, the selected editor stays saved and the
+project remains unavailable until that editor is installed. Use **Install
+required editor** on the project to retry, or choose another installed editor
+in Project Settings. If saving your changes fails, the drawer stays open and
+the download does not start.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Reopened Project Settings retaining the submitted values while the editor installs"
+  alt="Project showing its saved Godot editor version and download progress after Project Settings closes"
   sources={{
     light: '/img/screenshots/screen_projects_settings_installing_editor_light.webp',
     dark: '/img/screenshots/screen_projects_settings_installing_editor_dark.webp',

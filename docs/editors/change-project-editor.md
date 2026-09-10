@@ -17,7 +17,7 @@ import ThemedImage from '@theme/ThemedImage';
 
 # Change Project Editor Version
 
-Each project can use a different Godot editor. Change it when a project needs
+Each project in Godot Launcher can use a different Godot editor. Change it when a project needs
 another installed or registered release, a downloadable compatible official
 release, a .NET build, or a custom build.
 
@@ -40,10 +40,15 @@ release, a .NET build, or a custom build.
 
 The project uses the selected editor the next time you open it. Its folder and `project.godot` file do not move.
 
-For a downloadable editor, the launcher finishes installation and saving in the
-background after you select **Install and save**. Reopen [Project
-Settings](../projects/project-settings.mdx) to check a pending save or recover
-the retained draft if installation fails.
+For a downloadable editor, **Install and save** saves the selected version
+before starting its download. Project Settings closes and the project shows
+the selected version and download progress. You can reopen [Project
+Settings](../projects/project-settings.mdx) to make further changes while the
+editor installs.
+
+If installation fails or is cancelled, the selected version stays saved.
+Use **Install required editor** on the project to retry, or select another
+installed editor. A completed download does not replace a newer editor choice.
 
 :::info
 Godot Launcher only changes a project between editors from the same major Godot version. Follow the [official Godot upgrading guide](https://docs.godotengine.org/en/stable/tutorials/migrating/upgrading_to_godot_4.html) before opening a project with a different major version.

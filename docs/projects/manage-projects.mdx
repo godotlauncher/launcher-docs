@@ -84,11 +84,23 @@ the card actions to:
 
 - Click **Edit in Godot** to launch the project with its selected Godot editor.
 - Use the pin button to move the project into or out of **Pinned**.
+- Select **Open Terminal Here** to open the project folder in your selected terminal.
 - Use the folder button to open either the project folder or its Godot editor settings folder.
 - Use the settings button to open [Project Settings](./project-settings.mdx).
 - Use the more-actions button to import or export Godot editor settings, or remove the project from the launcher.
 
 Removing a project from the launcher list does not delete its project folder.
+
+### Open Terminal Here
+
+Select **Open Terminal Here** in a project's actions in either Cards or List
+view to open that project's folder in a terminal. Before using it, enable
+Terminal and choose a detected terminal in [Tool Settings](../settings/tools.mdx#set-up-terminal).
+
+If the action reports that Terminal is disabled, enable it in **Tools**. If no
+supported terminal is available, install one in its system location and select
+**Rescan** in the Terminal drawer. See [Tool Settings](../settings/tools.mdx#set-up-terminal)
+for supported terminals and limitations.
 
 In List view, small icons beside the project name show the selected code
 editor, Git repository, and windowed-mode setting. The Godot version and last
@@ -129,7 +141,9 @@ changing views.
 
 ## Reorder pinned projects
 
-Drag a pinned project's reorder handle to move it. The new order is saved on this computer.
+Drag a pinned project's reorder handle to move it. The handle appears when you
+hover over the project or focus it with the keyboard. The new order is saved on
+this computer.
 
 You can also reorder with the keyboard:
 

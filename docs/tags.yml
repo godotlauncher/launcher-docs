@@ -106,12 +106,12 @@ custom-engine:
 manifest:
   label: "Manifest"
   permalink: "/manifest"
-  description: Launcher manifest files.
+  description: Godot Launcher manifest files.
 
 project-settings:
   label: "Project Settings"
   permalink: "/project-settings"
-  description: How to configure and optimize settings for your Godot projects in Godot Launcher.
+  description: How to configure and optimise settings for your Godot projects in Godot Launcher.
 
 dotnet:
   label: ".NET"
@@ -136,12 +136,17 @@ configuration:
 reference:
   label: "Reference"
   permalink: "/reference"
-  description: Stable lookup material for Godot Launcher behavior, files, states, and formats.
+  description: Stable lookup material for Godot Launcher behaviour, files, states, and formats.
 
 git:
   label: "Git"
   permalink: "/git"
   description: Manage your Godot projects using Git version control through Godot Launcher.
+
+git-lfs:
+  label: "Git LFS"
+  permalink: "/git-lfs"
+  description: Configure Git Large File Storage for supported Godot project assets.
 
 version-control:
   label: "Version Control"
@@ -149,7 +154,7 @@ version-control:
   description: Learn about integrating and using version control systems in Godot Launcher.
 
 launcher-settings:
-  label: "Launcher Settings"
+  label: "Godot Launcher Settings"
   permalink: "/launcher-settings"
   description: Customize and manage Godot Launcher-specific settings and preferences.
 
@@ -159,12 +164,12 @@ system-tray:
   description: Enhance productivity with Godot Launcher's system tray features.
 
 launcher:
-  label: "Launcher"
+  label: "Godot Launcher"
   permalink: "/launcher"
   description: General information, updates, and news about Godot Launcher.
 
 launcher-updates:
-  label: "Launcher Updates"
+  label: "Godot Launcher Updates"
   permalink: "/launcher-updates"
   description: Guides and documentation for managing Godot Launcher application updates.
 
@@ -176,7 +181,7 @@ quick-launch:
 vscode:
   label: "VS Code"
   permalink: "/vscode"
-  description: Integrate and optimize Visual Studio Code workflows with Godot Launcher.
+  description: Integrate and optimise Visual Studio Code workflows with Godot Launcher.
 
 vscodium:
   label: "VSCodium"

@@ -14,7 +14,7 @@ import { Settings } from 'lucide-react';
 
 # Project Settings
 
-Project Settings keep the choices for one project together. Use them to rename the project, change its Godot editor, add Git, choose a code editor, or open Godot in windowed mode.
+Project Settings in Godot Launcher keep the choices for one project together. Use them to rename the project, change its Godot editor, add Git, choose a code editor, or open Godot in windowed mode.
 
 ## Open Project Settings
 
@@ -42,9 +42,34 @@ The name must be unique in the launcher and cannot be empty. Select **Update** t
 
 ## Change the Godot editor
 
-Choose an installed or registered editor from **Godot Editor**, then select **Update**. The project will use that editor the next time you open it.
+Choose an installed or registered editor from **Godot Editor**, or select
+**Browse releases** to download a compatible official editor. Select
+**Install and save** when the selected release is not installed, or **Update**
+for an installed editor. The project will use the saved editor the next time
+you open it.
 
-You can choose an editor from the same major Godot version. If the project uses Visual Studio Code or VSCodium, the launcher also updates that editor's project setup.
+For a download, the launcher saves your changes first, then closes Project
+Settings and starts installing the selected editor. The project immediately
+shows the selected version and download progress in both Cards and List views.
+You can continue using the app or reopen Project Settings while the editor
+installs. Keep Godot Launcher open until installation finishes.
+
+If the download fails or is cancelled, the selected editor stays saved and the
+project remains unavailable until that editor is installed. Use **Install
+required editor** on the project to retry, or choose another installed editor
+in Project Settings. If saving your changes fails, the drawer stays open and
+the download does not start.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Project showing its saved Godot editor version and download progress after Project Settings closes"
+  sources={{
+    light: '/img/screenshots/screen_projects_settings_installing_editor_light.webp',
+    dark: '/img/screenshots/screen_projects_settings_installing_editor_dark.webp',
+  }}
+/>
+
+You can choose an editor from the same or a newer Godot major version. Check project compatibility before upgrading to a newer major version. If the project uses Visual Studio Code or VSCodium, the launcher also updates that editor's project setup.
 
 See [Change Project Editor Version](../editors/change-project-editor.md) for .NET editors, custom builds, and missing editor recovery.
 
@@ -52,11 +77,33 @@ See [Change Project Editor Version](../editors/change-project-editor.md) for .NE
 
 Open **Source Control**. If the project does not have a Git repository, select **Initialize Git**.
 
-:::warning
-Do not use **Initialize Git** if the project is already inside a larger Git repository. The launcher may create a second repository inside it.
-:::
-
 This creates the repository immediately. It does not add Git template files or create a first commit. See [Using Git With Godot Launcher](../tools/using-git-with-godot-launcher.mdx) for new-project Git setup and help when Git is unavailable.
+
+When Git is active, **Commit identity** shows the name and email Git will use. Select **Update** to save a repository-local identity for a project that is the root of its repository.
+
+Projects inside a parent repository and linked worktrees show the effective identity as read-only. Change that identity with Git from the repository that owns it.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Project Settings Source Control tab showing the effective commit identity and Update action"
+  sources={{
+    light: '/img/screenshots/screen_projects_settings_source_control_active_light.webp',
+    dark: '/img/screenshots/screen_projects_settings_source_control_active_dark.webp',
+  }}
+/>
+
+### When Git is unavailable
+
+If a project is configured for Git but Godot Launcher cannot find Git, both the Git summary and commit identity show **Unavailable**, and **Update** is disabled. Install Git or open **Settings > Tools > Git** and rescan it, then return to Project Settings.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Project Settings Source Control tab with unavailable commit identity controls"
+  sources={{
+    light: '/img/screenshots/screen_projects_settings_source_control_identity_unavailable_light.webp',
+    dark: '/img/screenshots/screen_projects_settings_source_control_identity_unavailable_dark.webp',
+  }}
+/>
 
 ## Choose a code editor {#code-editor}
 

@@ -22,7 +22,7 @@ The **Help** section in the Godot Launcher provides quick access to documentatio
   [https://godotlauncher.org](https://godotlauncher.org)  
   Visit the official website for general information, downloads, and updates.
 
-- **Launcher Docs**  
+- **Godot Launcher Docs**<br />
   [https://docs.godotlauncher.org](https://docs.godotlauncher.org)  
   Access full documentation covering features, settings, and usage guides.
 
@@ -59,8 +59,8 @@ If you'd like to improve the Godot Launcher, we welcome contributions! You can r
 
 - [Contributing Guide](https://godotlauncher.org/contribute)
 - [Help improve translations](../contributing/translations.md)
-- [I think I found a bug](https://github.com/godotlauncher/launcher/issues/new?template=bug_report.md)
-- [I have a suggestion](https://github.com/godotlauncher/launcher/issues/new?template=feature_request.md)
+- [I think I found a bug](https://github.com/godotlauncher/launcher/issues/new?template=bug_report.yaml)
+- [I have a suggestion](https://github.com/godotlauncher/launcher/issues/new?template=feature_request.yaml)
 
 :::info
 The launcher is an open source project. Contributions of any kind - code, documentation, or testing - are appreciated.
@@ -71,9 +71,3 @@ The launcher is an open source project. Contributions of any kind - code, docume
 ## Third-party Notices
 
 A link at the top of the Help screen leads to **Third-party Notices**, which list external libraries or tools used in the launcher.
-
----
-
-## Summary
-
-The Help section in Godot Launcher connects you to everything you need: documentation, community support, the Godot ecosystem, and ways to contribute. Whether you're troubleshooting or getting involved, it's the central hub for assistance and collaboration.

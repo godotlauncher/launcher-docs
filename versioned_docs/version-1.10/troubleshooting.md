@@ -36,8 +36,8 @@ Use this page as a starting point when something in Godot Launcher is not behavi
 ## Settings and updates
 
 - **Tool actions are disabled in project menus**: See [Project Tool Toggles](./projects/project-tool-toggles.mdx#troubleshooting).
-- **Launcher update download or retry problems**: See [Manage Launcher Updates](./updates/manage-launcher-updates.mdx#errors-and-retry).
-- **Manual update is required on rpm-ostree systems**: See [Manage Launcher Updates](./updates/manage-launcher-updates.mdx#manual-update-required-on-rpm-ostree).
+- **Godot Launcher update download or retry problems**: See [Manage Godot Launcher Updates](./updates/manage-launcher-updates.mdx#errors-and-retry).
+- **Manual update is required on rpm-ostree systems**: See [Manage Godot Launcher Updates](./updates/manage-launcher-updates.mdx#manual-update-required-on-rpm-ostree).
 - **System tray behavior is confusing**: See [System Tray](./settings/system-tray.mdx).
 
 ## Platform-specific behavior

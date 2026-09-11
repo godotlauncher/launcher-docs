@@ -63,33 +63,14 @@ Set the environment variable before launching:
 GODOT_LAUNCHER_DISABLE_SANDBOX=1 ./Godot_Launcher-<version>-linux-<arch>.AppImage
 ```
 
-This tells the launcher to append the `--no-sandbox` switch internally before any windows are created.
-
-#### Make it permanent
-
-To avoid typing this every time, you can export the variable in your shell config:
-
-- For Bash users:
-
-```
-echo 'export GODOT_LAUNCHER_DISABLE_SANDBOX=1' >> ~/.bashrc
-source ~/.bashrc
-```
-
-- For system-wide setting (all users):
-
-```
-echo 'GODOT_LAUNCHER_DISABLE_SANDBOX=1' | sudo tee -a /etc/environment
-```
-
-After adding this, you can launch the AppImage normally without typing the flag.
+This has the same effect as starting Godot Launcher with `--no-sandbox`.
 
 ---
 
 ## Troubleshooting
 
 - **Still seeing sandbox errors**: Double-check that you spelled the option correctly (`--no-sandbox` with two dashes).
-- **Environment variable not working**: Make sure it is exported in the same shell session or added to your shell config.
+- **Environment variable not working**: Make sure it is set in the same shell session that starts Godot Launcher.
 - **No difference after enabling**: Some distributions require extra runtime libraries. Try updating your system and ensure `libnss3`, `libx11`, and related Electron dependencies are installed.
 - **Security concerns**: If possible, prefer fixing sandbox permissions rather than disabling the feature. The `--no-sandbox` mode is only a fallback.
 
@@ -97,4 +78,4 @@ After adding this, you can launch the AppImage normally without typing the flag.
 
 ## Summary
 
-If Godot Launcher fails to start on Linux with a Chromium sandbox error, you can use **no-sandbox mode** by passing `--no-sandbox`, `--disable-sandbox`, or setting `GODOT_LAUNCHER_DISABLE_SANDBOX=1`. You can even make the environment variable permanent in your shell config for convenience. Only enable this if necessary, as it reduces process isolation and security.
+If Godot Launcher fails to start on Linux with a Chromium sandbox error, you can use **no-sandbox mode** by passing `--no-sandbox`, `--disable-sandbox`, or setting `GODOT_LAUNCHER_DISABLE_SANDBOX=1` for a single run. Only enable this if necessary, as it reduces process isolation and security.

@@ -19,11 +19,11 @@ Use this page to find the folders and files created or managed by Godot Launcher
 | --- | --- |
 | New projects | `<home>/Godot/Projects` |
 | Downloaded editor installs | `<home>/Godot/Editors` |
-| Launcher config files | `<home>/.gd-launcher` |
+| Godot Launcher config files | `<home>/.gd-launcher` |
 
 On Windows, `<home>` is your user profile folder, such as `C:\Users\You`. On Linux and macOS, `<home>` is your home directory, such as `/home/you` or `/Users/you`.
 
-You can change the project and editor install locations from [Launcher Settings](../settings/launcher-settings.mdx).
+You can change the project and editor install locations from [Godot Launcher Settings](../settings/launcher-settings.mdx).
 
 ## Config files
 

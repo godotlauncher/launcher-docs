@@ -43,7 +43,7 @@ The launcher needs permission to create symlinks on your behalf. Make sure these
 
 - **Windows Developer Mode** enabled.
 - **Administrator privileges** for the Windows account you use with Godot Launcher.
-- Godot Launcher 1.4.0 or later, where the setting first appears in the [Launcher Settings](../settings/launcher-settings.mdx#behavior-tab).
+- Godot Launcher 1.4.0 or later, where the setting first appears in the [Godot Launcher Settings](../settings/launcher-settings.mdx#behavior-tab).
 
 ### Enable Windows Developer Mode
 
@@ -127,4 +127,4 @@ If Windows shows the type as `Application (.exe)` instead of a `symlink (.exe)`,
 
 ## Summary
 
-With the Godot Launcher Symlink feature configured, Windows projects stay lightweight while sharing a single editor install. Keep Developer Mode enabled, leave the launcher toggle on, and reuse the same releases across every project. From here you can explore other workflow optimizations, like fine-tuning [Launcher Settings](../settings/launcher-settings.mdx) or [changing editor versions](../editors/change-project-editor.md) per project.
+With the Godot Launcher Symlink feature configured, Windows projects stay lightweight while sharing a single editor install. Keep Developer Mode enabled, leave the launcher toggle on, and reuse the same releases across every project. From here you can explore other workflow optimizations, like fine-tuning [Godot Launcher Settings](../settings/launcher-settings.mdx) or [changing editor versions](../editors/change-project-editor.md) per project.

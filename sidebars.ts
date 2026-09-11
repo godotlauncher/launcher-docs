@@ -26,6 +26,7 @@ export default {
         "editors/install-editor",
         "projects/create-project",
         "projects/add-existing-project",
+        "projects/import-repository",
       ],
     },
     {
@@ -65,6 +66,8 @@ export default {
       label: "Integrations",
       collapsed: false,
       items: [
+        "settings/connections",
+        "connections/github-connection-security",
         "tools/using-git",
         "tools/install-git",
         "tools/vscode-setup-for-godot",
@@ -82,6 +85,10 @@ export default {
         "settings/appearance-language",
         "settings/behavior",
         "settings/code-editors",
+        {
+          type: "ref",
+          id: "settings/connections",
+        },
         "settings/tools",
         "settings/system-tray",
         "updates/manage-launcher-updates",

@@ -15,14 +15,14 @@ import ThemedImage from '@theme/ThemedImage';
 
 # Installing a Godot Editor
 
-Before you create new projects or import existing ones, install an official Godot Editor release or register a custom-built Godot editor in **Godot Launcher**.
+In **Godot Launcher**, you can install an official editor from **Installs**, register a custom-built editor, or choose an official editor to download while creating a project.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Opening the Install Godot Editor drawer from the guided empty Projects view"
+  alt="Installed Godot editors in the Installs view"
   sources={{
-    light: '/img/animations/install-editor/launcher-install-editor-ui-anim_light.gif',
-    dark: '/img/animations/install-editor/launcher-install-editor-ui-anim_dark.gif',
+    light: '/img/screenshots/screen_installs_view_light.webp',
+    dark: '/img/screenshots/screen_installs_view_dark.webp',
   }}
 />
 
@@ -54,7 +54,33 @@ Godot Launcher works with Godot 4 and newer editor builds.
 To use C# in your project, install the **.NET SDK** from the [Microsoft .NET website](https://dotnet.microsoft.com/download) as well as a .NET-enabled Godot editor. See the [Godot Engine C# documentation](https://docs.godotengine.org/en/stable/tutorials/scripting/c_sharp/index.html) for current requirements.
 :::
 
-The drawer shows download and installation progress. You can close it while an installation continues.
+The drawer shows queued, download, and installation progress. You can close it
+while an installation continues. If you started an install from **Installs**,
+select the cancel icon while it is queued, preparing, or downloading to stop
+it and remove its partial download.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Install Godot Editor drawer with a cancellable download and a queued editor install"
+  sources={{
+    light: '/img/screenshots/screen_installs_download_progress_light.webp',
+    dark: '/img/screenshots/screen_installs_download_progress_dark.webp',
+  }}
+/>
+
+Cancellation is unavailable after extraction starts. An editor install started
+for a project is also not cancellable, because the project is waiting for that
+editor. If a project starts waiting for the same editor as a cancellable
+install, the cancel action becomes unavailable.
+
+Before extracting an official editor archive, Godot Launcher verifies it
+against checksum information from the same release. The launcher stops the
+installation and removes partial files if verification or safe extraction
+fails.
+
+After upgrading Godot Launcher, the release list may perform one complete
+refresh to add the checksum information needed for existing cached releases.
+Later checks return to the normal cached refresh behavior.
 
 ## Manage installed editors
 
@@ -70,14 +96,16 @@ The **Installs** view groups official and custom editors by Godot version. Stand
 />
 
 - Install as many editor versions as your projects need.
+- If an official editor becomes unavailable, select **Retry** after restoring its folder or **Reinstall** to download the same release and variant from the editor catalogue. Projects that used the unavailable editor are repaired to use the recovered installation.
+- If a custom editor becomes unavailable, restore its manifest and editor paths, then select **Retry**. The launcher does not download custom builds.
 - Open an editor's more-actions menu and choose **Delete Release from This Device** to remove an official editor.
-- Change the download location from [Launcher Settings](../settings/launcher-settings.mdx).
+- Change the download location from [Godot Launcher Settings](../settings/launcher-settings.mdx).
 
 Removing an editor does not delete your projects. See [Troubleshooting](../troubleshooting.md#godot-editor-installation-and-availability) if an installation or saved editor location is unavailable.
 
 ## Add a custom-built Godot editor
 
-Open the **Custom Editor** dropdown in **Installs** to register a custom-built Godot editor:
+Open the **Custom Editor** menu in **Installs** to register a custom-built Godot editor:
 
 - **Select manifest file**: register an existing `godotlauncher-editor-manifest.json`.
 - **Create custom editor manifest**: enter the editor details and create the manifest in the launcher.

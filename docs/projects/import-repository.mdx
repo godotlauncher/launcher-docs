@@ -1,0 +1,209 @@
+---
+id: import-repository
+title: Import a Git Repository
+slug: /getting-started/import-git-repository
+description: "Clone a public Git repository or a connected GitHub repository, initialise supported submodules, then add its Godot projects to Godot Launcher."
+tags:
+  - getting-started
+  - project-import
+  - git
+  - version-control
+---
+
+import ThemedImage from '@theme/ThemedImage';
+
+# Import a Git Repository
+
+Godot Launcher can clone a public HTTPS Git repository without an account connection, or let you choose a repository from a connected GitHub installation. After cloning, it finds Godot projects at the repository root and in nested folders so you can choose which ones to add.
+
+Git must be available before either remote source can be used. Open **Settings > Tools** if the remote choices are disabled.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Add Project source menu with local, public Git, and connected GitHub choices"
+  sources={{
+    light: '/img/screenshots/screen_projects_add_source_menu_light.webp',
+    dark: '/img/screenshots/screen_projects_add_source_menu_dark.webp',
+  }}
+/>
+
+## Clone a public repository
+
+1. Open **Projects** and select **Add**.
+2. Select **Clone public Git repository**.
+3. Enter a public HTTPS clone URL and select **Continue**.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Public Git repository URL entry in Add Project"
+  sources={{
+    light: '/img/screenshots/screen_projects_clone_public_repository_light.webp',
+    dark: '/img/screenshots/screen_projects_clone_public_repository_dark.webp',
+  }}
+/>
+
+This source is anonymous. It does not use a saved GitHub connection, the host credential helper, or an authentication prompt. URLs containing credentials, queries, fragments, non-HTTPS transports, redirects, or private network destinations are rejected.
+
+## Choose a connected GitHub repository
+
+1. Select **From GitHub** on the Projects welcome screen, or open **Projects > Add > From GitHub**.
+2. If prompted, connect GitHub in the import window and allow access to the repositories you want to import. See [Connections](../settings/connections.mdx) for the browser and account-selection steps.
+3. Select a repository, then select **Continue**.
+
+Search filters the repositories already loaded. Select **Load more** to request the next page. A repository already represented by a project in the launcher is disabled.
+
+The **Don't see your repository?** guidance is available beneath the repository
+list. Select **Manage accounts and access** if the repository is not listed. The
+shared GitHub connection flow lets you reconnect, add an account, or change
+repository access while keeping you in the import task. When it finishes, the
+launcher refreshes the repository list and keeps your current selection when it
+is still available.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Connected GitHub repository selection with an imported repository disabled"
+  sources={{
+    light: '/img/screenshots/screen_projects_github_repository_selection_light.webp',
+    dark: '/img/screenshots/screen_projects_github_repository_selection_dark.webp',
+  }}
+/>
+
+## Choose the clone destination
+
+Review the repository and the complete destination path. You can edit the parent folder or select another folder. The repository name remains the final folder name, and the final destination must not already exist.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Repository clone destination with an editable parent folder"
+  sources={{
+    light: '/img/screenshots/screen_projects_remote_clone_destination_light.webp',
+    dark: '/img/screenshots/screen_projects_remote_clone_destination_dark.webp',
+  }}
+/>
+
+Select **Clone repository** to start. Progress stays in the modal. You can cancel while the current stage supports cancellation. A canceled or failed Git clone removes its temporary files and does not leave a final clone.
+
+## Set the commit identity
+
+After cloning succeeds, the launcher checks which Git name and email future commits in the repository will use. This happens before submodule handling or project review.
+
+- A complete global Git identity is inherited without another prompt.
+- An automatic project identity preset is written only to the cloned repository.
+- A saved non-automatic preset is offered for confirmation.
+- If no complete identity is available, select **Add Git identity** or **Continue without identity**.
+
+When adding an identity, choose what should happen for future repositories:
+
+- **Always ask me** writes the identity only to this clone.
+- **Save as default local identity** writes it to this clone and saves an automatic launcher preset for future repositories.
+- **Save as default global identity** writes it to Git's global configuration for repositories on this computer.
+
+The repository-local choice changes only the clone's `.git/config`. If an identity or preset cannot be saved, the launcher keeps the clone and continues the import with a warning. Importing does not create a commit, so you can also continue without an identity and configure it later.
+
+See [Using Git With Godot Launcher](../tools/using-git-with-godot-launcher.mdx) to manage identities and understand repository-local and global settings.
+
+## Initialise public submodules
+
+When the cloned repository declares Git submodules, the launcher pauses before project review and asks how you want to continue.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Repository import information with options to initialise or skip Git submodules"
+  sources={{
+    light: '/img/screenshots/screen_projects_remote_submodules_detected_light.webp',
+    dark: '/img/screenshots/screen_projects_remote_submodules_detected_dark.webp',
+  }}
+/>
+
+- Select **Initialise submodules** to validate and download supported submodules recursively before the launcher scans for Godot projects again.
+- Select **Continue without submodules** to review the projects found in the clone as it currently exists. Projects or required files stored inside uninitialised submodules may be unavailable.
+
+The launcher supports anonymous public submodules declared with absolute HTTPS URLs. It validates each level before making another network request and stops if a submodule is private, requires credentials, uses a relative or unsupported URL, redirects, or resolves to a private network destination.
+
+The modal lists each validation and initialisation step. You can cancel while the current stage supports cancellation. Because the main repository has already been cloned, the launcher then offers **Open clone folder** and **Delete clone and close**. Deleting the clone lets you restart the repository import without removing partial submodule files manually.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Cancelled submodule initialisation with options to open or delete the retained clone"
+  sources={{
+    light: '/img/screenshots/screen_projects_remote_submodules_cancelled_light.webp',
+    dark: '/img/screenshots/screen_projects_remote_submodules_cancelled_dark.webp',
+  }}
+/>
+
+The launcher proceeds to project review only after every supported submodule is initialised and the repository has been scanned again.
+
+If any submodule cannot be initialised, the launcher stops and keeps the partially initialised clone. You can retry, continue without the remaining submodules, or close the modal and finish the repository manually.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Stopped submodule initialisation with activity details and recovery choices"
+  sources={{
+    light: '/img/screenshots/screen_projects_remote_submodules_failed_light.webp',
+    dark: '/img/screenshots/screen_projects_remote_submodules_failed_dark.webp',
+  }}
+/>
+
+## Choose Godot projects and editors
+
+After cloning completes, the launcher scans the repository for regular `project.godot` files. Generated folders, dependencies, Git metadata, symlinks, and malformed files are skipped. If the repository exceeds the scan limits, the launcher stops discovery and keeps the clone for recovery.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Cloned repository review with project names, Godot editor choices, and code editor choices"
+  sources={{
+    light: '/img/screenshots/screen_projects_remote_project_review_light.webp',
+    dark: '/img/screenshots/screen_projects_remote_project_review_dark.webp',
+  }}
+/>
+
+All discovered projects start selected. For each project, review:
+
+- the folder inside the repository;
+- the name shown in Godot Launcher;
+- the Godot editor requirement detected from `.godotlauncher` or `project.godot`; and
+- the code editor choice: automatic detection, none, Visual Studio Code, or VSCodium when configured.
+
+The launcher checks all selected projects together before adding them. If a name conflicts with another selected or registered project, change the name shown in Godot Launcher or clear that project's selection. Changing the name does not rename `project.godot` or its folder. A project whose folder is already registered cannot be added again, so clear its selection and continue with the others.
+
+For each project without saved editor metadata, the review offers matching installed and downloadable official editors for your platform, with the newest stable option recommended. If no stable option is available, it offers only the newest matching prerelease. Matching registered custom editors appear after the official options.
+
+Choose an installed editor to use it immediately, or a downloadable editor to add the project and download the editor in the background. You can also choose **Add With Missing Editor** for a project. Projects that include `.godotlauncher` keep their requested editor unless you explicitly choose another available editor.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Repository project review showing editor choices for each selected project"
+  sources={{
+    light: '/img/screenshots/screen_projects_remote_editors_required_light.webp',
+    dark: '/img/screenshots/screen_projects_remote_editors_required_dark.webp',
+  }}
+/>
+
+The launcher adds the selected projects first, submits the chosen downloads to the existing editor queue, and completes the repository import without waiting. Open **Installs** if you want to follow queued and active downloads. Downloads continue one at a time, and each affected project updates automatically when its editor is ready.
+
+If an editor download fails, later queued downloads continue. The affected project retains the exact editor selected for it and remains marked as missing its editor. Use **Install required editor** on its card when available, or install the editor from **Installs**.
+
+The import result lists each project's outcome, including renamed, skipped, and failed projects. Projects added successfully stay added. Select **Review and retry** to return failed projects to the review and try them again without re-adding the successful ones.
+
+## Recover a retained clone
+
+The final clone stays on disk if project discovery fails, no valid Godot project is found, review is closed, or no project can be added to the launcher.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Repository discovery warning with actions to open or delete the retained clone"
+  sources={{
+    light: '/img/screenshots/screen_projects_remote_clone_preserved_light.webp',
+    dark: '/img/screenshots/screen_projects_remote_clone_preserved_dark.webp',
+  }}
+/>
+
+- **Open clone folder** opens the final repository location.
+- **Delete clone and close** removes the clone created by this import. It is available only when no project from the clone was added successfully.
+- **Close** keeps the repository at the shown location.
+
+If even one project was added, the launcher keeps the clone and removes the delete action because that project depends on the cloned folder.
+
+The saved Git remote contains the normal token-free HTTPS URL. Connected credentials are used only for the clone operation and are not written to the repository.
+
+See [Troubleshooting](../troubleshooting.md#repository-import) for destination, connection, discovery, and cleanup problems.

@@ -16,7 +16,7 @@ Godot Launcher is released under the [MIT License](https://opensource.org/licens
 You are free to use, modify, and distribute the software, provided that you include the original license text in any distributions.
 
 :::info
-This applies to the main launcher as well as related repositories such as `launcher-web` and `launcher-docs`, unless stated otherwise.
+This applies to the main launcher as well as related repositories such as `launcher-website` and `launcher-docs`, unless stated otherwise.
 :::
 
 ## Full License Text

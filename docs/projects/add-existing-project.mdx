@@ -14,22 +14,26 @@ import ThemedImage from '@theme/ThemedImage';
 
 # Add an Existing Project
 
-Add a project that is already on your computer without moving its files.
+Add a project that is already on your computer without moving its files. To clone a public Git or connected GitHub repository first, see [Import a Git Repository](./import-repository.mdx).
+
+When your Projects view is empty, use **From this computer** from the welcome
+screen to start this workflow. You do not need an editor installed before you
+add the project.
 
 ## Add the project
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Projects view with the Add button"
+  alt="Add Project menu with options for this computer, a public Git repository, or GitHub"
   sources={{
-    light: '/img/screenshots/screen_projects_view_light.webp',
-    dark: '/img/screenshots/screen_projects_view_dark.webp',
+    light: '/img/screenshots/screen_projects_add_source_menu_light.webp',
+    dark: '/img/screenshots/screen_projects_add_source_menu_dark.webp',
   }}
 />
 
 Use either method to add one or more projects:
 
-- Click **Add** in the **Projects** view and select the project's `project.godot` file.
+- Select **Add > From this computer** in the **Projects** view, then select the project's `project.godot` file.
 - Drag one or more `project.godot` files onto the **Projects** view.
 
 <ThemedImage
@@ -41,13 +45,41 @@ Use either method to add one or more projects:
   }}
 />
 
-The launcher adds the project without moving its files.
+Godot Launcher adds the project without moving its files.
+
+## Review names and editors
+
+If one or more selected projects need a decision before they can be added, the launcher shows one review for the affected selection. Review each project's name in Godot Launcher and its Godot editor choice before continuing. You can change a conflicting name in the review or clear its selection to skip that project.
+
+Changing a name changes only the name shown in Godot Launcher. The launcher keeps that choice for a later import when it can save the project metadata. It does not rename `project.godot` or the project folder.
+
+An already registered project folder cannot be added again. Clear that project's selection and continue with the others.
 
 ## Choose the Godot editor
 
-The launcher reads `project.godot` and chooses a compatible installed Godot editor. If it finds a C# project, it looks for a compatible .NET editor instead of a Standard build.
+The launcher reads `project.godot` to identify the Godot major.minor version and checks for C# project files to choose the Standard or .NET flavour. When it can identify that version and the project has no saved editor metadata, it offers matching official stable editors that are installed or available to download for your platform. The newest stable option is recommended. If no stable option is available, it offers only the newest matching prerelease. Registered matching custom editors appear below a divider after the official options.
 
-If the project includes a `.godotlauncher` file, the launcher first tries to use the saved Godot version. If that version is not installed, you can download it, choose a compatible editor, or add the project and resolve the editor later.
+<ThemedImage
+  className="docs-media-frame"
+  alt="Project import review with a name field and Godot editor choice"
+  sources={{
+    light: '/img/screenshots/screen_projects_editor_resolution_light.webp',
+    dark: '/img/screenshots/screen_projects_editor_resolution_dark.webp',
+  }}
+/>
+
+Choose an installed editor to use it immediately, or choose a downloadable editor to add the project first and download the editor in the background. The launcher retains the exact editor you chose if the download fails, so you can retry or repair it later.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Project import review showing recommended official and custom Godot editor choices"
+  sources={{
+    light: '/img/screenshots/screen_projects_editor_resolution_options_light.webp',
+    dark: '/img/screenshots/screen_projects_editor_resolution_options_dark.webp',
+  }}
+/>
+
+If the project includes a `.godotlauncher` file, the launcher keeps its requested editor unless you explicitly choose a different available editor. You can also select **Add With Missing Editor** or **Cancel**. Adding with a missing editor does not change `project.godot`.
 
 See [Troubleshooting](../troubleshooting.md#project-editor-selection) if the project cannot find a compatible editor.
 
@@ -61,7 +93,7 @@ After import, open the project's settings button and use **Code Editor** to choo
 
 ## Keep or add Git
 
-The launcher keeps an existing Git repository unchanged. A larger repository that contains the project may not appear as active on its project card.
+The launcher keeps an existing Git repository unchanged, including one that contains the project.
 
 To create a repository for the project, open **Project settings > Source Control** and select **Initialize Git**. This does not add Git template files or create a commit.
 

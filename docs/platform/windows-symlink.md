@@ -19,9 +19,9 @@ import ThemedImage from '@theme/ThemedImage';
 
 # Godot Launcher Symlink Support on Windows
 
-The **Godot Launcher Symlink** feature lets Windows reuse a single installed editor across every project. Instead of copying the editor into each project folder, the launcher creates a Windows symlink that points back to the original install. The result is faster installs, smaller project directories, and consistent editor behavior from one release to the next.
+The **Godot Launcher Symlink** feature lets Windows reuse a single installed editor across every project. Instead of copying the editor into each project folder, the launcher creates a Windows symlink that points back to the original install. The result is faster installs, smaller project directories, and consistent editor behaviour from one release to the next.
 
-Because Windows treats symlink creation as an administrative task, you need to prepare your system before enabling the feature to avoid annoying UAC prompts. This guide walks through the prerequisites, the launcher setting that unlocks symlinks, and how to confirm everything is working.
+Windows may request administrator approval when the launcher creates a symlink. Developer Mode can allow symlink creation without elevation. This guide explains the setting and how to check the result.
 
 ---
 
@@ -39,11 +39,9 @@ Symlink support affects only new projects or projects that switch to a new relea
 
 ## Requirements on Windows
 
-The launcher needs permission to create symlinks on your behalf. Make sure these requirements are in place before enabling the feature to avoid UAC prompts:
+The launcher first tries to create symlinks without elevation. If Windows denies permission, it requests administrator approval. You can enable **Windows Developer Mode** to allow symlink creation without elevation, or approve the elevation request when needed. If symlink creation fails, the launcher falls back to copying the editor.
 
-- **Windows Developer Mode** enabled.
-- **Administrator privileges** for the Windows account you use with Godot Launcher.
-- Godot Launcher 1.4.0 or later, where the setting first appears in the [Godot Launcher Settings](../settings/launcher-settings.mdx#behavior-tab).
+The setting is available in [Godot Launcher Settings](../settings/launcher-settings.mdx#behavior-tab).
 
 ### Enable Windows Developer Mode
 
@@ -52,17 +50,9 @@ The launcher needs permission to create symlinks on your behalf. Make sure these
 3. Turn on **Developer Mode**, then confirm the Windows prompt.
 4. Restart the machine if Windows requests it.
 
-Developer Mode removes the requirement for the launcher to request and elevate commands to Administrator every time you create a symlink.
+Developer Mode can allow symlink creation without an administrator prompt. Device policies may still restrict it.
 
-### Confirm Administrator rights
-
-- Open the **Start** menu, type `Command Prompt`, right-click, and choose **Run as administrator**.
-- Run `whoami /groups` and verify `BUILTIN\Administrators` is listed.
-- Close the `Command Prompt` window and launch Godot Launcher normally.
-
-:::warning
-If your Windows account cannot elevate or Developer Mode is unavailable (for example, on managed corporate devices), the launcher falls back to copying the editor instead of creating symlinks.
-:::
+If your device is managed, ask your administrator which option is permitted.
 
 ---
 
@@ -80,7 +70,7 @@ If your Windows account cannot elevate or Developer Mode is unavailable (for exa
 1. Open **Godot Launcher**.
 2. Click **Settings** from the sidebar or top-right menu.
 3. Select the **Behavior** tab.
-4. Toggle **Symlink Support** to **Enabled**.
+4. Under **Editor symlinks**, enable **Use symbolic links for Windows project editors**, then confirm **Enable symlinks**.
 5. The preference saves automatically.
 
 The Godot Launcher Symlink preference applies to every Godot release you install moving forward. When you add a new release or update an existing one, the launcher reuses the same binary for all projects.

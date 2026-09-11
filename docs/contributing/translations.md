@@ -54,7 +54,7 @@ Community members can often patch small copy fixes quickly when they have that c
 
 ### 1. Create the Locale Folder
 
-Inside the launcher repository (`godotlauncher/launcher`), create a folder under `locales/` that matches your language code. Use [ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) and only add regional variants when the writing system demands it (for example `pt-BR`, `zh-CN`, `zh-TW`).
+Inside the launcher repository (`godotlauncher/launcher`), create a folder under `locales/` that matches your language code. Use [ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) and agree regional variants with the maintainers when adding a new locale (for example `pt-BR`, `zh-CN`, `zh-TW`).
 
 ```bash
 locales/es/       # Spanish
@@ -117,13 +117,13 @@ Focus on the tone of the launcher: friendly, direct, and aligned with Godot term
 
 Once the files are translated, switch the launcher to your language and do a quick tour:
 
-- Check the loading screen, navigation, and all four main tabs.
+- Check the loading screen, navigation, Projects, Installs, Settings, and Help.
 - Review the Create Project and Install Editor modals.
 - Open the tray menu and system dialogs.
 - Step through the Welcome wizard if you touched those strings.
 
 :::tip
-Adding a brand-new language also means updating the language registry in `main/src/i18n/config.ts`, `renderer/src/i18n/index.ts`, and `renderer/src/components/settings/LanguageSelector.tsx`. If you are unsure how to do that, mention it in your pull request and a maintainer can assist.
+Adding a new language also means registering it in `main/src/i18n/config.ts` and `renderer/src/components/settings/language-select.component.tsx`. Add its relative-time locale import and mapping in `renderer/src/i18n/relative-time.util.ts` so dates use the selected language too. If you are unsure how to do that, mention it in your pull request and a maintainer can assist.
 :::
 
 ---
@@ -134,7 +134,7 @@ Adding a brand-new language also means updating the language registry in `main/s
   1. Fork the repository and create a branch (for example `add-spanish-translation`).
   2. Add or update the JSON files and language registration.
   3. Test in development (`npm run dev`) and switch to your locale.
-  4. Commit with a meaningful message like `Add Spanish translation`.
+  4. Commit with a meaningful message like `feat(i18n): add Spanish translation`.
   5. Open a PR describing what changed and how you verified it.
 
 - **Issue Attachment:**
@@ -156,24 +156,8 @@ Before you press "Create pull request," make sure:
 
 ---
 
-## Current Localisation Coverage
-
-The following locales are currently bundled and will keep evolving as translators refine them:
-
-- English, Italiano, Português, Português (Brasil)
-- 简体中文 (zh-CN), 繁體中文 (zh-TW)
-- Deutsch, Français, Español, Polski
-- Русский, 日本語, Türkçe, Malti
-- System auto-detect (falls back to English when a locale is missing)
-
-If yours is missing, we would love to add it next.
-
----
-
 ## Need Help?
 
 - Visit the localisation thread in the [community Discord](../support/community.md) to coordinate with other translators.
 - Review the high-level workflow in the [main contributing guide](../contributing.md).
 - Ask maintainers in your PR or issue if you are unsure where a string lives or how to run a specific check.
-
-Every contribution keeps the multilingual experience feeling natural for more Godot Launcher users - thanks for helping us grow it!

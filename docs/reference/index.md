@@ -10,7 +10,7 @@ tags:
 
 # Reference
 
-Reference pages are for stable details you may need to look up while configuring, debugging, or documenting Godot Launcher behavior.
+Reference pages are for stable details you may need to look up while configuring, debugging, or documenting Godot Launcher behaviour.
 
 ## Available references
 

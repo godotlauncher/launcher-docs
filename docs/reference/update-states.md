@@ -33,7 +33,7 @@ Godot Launcher can check for new launcher releases in the background, but it doe
 
 ## rpm-ostree systems
 
-On rpm-ostree systems, Godot Launcher can detect that automatic update installation is not supported. In that case, it shows a manual update message and opens the download page instead of starting the in-app installer.
+On rpm-ostree systems, Godot Launcher can detect that automatic update installation is not supported. In that case, it shows a manual update message and shows an **Open download page** action instead of starting the in-app installer.
 
 ## More details
 

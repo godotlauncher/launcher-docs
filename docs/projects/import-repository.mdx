@@ -146,7 +146,7 @@ If any submodule cannot be initialised, the launcher stops and keeps the partial
 
 ## Choose Godot projects and editors
 
-After cloning completes, the launcher scans the repository for regular `project.godot` files. Generated folders, dependencies, Git metadata, symlinks, malformed files, and results outside the scan limits are skipped.
+After cloning completes, the launcher scans the repository for regular `project.godot` files. Generated folders, dependencies, Git metadata, symlinks, and malformed files are skipped. If the repository exceeds the scan limits, the launcher stops discovery and keeps the clone for recovery.
 
 <ThemedImage
   className="docs-media-frame"

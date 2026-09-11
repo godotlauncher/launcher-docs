@@ -51,7 +51,7 @@ Use **Install required editor** on the project to retry, or select another
 installed editor. A completed download does not replace a newer editor choice.
 
 :::info
-Godot Launcher only changes a project between editors from the same major Godot version. Follow the [official Godot upgrading guide](https://docs.godotengine.org/en/stable/tutorials/migrating/upgrading_to_godot_4.html) before opening a project with a different major version.
+Godot Launcher offers editors from the project's current Godot major version or newer. An editor appearing in the picker does not guarantee that your project is compatible with it. Follow the [official Godot upgrading guide](https://docs.godotengine.org/en/stable/tutorials/migrating/upgrading_to_godot_4.html) before opening a project with a different major version.
 :::
 
 ## Use an official or custom build

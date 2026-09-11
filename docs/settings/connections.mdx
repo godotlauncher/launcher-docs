@@ -93,7 +93,27 @@ permission change before you approve it.
 
 - If a connection needs authorisation again, select **Reconnect** and complete the browser flow with the same GitHub user. The launcher can direct you to this recovery from **Connections**, repository import, or new-project publishing.
 - If an installation is unavailable, open **Manage repository access** and confirm that the GitHub App is still installed and can access the repositories you expect.
-- If secure credential storage is unavailable, the launcher does not save the connection. Enable your operating system's secure credential service, restart the launcher, and try again.
+- If secure credential storage is unavailable, the launcher does not save the connection. On Linux, set up a compatible keyring service in your desktop session, fully restart the launcher, then try again.
 - Cancelling the browser flow or closing the chooser before selecting **Connect selected** leaves existing connections unchanged. Once saving has started, closing the dialog does not undo the save.
+
+<details>
+<summary>Linux credential storage: Automatic or Secret Service</summary>
+
+On Linux, open **Settings > Connections** and expand **Credential storage**. Choose **Automatic** to let the launcher select secure credential storage, or **Secret Service** when your desktop session has a compatible Secret Service keyring. Select **Save choice**, then confirm the warning. Changing the choice can require you to reconnect GitHub, but it keeps your existing connection details.
+
+After saving a choice that differs from the one used when the launcher started, select **Restart now** to apply it or **Not now** to restart later. If you select **Not now**, the setting keeps a restart-required message. A full restart means quitting Godot Launcher, including its system tray process, then opening it again.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Expanded Linux credential storage settings showing that secure storage is unavailable"
+  sources={{
+    light: '/img/screenshots/screen_settings_credential_storage_expanded_unavailable_light.webp',
+    dark: '/img/screenshots/screen_settings_credential_storage_expanded_unavailable_dark.webp',
+  }}
+/>
+
+For unavailable storage, failed saves or launch overrides, see [Linux credential storage troubleshooting](../troubleshooting.md#linux-credential-storage-and-github-connections).
+
+</details>
 
 See [How GitHub Connections Are Protected](../connections/github-connection-security.mdx) for credential storage, permissions, and privacy behaviour. See [Create Your First Project](../projects/create-project.mdx#publish-a-new-project-to-github) to publish a new project or [Import a Git Repository](../projects/import-repository.mdx) to bring an existing repository into Godot Launcher.

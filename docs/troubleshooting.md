@@ -211,6 +211,44 @@ After an ambiguous network failure, use **Check and retry**. The launcher checks
 
 See [Publish a new project to GitHub](./projects/create-project.mdx#publish-a-new-project-to-github) for the complete workflow.
 
+## Linux credential storage and GitHub connections
+
+### Secure storage is unavailable
+
+Open **Settings > Connections**, expand **Credential storage**, and check the
+storage status. If you selected **Secret Service**, start or unlock a compatible
+Secret Service keyring in your desktop session. Choosing Secret Service does not install or unlock a keyring. Then fully quit Godot Launcher,
+including its system tray process, and open it again.
+
+If secure storage remains unavailable, the launcher cannot save a new GitHub
+connection. Restore the keyring before connecting. Existing connection details
+are kept when you change the storage choice. If a saved connection needs to be
+authorised again after restarting, select **Reconnect** and complete the browser
+flow.
+
+### Saving the choice fails
+
+The previous saved choice remains unchanged. Select the choice again and retry
+**Save choice**. Restarting will not apply a choice that could not be saved.
+
+### The saved choice does not take effect
+
+The saved choice applies at the next full launch. Select **Restart now** after
+saving, or quit the launcher completely and reopen it. If restarting from the
+launcher fails, your choice is already saved; use the same manual restart.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Saved Linux credential storage choice with Restart now and Not now actions"
+  sources={{
+    light: '/img/screenshots/screen_settings_credential_storage_saved_restart_light.webp',
+    dark: '/img/screenshots/screen_settings_credential_storage_saved_restart_dark.webp',
+  }}
+/>
+
+An explicit credential-storage launch flag takes precedence for the current
+session. Remove that flag and restart the launcher to use the saved choice.
+
 ## Repository import {#repository-import}
 
 ### Remote import choices are disabled

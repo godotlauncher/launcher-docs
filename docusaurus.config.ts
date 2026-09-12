@@ -137,7 +137,7 @@ const config: Config = {
           lastVersion: "1.11",
           versions: {
             current: {
-              label: "Next",
+              label: "1.12",
               path: "next",
               banner: "unreleased",
               noIndex: true,

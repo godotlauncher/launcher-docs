@@ -25,6 +25,20 @@ On Windows, `<home>` is your user profile folder, such as `C:\Users\You`. On Lin
 
 You can change the project and editor install locations from [Godot Launcher Settings](../settings/launcher-settings.mdx).
 
+## Shared export templates
+
+Official project editors use a shared collection in Godot's normal per-user location:
+
+| System | Template folder |
+| --- | --- |
+| Windows | `%APPDATA%\Godot\export_templates` |
+| macOS | `~/Library/Application Support/Godot/export_templates` |
+| Linux | `$XDG_DATA_HOME/godot/export_templates`, or `~/.local/share/godot/export_templates` when `XDG_DATA_HOME` is unset or is not absolute |
+
+Each set has its full Godot identity, such as `4.7.stable` or `4.7.stable.mono`. The per-project `editor_data/export_templates` folder points to this collection using a directory link, or a junction on Windows. Other `editor_data` contents remain separate.
+
+Use [Shared Export Templates](../editors/export-templates.mdx) to download, import, connect existing local templates or remove sets. Changing the editor install location does not relocate the shared collection.
+
 ## Config files
 
 Godot Launcher stores small internal files in the config folder:

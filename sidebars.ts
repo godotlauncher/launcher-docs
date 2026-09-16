@@ -41,6 +41,7 @@ export default {
         "editors/custom-editors",
         "editors/change-project-editor",
         "editors/editor-settings",
+        "editors/export-templates",
       ],
     },
     {

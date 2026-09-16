@@ -1,0 +1,63 @@
+---
+id: export-templates
+title: Shared Export Templates
+slug: /editors/export-templates
+description: "Download, import and manage Godot export templates shared between projects."
+tags:
+  - guides
+  - godot
+---
+
+import ThemedImage from '@theme/ThemedImage';
+
+# Shared Export Templates
+
+Godot Launcher keeps export templates in Godot's normal per-user folder. Projects using the same Godot version and edition can reuse one installed set, while their editor settings stay separate.
+
+Open **Export Templates** in the sidebar to see installed sets, their file sizes and the platforms recognised from their filenames. The totals describe files currently present, including templates installed directly through Godot. They do not measure download history, disk allocation or completeness: a set may contain only some platforms.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Export Templates page showing installed standard and .NET sets, file sizes, import and download actions"
+  sources={{
+    light: '/img/screenshots/screen_export_templates_view_light.webp',
+    dark: '/img/screenshots/screen_export_templates_view_dark.webp',
+  }}
+/>
+
+## Download or import templates
+
+1. Choose **Download templates**, then select a complete package for the required Godot version and edition. Choose **Channel > Prerelease** to see development versions. The drawer can default to **Installed editors**; choose **Show > All** to find packages for editors you have not installed.
+2. Alternatively, choose **Import .tpz** and select a package on your computer. The original archive stays where it is.
+3. Review the files to add. If a file differs from an installed copy, choose **Keep shared copy** or **Use incoming copy** for that file.
+4. Close Godot editors and exports that might use these templates, confirm this in the review, then choose **Apply changes**.
+
+Standard and .NET packages have separate identities. Godot selects templates for its exact version and edition; installing one version does not provide templates for every editor version.
+
+Official downloads are checked against the available release checksum. Imported archives are checked for a valid version, readable contents and supported paths, but this does not establish who created them. Import packages from a source you trust.
+
+You can cancel while a package is being prepared or reviewed. Once changes are being applied, keep Godot closed until the operation finishes. Temporary working files need additional free space during installation and merging.
+
+## Connect existing projects
+
+New or empty official project editor environments connect automatically. Existing local templates are kept until you choose **Review and connect** under **Connect existing projects**.
+
+The review merges missing files and reuses identical files. Differing files require a choice. The original local folder is removed only after the merge and shared-folder connection succeed. If creating the link fails, the launcher attempts to restore the original folders and reports when recovery needs attention.
+
+Only the `export_templates` child of `editor_data` is shared. Godot editor settings remain separate. Custom editor environments are not connected automatically. Existing links to another location are left for you to inspect manually.
+
+## Remove a set
+
+Choose the remove button beside a set, check the version and size, close Godot, then confirm **Remove**. Removal affects every editor using that shared set, including editors opened outside Godot Launcher. The confirmation lists registered projects with a matching editor, but other projects may also depend on the files.
+
+Removing a set does not remove editors or project files. To use that set again, download or import it again. This page manages whole sets; it does not remove individual platforms.
+
+## Refresh and recovery
+
+Use **Refresh** after installing or changing templates directly through Godot. The page also refreshes when you return to the launcher window. Unreadable or unrecognised entries are reported separately and excluded from totals.
+
+If files changed after review, refresh and start the review again. If an interrupted operation needs attention, close Godot and choose **Recover files**. This restores an unfinished change or completes cleanup for a successful change. Recovery stops when affected files no longer match the expected contents; preserve those files and inspect the folders before retrying.
+
+Godot Launcher cannot lock editors or exports started outside the launcher. Keep them closed during changes. If a project cannot create its shared-folder link, check folder permissions and retry **Review and connect**; its existing local setup remains available.
+
+See [Storage Paths and Files](../reference/storage-paths.md#shared-export-templates) for the default locations, or [Editor Settings Per Project](./editor-settings.mdx) for the settings kept separately.

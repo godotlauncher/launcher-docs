@@ -2,7 +2,7 @@
 id: project-settings
 title: Project Settings
 slug: /projects/project-settings
-description: "Rename a project, choose its Godot and code editors, add Git, and control how Godot opens."
+description: "Rename a project, choose its Godot and code editors, add Git, select export templates, and control how Godot opens."
 tags:
   - guides
   - project-settings
@@ -14,14 +14,14 @@ import { Settings } from 'lucide-react';
 
 # Project Settings
 
-Project Settings in Godot Launcher keep the choices for one project together. Use them to rename the project, change its Godot editor, add Git, choose a code editor, or open Godot in windowed mode.
+Project Settings in Godot Launcher keep the choices for one project together. Use them to rename the project, change its Godot editor, add Git, choose a code editor or export template build, or open Godot in windowed mode.
 
 ## Open Project Settings
 
 1. Open the **Projects** view.
 2. Select <span className="docs-inline-action"><Settings aria-hidden="true" /></span> on the project card.
 
-The drawer opens on the **Project** tab. The other tabs are **Source Control**, **Code Editor**, and **Launch**.
+The drawer opens on the **Project** tab. The other tabs are **Source Control**, **Code Editor**, **Launch**, and **Export Templates**.
 
 <ThemedImage
   className="docs-media-frame"
@@ -121,6 +121,31 @@ Open **Code Editor** and choose Visual Studio Code, VSCodium, or **None**. Selec
 ### Restore the code editor setup {#reset-code-editor-configuration}
 
 This choice applies only on this computer. Use **Reset config** if Godot stops opening scripts in the selected editor. See [Code Editor Settings](../settings/code-editors.mdx) to set up an editor or change its location.
+
+## Choose export templates {#export-templates}
+
+Open **Export Templates** to choose **Official** or a matching imported build for the project's selected Godot version and edition. Choose **Update** to save. The selection is remembered separately for each version and edition on this computer.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Project Settings Export Templates tab with the named Cloud Build package selected"
+  sources={{
+    light: '/img/screenshots/screen_export_templates_project_settings_light.webp',
+    dark: '/img/screenshots/screen_export_templates_project_settings_dark.webp',
+  }}
+/>
+
+:::info Official files are shared
+
+Adding or removing Official files here changes the shared collection for that version and edition. Other projects using that collection see the same changes. Imported builds are managed as complete packages from the Export Templates page.
+
+:::
+
+If the selected build is **Unavailable**, its name stays selected and a warning explains the problem. Choose **Open Export Templates** to replace the package, or select another matching build or **Official**. The launcher does not silently change the choice.
+
+Projects with existing local templates must complete the migration review before choosing a build. Custom editor environments are managed in Godot.
+
+See [Export Templates](../editors/export-templates.mdx) for importing, migration and recovery.
 
 ## Open Godot in windowed mode
 

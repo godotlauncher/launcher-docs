@@ -50,6 +50,7 @@ export default {
       collapsed: false,
       items: [
         "projects/manage-projects",
+        "projects/project-tags",
         {
           type: "ref",
           id: "projects/create-project",

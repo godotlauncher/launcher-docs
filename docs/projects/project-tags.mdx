@@ -2,7 +2,7 @@
 id: project-tags
 title: Project Tags
 slug: /projects/project-tags
-description: "Organise Godot Launcher projects with coloured tags, filter your project list, and manage shared tag names and colours."
+description: "Organise and filter your Godot Launcher projects with coloured tags."
 tags:
   - guides
   - project-settings
@@ -14,20 +14,18 @@ import ThemedImage from '@theme/ThemedImage';
 # Project Tags
 
 Use tags in Godot Launcher to organise projects by status, purpose or event.
-Tags belong to the launcher on this computer; they do not change your Godot project files.
+Tags are saved on this computer and do not change your Godot project files.
 
 ## Add tags to a project
 
-Select the tag icon beside a project name in Cards or List view. The picker
-shows the project's current tags and other available tags.
+Select the tag icon beside a project name in **Cards** or **List** view.
 
 - Select an existing tag, or type a name and select **Create**.
 - Select the cross on a tag to remove it from this project.
-- Select a coloured dot to choose from 30 colour presets.
+- Select a coloured dot to change the tag's colour across all projects that use it.
 
-Changes made here save immediately. Tag names and colours are shared: changing
-a colour updates that tag everywhere it is used. Removing a tag from one
-project keeps it available for other projects.
+Changes save immediately. Removing a tag from a project keeps it available
+for other projects.
 
 <ThemedImage
   className="docs-media-frame"
@@ -38,12 +36,8 @@ project keeps it available for other projects.
   }}
 />
 
-The project row shows up to three colour dots and a count of additional tags.
-Hover over the tag icon to see their names. The icon remains available when a
-project has no tags.
-
-You can also open **Project Settings > Project > Tags**. Changes made in
-Project Settings are saved with **Update**; **Discard** leaves them unchanged.
+You can also edit tags in [Project Settings](./project-settings.mdx#project-tags),
+where **Update** saves your changes.
 
 ## Filter projects by tag
 
@@ -51,9 +45,10 @@ Open **Tags** beside Search and select one or more tags. Projects matching
 **any** selected tag remain visible. A text search narrows those results
 further. Tag filters are remembered when you close and reopen the app.
 
-Remove individual filter pills or select **Clear tags** to show all tags again.
+Select the cross beside a selected tag to remove it from the filter, or select
+**Clear tags** to remove all tag filters. Any text search still applies.
 When there are no results, **Clear filters** clears both the tag selection and
-text search. Clear search and tag filters before reordering pinned projects.
+text search.
 
 <ThemedImage
   className="docs-media-frame"
@@ -64,40 +59,36 @@ text search. Clear search and tag filters before reordering pinned projects.
   }}
 />
 
-In the Projects view, use **Cmd+T** on macOS or **Ctrl+T** on Windows and Linux
-to open the tag filter. Use **Cmd+K** or **Ctrl+K** to focus Search.
-These shortcuts do not interrupt an open settings drawer or another picker.
+## Manage tags {#manage-shared-tags}
 
-In a tag picker, use the arrow keys to choose an option, **Enter** to select
-it, and **Escape** to close it.
+Open **Settings > Projects > Manage tags**. The number beside each tag shows
+how many projects use it.
 
-## Manage shared tags
+- Enter a name and select **Add** to create a tag.
+- Select the pencil to rename a tag, then the tick to save it.
+- Select the coloured dot to change its colour.
+- Select the bin to delete a tag.
 
-Open **Settings > Projects > Manage tags** to see all tags, including unused
-ones. The count beside each tag shows how many projects use it.
-
-- Enter a name and select **Add** to create a tag without assigning it.
-- Select the pencil to rename a tag. Confirm with the tick or **Enter**, or
-  cancel with the cross or **Escape**.
-- Select the coloured dot to change its colour immediately.
-- Select the bin to delete a tag. The confirmation shows the affected-project
-  count. Deletion removes that tag from every project.
-
-Names cannot be blank or duplicate another tag, ignoring letter case.
-Deleting a selected filter removes that tag restriction while keeping other
-selected tags. Deleting the last selected tag removes the tag restriction.
+Name and colour changes apply everywhere the tag is used. Deleting a tag
+removes it from every project.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Manage tags drawer with inline name editing, colour controls, usage counts and delete buttons"
+  alt="Manage tags drawer showing tag names, colour dots, project counts, and rename and delete buttons"
   sources={{
     light: '/img/screenshots/screen_settings_manage_tags_light.webp',
     dark: '/img/screenshots/screen_settings_manage_tags_dark.webp',
   }}
 />
 
-## If a change fails
+## Keyboard shortcuts
 
-If tags cannot be loaded, select **Retry**. If saving fails, check the error
-and try the change again. An unsuccessful save does not replace the saved tag
-selection. A failed rename keeps the entered name available to retry.
+In the **Projects** view:
+
+| Action | macOS | Windows and Linux |
+| --- | --- | --- |
+| Open the tag filter | **Cmd+T** | **Ctrl+T** |
+| Focus Search | **Cmd+K** | **Ctrl+K** |
+
+In a tag picker, use the arrow keys to choose an option, **Enter** to select
+it, and **Escape** to close it.

@@ -14,7 +14,7 @@ import { Settings } from 'lucide-react';
 
 # Project Settings
 
-Project Settings in Godot Launcher keep the choices for one project together. Use them to rename or tag the project, change its Godot editor, add Git, choose a code editor or export template build, or open Godot in windowed mode.
+Project Settings in Godot Launcher keep the choices for one project together. Use them to rename or tag the project, change its Godot editor, add Git, choose a code editor or export template build, or control how Godot opens.
 
 ## Open Project Settings
 
@@ -156,8 +156,20 @@ Projects with existing local templates must complete the migration review before
 
 See [Export Templates](../editors/export-templates.mdx) for importing, migration and recovery.
 
-## Open Godot in windowed mode
+## Choose how Godot opens {#open-godot-in-windowed-mode}
 
-Open **Launch**, enable **Use windowed mode**, and select **Update**. Godot Launcher will request a regular window each time it opens this project.
+Open **Launch** and choose the switches for this project, then select **Update**.
 
-Leave this setting off if you want Godot to use its normal window behavior. See [Launch a Project in Windowed Mode](./launch-godot-project-in-windowed-mode.md) for more information.
+- **Windowed editor** requests windowed mode with Godot's `--windowed` option. Leave it off to use Godot's normal window behaviour.
+- **Launch in terminal** opens the editor with a terminal that keeps its output visible after Godot exits. It is off by default.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Project Settings Launch tab with Windowed editor and Launch in terminal switches"
+  sources={{
+    light: '/img/screenshots/screen_projects_settings_launch_light.webp',
+    dark: '/img/screenshots/screen_projects_settings_launch_dark.webp',
+  }}
+/>
+
+These choices apply to this project when opened from the main window or system tray. See [Windowed Mode](./launch-godot-project-in-windowed-mode.md) and [Launch Godot in a Terminal](./launch-godot-in-terminal.mdx) for details.

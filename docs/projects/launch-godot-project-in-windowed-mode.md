@@ -13,14 +13,14 @@ import ThemedImage from '@theme/ThemedImage';
 
 # Launch a Godot Project in Windowed Mode
 
-Use windowed mode when you want a project to open in a regular window every time.
+Enable **Windowed editor** in Godot Launcher to request a regular editor window with Godot's `--windowed` option.
 
 ## Change the project setting
 
 1. Open **Projects**.
 2. Click the project's settings button.
 3. Open **Launch**.
-4. Enable or disable **Use windowed mode**.
+4. Enable or disable **Windowed editor**.
 5. Click **Update**.
 
 <ThemedImage
@@ -38,9 +38,10 @@ The project card shows a **Windowed** status chip while the option is enabled.
 
 ## When to enable it
 
-Godot 4.4 and later can remember the editor window state. Leave **Use windowed mode** off when you want Godot to restore that state. Enable it when you always want this project to open in a regular window.
+Leave **Windowed editor** off to use Godot's normal startup window state. Enable it to request windowed mode each time the launcher opens this project.
 
 ## Related guides
 
 - [Project Settings](./project-settings.mdx)
+- [Launch Godot in a Terminal](./launch-godot-in-terminal.mdx)
 - [Godot command-line display options](https://docs.godotengine.org/en/4.4/tutorials/editor/command_line_tutorial.html#display-options)

@@ -1,0 +1,49 @@
+---
+id: launch-godot-in-terminal
+title: Launch Godot in a Terminal
+slug: /projects/launch-godot-in-terminal
+description: "Open a Godot editor with a terminal that keeps errors and output visible after the editor exits."
+tags:
+  - guides
+  - project-settings
+  - troubleshooting
+---
+
+# Launch Godot in a Terminal
+
+Enable **Launch in terminal** in Godot Launcher to read editor output and errors, including after Godot closes.
+
+## Enable it for a project
+
+1. Open **Projects** and select the project's settings button.
+2. Open **Launch**.
+3. Enable **Launch in terminal**.
+4. Select **Update**.
+
+The option is off by default and saved separately for each project. It applies when you open the project from the main window or the system tray. **Windowed editor** can be enabled independently.
+
+When Godot exits, the terminal shows its exit code and waits for **Return**. Read or copy the output before pressing Return to finish the terminal session.
+
+## Which terminal opens
+
+- **Windows:** Command Prompt opens a separate console. The launcher uses Godot's console executable when available, or the regular editor executable otherwise.
+- **macOS:** Terminal.app opens the editor.
+- **Linux:** The launcher uses the detected terminal selected in [Tool Settings](../settings/tools.mdx#set-up-terminal). **Automatic** chooses an available supported terminal.
+
+On Linux, the Terminal switch in Tool Settings controls **Open Terminal Here**. It does not need to be enabled for **Launch in terminal**. The launcher supports GNOME Terminal, Konsole, Foot, Alacritty, Ghostty and Kitty in their system locations.
+
+## If the terminal cannot open
+
+Godot Launcher reports the error and keeps its window visible. A failed launch from the tray reopens the launcher and shows an error dialog.
+
+On Linux, open **Settings > Tools > Terminal** and select **Rescan** after installing a supported terminal. If a selected terminal is unavailable, choose **Automatic** or another detected terminal, then try again.
+
+## Reloading the project in Godot
+
+Godot's **Reload Current Project** may restart the editor without keeping its output connected to the original terminal. Close the editor and open the project again from Godot Launcher when you need a new terminal session.
+
+## Related guides
+
+- [Project Settings](./project-settings.mdx)
+- [Windowed Mode](./launch-godot-project-in-windowed-mode.md)
+- [Godot command-line tutorial](https://docs.godotengine.org/en/4.4/tutorials/editor/command_line_tutorial.html)

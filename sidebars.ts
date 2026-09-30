@@ -61,6 +61,7 @@ export default {
         },
         "projects/project-settings",
         "projects/launch-godot-project-in-windowed-mode",
+        "projects/launch-godot-in-terminal",
       ],
     },
     {

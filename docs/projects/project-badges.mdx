@@ -1,7 +1,8 @@
 ---
 id: project-badges
-title: "Project Badges and Tooltips"
-description: "Understand the Godot editor, code editor, Git, windowed mode, and warning status shown on project cards."
+title: "Godot Launcher Project Status Icons"
+description: "Understand Godot Launcher project status icons in Cards, Compact, and List views, including missing editor warnings."
+sidebar_label: Project Status Icons
 slug: "/reference/project-badges"
 tags:
   - guides
@@ -14,9 +15,9 @@ tags:
 
 import ThemedImage from '@theme/ThemedImage';
 
-# Project Badges and Tooltips
+# Godot Launcher Project Status Icons {#project-badges-and-tooltips}
 
-Godot Launcher shows the tools and launch choices used by each project. Hover a status for more information.
+Godot Launcher shows each project's editor, tools, and launch options. **Cards** view uses labelled chips; **Compact** and **List** use smaller icons and version text. Hover or focus a status to read its description.
 
 <ThemedImage
   className="docs-media-frame"
@@ -37,26 +38,26 @@ build, and a flask after the version marks a prerelease.
 - A flask icon marks an alpha, beta, release candidate, or other prerelease build.
 - A warning icon means the selected Godot editor is unavailable.
 
-A warning beside the project name means the project itself needs attention. Hover it for one second to see the reason in a panel with a warning icon.
+A warning beside the project name means the project itself needs attention. Hover or focus it to see the reason.
 
 ## Code editor
 
-When a code editor is selected, its chip shows the editor icon and name. Visual Studio Code and VSCodium use different icons.
+The code editor status identifies the selected editor. Cards show its name and icon; Compact and List show its icon. Visual Studio Code and VSCodium have different icons.
 
 If the selected code editor is unavailable, a warning replaces its normal icon. You can still open the project in Godot, but scripts may not open in that code editor.
 
 ## Git
 
-The **Git** chip means the project folder has a Git repository.
+The **Git** status means the project uses Git version control. The repository may be in the project folder or a parent folder. A recognised GitHub repository uses the **GitHub** name and icon instead.
 
 ## Windowed mode
 
-The **Windowed** chip means Godot Launcher will request a regular window when it opens the project.
+The **Windowed** status means Godot Launcher will request windowed mode for the Godot editor when it opens the project.
 
 For warning and recovery steps, see [Troubleshooting](../troubleshooting.md#project-editor-selection).
 
 ## Related documentation
 
-- [Manage Projects](./manage-projects.mdx)
+- [Manage Godot Projects](./manage-projects.mdx)
 - [Project Settings](./project-settings.mdx)
-- [Launch a Godot Project in Windowed Mode](./launch-godot-project-in-windowed-mode.md)
+- [Open the Godot Editor in Windowed Mode](./launch-godot-project-in-windowed-mode.md)

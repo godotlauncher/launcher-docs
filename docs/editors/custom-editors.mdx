@@ -28,30 +28,21 @@ After a custom-built Godot editor is registered, Godot Launcher shows it in **In
   }}
 />
 
-## When to use a custom-built Godot editor
+<a id="when-to-use-a-custom-built-godot-editor"></a>
 
-Use a custom-built Godot editor when:
-
-- Your project depends on a modified Godot editor.
-- Your team distributes a specific editor binary outside the official Godot releases.
-- You have a locally compiled Godot editor and want the launcher to treat it as a selectable editor.
-
-For normal projects that use official Godot releases, install an editor from the regular [Installing an Editor](./install-editor.mdx) flow.
+For official releases, [install a Godot editor](./install-editor.mdx) from the release list.
 
 ## Create a custom editor manifest
 
-Open **Installs**, then use **Custom Editor -> Create custom editor manifest**.
+The output folder must already exist. If it contains `godotlauncher-editor-manifest.json`, creating a manifest replaces that file. Choose another folder to keep the existing manifest.
 
-<ThemedImage
-  className="docs-media-frame"
-  alt="Custom Editor menu in the Installs view"
-  sources={{
-    light: '/img/screenshots/screen_installs_custom_editor_menu_light.webp',
-    dark: '/img/screenshots/screen_installs_custom_editor_menu_dark.webp',
-  }}
-/>
+1. Open **Installs > Custom Editor > Create custom editor manifest**.
+2. Choose an **Output folder** and enter the **Display name**, **Manifest version**, and **Base version**. Use a unique manifest version such as `4.4-custom.1`, and a Godot major/minor base version such as `4.4`.
+3. Set **Flavor** to `gdscript` or `dotnet` for the corresponding build, or enter your custom value. Enable **Prerelease** if appropriate.
+4. Expand the relevant **Platform**, choose **Architecture**, and select the **Editor path**. Add a **Console path** only if your build provides a separate console executable.
+5. Select **Create and register**.
 
-The drawer creates a `godotlauncher-editor-manifest.json` file and registers the editor when you save it.
+The launcher writes `godotlauncher-editor-manifest.json` to the output folder and adds the editor to **Installs**.
 
 <ThemedImage
   className="docs-media-frame"
@@ -62,48 +53,24 @@ The drawer creates a `godotlauncher-editor-manifest.json` file and registers the
   }}
 />
 
-Fill in:
-
-- **Output folder**: where the manifest file will be written.
-- **Display name**: the name shown in the launcher.
-- **Manifest version**: the custom-built Godot editor version the launcher will register.
-- **Base version**: the Godot major/minor version, such as `4.4`.
-- **Flavor**: commonly `gdscript` or `dotnet`, with custom values allowed.
-- **Prerelease**: whether this editor should be treated as a prerelease.
-- **Platform**: Windows, Linux, or macOS.
-- **Architecture**: `x64`, `arm64`, or `universal`.
-- **Editor path**: the editor executable or app bundle.
-- **Console path**: optional console executable path, when your platform/build provides one.
+See the [custom editor manifest reference](../reference/custom-editor-manifest.md) for field definitions and examples.
 
 ## Register an existing manifest
 
-If your team already provides a `godotlauncher-editor-manifest.json` file, open **Installs** and choose **Custom Editor -> Select manifest file**.
+1. Open **Installs > Custom Editor > Select manifest file**.
+2. Select the `godotlauncher-editor-manifest.json` supplied with the editor and open it.
 
-You can also drop a manifest onto the Installs view. The launcher shows whether the manifest can be added.
-
-<ThemedImage
-  className="docs-media-frame"
-  alt="Installs view accepting a custom editor manifest drop"
-  sources={{
-    light: '/img/screenshots/screen_installs_custom_manifest_drop_light.webp',
-    dark: '/img/screenshots/screen_installs_custom_manifest_drop_dark.webp',
-  }}
-/>
-
-If the dropped file is not supported, the launcher shows an unsupported drop state instead of registering it.
-
-<ThemedImage
-  className="docs-media-frame"
-  alt="Installs view showing an unsupported custom editor manifest drop"
-  sources={{
-    light: '/img/screenshots/screen_installs_custom_manifest_drop_unsupported_light.webp',
-    dark: '/img/screenshots/screen_installs_custom_manifest_drop_unsupported_dark.webp',
-  }}
-/>
+The editor appears in **Installs** with a **Custom** badge. You can also drop the manifest onto **Installs**. If the launcher rejects it, check the [manifest format](../reference/custom-editor-manifest.md) and confirm that its editor paths exist.
 
 ## Replace a registered custom-built Godot editor
 
-Registering another manifest with the same custom editor version opens a replace flow. Use it when a custom-built Godot editor has moved or your team has replaced the binary behind the same version label.
+Use replacement when a custom editor has moved or its binary has changed while its manifest version stays the same.
+
+1. Choose **Installs > Custom Editor > Select manifest file** and open the replacement manifest.
+2. Check the version in **Replace custom editor?**.
+3. Select **Replace**.
+
+The registered editor now uses the selected manifest. Replacement does not delete the editor files.
 
 <ThemedImage
   className="docs-media-frame"
@@ -127,17 +94,17 @@ Registered custom-built Godot editors appear in the same project editor selector
   }}
 />
 
-You can select a custom-built Godot editor when creating a project or later from the project editor selector in the Projects list.
+Choose the custom editor when [creating a project](../projects/create-project.mdx). For an existing project, open **Project settings > Project**, select it under **Godot Editor**, and select **Update**. See [Change a project's Godot version](./change-project-editor.md) for compatibility limits.
 
 ## Remove a custom-built Godot editor
 
-Removing a custom-built Godot editor unregisters it from Godot Launcher. It does not delete the editor binary or the folder where your team stores that editor.
+In **Installs**, select the custom editor's **Remove Custom Editor** button, then confirm with **Remove**. This unregisters the editor from Godot Launcher; its binary and source folder remain on disk.
 
 If projects still reference the removed editor, they will show a missing editor state until you register the editor again or choose another compatible editor.
 
 ## Troubleshooting
 
-- **The editor path is unavailable**: restore or mount the location that contains the custom-built Godot editor, then retry validation.
-- **The wrong editor is registered**: register a corrected manifest with the same version and use the replace flow.
+- **The editor path is unavailable**: restore or mount the location that contains the custom-built Godot editor, then select **Retry** in **Installs**.
+- **The wrong editor is registered**: register a corrected manifest with the same version and select **Replace**.
 - **A project cannot launch**: select an available compatible editor, or register the missing custom-built Godot editor again.
 - **A manifest is rejected**: recreate it from the in-app drawer or ask your team for a manifest that matches the editor binary you are using.

@@ -1,7 +1,8 @@
 ---
 id: install-editor
 slug: /getting-started/install-editor
-title: Installing Godot Editor
+title: Install a Godot Editor
+sidebar_label: Install an editor
 description: "Install official Godot Editor releases, choose Standard or .NET, and manage installed editors."
 tags:
   - godot
@@ -13,7 +14,7 @@ tags:
 
 import ThemedImage from '@theme/ThemedImage';
 
-# Installing a Godot Editor
+# Install a Godot Editor {#installing-a-godot-editor}
 
 In **Godot Launcher**, you can install an official editor from **Installs**, register a custom-built editor, or choose an official editor to download while creating a project.
 
@@ -33,13 +34,9 @@ In **Godot Launcher**, you can install an official editor from **Installs**, reg
 3. Choose **Latest** for recent releases or **All** to find an older version.
 4. Choose **Stable** or **Prerelease**.
 5. Find the release you need and select **Standard** or **.NET**.
-6. Wait for the installation to finish.
+6. Wait for the installation to finish. The editor appears in **Installs** and can be selected for projects.
 
-Use **Refresh** to check for newly published releases.
-
-:::tip
-You can install multiple editor releases side by side. This is useful when you maintain projects across different Godot versions or want to test prereleases.
-:::
+Use **Reload Release List** to check for newly published releases. You can install multiple releases side by side.
 
 ## Choose Standard or .NET
 
@@ -48,9 +45,9 @@ You can install multiple editor releases side by side. This is useful when you m
 
 If you are not sure, choose **Standard**. You can install both variants of the same release.
 
-:::important
 Godot Launcher works with Godot 4 and newer editor builds.
 
+:::info C# requires the .NET SDK
 To use C# in your project, install the **.NET SDK** from the [Microsoft .NET website](https://dotnet.microsoft.com/download) as well as a .NET-enabled Godot editor. See the [Godot Engine C# documentation](https://docs.godotengine.org/en/stable/tutorials/scripting/c_sharp/index.html) for current requirements.
 :::
 
@@ -73,33 +70,16 @@ for a project is also not cancellable, because the project is waiting for that
 editor. If a project starts waiting for the same editor as a cancellable
 install, the cancel action becomes unavailable.
 
-Before extracting an official editor archive, Godot Launcher verifies it
-against checksum information from the same release. The launcher stops the
-installation and removes partial files if verification or safe extraction
-fails.
-
-After upgrading Godot Launcher, the release list may perform one complete
-refresh to add the checksum information needed for existing cached releases.
-Later checks return to the normal cached refresh behavior.
+If a download or archive check fails, the editor is not installed. See [editor installation troubleshooting](../troubleshooting.md#godot-editor-installation-and-availability) for recovery steps.
 
 ## Manage installed editors
 
 The **Installs** view groups official and custom editors by Godot version. Standard, .NET, prerelease, and custom entries remain distinct within those groups.
 
-<ThemedImage
-  className="docs-media-frame"
-  alt="Editor Installs view with official, .NET, and custom editors grouped by Godot version"
-  sources={{
-    light: '/img/screenshots/screen_installs_view_light.webp',
-    dark: '/img/screenshots/screen_installs_view_dark.webp',
-  }}
-/>
-
-- Install as many editor versions as your projects need.
 - If an official editor becomes unavailable, select **Retry** after restoring its folder or **Reinstall** to download the same release and variant from the editor catalogue. Projects that used the unavailable editor are repaired to use the recovered installation.
 - If a custom editor becomes unavailable, restore its manifest and editor paths, then select **Retry**. The launcher does not download custom builds.
-- Open an editor's more-actions menu and choose **Delete Release from This Device** to remove an official editor.
-- Change the download location from [Godot Launcher Settings](../settings/launcher-settings.mdx).
+- Select **Delete Release from This Device** beside an official editor, then confirm with **Remove** to delete its installation.
+- Change the download location from [editor install location settings](../settings/editor-installs-location.mdx).
 
 Removing an editor does not delete your projects. See [Troubleshooting](../troubleshooting.md#godot-editor-installation-and-availability) if an installation or saved editor location is unavailable.
 

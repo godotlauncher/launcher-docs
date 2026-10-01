@@ -1,32 +1,22 @@
 ---
 id: contributing
-title: Contributing
+title: Contribute to Godot Launcher
 slug: /contributing
-description: "Learn how to contribute to the Godot Launcher and its ecosystem projects including the web and docs."
-tags: 
+description: "Find contribution guidelines for the Godot Launcher app, website, documentation, and translations."
+tags:
   - contribute
   - open-source
   - community
 ---
 
-# Contributing
+# Contribute to Godot Launcher {#contributing}
 
-Godot Launcher is a community-driven open source project. Contributions are welcome across:
+You can contribute code, documentation, translations, bug reports, or feature suggestions. Read the guidelines for the repository you want to change:
 
-- The **launcher** (`launcher` core application)
-- The **website** (`launcher-website`)
-- The **documentation** (`launcher-docs`)
-
-Before contributing, please read the `contributing guidelines` in the respective repository.
-
-- [Godot Launcher Contributing Guidelines](https://github.com/godotlauncher/launcher/blob/main/CONTRIBUTING.md)
-
-- [Website Contributing Guidelines](https://github.com/godotlauncher/launcher-website/blob/main/CONTRIBUTING.md)
-
-- [Docs Contributing Guidelines](https://github.com/godotlauncher/launcher-docs/blob/main/CONTRIBUTING.md)
+- [Godot Launcher app](https://github.com/godotlauncher/launcher/blob/main/CONTRIBUTING.md)
+- [Website](https://github.com/godotlauncher/launcher-website/blob/main/CONTRIBUTING.md)
+- [Documentation](https://github.com/godotlauncher/launcher-docs/blob/main/CONTRIBUTING.md)
 
 AI-assisted contributions to the project follow the [AI-Assisted Contributions Policy](https://github.com/godotlauncher/launcher/blob/main/AI_POLICY.md). Contributors remain responsible for understanding, reviewing, adapting, testing, and maintaining everything they submit.
 
-If you're not sure where to start, check the issues labeled `good first issue` or join the [community Discord](./support/community.md) to ask.
-
-Interested in localisation? Follow the [translation contribution guide](./contributing/translations.md), open a localisation issue on [GitHub](https://github.com/godotlauncher/launcher/issues/new/choose), or drop feedback in the [community Discord](./support/community.md).
+For a first contribution, look for issues labelled `good first issue` in the relevant repository. To work on a language, follow the [translation guide](./contributing/translations.md). You can ask contribution questions in the [community Discord](./support/community.md).

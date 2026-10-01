@@ -1,16 +1,16 @@
 ---
 id: reference
-title: Reference
+title: Godot Launcher Reference
 slug: /reference
-description: "Stable lookup material for Godot Launcher manifests, storage paths, badges, and update states."
+description: "Look up Godot Launcher custom editor manifest fields, storage paths, project badges, and update states."
 tags:
   - configuration
   - launcher
 ---
 
-# Reference
+# Godot Launcher Reference {#reference}
 
-Reference pages are for stable details you may need to look up while configuring, debugging, or documenting Godot Launcher behaviour.
+Look up file formats, storage locations, and the meaning of project badges and update messages.
 
 ## Available references
 
@@ -21,9 +21,9 @@ Reference pages are for stable details you may need to look up while configuring
 
 ## Workflow guides
 
-If you want step-by-step instructions instead of reference material, start with these guides:
+For setup and usage instructions, see:
 
-- [Installing Godot Editor](../editors/install-editor.mdx)
+- [Install a Godot Editor](../editors/install-editor.mdx)
 - [Custom-Built Godot Editors](../editors/custom-editors.mdx)
 - [Godot Launcher Settings](../settings/launcher-settings.mdx)
-- [Manage Godot Launcher Updates](../updates/manage-launcher-updates.mdx)
+- [Update Godot Launcher](../updates/manage-launcher-updates.mdx)

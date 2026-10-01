@@ -1,13 +1,8 @@
 # Contributing to the Documentation
 
-This guide is for anyone who wants to contribute to the **Godot Launcher Documentation**, hosted at [github.com/godotlauncher/launcher-docs](https://github.com/godotlauncher/launcher-docs).
+Use this guide to report documentation problems, suggest improvements, or contribute to the [Godot Launcher documentation](https://github.com/godotlauncher/launcher-docs).
 
-If you're looking to contribute to the Godot Launcher app itself, check out the [main Godot Launcher repository](https://github.com/godotlauncher/launcher), or visit the [website](https://godotlauncher.org) for more information.  
-If you want to contribute to the **Godot Launcher website**, visit the [launcher-website repository](https://github.com/godotlauncher/launcher-website).
-
-We welcome your feedback, ideas, and pull requests, whether you're fixing a typo or writing an entirely new guide.
-
----
+For app or website changes, use the [launcher repository](https://github.com/godotlauncher/launcher) or [website repository](https://github.com/godotlauncher/launcher-website).
 
 ## Table of Contents
 
@@ -21,8 +16,6 @@ We welcome your feedback, ideas, and pull requests, whether you're fixing a typo
 - [Quickstart: How to Contribute](#quickstart-how-to-contribute)
 - [Need Help?](#need-help)
 
----
-
 ## How the Docs Are Structured
 
 The documentation site is built with [Docusaurus](https://docusaurus.io), a static site generator powered by Markdown.
@@ -32,8 +25,6 @@ The documentation site is built with [Docusaurus](https://docusaurus.io), a stat
 - The current sidebar is defined in `sidebars.ts`; frozen sidebars live under
   `versioned_sidebars/`.
 - Shared assets and version-specific media live in `static/`.
-
-Please follow the folder structure when adding or editing pages.
 
 ### Version-Aware Links And Media
 
@@ -50,50 +41,23 @@ Please follow the folder structure when adding or editing pages.
 - Do not edit a frozen version for a new launcher release. Apply corrections
   there only when the published version itself is inaccurate.
 
----
-
 ## Reporting Issues
 
-> [!IMPORTANT]  
-> Before creating a new issue, check the [open issues](https://github.com/godotlauncher/launcher-docs/issues) and [closed issues](https://github.com/godotlauncher/launcher-docs/issues?q=is%3Aissue%20state%3Aclosed) to avoid duplicates.
+Search [open](https://github.com/godotlauncher/launcher-docs/issues) and [closed issues](https://github.com/godotlauncher/launcher-docs/issues?q=is%3Aissue%20state%3Aclosed) before opening a new report.
 
-Submit documentation issues [here](https://github.com/godotlauncher/launcher-docs/issues/new?template=bug_report.md).  
-We've added templates to make it easier to share your idea.
-
-- Submit a **separate issue for each problem or suggestion**.
-- If you're reporting outdated or incorrect documentation, include the affected page or section.
-- Suggestions are welcome even if you're not submitting a fix yourself.
-
----
+[Report incorrect or outdated documentation](https://github.com/godotlauncher/launcher-docs/issues/new?template=bug_report.yml). Include the affected page or section, what is wrong, and the expected behaviour. Keep each report focused on one problem.
 
 ## Proposing Improvements
 
-> [!IMPORTANT]  
-> Before creating a new feature request, please check the [open issues](https://github.com/godotlauncher/launcher-docs/issues) and [closed issues](https://github.com/godotlauncher/launcher-docs/issues?q=is%3Aissue%20state%3Aclosed).
-
-Submit proposals [here](https://github.com/godotlauncher/launcher-docs/issues/new?template=feature_request.md).  
-We've added templates to make it easier to explain your suggestions.
-
-- **Create one suggestion per issue** to keep feedback focused.
-- For major structural or content changes, discuss them first on [Discord](https://discord.gg/Ju9jkFJGvz).
-
----
+[Suggest a documentation improvement](https://github.com/godotlauncher/launcher-docs/issues/new?template=feature_request.yml) after checking existing issues. Explain the reader's task and what the documentation needs to cover. Discuss major content or structure changes first, either in an issue or on [Discord](https://discord.gg/Ju9jkFJGvz).
 
 ## Contributing Pull Requests
 
-Thank you for helping improve the documentation!
-
-- Fix typos, clarify steps, or add missing information.
-- For large changes, start a discussion or open an issue first.
-- No contribution is too small because every fix helps users.
-
----
+You can fix typos, clarify steps, or add missing information. Follow the setup and preview instructions in [README.md](./README.md).
 
 ## AI-Assisted Contributions
 
 This repository follows the project-wide [AI-Assisted Contributions Policy](https://github.com/godotlauncher/launcher/blob/main/AI_POLICY.md). AI-assisted tools may be used, but their output is treated as untrusted input. Contributors remain responsible for understanding, reviewing, adapting, testing, and maintaining everything they submit.
-
----
 
 ## Pull Request Guidelines
 
@@ -105,61 +69,54 @@ This repository follows the project-wide [AI-Assisted Contributions Policy](http
 
 ### Writing Good Commit Messages
 
-- First line should be short and descriptive (under 72 characters).
-- Use **imperative tone** (e.g., `Fix typo in guide`, `Add image section to docs`).
-- Add more context in a second paragraph if necessary.
+- Use a short, descriptive first line with a Conventional Commit prefix, such as `docs: clarify editor installation steps`.
+- Describe the action in the imperative, such as "fix" or "add".
+- Add a second paragraph only when the change needs more context.
 
 **Examples:**
 
 ```
-Fix broken link in system tray guide
+docs: fix broken link in system tray guide
 
 The URL to the image was outdated and caused a 404.
 ```
 
 ```
-Add quick tips block to editor version change guide
+docs: clarify editor version change guidance
 
 Provides a clearer explanation for resolving missing editor warnings.
 ```
 
 ### Keeping Your Branch Updated
 
-Before submitting your PR, update your branch:
+If your fork uses `upstream` for the original repository, update your branch before submitting:
 
 ```
 git pull --rebase upstream main
 ```
 
----
-
 ## Documentation Standards
 
-- Be clear, concise, and user-friendly.
-- Use proper spelling and grammar (American English).
-- Match the tone of existing pages.
-- Prefer short sentences and active voice.
-
----
+- Use British English and ASCII punctuation. Preserve exact UI labels, identifiers, proper names, and translated text.
+- Explain the reader's task and the result in direct, factual language. Use short sentences and active voice; remove praise, filler, and repeated explanations.
+- Verify behaviour against the app. Include prerequisites, relevant limitations, and recovery steps where readers need them.
+- Write exact UI labels in **bold**, and use `code` for filenames, commands, and literal values. Separate steps in a menu path with `>`.
+- Use numbered steps when order matters. Name the starting screen, controls, and visible result.
+- Use callouts for a specific prerequisite, limitation, or risk. Give each callout a descriptive title.
+- Add screenshots or animations only when they explain a control, state, or sequence. Check that the media is accurate, write useful alt text, and keep the instructions usable without it.
+- Preserve page URLs and heading anchors. Use relative documentation links with a `.md` or `.mdx` extension.
 
 ## Quickstart: How to Contribute
 
 1. **Fork** the repository and clone it locally.
 2. Create a new branch: `git checkout -b fix-typo-in-guide`
 3. Make your changes inside the `docs/` folder.
-4. Run `npm install && npm run start` to preview the site locally.
-5. Commit your changes and open a pull request.
-
-If you're unsure before opening a pull request, ask in the [Godot Launcher Discord](https://discord.gg/Ju9jkFJGvz).
-
----
+4. Run `npm ci`, then `npm run start`, and review the affected pages at [http://localhost:3001](http://localhost:3001).
+5. Run `npm run build` and fix any errors caused by your changes.
+6. Commit your changes and open a pull request.
 
 ## Need Help?
 
 Join the [Godot Launcher Discord](https://discord.gg/Ju9jkFJGvz) to ask contribution questions or get early feedback on an idea.
 
----
-
-## Thank You!
-
-Every contribution improves the experience for users around the world. Whether you're fixing a typo, rewriting a section, or writing new guides, **thank you for supporting Godot Launcher**.
+<a id="thank-you"></a>

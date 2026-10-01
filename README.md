@@ -1,34 +1,29 @@
 # Godot Launcher Documentation
 
-This repository contains the source code for the official **Godot Launcher Documentation**, built using [Docusaurus](https://docusaurus.io/), a modern static site generator.
+This repository contains the [Godot Launcher documentation](https://docs.godotlauncher.org), built with [Docusaurus](https://docusaurus.io/).
 
-## 📖 Contributing
+<a id="-contributing"></a>
 
-Contributions are always welcome! The Godot Launcher documentation is open source, just like the [Godot Luncher](https://github.com/godotlauncher/launcher) Project.
+## Contributing
 
-Feel free to fix typos, improve, or add new content. To contribute:
+To fix a typo, clarify instructions, or add a guide, read [CONTRIBUTING.md](./CONTRIBUTING.md). For changes to the app, use the [Godot Launcher repository](https://github.com/godotlauncher/launcher).
 
-1. Fork the repo
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
+Discuss major content or structure changes in an issue or on the [community Discord](https://discord.gg/Ju9jkFJGvz) before starting.
 
-Make sure to follow the existing structure and style for consistency.
+<a id="-development"></a>
 
-> Keep in mind that this documentation is the public face of the Godot Launcher project documentation. For that reason, major edits or structural changes should be approached thoughtfully. While you don't need to submit a formal proposal, it's highly recommended to open an issue in this repo or start a discussion in the Godot Launcher Discord, where community conversations about the website and project happen regularly.
+## Development
 
-## 🚀 Development
-
-This website is built using **Node.js 24 LTS** and **npm**. To run it locally:
+Use Node.js 24 and npm. The repository declares npm 12.0.2 as its package manager.
 
 ### 1. Fork the repository
 
-First, fork the repository to your GitHub account:
+Fork the repository to your GitHub account:
 
 1. Go to the [Godot Launcher Docs repository](https://github.com/godotlauncher/launcher-docs).
-2. Click the "Fork" button in the top-right corner.
+2. Select **Fork**.
 
-Then, clone your forked repository:
+Clone your fork:
 
 ```bash
 git clone https://github.com/<your-username>/launcher-docs.git
@@ -38,7 +33,7 @@ cd launcher-docs
 ### 2. Install dependencies
 
 ```bash
-npm install
+npm ci
 ```
 
 ### 3. Start the development server
@@ -47,23 +42,25 @@ npm install
 npm run start
 ```
 
-This will launch a local dev server at [http://localhost:3000](http://localhost:3000).
+Open the development site at [http://localhost:3001](http://localhost:3001).
 
 ### 4. Test Build for production
 
-It is important to test out your production build, generate the static site and run it locally to test things out.
+Build the static site to check for broken links and rendering errors:
 
 ```bash
 npm run build
 ```
 
-To preview the production build:
+Preview the production build at [http://localhost:3001](http://localhost:3001):
 
 ```bash
 npm run serve
 ```
 
-## 🧩 Project Structure
+<a id="-project-structure"></a>
+
+## Project Structure
 
 - `/docs` - Documentation for the upcoming launcher release.
 - `/versioned_docs` - Frozen documentation for published minor releases.
@@ -99,7 +96,3 @@ For current documentation, place screenshots in `static/img/screenshots/`,
 feature images in `static/img/features/`, and animations in
 `static/img/animations/`. Place media for frozen versions in
 `static/img/docs/<major.minor>/`.
-
----
-
-Feel free to reach out or open an issue if you spot something broken or unclear.

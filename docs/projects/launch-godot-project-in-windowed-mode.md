@@ -1,7 +1,7 @@
 ---
 id: launch-godot-project-in-windowed-mode
 title: "Launch Godot Project in Windowed Mode"
-description: "Choose whether Godot Launcher requests windowed mode when opening a project."
+description: "Start the Godot editor in windowed mode when opening a project from Godot Launcher."
 slug: "/projects/launch-godot-project-in-windowed-mode"
 tags:
   - godot
@@ -13,7 +13,7 @@ import ThemedImage from '@theme/ThemedImage';
 
 # Launch a Godot Project in Windowed Mode
 
-Enable **Windowed editor** in Godot Launcher to request a regular editor window with Godot's `--windowed` option.
+Enable **Windowed editor** in Godot Launcher to start the Godot editor in windowed mode.
 
 ## Change the project setting
 
@@ -38,10 +38,9 @@ The project card shows a **Windowed** status chip while the option is enabled.
 
 ## When to enable it
 
-Leave **Windowed editor** off to use Godot's normal startup window state. Enable it to request windowed mode each time the launcher opens this project.
+Enabling **Windowed editor** adds Godot's `--windowed` option when opening this project. Leave it off to use Godot's normal startup window state.
 
 ## Related guides
 
 - [Project Settings](./project-settings.mdx)
-- [Launch Godot in a Terminal](./launch-godot-in-terminal.mdx)
 - [Godot command-line display options](https://docs.godotengine.org/en/4.4/tutorials/editor/command_line_tutorial.html#display-options)

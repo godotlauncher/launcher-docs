@@ -81,7 +81,13 @@ the reset. This removes saved terminal choices and custom terminal settings for
 all operating systems, while preserving whether Terminal is enabled and all
 other tool settings. Godot Launcher then restores **Automatic** selection.
 
-To keep Godot editor output visible after the editor closes, enable **Launch in terminal** in the project's **Launch** tab. On Linux, this uses your detected terminal selection even when **Open Terminal Here** is disabled. Windows uses Command Prompt and macOS uses Terminal.app. See [Launch Godot in a Terminal](../projects/launch-godot-in-terminal.mdx).
+:::info Launching Godot in a terminal
+
+On Linux, this terminal selection also applies to **Launch in terminal**. The Terminal switch controls **Open Terminal Here**; it does not need to be enabled to launch Godot in a terminal.
+
+See [Launch Godot in a Terminal](../projects/launch-godot-in-terminal.mdx) to enable it for a project.
+
+:::
 
 ## Manage Git identities
 

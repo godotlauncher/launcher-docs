@@ -83,6 +83,43 @@ The **Installs** view groups official and custom editors by Godot version. Stand
 
 Removing an editor does not delete your projects. See [Troubleshooting](../troubleshooting.md#godot-editor-installation-and-availability) if an installation or saved editor location is unavailable.
 
+### Remove several editors
+
+Use multi-select in **Installs** to remove several editors with one confirmation.
+
+1. Select **Enable multi-select**, the checklist icon at the left of the toolbar.
+2. Tick the editors to remove, or open **Actions > Select unused editors**.
+3. Select **Actions > Remove selected**.
+4. Check the editor list and any projects shown in **Remove selected editors**, then select **Remove selected** to confirm.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Two selected Godot editors with the Actions menu open"
+  sources={{
+    light: '/img/screenshots/screen_installs_selection_light.webp',
+    dark: '/img/screenshots/screen_installs_selection_dark.webp',
+  }}
+/>
+
+**Select unused editors** selects launcher-managed editors with no assigned projects. Projects with unavailable files still count as using their assigned editor. Custom editors are excluded from this action; select them individually or use **Select all** to include them.
+
+Search filters the visible rows without clearing your selection. **Clear selection** unticks all editors. **Disable multi-select** also clears the selection and restores the individual editor buttons. Editors with an install or another action in progress cannot be selected.
+
+:::warning Projects using a selected editor
+Removing an installed editor deletes its editor files. Projects assigned to it need another editor before they can launch. Removing a custom editor unregisters it from Godot Launcher and keeps its files. Your project files are kept in both cases.
+:::
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Editor removal confirmation showing a project that uses a selected editor"
+  sources={{
+    light: '/img/screenshots/screen_installs_remove_selected_light.webp',
+    dark: '/img/screenshots/screen_installs_remove_selected_dark.webp',
+  }}
+/>
+
+The launcher checks each editor again before removal. An editor selected with **Select unused editors** is kept if a project starts using it. Changed or busy editors are also kept. If a removal fails, the dialog shows the result for each editor; resolve the reported problem and use **Retry failed removals**. Successful removals stay removed.
+
 ## Add a custom-built Godot editor
 
 Open the **Custom Editor** menu in **Installs** to register a custom-built Godot editor:

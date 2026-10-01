@@ -1,5 +1,6 @@
 ---
 id: help-and-support
+sidebar_label: Help and Support
 title: Godot Launcher Help and Support
 slug: /support/help-and-support
 description: "Find troubleshooting steps, report a Godot Launcher bug, ask the community, or contribute to the project."

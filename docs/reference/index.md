@@ -1,5 +1,6 @@
 ---
 id: reference
+sidebar_label: Reference Overview
 title: Godot Launcher Reference
 slug: /reference
 description: "Look up Godot Launcher custom editor manifest fields, storage paths, project badges, and update states."

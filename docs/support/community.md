@@ -1,5 +1,6 @@
 ---
 id: community
+sidebar_label: Community
 title: Godot Launcher Community
 slug: /support/community
 description: "Ask questions about Godot Launcher on Discord, discuss feature ideas, and help with code, documentation, or translations."

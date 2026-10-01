@@ -1,7 +1,8 @@
 ---
 id: install-git
+sidebar_label: Install Git
 title: "Install Git for Godot Launcher"
-description: "Install Git and make it available for new and existing Godot Launcher projects."
+description: "Install Git, rescan it in Godot Launcher, and check that it is available for creating and importing project repositories."
 slug: "/integrations/install-git"
 tags:
   - guides

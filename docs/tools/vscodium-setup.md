@@ -1,5 +1,6 @@
 ---
 id: vscodium-setup-for-godot
+sidebar_label: VSCodium Setup
 title: "VSCodium Setup for Godot"
 description: "Set up VSCodium for a Godot Launcher project and understand the workspace files it maintains."
 slug: "/integrations/vscodium-setup-for-godot"

@@ -1,5 +1,6 @@
 ---
 id: windows-symlink
+sidebar_label: Windows Editor Links
 title: Save Disk Space with Godot Editor Links on Windows
 slug: /platform/windows-symlink
 description: "Save disk space with optional Godot editor symbolic links on Windows. Enable the setting, understand permission prompts, and check whether an editor uses links."

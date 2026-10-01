@@ -1,5 +1,6 @@
 ---
 id: translations
+sidebar_label: Translations
 title: Translate Godot Launcher
 slug: /contributing/translations
 description: "Review Godot Launcher translations, report wording problems, or add a language with the required files and locale registration."

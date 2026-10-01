@@ -1,5 +1,6 @@
 ---
 id: linux-no-sandbox
+sidebar_label: Linux Sandbox Errors
 title: Fix Godot Launcher Sandbox Errors on Linux
 slug: /platform/linux-no-sandbox
 description: "Diagnose Godot Launcher startup errors mentioning chrome-sandbox on Linux, with a temporary --no-sandbox test and its security limits."

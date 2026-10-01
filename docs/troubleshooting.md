@@ -1,5 +1,6 @@
 ---
 id: troubleshooting
+sidebar_label: Troubleshooting
 title: Godot Launcher Troubleshooting
 slug: /troubleshooting
 description: "Troubleshoot unavailable Godot editors, Git detection, GitHub connections, terminal launches, updates, and other Godot Launcher problems."

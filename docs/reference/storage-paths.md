@@ -128,13 +128,13 @@ The local choices listed above are not included. The launcher can still recognis
 
 Godot Launcher isolates Godot editor settings per project and editor version.
 
-The settings file name follows this pattern:
+In Godot 4.3 and later, the settings file name follows this pattern:
 
 ```text
 editor_settings-<major.minor>.tres
 ```
 
-For the full explanation, see [Editor Settings Per Project](../editors/editor-settings.mdx).
+Godot 4.0 to 4.2 use `editor_settings-4.tres`. For the full explanation, see [Editor Settings Per Project](../editors/editor-settings.mdx).
 
 ## Custom editor manifests
 

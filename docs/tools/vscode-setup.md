@@ -1,5 +1,6 @@
 ---
 id: vscode-setup-for-godot
+sidebar_label: VS Code Setup
 title: "Visual Studio Code Setup for Godot"
 description: "Set up Visual Studio Code for a Godot Launcher project and understand the workspace files it maintains."
 slug: "/integrations/vscode-setup-for-godot"

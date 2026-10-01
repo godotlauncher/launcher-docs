@@ -140,6 +140,7 @@ const config: Config = {
               label: "Next",
               path: "next",
               banner: "unreleased",
+              noIndex: true,
             },
             "1.12": {
               label: "1.12",

@@ -1,5 +1,6 @@
 ---
 id: update-states
+sidebar_label: Update States
 title: Godot Launcher Update States
 slug: /reference/update-states
 description: "Look up Godot Launcher update status messages and the controls for downloading, installing, skipping, or retrying an update."

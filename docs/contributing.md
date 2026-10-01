@@ -1,5 +1,6 @@
 ---
 id: contributing
+sidebar_label: Contribute
 title: Contribute to Godot Launcher
 slug: /contributing
 description: "Find contribution guidelines for the Godot Launcher app, website, documentation, and translations."

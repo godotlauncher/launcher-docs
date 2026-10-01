@@ -36,6 +36,12 @@ Sizes and file counts describe the files currently present, including files inst
 
 ## Download official export templates
 
+:::danger Removing Official files is permanent
+
+Saving a selection that removes installed files permanently deletes those files. Godot Launcher keeps no backup. Keep your own copy of any files you may need before removing them.
+
+:::
+
 1. Choose **Download templates** and select a Godot version and edition. Use the channel and installed-editor filters to find the release.
 2. Select the template files you need. Review the files to add or remove.
 3. Choose **Save changes**. You can also open **Manage templates** on an existing collection to change its installed files.
@@ -71,7 +77,7 @@ Package checks do not establish who created a build or whether it supports encry
 
 :::
 
-Imported builds are managed as complete packages. Their individual files cannot be added or removed through Godot Launcher. Use **Replace TPZ** to change the package.
+Imported builds are managed as complete packages. Their individual files cannot be added or removed through Godot Launcher. See [Rename, replace or delete an import](#rename-replace-or-delete-an-import) to change a package.
 
 ## Select a project's build
 
@@ -96,7 +102,7 @@ Build choices are saved separately for each Godot version and edition. They are 
 
 A build with missing files is marked **Unavailable** and cannot be selected. If it was already selected, its name stays visible with a warning. Godot Launcher does not silently switch the project to Official.
 
-Choose **Open Export Templates**, then **Replace TPZ** on the build to restore its package. Alternatively, choose another matching build or **Official** in Project Settings and select **Update**. If Official has no templates for that version yet, download the required files before exporting.
+Choose **Open Export Templates**, then follow the [replacement steps](#rename-replace-or-delete-an-import) to restore the build's package. Alternatively, choose another matching build or **Official** in Project Settings and select **Update**. If Official has no templates for that version yet, download the required files before exporting.
 
 Availability is checked again when you save a changed build selection. If files have disappeared since you opened Settings, the selection remains visible with the warning so you can resolve it.
 
@@ -112,6 +118,12 @@ Availability is checked again when you save a changed build selection. If files 
 ## Connect existing projects
 
 Empty official editor environments connect automatically. Projects with existing local export template files need a migration decision. Open **Migrate projects** from Export Templates and review the project and its versions.
+
+:::danger Migration removes the local originals
+
+After a successful migration, the original local files are permanently removed and no backup is retained. **Switch to shared export templates** keeps the shared copy when a filename already exists, so a different local file with that name is lost. **Delete local export templates and use shared** removes local files without copying them. Keep your own copy before migrating if you may need the originals later.
+
+:::
 
 | Choice | What happens |
 | --- | --- |
@@ -132,25 +144,29 @@ Empty official editor environments connect automatically. Projects with existing
 
 A folder's location or matching filenames do not prove that its files are official. Use **Save as imported templates** when you need to preserve a custom package independently of the shared collection.
 
-After a successful migration, the original local files are removed. No backup is retained. Keep your own copy if you may need it later.
-
 :::
 
 Use **Finish later** to leave undecided projects pending and return to them from Export Templates. If an operation fails, review its result before retrying: files already added to the shared collection can remain there while the project's original local files are retained.
 
 ## Rename, replace or delete an import
 
+:::warning Close affected editors before changing templates
+
+Close affected Godot editors and stop exports before changing connections, replacing packages or deleting templates. Other tools can still change the files while a template operation is running.
+
+:::
+
 Use **Rename** to change a build's name and folder name. Saved project selections continue to refer to that build.
+
+:::danger Replacement and deletion remove stored files
+
+A successful replacement permanently removes the previous package files. Deleting an imported build permanently removes its stored package. Godot Launcher keeps no backup. Keep the original TPZ archive or your own copy if you may need those files later.
+
+:::
 
 Use **Replace TPZ** to replace the whole package. The replacement must have the same Godot version and edition. Projects using the build will use its replacement files.
 
 Use **Delete imported build** to remove a package. If projects use it now or remember it for another editor version, the confirmation lists those references. Choose a matching replacement or **Official**, then choose **Switch and delete**. Only the affected version's saved choice changes.
-
-:::warning Close editors and keep any backups you need
-
-Close affected Godot editors and stop exports before changing connections, replacing packages or deleting templates. Deletion is permanent and no backup is kept. Other tools can still change the files while a template operation is running.
-
-:::
 
 ## Move template storage
 
@@ -183,5 +199,7 @@ You can cancel while the move offers **Cancel**. If the selected drive is unavai
 ## Refresh and recover
 
 Use **Refresh** after external file changes. If an interrupted template operation needs attention, close Godot and use **Recover files**. If recovery cannot finish because files have changed or a drive is missing, restore access and inspect the reported folders before retrying.
+
+**Recover files** handles interrupted operations. It cannot restore files permanently removed by a completed migration, replacement or deletion.
 
 See [Storage Paths and Files](../reference/storage-paths.md#shared-export-templates) for default locations and [Editor Settings Per Project](./editor-settings.mdx) for editor settings.

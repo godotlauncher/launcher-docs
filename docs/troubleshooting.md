@@ -137,7 +137,7 @@ If you add the project without an editor, **Edit in Godot** remains unavailable 
 - If `project.godot` is missing, restore the project folder or remove the entry and add the project again from its current location.
 - If the project needs a custom build, restore that build or register its replacement.
 
-Godot Launcher does not open a project with a different major Godot version. Follow the [official Godot upgrading guide](https://docs.godotengine.org/en/stable/tutorials/migrating/upgrading_to_godot_4.html) before changing major versions.
+Godot Launcher supports changing a project's editor only within its current Godot major version. See [Change Project Editor Version](./editors/change-project-editor.md) for the steps. To migrate a Godot 3 project to Godot 4, follow the [official Godot upgrading guide](https://docs.godotengine.org/en/stable/tutorials/migrating/upgrading_to_godot_4.html); changing the editor in Godot Launcher does not perform this migration.
 
 ## Code editors
 

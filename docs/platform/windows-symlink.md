@@ -2,7 +2,7 @@
 id: windows-symlink
 title: Godot Launcher Symlink Support on Windows
 slug: /platform/windows-symlink
-description: "Learn how to enable the Godot Launcher Symlink feature on Windows to reuse editor installs, save disk space, and streamline updates."
+description: "Enable symbolic links for Windows project editors to reduce duplicate editor files, with permission requirements and a copy fallback."
 tags:
   - guides
   - godot
@@ -19,7 +19,9 @@ import ThemedImage from '@theme/ThemedImage';
 
 # Godot Launcher Symlink Support on Windows
 
-The **Godot Launcher Symlink** feature lets Windows reuse a single installed editor across every project. Instead of copying the editor into each project folder, the launcher creates a Windows symlink that points back to the original install. The result is faster installs, smaller project directories, and consistent editor behaviour from one release to the next.
+On Windows, Godot Launcher can use symbolic links to share an installed Godot editor between projects that select it. Each link points to the installed editor, reducing duplicate editor files.
+
+The launcher stores each project's editor copy or links in a separate environment under `.editor_config` in the editor install location. These files are outside the Godot project folder. Enabling links does not change the size or contents of that project folder.
 
 Windows may request administrator approval when the launcher creates a symlink. Developer Mode can allow symlink creation without elevation. This guide explains the setting and how to check the result.
 
@@ -27,12 +29,11 @@ Windows may request administrator approval when the launcher creates a symlink. 
 
 ## Why enable Godot Launcher Symlink support?
 
-- Reduce disk usage by keeping only one copy of each Godot editor release.
-- Speed up new project setup because the launcher links instead of copying large files.
-- Keep projects aligned with the same editor build, making it easier to switch versions or follow the [Change Project Editor Version](../editors/change-project-editor.md) workflow.
+- Reduce disk usage when several projects use the same installed editor.
+- Avoid copying the editor files each time the launcher prepares a project editor.
 
-:::tip
-Symlink support affects only new projects or projects that switch to a new release. Existing projects keep their current editor copy or symlink until you change the selected release.
+:::info Existing project editors
+Changing the preference does not convert existing copies or links. The launcher uses it when preparing an editor for a new or added project, or when a project's editor is changed or reinstalled.
 :::
 
 ---
@@ -45,12 +46,12 @@ The setting is available in [Godot Launcher Settings](../settings/launcher-setti
 
 ### Enable Windows Developer Mode
 
-1. Open **Settings**.
-2. Go to **System > For Developers** (older builds may list **Privacy & security > For developers**).
+1. Open Windows **Settings**.
+2. Search for **Developer Mode**. On Windows 11 25H2 and later, it is under **System > Advanced > For developers**; earlier versions use a **For developers** page.
 3. Turn on **Developer Mode**, then confirm the Windows prompt.
 4. Restart the machine if Windows requests it.
 
-Developer Mode can allow symlink creation without an administrator prompt. Device policies may still restrict it.
+Developer Mode can allow symlink creation without an administrator prompt. Enabling Developer Mode itself requires administrator access, and device policies may restrict it. See Microsoft's [Developer Mode instructions](https://learn.microsoft.com/windows/advanced-settings/developer-mode).
 
 If your device is managed, ask your administrator which option is permitted.
 
@@ -60,7 +61,7 @@ If your device is managed, ask your administrator which option is permitted.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Toggle Editor Symlink Gif"
+  alt="Enable editor symlinks in the Behavior settings and confirm the change"
   sources={{
     light: '/img/animations/windows-symlink/windows-symlink-anim_light.gif',
     dark: '/img/animations/windows-symlink/windows-symlink-anim_dark.gif',
@@ -73,11 +74,7 @@ If your device is managed, ask your administrator which option is permitted.
 4. Under **Editor symlinks**, enable **Use symbolic links for Windows project editors**, then confirm **Enable symlinks**.
 5. The preference saves automatically.
 
-The Godot Launcher Symlink preference applies to every Godot release you install moving forward. When you add a new release or update an existing one, the launcher reuses the same binary for all projects.
-
-:::info
-Switching the toggle only affects projects created (or reconfigured) after the change. To migrate an older project, switch it to a different editor release and then back again so the launcher recreates the link.
-:::
+The preference controls how project editors are prepared. Downloading an editor release alone does not convert existing project editor copies or links.
 
 ---
 
@@ -85,31 +82,31 @@ Switching the toggle only affects projects created (or reconfigured) after the c
 
 When symlink support is active:
 
-- New projects reference the editor under your preferred folder for `Install Location` instead of copying it into the project folder.
-- The **Projects** list shows no difference between copies and symlink editors. Everything looks the same as it did before.
-- Downloading a new editor release happens once, even if you create multiple projects from it or copies are used (no change).
+- The launcher tries to create links in the project's separate editor environment that point to the selected installed editor.
+- If link creation fails, the launcher copies the editor files into that environment.
+- The **Projects** list does not indicate whether an editor uses copies or links.
 
 ### Verify the symlink
 
-1. Create a new project from the launcher.
-2. Click **Open Editor Settings Folder**, then navigate one folder up.
-3. Right-click the Godot executable, choose **Properties**, and confirm the **Type** reads *Symbolic (.exe)*.
-4. Launch the project normally to ensure the editor opens as expected.
+1. In **Projects**, open the project's folder menu and select **Open Editor Settings Folder**.
+2. In File Explorer, navigate one folder up from `editor_data` to the project's editor environment.
+3. Type `cmd` in File Explorer's address bar and press Enter to open Command Prompt in that folder.
+4. Run `dir /a:l *.exe`. This lists executable files with the reparse-point attribute, including symbolic links. A linked Godot executable is shown with its target path.
 
-If Windows shows the type as `Application (.exe)` instead of a `symlink (.exe)`, double-check Developer Mode and administrator permissions, then recreate the project, remove and re-add the project, or switch the Godot release version.
+If the executable is absent from that listing but appears with `dir *.exe`, the project uses a copy. This can be an existing copy or the fallback after link creation failed. You can continue using the editor; check permissions before the next editor change if you want to use links. See Microsoft's [dir command reference](https://learn.microsoft.com/windows-server/administration/windows-commands/dir) for the listing options.
 
 ---
 
 ## Troubleshooting Godot Launcher Symlink errors
 
-- **UAC prompt appears every time a change in release happens**: Make sure you have enabled `Developer Mode`.
+- **Windows requests administrator approval**: Approve the request if permitted on your device, or enable **Developer Mode** to allow links without elevation. Leave symlink support off if you prefer editor copies.
 
   <img
     className="docs-media-frame"
     src="/img/UAC_prompt.webp"
     alt="Godot Launcher - UAC Prompt"
   />
-- **Corporate or school device restrictions**: Contact your administrator about enabling Developer Mode or request temporary elevation. Without it, symlink creation is blocked for security reasons.
+- **Corporate or school device restrictions**: Ask your administrator whether Developer Mode or elevation is permitted. Editor copies remain available when symbolic links cannot be created.
 - **Antivirus blocks or quarantines the launcher**: Godot Launcher Windows releases are code signed. If Windows or your antivirus flags the launcher, check that the file signature is valid before allowing it. See [Windows release signing](../getting-started/installation.mdx#windows-release-signing) for details.
 - **Antivirus blocks or quarantines the symlink target**: Check your antivirus quarantine or protection history. If the blocked file is a Godot editor executable, verify it comes from the official Godot release you installed. Add an exclusion only for the specific executable or symlink target, and avoid excluding the whole launcher install directory unless your antivirus does not support narrower exclusions.
 
@@ -117,4 +114,4 @@ If Windows shows the type as `Application (.exe)` instead of a `symlink (.exe)`,
 
 ## Summary
 
-With the Godot Launcher Symlink feature configured, Windows projects stay lightweight while sharing a single editor install. Keep Developer Mode enabled, leave the launcher toggle on, and reuse the same releases across every project. From here you can explore other workflow optimizations, like fine-tuning [Godot Launcher Settings](../settings/launcher-settings.mdx) or [changing editor versions](../editors/change-project-editor.md) per project.
+Symbolic links reduce duplicate files in the launcher's editor environments. They do not change the Godot project folders or the compatibility of editor releases. Use [Change Project Editor Version](../editors/change-project-editor.md) to select a compatible editor for a project.

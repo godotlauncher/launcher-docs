@@ -42,8 +42,9 @@ The name must be unique in the launcher and cannot be empty. Select **Update** t
 
 ## Change the Godot editor
 
-Choose an installed or registered editor from **Godot Editor**, or select
-**Browse releases** to download a compatible official editor. Select
+Choose an installed or registered editor from the project's current Godot major
+version in **Godot Editor**, or select **Browse releases** to download a compatible
+official editor from the same major version. Select
 **Install and save** when the selected release is not installed, or **Update**
 for an installed editor. The project will use the saved editor the next time
 you open it.
@@ -69,7 +70,7 @@ the download does not start.
   }}
 />
 
-You can choose an editor from the same or a newer Godot major version. Check project compatibility before upgrading to a newer major version. If the project uses Visual Studio Code or VSCodium, the launcher also updates that editor's project setup.
+Check project compatibility before opening it with another release. If the project uses Visual Studio Code or VSCodium, the launcher also updates that editor's project setup.
 
 See [Change Project Editor Version](../editors/change-project-editor.md) for .NET editors, custom builds, and missing editor recovery.
 
@@ -144,7 +145,7 @@ Open **Export Templates** to choose **Official** or a matching imported build fo
   }}
 />
 
-:::info Official files are shared
+:::warning Official files are shared
 
 Adding or removing Official files here changes the shared collection for that version and edition. Other projects using that collection see the same changes. Imported builds are managed as complete packages from the Export Templates page.
 

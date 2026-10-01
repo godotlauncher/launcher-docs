@@ -68,13 +68,14 @@ locales/zh-TW/    # Traditional Chinese
 
 ### 2. Copy the English Templates
 
-Duplicate every JSON file from `locales/en/` into your new folder. There are 10 namespaces to translate:
+Duplicate every JSON file from `locales/en/` into your new folder. The namespace files are:
 
 - `dialogs.json`
 - `menus.json`
 - `common.json`
 - `projects.json`
 - `installs.json`
+- `exportTemplates.json`
 - `settings.json`
 - `help.json`
 - `createProject.json`
@@ -85,13 +86,19 @@ Duplicate every JSON file from `locales/en/` into your new folder. There are 10 
 
 Keep the JSON keys as they are and translate the text on the right-hand side:
 
+Correct: the keys stay unchanged.
+
 ```json
 // ✅ Correct
 {
   "title": "Proyectos",
   "description": "Gestiona tus proyectos de Godot"
 }
+```
 
+Incorrect: the translated keys below would prevent the launcher from finding these strings.
+
+```json
 // ❌ Incorrect - keys must stay in English
 {
   "titulo": "Proyectos",
@@ -100,6 +107,16 @@ Keep the JSON keys as they are and translate the text on the right-hand side:
 ```
 
 Focus on the tone of the launcher: friendly, direct, and aligned with Godot terminology.
+
+### 4. Register a New Locale
+
+New locales require registration before they can be selected and tested:
+
+1. Add the locale code to `SUPPORTED_LOCALES` in `main/src/i18n/config.ts`.
+2. Add the locale code and its native language name to `LANGUAGE_OPTIONS` in `renderer/src/components/settings/language-select.component.tsx`.
+3. Add the matching `javascript-time-ago` locale import and a lowercase locale-code entry in `RELATIVE_TIME_LOCALES` in `renderer/src/i18n/relative-time.util.ts` so relative dates use the selected language.
+
+If you need help with registration, mention it in your pull request or issue. Registration must be completed before a new locale can be included in the launcher.
 
 ---
 
@@ -122,10 +139,6 @@ Once the files are translated, switch the launcher to your language and do a qui
 - Open the tray menu and system dialogs.
 - Step through the Welcome wizard if you touched those strings.
 
-:::tip
-Adding a new language also means registering it in `main/src/i18n/config.ts` and `renderer/src/components/settings/language-select.component.tsx`. Add its relative-time locale import and mapping in `renderer/src/i18n/relative-time.util.ts` so dates use the selected language too. If you are unsure how to do that, mention it in your pull request and a maintainer can assist.
-:::
-
 ---
 
 ## Submitting Your Contribution
@@ -138,7 +151,7 @@ Adding a new language also means registering it in `main/src/i18n/config.ts` and
   5. Open a PR describing what changed and how you verified it.
 
 - **Issue Attachment:**
-  - If you cannot run the project locally, open an issue titled "Translation: Language Name," attach the 10 JSON files, and share any testing notes. A maintainer will wire things up.
+  - If you cannot run the project locally, open an issue titled "Translation: Language Name," attach the translated JSON files matching every file in `locales/en/`, and share any testing notes. A maintainer can help complete registration.
 
 Where possible, keep one language per PR so reviewers can focus on the context.
 
@@ -148,11 +161,11 @@ Where possible, keep one language per PR so reviewers can focus on the context.
 
 Before you press "Create pull request," make sure:
 
-- [ ] All 10 JSON files for your locale exist and contain valid JSON.
+- [ ] Every JSON file in `locales/en/` has a matching file in your locale folder, and each contains valid JSON.
 - [ ] Keys remain in English and interpolation variables are untouched.
 - [ ] Terminology is consistent across the files.
 - [ ] You tested the main screens or noted anything you could not verify.
-- [ ] New languages are registered in the language selector (or you flagged it for review).
+- [ ] New locales are registered in the supported locale list, language selector, and relative-time mapping, or you have identified the remaining registration work for a maintainer.
 
 ---
 

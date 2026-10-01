@@ -28,8 +28,8 @@ Godot Launcher can check for new launcher releases in the background, but it doe
 ## Stable and prerelease channels
 
 - **Stable updates** are used by default.
-- **Prerelease updates** can be enabled in **Settings -> Updates**.
-- Switching prerelease updates off returns future checks to stable releases.
+- Enable **Receive beta updates** in **Settings > Updates** to include beta builds.
+- Switching **Receive beta updates** off returns future checks to stable releases.
 
 ## rpm-ostree systems
 

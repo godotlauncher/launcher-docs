@@ -19,7 +19,7 @@ import { WingetCommandList } from "@site/src/components/WingetCommandList";
 
 # Installing Godot Launcher with winget
 
-Godot Launcher publishes an official [winget](https://learn.microsoft.com/windows/package-manager/) manifest that tracks every Windows release. This gives you a trusted, script-friendly way to install and keep the launcher up to date without leaving the terminal.
+You can install, update, and remove Godot Launcher from PowerShell or Command Prompt with [winget](https://learn.microsoft.com/windows/package-manager/). The package ID is `GodotLauncher.Launcher`.
 
 ---
 
@@ -27,9 +27,8 @@ Godot Launcher publishes an official [winget](https://learn.microsoft.com/window
 
 - Windows 10 version 1809 (build 17763) or later, or Windows 11.  
 - The **App Installer** package from the Microsoft Store, which provides the `winget` client.  
-- Administrative rights the first time you install, so winget can unpack the signed installer.
 
-You can confirm that winget is available by running `winget --info`. If it is missing, open the [App Installer listing](https://www.microsoft.com/p/app-installer/9nblggh4nns1) in the Microsoft Store and click **Get**.
+Run `winget --info` to check whether winget is available. If it is missing, install or update [App Installer](https://apps.microsoft.com/detail/9nblggh4nns1) through the Microsoft Store. See Microsoft's [WinGet installation guidance](https://learn.microsoft.com/windows/package-manager/winget/#install-winget) if winget is still unavailable.
 
 ---
 
@@ -38,19 +37,14 @@ You can confirm that winget is available by running `winget --info`. If it is mi
 <WingetCommandList
   commands={[
     {
-      label: "Install (Recommended)",
-      command: 'winget install "Godot Launcher"',
-    },
-    {
-      label: "Install via Package ID",
-      command: "winget install GodotLauncher.Launcher",
+      label: "Install Godot Launcher",
+      command: "winget install --id GodotLauncher.Launcher --exact --source winget",
     },
   ]}
-  intro="Run one of these commands from PowerShell or Command Prompt to install the newest Godot Launcher build:"
-  hint="The manifest downloads the signed installer published on our GitHub releases and verifies its SHA-256 checksum before completing."
+  intro="Run this command to install the latest Godot Launcher version available from the winget source:"
 />
 
-During the first install you may be prompted to accept the installer or elevate privileges. After completion, Godot Launcher appears in your Start Menu just like the manual installer.
+Follow any agreement or administrator prompts. After installation, open **Godot Launcher** from the Windows Start menu.
 
 ---
 
@@ -59,47 +53,44 @@ During the first install you may be prompted to accept the installer or elevate 
 <WingetCommandList
   commands={[
     {
-      label: "Upgrade in place",
-      command: "winget upgrade GodotLauncher.Launcher",
+      label: "Check available updates without installing",
+      command: "winget upgrade",
     },
     {
-      label: "Upgrade all packages",
-      command: "winget upgrade --all --include-unknown",
+      label: "Install the Godot Launcher update",
+      command: "winget upgrade --id GodotLauncher.Launcher --exact --source winget",
     },
   ]}
-  intro="Winget can upgrade Godot Launcher when a new release lands:"
-  hint="Upgrades run the same signed installer with your existing settings preserved. `--include-unknown` ensures winget checks packages that do not expose version metadata."
+  intro="First list the available updates and look for GodotLauncher.Launcher. Run the second command when you want to install its update."
 />
 
-You can check whether an upgrade is available without running it by using `winget upgrade --name "Godot Launcher"`.
+The [upgrade command](https://learn.microsoft.com/windows/package-manager/winget/upgrade) without arguments lists available updates. Adding a package name or ID asks winget to install that package's update.
+
+**No applicable update found** means winget found no applicable update in the selected source. A newer release may be published on [GitHub](https://github.com/godotlauncher/launcher/releases) before it becomes available through winget.
 
 ---
 
 ## Discover other manifest details
 
-- `winget show GodotLauncher.Launcher` prints publisher metadata, installer URLs, and release notes.  
-- `winget search "godot launcher"` confirms you are selecting the official package before installing.  
-- `winget list Godot` reports whether the launcher is already installed.
-
-Manifests are kept in sync with every Windows release. If a command fails with **No applicable update found**, you are already on the latest version.
+- `winget show --id GodotLauncher.Launcher --exact --source winget` shows the available version and installer details.
+- `winget list --id GodotLauncher.Launcher --exact` shows the installed version recognised by winget.
 
 ---
 
 ## Uninstall or reinstall
 
-- `winget uninstall GodotLauncher.Launcher` removes the launcher. Your Godot projects remain intact.  
-- `winget install --id GodotLauncher.Launcher --source winget --silent` reinstalls without UI and is useful in CI scripts.  
-- Pair `winget uninstall` followed by a fresh `winget install` if you need to repair a corrupted installation.
+Run `winget uninstall --id GodotLauncher.Launcher --exact --source winget` to remove Godot Launcher.
+
+To reinstall, wait for the uninstall to finish, then run the [install command above](#install-the-latest-release). The `--silent` option only hides installer UI; it does not request a reinstall.
 
 ---
 
 ## Troubleshooting tips
 
-- Run `winget source update` if winget cannot find the package, especially after waking a machine from sleep.  
-- If the Microsoft Store is blocked, download the latest **App Installer** `.msixbundle` directly from the store page to enable winget.  
-- For enterprise environments, export the manifest with `winget export GodotLauncher.Launcher --output winget.json` and import it on managed devices.
+- If winget cannot find the package, run `winget source update --name winget`, then retry.
+- If the Microsoft Store or App Installer is restricted on a managed device, ask your administrator about installing winget, or use the [Windows installer](../getting-started/installation.mdx#windows).
 
-If you continue to run into issues, grab the log from `%LOCALAPPDATA%\Packages\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\LocalState\DiagOutputDir\` and share it when opening an issue so we can help.
+Run `winget --open-logs` to find diagnostic logs. Before sharing a log in an issue, remove personal paths, account names, and credentials. Include the command you ran and its error message.
 
 ---
 

@@ -1,8 +1,8 @@
 ---
 id: editor-installs-location
-title: Editor Install Location Settings
+title: Godot Editor Install Location
 slug: /settings/editor-installs-location
-description: "Configure where Godot Launcher stores downloaded Godot editor versions and refresh cached release metadata."
+description: "Change the editor install location in Godot Launcher for new downloads and refresh the Godot release list."
 tags:
   - launcher-settings
   - editor-installation
@@ -11,38 +11,35 @@ tags:
 
 import ThemedImage from '@theme/ThemedImage';
 
-# Editor Install Location Settings
+# Godot Editor Install Location {#editor-install-location-settings}
 
-The **Installs** tab in Settings controls where Godot Launcher stores downloaded Godot editor versions.
+The editor install location in Godot Launcher determines where new Godot editor downloads are stored. Change it in **Settings > Installs**. Existing installations stay in their current folders.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Settings - Installs Tab"
+  alt="Installs settings showing the editor install location and Refresh cache button"
   sources={{
     light: '/img/screenshots/screen_settings_installs_light.webp',
     dark: '/img/screenshots/screen_settings_installs_dark.webp',
   }}
 />
 
-## Editor Installs Location
+## Change the install folder {#editor-installs-location}
 
-**Editor Installs Location** sets the directory where downloaded editor versions are installed.
+1. Open **Settings > Installs**.
+2. Under **Editor Installs Location**, select **Browse**.
+3. Choose a folder in the system folder picker.
 
-To change this location, select **Browse** and choose a folder in the system
-folder picker. The path field is read-only.
+The selected folder appears in **Install Location** and is used for new editor installations. Use **Browse** to change it; the path field cannot be edited directly.
 
-- New official Godot editor installs use this path.
-- Existing editor installs are not moved when you change it.
-- A fast local drive is usually best if you work with multiple Godot versions.
+For the download steps, see [Installing Godot Editor](../editors/install-editor.mdx).
 
-For the editor installation workflow, see [Installing Godot Editor](../editors/install-editor.mdx).
+## Refresh the Godot release list {#refresh-release-cache}
 
-## Refresh Release Cache
+If a newly published Godot version is missing from the install list, open **Settings > Installs** and select **Refresh cache** under **Refresh Release Cache**. Godot Launcher replaces the cached release list with the latest information from GitHub.
 
-**Refresh Release Cache** deletes cached Godot release metadata and fetches the latest builds from GitHub again.
-
-Use this when the install list looks stale or a newly published Godot release does not appear yet.
-
-:::note
-The refresh action has a short cooldown to avoid hitting GitHub rate limits.
+:::note Refresh cooldown
+After a successful refresh, the button shows a 60-second countdown before you can refresh again. Wait for the countdown to finish if you need another refresh.
 :::
+
+If **Unable to Refresh Cache** appears, try again later.

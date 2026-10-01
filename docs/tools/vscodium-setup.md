@@ -16,7 +16,7 @@ import ThemedImage from '@theme/ThemedImage';
 
 # VSCodium Setup for Godot
 
-[VSCodium](https://vscodium.com/) is supported by Godot Launcher. Choose it for a project to open Godot scripts in VSCodium and keep the workspace setup up to date.
+[VSCodium](https://vscodium.com/) is supported by Godot Launcher. Select it for a project to open scripts in VSCodium when you launch Godot through Godot Launcher. The launcher also maintains the project's VSCodium workspace files.
 
 Godot Launcher does not install VSCodium or its extensions.
 
@@ -30,11 +30,11 @@ Then make it available in Godot Launcher:
 2. Find the **VSCodium** card and select **Rescan**.
 3. Keep the editor **Enabled** so you can choose it for projects.
 
-Select the star to make VSCodium the default for new projects. See [Code Editor Settings](../settings/code-editors.mdx) for custom paths and launch arguments.
+Select the star on its card to make VSCodium the default for new projects. See [Code Editor Settings](../settings/code-editors.mdx) for custom paths and launch arguments.
 
 ## Choose VSCodium for a project
 
-Choose VSCodium from **Code Editor** while creating a project.
+For a new project, select **VSCodium** from **Code Editor** in the **New Project** drawer.
 
 <ThemedImage
   className="docs-media-frame"
@@ -52,20 +52,22 @@ For an existing project:
 3. Choose **VSCodium**.
 4. Select **Update**.
 
-Godot will open project scripts in VSCodium. Choose **None** to stop using a code editor for the project. Existing `.vscode` files stay in place.
+The next time you launch Godot through Godot Launcher, opening a script uses VSCodium. The launcher creates or updates the `.vscode` files described below.
+
+To stop using an external code editor, select **None** in the same tab and select **Update**. Existing `.vscode` files stay in place.
 
 ## Workspace files and extension recommendations
 
-The VSCodium integration can create or merge files under `.vscode`:
+Godot Launcher maintains these files under `.vscode`:
 
 - `settings.json` records the matching Godot editor path and related workspace defaults.
-- `extensions.json` recommends **Godot Tools** for Godot development through Open VSX.
-- For a .NET project, `extensions.json` also recommends **DotRush** through Open VSX.
+- `extensions.json` recommends [Godot Tools](https://open-vsx.org/extension/geequlim/godot-tools) through Open VSX.
+- For a .NET project, `extensions.json` also recommends [DotRush](https://open-vsx.org/extension/nromanov/dotrush) for C# through Open VSX.
 - For a .NET project, `tasks.json` receives a VSCodium-specific build task and `launch.json` receives a VSCodium-specific attach configuration.
 
-The launcher only adds recommendation entries. It does not install Godot Tools or DotRush. Install the extensions you want from within VSCodium.
+Selecting VSCodium adds extension recommendations; it does not install the extensions. Open the project folder in VSCodium and install the extensions you need from Open VSX.
 
-When the launcher updates these files, it keeps other valid settings, recommendations, tasks, and launch configurations. When you switch from Visual Studio Code, it replaces only the entries that it manages for the previous editor.
+When updating workspace files, Godot Launcher keeps settings and entries outside those it manages. Switching from Visual Studio Code replaces the entries managed for that editor, while keeping other valid recommendations, tasks, and launch configurations.
 
 ## Imported projects
 

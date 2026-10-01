@@ -15,7 +15,7 @@ import ThemedImage from '@theme/ThemedImage';
 
 # Visual Studio Code Setup for Godot
 
-[Visual Studio Code](https://code.visualstudio.com/) is supported by Godot Launcher. Choose it for a project to open Godot scripts in VS Code and keep the workspace setup up to date.
+[Visual Studio Code](https://code.visualstudio.com/) is supported by Godot Launcher. Select it for a project to open scripts in VS Code when you launch Godot through Godot Launcher. The launcher also maintains the project's VS Code workspace files.
 
 Godot Launcher does not install VS Code or its extensions.
 
@@ -29,14 +29,18 @@ Then make it available in Godot Launcher:
 2. Find the **Visual Studio Code** card and select **Rescan**.
 3. Keep the editor **Enabled** so you can choose it for projects.
 
-Select the star to make VS Code the default for new projects. See [Code Editor Settings](../settings/code-editors.mdx) for custom paths and launch arguments.
+Select the star on its card to make VS Code the default for new projects. See [Code Editor Settings](../settings/code-editors.mdx) for custom paths and launch arguments.
 
 ## Choose VS Code for a project
 
-Choose VS Code in either workflow:
+For a new project, select **Visual Studio Code** from **Code Editor** in the **New Project** drawer.
 
-- In **New Project**, use the separate **Code Editor** selector before creating the project.
-- For an existing project, select the project card's **Project settings** action, open the **Code Editor** tab, choose **Visual Studio Code**, and select **Update**.
+For an existing project:
+
+1. Select **Project settings** on the project card.
+2. Open the **Code Editor** tab.
+3. Choose **Visual Studio Code**.
+4. Select **Update**.
 
 <ThemedImage
   className="docs-media-frame"
@@ -47,9 +51,9 @@ Choose VS Code in either workflow:
   }}
 />
 
-Godot will open project scripts in VS Code. The launcher also creates or updates the `.vscode` files used by the integration.
+The next time you launch Godot through Godot Launcher, opening a script uses VS Code. The launcher creates or updates the `.vscode` files described below.
 
-Choose **None** to stop using a code editor for the project. Existing `.vscode` files stay in place.
+To stop using an external code editor, select **None** in the same tab and select **Update**. Existing `.vscode` files stay in place.
 
 ## Workspace files and extension recommendations
 
@@ -58,13 +62,15 @@ For a standard Godot project, the launcher can maintain:
 - `.vscode/settings.json`, including the matching Godot editor path.
 - `.vscode/extensions.json`, with recommendations for Godot Tools and a Godot theme extension.
 
-For a .NET project, it can also add:
+For a Godot .NET project using C#, it can also add:
 
 - The Microsoft C# extension to the recommendations.
 - A `.vscode/tasks.json` build task.
 - A `.vscode/launch.json` configuration for running and debugging the project.
 
-Install any extension you want from within VS Code. When the launcher updates these files, it keeps other valid settings, recommendations, tasks, and launch configurations.
+Selecting VS Code adds extension recommendations; it does not install the extensions. Open the project folder in VS Code and install the extensions you need.
+
+When updating workspace files, Godot Launcher keeps settings and entries outside those it manages. Switching from VSCodium replaces the entries managed for that editor, while keeping other valid recommendations, tasks, and launch configurations.
 
 For manual Godot Tools configuration, see the [Godot Tools extension documentation](https://marketplace.visualstudio.com/items?itemName=geequlim.godot-tools#godot-tools).
 

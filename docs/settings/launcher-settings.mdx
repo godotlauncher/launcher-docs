@@ -2,7 +2,7 @@
 id: launcher-settings
 title: Godot Launcher Settings
 slug: /settings
-description: "Learn how to configure Godot Launcher using settings for project locations, editor installs, export templates, appearance, behaviour, code editors, Git, and updates."
+description: "Learn how to configure Godot Launcher using settings for project locations, editor installs, export templates, appearance, behaviour, code editors, GitHub connections, and updates."
 tags:
   - getting-started
   - launcher-settings
@@ -10,9 +10,7 @@ tags:
 
 # Godot Launcher Settings
 
-Use **Settings** in Godot Launcher to choose where projects, editors and export templates are stored, change the appearance and behaviour, set up development tools, and manage updates.
-
-This page is the settings overview. Each section links to a focused guide with the details for that settings area.
+Open **Settings** to configure Godot Launcher. Choose storage locations, change the appearance and behaviour, set up development tools and GitHub connections, or manage launcher updates.
 
 ## Set up projects {#projects-tab}
 
@@ -23,13 +21,11 @@ and [manage project tags](../projects/project-tags.mdx#manage-shared-tags).
 
 The **Installs** tab controls where downloaded Godot editors are stored and lets you refresh the release list.
 
-[Editor Install Location Settings](./editor-installs-location.mdx)
+[Godot Editor Install Location](./editor-installs-location.mdx)
 
 ## Choose where export templates are stored {#export-templates-tab}
 
-The **Export Templates** tab shows separate storage locations for Official and imported custom templates. Use **Move** to choose a destination and review the data size and available space. Close Godot editors and stop exports before moving templates.
-
-Moving Official storage keeps a connection at Godot's default template path. Changing the editor install location does not move these files.
+The **Export Templates** tab shows the storage locations for official and imported custom templates. Use it to move template storage and review the required disk space. These locations are separate from the editor install location.
 
 [Move template storage](../editors/export-templates.mdx#move-template-storage)
 
@@ -39,11 +35,11 @@ The **Appearance** tab controls the launcher theme and interface language. These
 
 [Appearance and Language Settings](./appearance-language.mdx)
 
-## Change launcher behavior {#behavior-tab}
+## Change launcher behaviour {#behavior-tab}
 
-The **Behavior** tab controls confirmation prompts, what happens after launching a project, startup behavior, and optional Windows editor symlink behavior.
+The **Behavior** tab controls confirmation prompts, what happens after launching a project, automatic startup, and optional editor symlinks on Windows.
 
-[Behavior Settings](./behavior.mdx)
+[Behaviour Settings](./behavior.mdx)
 
 ## Set up code editors {#code-editors-tab}
 
@@ -53,18 +49,18 @@ The **Code Editors** tab finds Visual Studio Code and VSCodium. Use it to choose
 
 ## Manage connections {#connections-tab}
 
-The **Connections** tab connects GitHub to Godot Launcher and manages the GitHub App installations available for repository import. Public Git repository imports do not require a connection.
+The **Connections** tab manages GitHub connections and repository access. Connect an account to import accessible repositories, including private ones, or publish a new project to GitHub. Public Git repository imports do not require a connection.
 
 [Connections](./connections.mdx)
 
-## Check Git {#tools-tab}
+## Set up development tools {#tools-tab}
 
-The **Tools** tab shows whether Git is available. Godot Launcher uses this check to enable Git initialization in Create Project and Project Settings.
+The **Tools** tab manages Git, Git LFS, and terminal detection. Use it to rescan installed tools, configure a terminal, and manage your Git identity or a preset for new repositories.
 
-[Git Tool Detection](./tools.mdx)
+[Development Tools](./tools.mdx)
 
 ## Manage launcher updates {#updates-tab}
 
-The **Updates** tab controls background update checks, prerelease updates, manual checks, skipped versions, and update installation prompts.
+The **Updates** tab controls background update checks, beta updates, manual checks, skipped versions, and update installation prompts.
 
 [Manage Godot Launcher Updates](../updates/manage-launcher-updates.mdx)

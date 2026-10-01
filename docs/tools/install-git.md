@@ -1,6 +1,6 @@
 ---
 id: install-git
-title: "Installing Git"
+title: "Install Git for Godot Launcher"
 description: "Install Git and make it available for new and existing Godot Launcher projects."
 slug: "/integrations/install-git"
 tags:
@@ -9,9 +9,9 @@ tags:
   - setup-guide
 ---
 
-# Installing Git
+# Install Git for Godot Launcher {#installing-git}
 
-Install Git before asking Godot Launcher to create a repository for a project.
+Godot Launcher uses your Git installation to create and import repositories and show project Git status. Install Git separately, then rescan it in the launcher.
 
 ## Check whether Git is installed
 
@@ -28,15 +28,12 @@ If the command is not found, install Git from the [official Git downloads page](
 After installation:
 
 1. Open **Settings > Tools**.
-2. Click **Rescan tools**.
+2. Select **Rescan Git** beside Git.
 3. Confirm that Git is marked **Available**.
 
-## Initialize a repository
+## Set up a project repository {#initialize-a-repository}
 
-- For a new project, open **Projects > New Project** and enable **Initialize Git Repository**.
-- For an existing project, open its settings and choose **Source Control > Initialize Git**. This creates the repository without changing or committing project files.
-
-See [Using Git With Godot Launcher](./using-git-with-godot-launcher.mdx) for the different setup results and generated files.
+Once Git is **Available**, follow [Git setup for Godot projects](./using-git-with-godot-launcher.mdx). That guide explains how to create a repository for a new or existing project, choose a commit identity, and use Git LFS.
 
 If Git remains unavailable after a rescan, see [Troubleshooting](../troubleshooting.md#git).
 

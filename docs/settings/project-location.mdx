@@ -1,8 +1,8 @@
 ---
 id: project-location
-title: Project Location Settings
+title: Change the Default Project Folder
 slug: /settings/project-location
-description: "Configure the default folder Godot Launcher uses when creating new Godot projects."
+description: "Change the default project folder in Godot Launcher or choose a different location for one new Godot project."
 tags:
   - launcher-settings
   - godot-project-setup
@@ -11,10 +11,9 @@ tags:
 
 import ThemedImage from '@theme/ThemedImage';
 
-# Project Location Settings
+# Change the Default Project Folder {#project-location-settings}
 
-The **Projects** tab in Godot Launcher Settings controls the default folder
-for new projects.
+The default project folder in Godot Launcher is the base location for new projects. Change it in **Settings > Projects**. Existing projects stay in their current folders, including projects you add to the launcher.
 
 <ThemedImage
   className="docs-media-frame"
@@ -25,28 +24,19 @@ for new projects.
   }}
 />
 
-## Project Location
+## Change the default folder {#project-location}
 
-**Project Location** sets the base directory for newly created projects.
+1. Open **Settings > Projects**.
+2. Under **Project Location**, select **Browse**.
+3. Choose a folder in the system folder picker.
 
-To change this location, select **Browse** and choose a folder in the system
-folder picker. The path field is read-only.
-
-- Existing projects already added to the launcher are not moved.
-- You can change this path at any time without changing existing project data.
-- When creating a project, you can set a different **Project location** for that project only.
-
-:::info
-Changing the default project location affects only new projects created through Godot Launcher.
-
-Adding existing projects will not move them into this folder.
-:::
+The selected folder appears in **Default Location** and is used for new projects. Use **Browse** to change it; the path field cannot be edited directly.
 
 ## Create one project somewhere else
 
-In the **New Project** dialog, edit **Project location** or use its folder button to choose a different base folder for that project. The project name is added to the path automatically.
+In **New Project**, edit **Project location** or use its folder button to choose another base folder. Godot Launcher appends the project's folder name to this path. The default location in Settings stays unchanged.
 
-After changing or clearing the path, select **Use default location** to restore the default project folder. This choice affects only the project you are creating.
+To return to the default folder, select **Use default location**. This option appears after you change or clear the path.
 
 See [Creating a Project](../projects/create-project.mdx) for the full project creation flow.
 

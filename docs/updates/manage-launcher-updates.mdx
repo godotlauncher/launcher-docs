@@ -1,8 +1,8 @@
 ---
 id: manage-launcher-updates
-title: Manage Godot Launcher Updates
+title: Update Godot Launcher
 slug: /settings/updates
-description: "Learn how Godot Launcher checks for updates, lets you download them manually, handles immutable Linux systems, and installs updates when ready."
+description: "Update Godot Launcher, skip a release, receive beta updates, or install an update manually on rpm-ostree Linux systems."
 tags:
   - guides
   - launcher-updates
@@ -13,210 +13,79 @@ tags:
 
 import ThemedImage from '@theme/ThemedImage';
 
-# Manage Godot Launcher Updates
+# Update Godot Launcher {#manage-godot-launcher-updates}
 
-Godot Launcher uses a clear update flow. The launcher can check for updates automatically in the background, but you decide when to download an update and when to restart to install it.
+Godot Launcher checks for updates automatically by default. You choose when to download an update and restart to install it.
 
-## Where to manage updates
+<a id="where-to-manage-updates"></a>
+<a id="automatic-checks-vs-manual-updates"></a>
 
-Open **Settings -> Updates** to control how the launcher checks for new versions.
+## Check for an update {#checking-for-updates}
 
-<ThemedImage
-  className="docs-media-frame"
-  alt="Settings - Updates Tab"
-  sources={{
-    light: '/img/screenshots/screen_settings_updates_light.webp',
-    dark: '/img/screenshots/screen_settings_updates_dark.webp',
-  }}
-/>
+1. Open **Settings > Updates**.
+2. Select **Check for updates**.
+3. Wait for the result. If a newer version is available, select **Download update** to download it or **Skip this version** to dismiss it.
 
-In this tab you can:
+To check only when you choose, turn off **Automatically check for updates**. Automatic checks do not download or install updates.
 
-- Turn **Automatically check for updates** on or off.
-- Enable **Receive beta updates** if you want beta builds.
-- Run **Check for updates** manually.
-- Download, skip, or install an update depending on the current state.
-
-## Automatic checks vs manual updates
-
-Automatic checks are enabled by default. This helps the launcher notice new versions in the background, but it does not download the update for you.
-
-When an update is found, the launcher moves to an **available** state. From there, you choose whether to download it now or skip that version.
-
-If you want to check on demand, use **Check for updates** in **Settings -> Updates**. A manual check can also show a version you previously skipped, so you can still install it later without waiting for a newer release.
-
-## Checking for updates
-
-After you start a manual check, the Updates tab shows that the launcher is checking for a newer version.
+<a id="update-available"></a>
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Settings - Updates Tab while checking"
-  sources={{
-    light: '/img/screenshots/screen_settings_updates_checking_light.webp',
-    dark: '/img/screenshots/screen_settings_updates_checking_dark.webp',
-  }}
-/>
-
-## Update available
-
-When a new version is available, the launcher gives you two choices:
-
-- **Download update** to start the update process.
-- **Skip this version** if you do not want reminders for that exact version during regular checks.
-
-The same status also appears in the main app banner so you can act from the project view without opening Settings.
-
-<ThemedImage
-  className="docs-media-frame"
-  alt="Projects view with update available banner"
-  sources={{
-    light: '/img/screenshots/screen_projects_update_available_light.webp',
-    dark: '/img/screenshots/screen_projects_update_available_dark.webp',
-  }}
-/>
-
-<ThemedImage
-  className="docs-media-frame"
-  alt="Settings - Updates Tab with update available"
+  alt="Updates settings with Download update and Skip this version controls, also shown in the sidebar banner"
   sources={{
     light: '/img/screenshots/screen_settings_updates_available_light.webp',
     dark: '/img/screenshots/screen_settings_updates_available_dark.webp',
   }}
 />
 
-## Downloading the update
+<a id="downloading-the-update"></a>
 
-Once you start the download, the launcher shows progress in both the Updates tab and the main app banner.
+## Download and install {#update-ready-to-install}
 
-<ThemedImage
-  className="docs-media-frame"
-  alt="Projects view with update downloading banner"
-  sources={{
-    light: '/img/screenshots/screen_projects_update_downloading_light.webp',
-    dark: '/img/screenshots/screen_projects_update_downloading_dark.webp',
-  }}
-/>
+After you select **Download update**, progress appears in **Settings > Updates** and in the sidebar banner. When the download finishes, select **Restart now** in either location to restart Godot Launcher and install the update.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Settings - Updates Tab while downloading"
-  sources={{
-    light: '/img/screenshots/screen_settings_updates_downloading_light.webp',
-    dark: '/img/screenshots/screen_settings_updates_downloading_dark.webp',
-  }}
-/>
-
-## Update ready to install
-
-After the download completes, the launcher switches to a ready state. At this point the update is prepared locally, and you can restart the launcher when you are ready to install it.
-
-- In **Settings -> Updates**, use **Restart now**.
-- In the main app banner, use the inline **Restart now** action.
-
-<ThemedImage
-  className="docs-media-frame"
-  alt="Projects view with update ready banner"
-  sources={{
-    light: '/img/screenshots/screen_projects_update_ready_light.webp',
-    dark: '/img/screenshots/screen_projects_update_ready_dark.webp',
-  }}
-/>
-
-<ThemedImage
-  className="docs-media-frame"
-  alt="Settings - Updates Tab with update ready"
+  alt="Downloaded update with Restart now actions in Updates settings and the sidebar banner"
   sources={{
     light: '/img/screenshots/screen_settings_updates_ready_light.webp',
     dark: '/img/screenshots/screen_settings_updates_ready_dark.webp',
   }}
 />
 
-## Manual update required on rpm-ostree
-:::info
-Immutable operating systems may require manual downloads instead of in-app update installation.
-:::
+## Skip a version
 
+Select **Skip this version** to stop background checks from prompting you about that release. Newer versions can still be offered.
 
+<a id="manual-override-after-skipping"></a>
 
-On rpm-ostree systems, automatic installation is not supported. Godot Launcher explains that the update must be downloaded manually and shows an **Open download page** action instead of starting the in-app installer.
+To install a skipped version, select **Check for updates** in **Settings > Updates**. A manual check can offer the skipped release again. To remove the saved skip choice and allow background reminders for it, select **Unskip skipped update**.
 
-<ThemedImage
-  className="docs-media-frame"
-  alt="Projects view with manual update required banner"
-  sources={{
-    light: '/img/screenshots/screen_projects_update_manual_light.webp',
-    dark: '/img/screenshots/screen_projects_update_manual_dark.webp',
-  }}
-/>
+## Beta updates {#prerelease-updates}
+
+Stable releases are offered by default. Enable **Receive beta updates** in **Settings > Updates** to include beta builds, which may be less stable. Turn it off to return future checks to stable releases; this does not downgrade the version already installed.
+
+## Manual updates on rpm-ostree {#manual-update-required-on-rpm-ostree}
+
+On rpm-ostree Linux systems, Godot Launcher can check for updates but cannot install them through the app. Select **Open download page**, then download and install the appropriate package manually. You can still use **Skip this version** when the update's version is shown.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Settings - Updates Tab with manual update required"
+  alt="Updates settings on rpm-ostree with an Open download page action for manual installation"
   sources={{
     light: '/img/screenshots/screen_settings_updates_manual_light.webp',
     dark: '/img/screenshots/screen_settings_updates_manual_dark.webp',
   }}
 />
 
-If the update version is available, you can still skip that version. This manual path is specific to systems where automatic installation is not supported; other supported updater paths still use the normal download and restart flow.
-
-## Skip a version
-
-Skipping is version-specific. If you skip one release, the launcher keeps normal background checks quiet for that version only.
-
-<ThemedImage
-  className="docs-media-frame"
-  alt="Settings - Updates Tab with skipped version"
-  sources={{
-    light: '/img/screenshots/screen_settings_updates_skipped_light.webp',
-    dark: '/img/screenshots/screen_settings_updates_skipped_dark.webp',
-  }}
-/>
-
-This is useful if you want to stay on your current build for a while without repeated prompts.
-
-## Manual override after skipping
-
-A skipped version is not permanent. Go to **Settings -> Updates** and run **Check for updates** manually to surface that version again. You can then download it normally, or clear the skip state and come back later.
-
-<ThemedImage
-  className="docs-media-frame"
-  alt="Settings - Updates Tab with manual override for skipped version"
-  sources={{
-    light: '/img/screenshots/screen_settings_updates_manual_override_light.webp',
-    dark: '/img/screenshots/screen_settings_updates_manual_override_dark.webp',
-  }}
-/>
-
 ## Errors and retry
 
-If the launcher cannot download or prepare the update, it shows an error state instead of leaving you without feedback. Use the retry action to try again.
+If a download or installation error appears, select **Retry** in the sidebar banner to try downloading again. To check for an update again, use **Check for updates** in **Settings > Updates**.
 
-<ThemedImage
-  className="docs-media-frame"
-  alt="Projects view with update error banner"
-  sources={{
-    light: '/img/screenshots/screen_projects_update_error_light.webp',
-    dark: '/img/screenshots/screen_projects_update_error_dark.webp',
-  }}
-/>
-
-<ThemedImage
-  className="docs-media-frame"
-  alt="Settings - Updates Tab with update error"
-  sources={{
-    light: '/img/screenshots/screen_settings_updates_error_light.webp',
-    dark: '/img/screenshots/screen_settings_updates_error_dark.webp',
-  }}
-/>
-
-## Prerelease updates
-
-If you enable **Receive beta updates**, the launcher can offer beta builds as well as stable releases. This is useful when you want early access to changes, but prerelease versions may change more often and may be less stable.
+If updating through the app continues to fail, download and install the appropriate package from the [Godot Launcher download page](https://godotlauncher.org/download/).
 
 ## Related
 
-- [Godot Launcher Settings](../settings/launcher-settings.mdx)
-- [System Tray](../settings/system-tray.mdx)
-- [Download Godot Launcher](https://godotlauncher.org/download/)
+- [Godot Launcher Update States](../reference/update-states.md) explains each update message.
+- [Godot Launcher Settings](../settings/launcher-settings.mdx) covers other launcher preferences.

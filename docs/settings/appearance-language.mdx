@@ -2,7 +2,7 @@
 id: appearance-language
 title: Appearance and Language Settings
 slug: /settings/appearance-language
-description: "Configure the Godot Launcher theme and interface language."
+description: "Change Godot Launcher's interface language, choose light or dark mode, or follow your system theme."
 tags:
   - launcher-settings
   - localisation
@@ -13,11 +13,11 @@ import ThemedImage from '@theme/ThemedImage';
 
 # Appearance and Language Settings
 
-The **Appearance** tab controls the visual theme and interface language for Godot Launcher.
+Open **Settings > Appearance** to change Godot Launcher's interface language or choose a light or dark theme. These choices affect Godot Launcher; they do not change the Godot editor.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Settings - Appearance Tab Showing the Language Picker"
+  alt="Appearance settings showing the theme options and language selector"
   sources={{
     light: '/img/screenshots/screen_settings_appearance_light.webp',
     dark: '/img/screenshots/screen_settings_appearance_dark.webp',
@@ -26,24 +26,16 @@ The **Appearance** tab controls the visual theme and interface language for Godo
 
 ## Theme
 
-Choose how Godot Launcher should look:
+Under **Theme**, select one of these options:
 
-- **Light**
-- **Dark**
-- **System**: follows your operating system setting.
+- **Light**: use a light background.
+- **Dark**: use a dark background.
+- **System (automatic)**: follow your operating system's light or dark appearance.
 
 ## Language
 
-The language setting controls the Godot Launcher interface, native menus, and tray entries.
+Select a language from the **Language** list. The change applies to the launcher interface, native menus, and tray menu.
 
-- **System** auto-detects your operating system language.
-- You can switch to a supported language manually.
-- Language changes apply to Godot Launcher, not to the Godot editor.
+Choose **System (Auto-detect)** to use your operating system's language when it is supported. Only languages listed in the selector are available.
 
-:::note
-Right-to-left languages are not available yet, but the localisation system is prepared for future language additions.
-:::
-
-:::tip
-Found a string that needs polish or want to help add a new locale? See the [translation contribution guide](../contributing/translations.md).
-:::
+To report a translation problem or help add a language, see the [translation contribution guide](../contributing/translations.md).

@@ -17,6 +17,19 @@ import ThemedImage from '@theme/ThemedImage';
 
 Godot Launcher checks for updates automatically by default. You choose when to download an update and restart to install it.
 
+When an update is available, select **Update** in the sidebar to open the update panel. The panel shows the update status and available actions. Select **Read release notes** to open the notes for that exact version on the Godot Launcher documentation site in your browser. This link appears when the update includes an exact release version.
+
+Close the panel with its close button, press **Esc**, or click outside it. Closing the panel does not skip the update or cancel a download.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Projects page with the sidebar Update control and an open panel showing Download update, Skip this version, and Read release notes"
+  sources={{
+    light: '/img/screenshots/screen_projects_update_available_light.webp',
+    dark: '/img/screenshots/screen_projects_update_available_dark.webp',
+  }}
+/>
+
 <a id="where-to-manage-updates"></a>
 <a id="automatic-checks-vs-manual-updates"></a>
 
@@ -30,27 +43,22 @@ To check only when you choose, turn off **Automatically check for updates**. Aut
 
 <a id="update-available"></a>
 
-<ThemedImage
-  className="docs-media-frame"
-  alt="Updates settings with Download update and Skip this version controls, also shown in the sidebar banner"
-  sources={{
-    light: '/img/screenshots/screen_settings_updates_available_light.webp',
-    dark: '/img/screenshots/screen_settings_updates_available_dark.webp',
-  }}
-/>
-
 <a id="downloading-the-update"></a>
 
 ## Download and install {#update-ready-to-install}
 
-After you select **Download update**, progress appears in **Settings > Updates** and in the sidebar banner. When the download finishes, select **Restart now** in either location to restart Godot Launcher and install the update.
+Select **Download update** in the update panel or **Settings > Updates**. During the download, the sidebar shows **Downloading** and a percentage when progress is known. Open the panel to see the download progress.
+
+When the download finishes, open **Update** and select **Restart and install**. You can also select **Restart now** in **Settings > Updates**. Both actions restart Godot Launcher and install the downloaded update.
+
+Select **Later** in the panel to close it and continue using Godot Launcher. This does not cancel or remove the downloaded update. Open **Update** again when you are ready to restart.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Downloaded update with Restart now actions in Updates settings and the sidebar banner"
+  alt="Projects page with the update panel showing a downloaded update, Read release notes, Restart and install, and Later"
   sources={{
-    light: '/img/screenshots/screen_settings_updates_ready_light.webp',
-    dark: '/img/screenshots/screen_settings_updates_ready_dark.webp',
+    light: '/img/screenshots/screen_projects_update_ready_light.webp',
+    dark: '/img/screenshots/screen_projects_update_ready_dark.webp',
   }}
 />
 
@@ -68,7 +76,7 @@ Stable releases are offered by default. Enable **Receive beta updates** in **Set
 
 ## Manual updates on rpm-ostree {#manual-update-required-on-rpm-ostree}
 
-On rpm-ostree Linux systems, Godot Launcher can check for updates but cannot install them through the app. Select **Open download page**, then download and install the appropriate package manually. You can still use **Skip this version** when the update's version is shown.
+On rpm-ostree Linux systems, Godot Launcher can check for updates but cannot install them through the app. Select **Download manually** in the update panel or **Open download page** in **Settings > Updates**, then download and install the appropriate package manually. You can still use **Skip this version** when the update's version is shown.
 
 <ThemedImage
   className="docs-media-frame"
@@ -81,7 +89,9 @@ On rpm-ostree Linux systems, Godot Launcher can check for updates but cannot ins
 
 ## Errors and retry
 
-If a download or installation error appears, select **Retry** in the sidebar banner to try downloading again. To check for an update again, use **Check for updates** in **Settings > Updates**.
+If an update error appears, open **Update** in the sidebar to read it. When **Retry** is available, it repeats the failed operation: checking for updates, downloading the update, or installing the downloaded update. Retrying installation restarts Godot Launcher to install the update.
+
+If the failed operation is unknown, the panel does not show **Retry**. Use **Check for updates** in **Settings > Updates** to start a new check.
 
 If updating through the app continues to fail, download and install the appropriate package from the [Godot Launcher download page](https://godotlauncher.org/download/).
 

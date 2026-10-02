@@ -160,7 +160,10 @@ const config: Config = {
           },
         },
         blog: false,
-        pages: false,
+        pages: {
+          path: "src/pages/release-notes",
+          routeBasePath: "release-notes",
+        },
         theme: {
           customCss: "./src/css/custom.css",
         },

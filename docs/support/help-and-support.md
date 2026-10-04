@@ -21,7 +21,7 @@ Start with the [troubleshooting guide](../troubleshooting.md) for common install
 
 ## Report a Bug
 
-[Report a Godot Launcher bug on GitHub](https://github.com/godotlauncher/launcher/issues/new?template=bug_report.yaml). Include your operating system, launcher version, what you expected to happen, and the steps that reproduce the problem. See the [troubleshooting guide](../troubleshooting.md) for help finding and checking logs before sharing them.
+[Report a Godot Launcher bug on GitHub](https://github.com/godotlauncher/launcher/issues/new?template=bug_report.yaml). Include your operating system, launcher version, what you expected to happen, and the steps that reproduce the problem. See the [troubleshooting guide](../troubleshooting.md) for advice on removing personal information from logs before sharing them.
 
 ## Ask the Community {#community-and-support}
 

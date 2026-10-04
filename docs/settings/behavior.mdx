@@ -2,7 +2,7 @@
 id: behavior
 title: Behaviour Settings
 slug: /settings/behavior
-description: "Choose what Godot Launcher does after opening a project, at startup, and when removing projects."
+description: "Choose what Godot Launcher does when closing its window, after opening a project, at startup, and when removing projects."
 tags:
   - launcher-settings
   - system-tray
@@ -13,11 +13,11 @@ import ThemedImage from '@theme/ThemedImage';
 
 # Behaviour Settings {#behavior-settings}
 
-Open **Settings > Behavior** to choose what happens after a project opens, change Godot Launcher startup settings, or control project removal confirmation. On Windows, this tab also provides optional editor symlinks.
+Open **Settings > Behavior** to choose what happens when you close the Godot Launcher window or open a project, change startup settings, or control project removal confirmation. On Windows, this tab also provides optional editor symlinks.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Behavior settings showing project removal confirmation, launch actions, and startup preferences"
+  alt="Behavior settings showing project removal confirmation, window closing options, launch actions, and startup preferences"
   sources={{
     light: '/img/screenshots/screen_settings_behavior_light.webp',
     dark: '/img/screenshots/screen_settings_behavior_dark.webp',
@@ -29,6 +29,17 @@ Open **Settings > Behavior** to choose what happens after a project opens, chang
 Enable **Ask for confirmation when removing projects.** to show a confirmation before a project is removed from the list. This option is enabled by default.
 
 Removing a project leaves its project folder on disk. Godot Launcher removes the project entry and its prepared editor files or links.
+
+## Choose what happens when closing the window
+
+Under **Window Close**, choose what happens when you close the launcher window:
+
+- **Close to system tray**: hide the window and keep Godot Launcher running in the tray. This is the default.
+- **Quit Godot Launcher**: stop the application completely.
+
+Your choice is saved automatically. This setting is separate from **Project Launch Action** below.
+
+If no usable tray is available, closing the window quits Godot Launcher even when **Close to system tray** is selected. During initial setup, closing the window also quits the application.
 
 ## Choose what happens after opening a project
 

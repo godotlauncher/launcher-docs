@@ -1,8 +1,9 @@
 ---
 id: translations
-title: Translation Contribution Guide
+sidebar_label: Translations
+title: Translate Godot Launcher
 slug: /contributing/translations
-description: "Help review and expand the Godot Launcher translations, including how to report fixes, submit pull requests, and request new locales."
+description: "Review Godot Launcher translations, report wording problems, or add a language with the required files and locale registration."
 tags:
   - contributing
   - localisation
@@ -10,17 +11,15 @@ tags:
   - translations
 ---
 
-# Translation Contribution Guide
+# Translate Godot Launcher {#translation-contribution-guide}
 
-Godot Launcher supports automatic language detection, a manual language picker, and a growing set of bundled locales. Every locale benefits from human review, and future language additions rely on contributors like you. Use this page when you want to polish an existing language, submit a new one, or report an issue.
-
----
+Translate Godot Launcher by editing the JSON files in the [launcher repository](https://github.com/godotlauncher/launcher). You can also report wording problems without editing files.
 
 ## Supported Languages Today
 
-The launcher currently offers:
+Choose a language in **Settings > Appearance > Language**. The available options are:
 
-- System (auto-detect)
+- System (Auto-detect)
 - English (`en`)
 - Italiano (`it`)
 - Português (`pt`)
@@ -36,25 +35,15 @@ The launcher currently offers:
 - Türkçe (`tr`)
 - Malti (`mt`)
 
----
+## Report a Translation Problem {#quick-feedback-no-files-needed}
 
-## Quick Feedback (No Files Needed)
+Open a [GitHub localisation issue](https://github.com/godotlauncher/launcher/issues/new/choose) or share feedback in the [community Discord](../support/community.md). Include the language, the screen or control, the current wording, and your suggested correction. A screenshot can help locate the text.
 
-If you spot a typo or phrasing that feels off:
-
-1. Grab a screenshot or copy the wording and note the language.
-2. Share it in the [community Discord](../support/community.md) localisation channel **or** open a [GitHub localisation issue](https://github.com/godotlauncher/launcher/issues/new/choose).
-3. Add the screen where it appears (for example, "Settings > Updates") and a suggested correction if you have one.
-
-Community members can often patch small copy fixes quickly when they have that context.
-
----
-
-## Quick Start for New or Updated Translations
+## Add or Update a Translation {#quick-start-for-new-or-updated-translations}
 
 ### 1. Create the Locale Folder
 
-Inside the launcher repository (`godotlauncher/launcher`), create a folder under `locales/` that matches your language code. Use [ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) and agree regional variants with the maintainers when adding a new locale (for example `pt-BR`, `zh-CN`, `zh-TW`).
+For an existing language, edit its folder under `locales/`. For a new language, create a folder matching its [ISO 639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes). Agree regional variants with the maintainers, such as `pt-BR`, `zh-CN`, or `zh-TW`.
 
 ```bash
 locales/es/       # Spanish
@@ -68,13 +57,14 @@ locales/zh-TW/    # Traditional Chinese
 
 ### 2. Copy the English Templates
 
-Duplicate every JSON file from `locales/en/` into your new folder. There are 10 namespaces to translate:
+For a new language, copy every JSON file from `locales/en/` into the locale folder. For an existing language, check for missing files and keys against the English files. All 11 namespace files are required:
 
 - `dialogs.json`
 - `menus.json`
 - `common.json`
 - `projects.json`
 - `installs.json`
+- `exportTemplates.json`
 - `settings.json`
 - `help.json`
 - `createProject.json`
@@ -85,79 +75,65 @@ Duplicate every JSON file from `locales/en/` into your new folder. There are 10 
 
 Keep the JSON keys as they are and translate the text on the right-hand side:
 
+Correct: the keys stay unchanged.
+
 ```json
-// ✅ Correct
 {
   "title": "Proyectos",
   "description": "Gestiona tus proyectos de Godot"
 }
+```
 
-// ❌ Incorrect - keys must stay in English
+Incorrect: the translated keys below would prevent the launcher from finding these strings.
+
+```json
 {
   "titulo": "Proyectos",
   "descripcion": "Gestiona tus proyectos de Godot"
 }
 ```
 
-Focus on the tone of the launcher: friendly, direct, and aligned with Godot terminology.
+Use direct wording and consistent Godot terminology.
 
----
+### 4. Register a New Locale
 
-## Helpful Translation Tips
+New locales require registration before they can be selected and tested:
 
-- **Variables**: Leave items like `{{version}}` or `{projectName}` exactly as-is.
+1. Add the locale code to `SUPPORTED_LOCALES` in `main/src/i18n/config.ts`.
+2. Add the locale code and its native language name to `LANGUAGE_OPTIONS` in `renderer/src/components/settings/language-select.component.tsx`.
+3. Add the matching `javascript-time-ago` locale import and a lowercase locale-code entry in `RELATIVE_TIME_LOCALES` in `renderer/src/i18n/relative-time.util.ts` so relative dates use the selected language.
+
+Registration is required before a new locale can be included in the launcher. If you cannot complete it, identify the remaining work in your pull request or issue.
+
+## Preserve Variables and Formatting {#helpful-translation-tips}
+
+- **Variables**: Leave items like `{{version}}` or `{{projectName}}` unchanged.
 - **Formatting**: Preserve new lines, Markdown, and HTML tags.
-- **Buttons & Menus**: Keep labels short so they fit in the UI.
-- **Consistency**: Re-use the same wording for recurring terms (Project, Install, Release, etc.).
-- **Special Characters**: Confirm accented characters render correctly in your language.
-
----
+- **Buttons and menus**: Keep labels short so they fit in the UI.
+- **Consistency**: Use the same wording for recurring terms (Project, Install, Release, etc.).
+- **Special characters**: Confirm accented characters render correctly in your language.
 
 ## Testing Your Work
 
-Once the files are translated, switch the launcher to your language and do a quick tour:
+Follow the [app development setup](https://github.com/godotlauncher/launcher/blob/main/CONTRIBUTING.md), then run `npm run dev` and select your language in **Settings > Appearance > Language**.
 
-- Check the loading screen, navigation, Projects, Installs, Settings, and Help.
-- Review the Create Project and Install Editor modals.
-- Open the tray menu and system dialogs.
-- Step through the Welcome wizard if you touched those strings.
+Check the areas affected by your translation:
 
-:::tip
-Adding a new language also means registering it in `main/src/i18n/config.ts` and `renderer/src/components/settings/language-select.component.tsx`. Add its relative-time locale import and mapping in `renderer/src/i18n/relative-time.util.ts` so dates use the selected language too. If you are unsure how to do that, mention it in your pull request and a maintainer can assist.
-:::
+- The loading screen, navigation, **Projects**, **Installs**, **Settings**, and **Help**.
+- Project creation, editor installation, and export template controls.
+- Application, context, and tray menus, plus system dialogs.
+- The welcome wizard, if you changed its strings.
 
----
+Look for untranslated keys, clipped labels, incorrect variables, and characters that do not display correctly.
+
+<span id="ready-to-submit-checklist"></span>
 
 ## Submitting Your Contribution
 
-- **Pull Request (recommended):**
-  1. Fork the repository and create a branch (for example `add-spanish-translation`).
-  2. Add or update the JSON files and language registration.
-  3. Test in development (`npm run dev`) and switch to your locale.
-  4. Commit with a meaningful message like `feat(i18n): add Spanish translation`.
-  5. Open a PR describing what changed and how you verified it.
+Keep one language per pull request where possible. Check that every file contains valid JSON, keys and variables are unchanged, and terminology is consistent. Describe the changes and any areas you could not test. New locales must include all 11 files and the registration changes above.
 
-- **Issue Attachment:**
-  - If you cannot run the project locally, open an issue titled "Translation: Language Name," attach the 10 JSON files, and share any testing notes. A maintainer will wire things up.
-
-Where possible, keep one language per PR so reviewers can focus on the context.
-
----
-
-## Ready-to-Submit Checklist
-
-Before you press "Create pull request," make sure:
-
-- [ ] All 10 JSON files for your locale exist and contain valid JSON.
-- [ ] Keys remain in English and interpolation variables are untouched.
-- [ ] Terminology is consistent across the files.
-- [ ] You tested the main screens or noted anything you could not verify.
-- [ ] New languages are registered in the language selector (or you flagged it for review).
-
----
+If you cannot run the project locally, open a [GitHub issue](https://github.com/godotlauncher/launcher/issues/new/choose) titled "Translation: Language Name". Attach the translated JSON files and note any missing registration or testing so a maintainer can complete it.
 
 ## Need Help?
 
-- Visit the localisation thread in the [community Discord](../support/community.md) to coordinate with other translators.
-- Review the high-level workflow in the [main contributing guide](../contributing.md).
-- Ask maintainers in your PR or issue if you are unsure where a string lives or how to run a specific check.
+Ask in your issue or pull request if you cannot find a string or need help testing. See the [contribution guide](../contributing.md) for the project guidelines.

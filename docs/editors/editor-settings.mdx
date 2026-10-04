@@ -1,6 +1,7 @@
 ---
 id: editor-settings
-title: Editor Settings Per Project
+title: Godot Editor Settings per Project
+sidebar_label: Editor settings per project
 slug: /editors/editor-settings
 description: "Keep separate Godot editor settings for each project, import or export them, and restore code editor setup."
 tags:
@@ -14,33 +15,13 @@ tags:
 
 import ThemedImage from '@theme/ThemedImage';
 
-# Editor Settings Per Project
+# Godot Editor Settings per Project {#editor-settings-per-project}
 
 Godot Launcher keeps separate Godot editor settings for each project. Changes made for one project do not affect another.
 
-## Where editor settings are stored
-
-The settings are stored under the configured Godot editor install location:
-
-```text
-<editor-install-location>/.editor_config/<project-editor-folder>/editor_data/
-```
-
-The default location is `~/Godot/Editors`. On Windows, it is normally `C:\Users\<user>\Godot\Editors`.
-
-Godot names the settings file by major and minor version:
-
-```text
-editor_settings-<major.minor>.tres
-```
-
-For example, Godot 4.4 and 4.4.1 both use `editor_settings-4.4.tres`.
-
-These settings stay outside the project folder.
-
 ## Import or export Godot editor settings
 
-Use the project card's overflow menu to export the current `.tres` file or import settings from another file.
+Use a project's more-actions menu in **Projects** to save or replace its Godot editor preferences.
 
 <ThemedImage
   className="docs-media-frame"
@@ -51,10 +32,25 @@ Use the project card's overflow menu to export the current `.tres` file or impor
   }}
 />
 
-- **Export Editor Settings to File** saves a copy where you choose.
-- **Import Editor Settings from File** replaces the current settings. The launcher keeps the previous file as a timestamped `.bak` copy.
+### Export settings
 
-Importing settings does not change the project's Godot or code editor choice.
+1. Open the project's more-actions menu.
+2. Select **Export Editor Settings to File**.
+3. Choose a destination and save the file.
+
+The exported `.tres` file is a copy of that project's current editor settings.
+
+### Import settings
+
+Importing replaces the project's current editor settings. If a settings file already exists, Godot Launcher saves a timestamped `.bak` copy beside it before replacement.
+
+1. Close the project's Godot editor before replacing its settings.
+2. Open the project's more-actions menu and select **Import Editor Settings from File**.
+3. Select **Continue** in the confirmation.
+4. Choose the `.tres` settings file and open it.
+5. Open the project in Godot to use the imported preferences.
+
+Importing does not change the project's saved Godot or code editor choice. If scripts no longer open in the selected code editor, [reapply its configuration](#reapply-code-editor-configuration).
 
 ## Keep a selected code editor in sync
 
@@ -66,9 +62,25 @@ Choose **None** if you no longer want the project to use a code editor. Existing
 
 ## Reapply code editor configuration
 
-Use **Project Settings > Code Editor > Reset config** if Godot stops opening scripts in the selected editor. For other recovery steps, see [Troubleshooting](../troubleshooting.md#code-editors).
+If Godot stops opening scripts in the selected code editor:
 
-This action restores only the project's code editor setup. It does not reset other Godot preferences or change [Code Editor Settings](../settings/code-editors.mdx).
+1. Open the project's **Project settings** and select **Code Editor**.
+2. Select **Reset config**.
+3. Confirm with **Reset config**.
+
+The launcher reapplies the selected code editor's project setup, including its Godot script editor settings and supported build and debug files. It does not reset unrelated Godot preferences or change global [Code Editor Settings](../settings/code-editors.mdx). If the reset fails, check that the selected code editor is available; see [code editor troubleshooting](../troubleshooting.md#code-editors).
+
+## Where editor settings are stored
+
+Settings stay outside the project folder, under the configured editor install location:
+
+```text
+<editor-install-location>/.editor_config/<project-editor-folder>/editor_data/
+```
+
+Godot 4.3 and later use `editor_settings-<major.minor>.tres`; for example, Godot 4.4 and 4.4.1 use `editor_settings-4.4.tres`. Godot 4.0 to 4.2 use `editor_settings-4.tres`. See [Storage Paths and Files](../reference/storage-paths.md) for default locations.
+
+[Export templates](./export-templates.mdx) are shared separately. Sharing templates does not share these editor preferences.
 
 ## Related guides
 

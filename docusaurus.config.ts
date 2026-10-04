@@ -133,9 +133,15 @@ const config: Config = {
           path: "docs",
           routeBasePath: "/",
           sidebarPath: "./sidebars.ts",
-          includeCurrentVersion: false,
+          includeCurrentVersion: true,
           lastVersion: "1.12",
           versions: {
+            current: {
+              label: "1.13 Beta",
+              path: "next",
+              banner: "unreleased",
+              noIndex: true,
+            },
             "1.12": {
               label: "1.12",
               banner: "none",
@@ -154,7 +160,10 @@ const config: Config = {
           },
         },
         blog: false,
-        pages: false,
+        pages: {
+          path: "src/pages/release-notes",
+          routeBasePath: "release-notes",
+        },
         theme: {
           customCss: "./src/css/custom.css",
         },
@@ -165,8 +174,8 @@ const config: Config = {
 
   themeConfig: {
     algolia: {
-      appId: process.env.ALGOLIA_APP_ID,
-      apiKey: process.env.ALGOLIA_API_KEY,
+      appId: process.env.ALGOLIA_APP_ID ?? "",
+      apiKey: process.env.ALGOLIA_API_KEY ?? "",
       indexName: "godotlauncher",
     },
     colorMode: {

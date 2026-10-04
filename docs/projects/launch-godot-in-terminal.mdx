@@ -1,0 +1,68 @@
+---
+id: launch-godot-in-terminal
+sidebar_label: Launch in a Terminal
+title: Launch Godot in a Terminal
+slug: /projects/launch-godot-in-terminal
+description: "Show Godot editor output in a terminal and keep it visible after Godot closes."
+tags:
+  - guides
+  - project-settings
+  - troubleshooting
+---
+
+import ThemedImage from '@theme/ThemedImage';
+
+# Launch Godot in a Terminal
+
+Enable **Launch in terminal** in Godot Launcher to see the editor's output and errors. The terminal stays open after Godot closes so you can read or copy the output.
+
+## Enable it for a project
+
+1. Open **Projects** and select the project's settings button.
+2. Open **Launch**.
+3. Enable **Launch in terminal**.
+4. Select **Update**.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Launch in terminal switch in the Project Settings Launch tab"
+  sources={{
+    light: '/img/screenshots/screen_projects_settings_launch_light.webp',
+    dark: '/img/screenshots/screen_projects_settings_launch_dark.webp',
+  }}
+/>
+
+:::info Saved per project
+
+This setting is off by default and saved per project. It also applies when opening the project from the system tray.
+
+:::
+
+## After Godot closes
+
+The terminal displays Godot's exit code and keeps the output visible. Read or copy the output, then press **Return** to finish the terminal session.
+
+## Which terminal opens
+
+- **Windows:** Command Prompt.
+- **macOS:** Terminal.app.
+- **Linux:** The terminal selected in [Tool Settings](../settings/tools.mdx#set-up-terminal). **Automatic** chooses an available supported terminal.
+
+## If the terminal cannot open
+
+Godot Launcher shows an error. If you launched from the system tray, the launcher window reopens to show it.
+
+On Linux, check **Settings > Tools > Terminal**. Select **Rescan** after installing a supported terminal, then choose **Automatic** or an available terminal and try again. See [Tool Settings](../settings/tools.mdx#set-up-terminal) for supported terminals.
+
+## Reloading the project in Godot
+
+:::warning Output may stop after reloading
+
+Using **Reload Current Project** in Godot may stop output reaching the terminal. To restore it, close Godot and reopen the project from Godot Launcher.
+
+:::
+
+## Related guides
+
+- [Project Settings](./project-settings.mdx)
+- [Tool Settings](../settings/tools.mdx#set-up-terminal)

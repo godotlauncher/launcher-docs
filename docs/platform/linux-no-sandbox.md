@@ -1,8 +1,9 @@
 ---
 id: linux-no-sandbox
-title: Running Godot Launcher in No-Sandbox Mode on Linux
+sidebar_label: Linux Sandbox Errors
+title: Fix Godot Launcher Sandbox Errors on Linux
 slug: /platform/linux-no-sandbox
-description: "Learn how to run Godot Launcher with the --no-sandbox option on Linux if you encounter Chromium sandbox errors."
+description: "Diagnose Godot Launcher startup errors mentioning chrome-sandbox on Linux, with a temporary --no-sandbox test and its security limits."
 tags:
   - guides
   - godot
@@ -15,67 +16,48 @@ keywords:
   - Electron
 ---
 
-# Running Godot Launcher in No-Sandbox Mode on Linux
+# Fix Godot Launcher Sandbox Errors on Linux {#running-godot-launcher-in-no-sandbox-mode-on-linux}
 
-On Linux, the **Chromium sandbox** used by Electron sometimes causes problems when launching Godot Launcher. This usually happens if the sandbox helper binary cannot be set up correctly, for example on certain distributions or when running from an AppImage. The result is that the launcher may fail to start with a fatal error.
+If Godot Launcher stops during startup with an error mentioning `chrome-sandbox` or `SUID sandbox helper`, Chromium's sandbox may be unable to start. Run the launcher from a terminal to read the error before choosing a workaround.
 
-To help with this, Godot Launcher includes a **no-sandbox mode**. When enabled, all Chromium processes inside the launcher bypass the sandbox. This can resolve startup issues, but it should only be used as a workaround if you cannot run the launcher normally.
+## Check the startup error {#when-should-i-use-no-sandbox}
 
----
+For a sandbox error, check your distribution's guidance for running Electron applications. If you use an AppImage, you can also try the [`.deb` or `.rpm` package](../getting-started/installation.mdx#linux) for your distribution.
 
-## When should I use no-sandbox?
+A FUSE error or a missing shared library is a different problem. Follow the [Linux installation instructions](../getting-started/installation.mdx#linux) or the dependency named in the error; disabling the sandbox does not install missing libraries.
 
-- The launcher crashes on startup with an error mentioning `chrome-sandbox` or `SUID sandbox helper`.
-- Running from AppImage or a restricted environment where Chromium cannot apply its usual sandboxing.
-- You have already tried reinstalling or updating your system packages but the issue persists.
+## Test without the sandbox {#how-to-run-godot-launcher-with-no-sandbox}
 
-:::warning
-The Chromium sandbox is a security feature. Disabling it should only be done if absolutely necessary, and only on Linux systems where you cannot launch the app otherwise.
+:::danger Disabling the sandbox removes process isolation
+The Chromium sandbox restricts what the launcher's processes can access. `--no-sandbox` disables this protection for all Chromium processes in Godot Launcher. Electron recommends using this option only for testing. Use it to diagnose a startup failure, and resolve the underlying sandbox problem before returning to normal use. See [Electron's sandbox documentation](https://www.electronjs.org/docs/latest/tutorial/sandbox#disabling-chromiums-sandbox-testing-only).
 :::
 
----
+### Run with a command line option {#option-1-command-line-flag}
 
-## How to run Godot Launcher with no-sandbox
+In a terminal, open the folder containing the AppImage and run:
 
-Godot Launcher detects the no-sandbox option if you pass it on the command line or through an environment variable.
-
-### Option 1: Command line flag
-
-Run the AppImage or launcher binary with:
-
-```
-./Godot_Launcher-<version>-linux-<arch>.AppImage --no-sandbox
+```bash
+./Godot_Launcher-x.y.z-linux_x64.AppImage --no-sandbox
 ```
 
-or
+Replace `x.y.z` with the downloaded version. For an ARM64 download, replace `x64` with `arm64`. Use the actual filename if you renamed the download.
 
-```
-./Godot_Launcher-<version>-linux-<arch>.AppImage --disable-sandbox
-```
+The option applies only to this run. Godot Launcher also accepts `--disable-sandbox` with the same effect.
 
-This only applies to that single run.
+### Use an environment variable {#option-2-environment-variable}
 
-### Option 2: Environment variable
+Alternatively, set the variable for a single command:
 
-Set the environment variable before launching:
-
-```
-GODOT_LAUNCHER_DISABLE_SANDBOX=1 ./Godot_Launcher-<version>-linux-<arch>.AppImage
+```bash
+GODOT_LAUNCHER_DISABLE_SANDBOX=1 ./Godot_Launcher-x.y.z-linux_x64.AppImage
 ```
 
-This has the same effect as starting Godot Launcher with `--no-sandbox`.
+This has the same effect as `--no-sandbox`. The assignment above applies only to that command; do not add it to your shell configuration as a routine startup setting.
 
----
+## If startup still fails {#troubleshooting}
 
-## Troubleshooting
+Check the new terminal output. If the error still mentions the sandbox, check the spelling of `--no-sandbox` and that the option follows the executable name. If the error changes, use that message to investigate the next cause.
 
-- **Still seeing sandbox errors**: Double-check that you spelled the option correctly (`--no-sandbox` with two dashes).
-- **Environment variable not working**: Make sure it is set in the same shell session that starts Godot Launcher.
-- **No difference after enabling**: Some distributions require extra runtime libraries. Try updating your system and ensure `libnss3`, `libx11`, and related Electron dependencies are installed.
-- **Security concerns**: If possible, prefer fixing sandbox permissions rather than disabling the feature. The `--no-sandbox` mode is only a fallback.
+<a id="summary"></a>
 
----
-
-## Summary
-
-If Godot Launcher fails to start on Linux with a Chromium sandbox error, you can use **no-sandbox mode** by passing `--no-sandbox`, `--disable-sandbox`, or setting `GODOT_LAUNCHER_DISABLE_SANDBOX=1` for a single run. Only enable this if necessary, as it reduces process isolation and security.
+If you need help, include your distribution and version, the Godot Launcher version, the package type, and the terminal error. Follow [Troubleshooting](../troubleshooting.md#still-need-help) for reporting guidance. After resolving the problem, start Godot Launcher without the option or environment variable.

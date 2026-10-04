@@ -2,7 +2,7 @@
 id: code-editors
 title: Code Editor Settings
 slug: /settings/code-editors
-description: "Set up Visual Studio Code or VSCodium and choose the default code editor for new projects."
+description: "Configure code editor detection, executable paths, launch arguments, and the default editor for new Godot Launcher projects."
 tags:
   - launcher-settings
   - code-editor
@@ -30,7 +30,7 @@ Godot Launcher does not install either code editor. Install it separately, then 
 
 ## Make an editor available
 
-Each editor card shows whether the launcher can use it:
+Each editor card shows whether it is available, enabled, or selected as the default:
 
 - **Available** means the launcher found the editor. Its location appears on the card.
 - **Enabled** means you can choose the editor for a project.
@@ -44,7 +44,7 @@ If the editor is not found, see [Troubleshooting](../troubleshooting.md#code-edi
 
 Select the star on an enabled, available editor to make it the default. The [Create Project](../projects/create-project.mdx) drawer then preselects it.
 
-If only one editor is available, the launcher can preselect it even when you have not set a default. You can still choose another editor or **None** while creating a project.
+If you have not set a default and only one editor is enabled and available, the launcher preselects it. You can still choose another editor or **None** while creating a project.
 
 Existing projects keep their current code editor.
 
@@ -56,9 +56,13 @@ Disabling an editor removes it from new choices. Projects that already use it ke
 
 ## Use a custom executable path
 
-Select **Edit** on an enabled editor card to open its settings.
+Use a custom path for an installation outside the usual locations:
 
-Choose a custom path when you want to use an installation outside the usual locations. Select the editor's executable or application bundle.
+1. Open **Settings > Code Editors** and select **Edit** on the enabled editor's card.
+2. Enter the **Executable path**, or select **Browse** to choose its executable or application bundle.
+3. Select **Save**.
+
+Godot Launcher checks the path before saving it. If the path is invalid, choose the installed editor's executable and try again.
 
 <ThemedImage
   className="docs-media-frame"
@@ -69,20 +73,24 @@ Choose a custom path when you want to use an installation outside the usual loca
   }}
 />
 
-Select **Use automatic detection** to clear the custom path and let the launcher find the editor again.
+To return to automatic detection, select **Use automatic detection**, then **Save**.
 
 ## Override launch arguments
 
-The **Launch arguments** field controls how Godot opens a file in the code editor. The built-in defaults work for most users.
+**Launch arguments** controls how Godot opens files in the code editor. Keep the built-in arguments unless your setup needs different ones.
 
-Advanced overrides can use these Godot placeholders:
+1. Open **Settings > Code Editors** and select **Edit** on the enabled editor's card.
+2. Change **Launch arguments** under **External Text Editor**.
+3. Select **Save**.
+
+You can use these [Godot placeholders](https://docs.godotengine.org/en/stable/tutorials/editor/external_editor.html):
 
 - `{project}` - project path.
 - `{file}` - file path.
 - `{line}` - line number.
 - `{col}` - column number.
 
-An empty value is a valid override. Select **Reset to default** to restore the editor's built-in arguments, then select **Save**.
+Leaving the field empty saves an empty override. To restore the built-in arguments, select **Reset to default**, then **Save**.
 
 For unavailable editors, launch warnings, and project setup recovery, see [Troubleshooting](../troubleshooting.md#code-editors).
 

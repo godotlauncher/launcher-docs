@@ -1,0 +1,97 @@
+---
+id: project-tags
+sidebar_label: Project Tags
+title: Organise Projects with Tags
+slug: /projects/project-tags
+description: "Add coloured tags to Godot Launcher projects, filter the project list, and manage shared tag names and colours."
+tags:
+  - guides
+  - project-settings
+  - quality-of-life
+---
+
+import ThemedImage from '@theme/ThemedImage';
+
+# Organise Projects with Tags {#project-tags}
+
+Use tags in Godot Launcher to organise projects by status, purpose or event.
+Tags are saved on this computer and do not change your Godot project files.
+
+## Add tags to a project
+
+Select the tag icon beside a project name in **Cards**, **Compact** or **List** view.
+Up to three coloured dots appear beside the name, followed by a count of any
+additional tags. Hover or focus the tag control to see all assigned tags.
+
+- Select an existing tag, or type a name and select **Create**.
+- Select the cross on a tag to remove it from this project.
+- Select a coloured dot to change the tag's colour across all projects that use it.
+
+Changes save immediately. Removing a tag from a project keeps it available
+for other projects.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Project tag picker showing selected coloured tags and another available tag"
+  sources={{
+    light: '/img/screenshots/screen_projects_tag_picker_light.webp',
+    dark: '/img/screenshots/screen_projects_tag_picker_dark.webp',
+  }}
+/>
+
+You can also edit tags in [Project Settings](./project-settings.mdx#project-tags),
+where **Update** saves your changes.
+
+## Filter projects by tag
+
+Open **Tags** beside Search and select one or more tags. Projects matching
+**any** selected tag remain visible. A text search narrows those results
+further. Tag filters are remembered when you close and reopen the app.
+
+Select the cross beside a selected tag to remove it from the filter, or select
+**Clear tags** to remove all tag filters. Any text search still applies.
+When there are no results, **Clear filters** clears both the tag selection and
+text search.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Tags filter with Game Jam selected and matching projects in Compact view"
+  sources={{
+    light: '/img/screenshots/screen_projects_tag_filter_light.webp',
+    dark: '/img/screenshots/screen_projects_tag_filter_dark.webp',
+  }}
+/>
+
+## Manage tags {#manage-shared-tags}
+
+Open **Settings > Projects > Manage tags**. The number beside each tag shows
+how many projects use it.
+
+- Enter a name and select **Add** to create a tag.
+- Select the pencil to rename a tag, then the tick to save it.
+- Select the coloured dot to change its colour.
+- Select the bin, then confirm with **Delete** to delete a tag.
+
+Name and colour changes apply everywhere the tag is used. Deleting a tag
+removes it from every project.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Manage tags drawer showing tag names, colour dots, project counts, and rename and delete buttons"
+  sources={{
+    light: '/img/screenshots/screen_settings_manage_tags_light.webp',
+    dark: '/img/screenshots/screen_settings_manage_tags_dark.webp',
+  }}
+/>
+
+## Keyboard shortcuts
+
+In the **Projects** view:
+
+| Action | macOS | Windows and Linux |
+| --- | --- | --- |
+| Open the tag filter | **Cmd+T** | **Ctrl+T** |
+| Focus Search | **Cmd+K** | **Ctrl+K** |
+
+In a tag picker, use the arrow keys to choose an option, **Enter** to select
+it, and **Escape** to close it.

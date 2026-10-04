@@ -41,6 +41,7 @@ export default {
         "editors/custom-editors",
         "editors/change-project-editor",
         "editors/editor-settings",
+        "editors/export-templates",
       ],
     },
     {
@@ -49,6 +50,7 @@ export default {
       collapsed: false,
       items: [
         "projects/manage-projects",
+        "projects/project-tags",
         {
           type: "ref",
           id: "projects/create-project",
@@ -59,6 +61,7 @@ export default {
         },
         "projects/project-settings",
         "projects/launch-godot-project-in-windowed-mode",
+        "projects/launch-godot-in-terminal",
       ],
     },
     {

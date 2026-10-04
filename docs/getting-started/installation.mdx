@@ -2,7 +2,8 @@
 id: installation
 slug: /getting-started/installation
 description: "Install Godot Launcher on Windows, macOS, or Linux, then complete the four-step first-run setup."
-title: Installation
+title: Install Godot Launcher
+sidebar_label: Installation
 tags:
   - setup-guide
   - getting-started
@@ -14,7 +15,7 @@ tags:
 import { WingetCommand } from "@site/src/components/WingetCommandList";
 import ThemedImage from '@theme/ThemedImage';
 
-# Installation
+# Install Godot Launcher {#installation}
 
 Download Godot Launcher from the official [download page](https://godotlauncher.org/download). Choose the package for Windows, macOS, or Linux, then follow the platform instructions below.
 
@@ -33,9 +34,9 @@ For older versions or a specific installer file, see [Godot Launcher releases on
   <a className="button button--primary" href="https://godotlauncher.org/download">Download Windows installer</a>
 </div>
 
-On Windows, run the `.exe` installer and follow the steps on screen.
-
-If you did not choose to run Godot Launcher at the end of the installation, you can run it directly from the Start Menu.
+1. Download the `.exe` for your processor.
+2. Open the installer and follow the steps on screen.
+3. Start Godot Launcher from the installer or the Start menu.
 
 #### Check Windows release signing {#windows-release-signing}
 
@@ -43,7 +44,7 @@ Windows installers are code signed through [SignPath.io](https://signpath.io/), 
 
 <WingetCommand
   label="Install with winget"
-  command='winget install "Godot Launcher"'
+  command='winget install --id GodotLauncher.Launcher --exact --source winget'
   intro="Prefer managing installs from the command line? Run this command in PowerShell or Command Prompt:"
 />
 
@@ -64,9 +65,9 @@ Windows installers are code signed through [SignPath.io](https://signpath.io/), 
   <a className="button button--primary" href="https://godotlauncher.org/download">Download macOS disk image</a>
 </div>
 
-On macOS, Godot Launcher is distributed as a universal `.dmg`. Open the `.dmg`, then drag **Godot Launcher** to the **Applications** folder.
-
-You can then open Godot Launcher from the Applications folder.
+1. Download and open the `.dmg`.
+2. Drag **Godot Launcher** to the **Applications** folder.
+3. Open Godot Launcher from **Applications**.
 
 
 ---
@@ -81,19 +82,21 @@ You can then open Godot Launcher from the Applications folder.
   <a className="button button--primary" href="https://godotlauncher.org/download">Choose a Linux package</a>
 </div>
 
+In the commands below, replace `x.y.z` with the downloaded version and run the command from the folder containing the file. For ARM64, use the downloaded `arm64` filename.
+
 #### AppImage
 
-:::info
-AppImage builds include most dependencies - make sure `FUSE` is available on your system.
+:::info FUSE is required for AppImage
+If the AppImage reports a FUSE error, follow the [AppImage FUSE instructions](https://docs.appimage.org/user-guide/troubleshooting/fuse.html) for your distribution, or use the `.deb` or `.rpm` package.
 :::
 
-Make the `.AppImage` executable by using the GUI or by running:
+Make the downloaded file executable:
 
 ```bash
 chmod +x Godot_Launcher-x.y.z-linux_x64.AppImage
 ```
 
-Then run it directly by double-clicking the file or executing:
+Then double-click the file or run:
 
 ```bash
 ./Godot_Launcher-x.y.z-linux_x64.AppImage
@@ -115,7 +118,7 @@ Install the `.rpm` from the download page:
 sudo dnf install ./Godot_Launcher-x.y.z-linux_x64.rpm
 ```
 
-> On older RHEL-based distributions using `yum`, replace `dnf` with `yum`.
+After installing a `.deb` or `.rpm`, open Godot Launcher from your application menu.
 
 ---
 
@@ -134,15 +137,15 @@ On the first run, complete four steps to set up the launcher for your workflow.
 
 1. **Welcome** introduces the setup.
 2. **Appearance** lets you choose the launcher theme.
-3. **Setup** confirms the project and editor locations and lets you choose a default code editor. On Windows, you can also enable editor symlinks to reduce disk use.
+3. **Setup** confirms the project, editor, and imported export template locations and lets you choose a default code editor. On Windows, you can also enable editor symlinks to reduce disk use.
 4. **Preferences** lets you choose what happens after opening a project. On Windows and macOS, you can also choose whether the launcher starts with your computer.
 
 Select **Finish and view projects** to open Projects, even when no Godot editor
 is installed. From there, [create a project](../projects/create-project.mdx) and
 choose an editor to download, or [add existing work](../projects/add-existing-project.mdx).
 
-:::tip
-Godot Launcher matches your operating system language automatically. Change it later under **Settings > Appearance > Language**. The other setup choices remain available in [Godot Launcher Settings](../settings/launcher-settings.mdx), [Code Editor Settings](../settings/code-editors.mdx), and [Behavior Settings](../settings/behavior.mdx).
+:::info Change setup choices later
+Godot Launcher uses your operating system language when a matching translation is available. Change it later under **Settings > Appearance > Language**. The other setup choices remain available in [Godot Launcher Settings](../settings/launcher-settings.mdx), [Code Editor Settings](../settings/code-editors.mdx), and [Behaviour settings](../settings/behavior.mdx).
 :::
 
 For package or startup problems, see [Installation and startup troubleshooting](../troubleshooting.md#installation-and-startup). For Linux tray problems, see [System tray troubleshooting](../troubleshooting.md#system-tray).

@@ -1,8 +1,8 @@
 ---
 id: tools
-title: Tool Settings
+title: Git and Terminal Settings
 slug: /settings/tools
-description: "Check the Git, Git LFS, and terminal tools used by Godot Launcher and manage Git identity settings."
+description: "Check Git and Git LFS detection, choose a terminal for project folders, and manage Git identities in Godot Launcher."
 tags:
   - launcher-settings
   - git
@@ -12,9 +12,9 @@ tags:
 
 import ThemedImage from '@theme/ThemedImage';
 
-# Tool Settings
+# Git and Terminal Settings {#tool-settings}
 
-The **Tools** tab shows the tools used by Godot Launcher. Git and Git LFS each show their availability, validated executable path, and version. Terminal controls which supported terminal opens a project's folder.
+Open **Settings > Tools** to check Git and Git LFS, choose a terminal for project folders, and manage Git identity settings. Each tool shows whether it is available. Git and Git LFS also show their executable path and version.
 
 <ThemedImage
   className="docs-media-frame"
@@ -27,63 +27,65 @@ The **Tools** tab shows the tools used by Godot Launcher. Git and Git LFS each s
 
 ## Check Git
 
-When the status is **Available**, Godot Launcher can use the Git installation shown on this page.
+Git is ready to use when its status is **Available**. Godot Launcher uses it to create and import repositories and show Git status on project cards.
 
-When Git is available, Godot Launcher can:
+If Git is **Not found** or its path is unavailable, [install Git](../tools/install-git.md) or restore the installation, then select **Rescan Git** beside it. Godot Launcher does not install or update Git.
 
-- Initialize Git while [creating a project](../projects/create-project.mdx).
-- Initialize Git for an existing project from [Project Settings](../projects/project-settings.mdx#source-control).
-- Clone a public Git or connected GitHub repository through [Add Project](../projects/import-repository.mdx).
-- Show Git status on project cards.
-
-Godot Launcher does not install Git. See [Installing Git](../tools/install-git.md) to add it.
+See [Git setup for Godot projects](../tools/using-git-with-godot-launcher.mdx) for new and existing repositories.
 
 ## Check Git LFS
 
-When Git LFS is **Available**, Godot Launcher can configure it while creating a new Git repository. The Git LFS option remains unavailable until both Git and Git LFS are ready.
+Git LFS must also be **Available** before you can select **Use Git LFS** for a new project. Install it separately from the [Git LFS project](https://git-lfs.com/) or through your operating system, then select **Rescan Git LFS**.
 
-Godot Launcher does not install or update Git LFS. Install it through your operating system or from the [Git LFS project](https://git-lfs.com/), then rescan the tools. See [Creating a Project](../projects/create-project.mdx#set-up-git) for the new-project workflow.
+Both Git and Git LFS are required. See [Track large assets with Git LFS](../tools/using-git-with-godot-launcher.mdx#track-large-assets-with-git-lfs) for the file types and repository limits that apply.
 
 ## Rescan tools
 
-Select the rescan button beside a tool after you install, move, or update it. The Git and Git LFS drawers show the executable path and version that Godot Launcher validated.
+Select the rescan button beside a tool after installing, moving, or updating it. Use the tool's edit button to inspect its settings. The Git and Git LFS drawers show the detected executable path and version.
 
 ## Set up Terminal
 
-Open **Terminal** from the **Tools** tab, then enable it to use **Open Terminal
-Here** from a project's actions. Select **Rescan** after installing or changing
-a supported terminal.
+1. Open **Settings > Tools** and select **Edit Terminal**.
+2. Enable **Enable terminal for project folders**.
+3. Under **Terminal application**, choose **Automatic** or a detected terminal by name.
 
-Choose **Automatic** to let Godot Launcher use a detected terminal, or select a
-detected terminal by name to use that terminal on this operating system. Your
-selection is kept separately for each operating system.
+You can now use **Open Terminal Here** from a project's actions to open its folder in that terminal. Changes apply immediately, and the terminal selection is saved separately for each operating system.
 
-Godot Launcher supports these system terminal installations:
+**Automatic** chooses a detected terminal. The supported installations are:
 
-- Windows: **Windows Terminal** and **Command Prompt**.
-- macOS: **Terminal.app**.
-- Linux: **GNOME Terminal**, **Konsole**, **Foot**, **Alacritty**, **Ghostty**, and **Kitty**.
+| Operating system | Terminals |
+| --- | --- |
+| Windows | Windows Terminal and Command Prompt |
+| macOS | Terminal.app |
+| Linux | GNOME Terminal, Konsole, Foot, Alacritty, Ghostty, and Kitty |
 
-Terminal detection checks a fixed set of supported system locations. Godot Launcher
-does not support custom terminal commands, custom executable paths, or
-PowerShell as a separately detected target. Windows Terminal uses its configured
-default profile.
+Windows Terminal uses its configured default profile. PowerShell is not a separately detected terminal. Detection checks supported system locations; custom terminal paths and commands are not supported.
 
-If Terminal is disabled, enable it in the Terminal drawer before using **Open
-Terminal Here**. If no terminal is listed after a rescan, install one of the
-supported terminals in its system location and rescan again. If a named
-selection is no longer available, select **Automatic** or another detected
-terminal.
+:::info Launching Godot in a terminal
 
-If a warning says that saved terminal settings use an unsupported format, select
-**Open terminal settings**, then select **Reset terminal settings** and confirm
-the reset. This removes saved terminal choices and custom terminal settings for
-all operating systems, while preserving whether Terminal is enabled and all
-other tool settings. Godot Launcher then restores **Automatic** selection.
+On Linux, this selection also controls the terminal used by **Launch in terminal**. The **Enable terminal for project folders** switch controls **Open Terminal Here** and can remain off when launching Godot in a terminal.
+
+See [Launch Godot in a Terminal](../projects/launch-godot-in-terminal.mdx) to enable that option for a project.
+
+:::
+
+### If a terminal is unavailable
+
+Select **Rescan** after installing or changing a supported terminal. If none is detected, check that it is installed in a supported system location. If your saved terminal is no longer available, choose **Automatic** or another detected terminal.
+
+### Reset unsupported terminal settings
+
+If a warning says that saved terminal settings use an unsupported format:
+
+1. Select **Open terminal settings** in the warning.
+2. Select **Reset terminal settings**.
+3. Confirm with **Reset settings**.
+
+This removes saved terminal choices and custom terminal settings for **all operating systems** and restores **Automatic** selection. It preserves the terminal enable switch and other tool settings.
 
 ## Manage Git identities
 
-Open Git from the **Tools** tab to manage two separate identity sources:
+Open **Settings > Tools** and select **Edit Git**. You can edit Git's global identity or save a project identity preset. See [Choose a Git identity](../tools/using-git-with-godot-launcher.mdx#choose-a-git-identity) for how each affects commits.
 
 <ThemedImage
   className="docs-media-frame"
@@ -94,13 +96,17 @@ Open Git from the **Tools** tab to manage two separate identity sources:
   }}
 />
 
-- **Global Git identity** writes `user.name` and `user.email` to Git's global configuration. Git uses these values when a repository has no local override.
-- **Project identity preset** is saved by Godot Launcher. It does not change Git on its own. The launcher can suggest it during project creation or apply it as a repository-local identity before the first commit.
+To change the global identity:
 
-Enable **Use automatically for new repositories** if every new repository created by Godot Launcher should receive the preset without another identity prompt. Leave it disabled to review the preset whenever you create a project.
+1. Enter **Name** and **Email** under **Global Git identity**.
+2. Select **Save global identity**.
 
-You can edit the preset even when Git is unavailable. Global identity controls remain unavailable until Godot Launcher can validate Git again.
+To save a project identity preset:
 
-Code editor detection is managed separately. Use [Code Editor Settings](./code-editors.mdx) to rescan Visual Studio Code or VSCodium and configure custom executable paths.
+1. Enter **Name** and **Email** under **Project identity preset**.
+2. Enable **Use automatically for new repositories** to apply it without another identity prompt, or leave it off to review the preset during project creation.
+3. Select **Save preset**.
 
-If Git remains unavailable, see [Troubleshooting](../troubleshooting.md#git).
+Select **Clear preset** to remove the saved preset. You can edit the preset while Git is unavailable; global identity controls require an available Git installation.
+
+For code editor detection and custom executable paths, use [Code Editor Settings](./code-editors.mdx). If Git remains unavailable, see [Troubleshooting](../troubleshooting.md#git).

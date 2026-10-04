@@ -1,8 +1,8 @@
 ---
 id: behavior
-title: Behavior Settings
+title: Behaviour Settings
 slug: /settings/behavior
-description: "Choose what Godot Launcher does after opening a project, at startup, and when removing projects."
+description: "Choose what Godot Launcher does when closing its window, after opening a project, at startup, and when removing projects."
 tags:
   - launcher-settings
   - system-tray
@@ -11,13 +11,13 @@ tags:
 
 import ThemedImage from '@theme/ThemedImage';
 
-# Behavior Settings
+# Behaviour Settings {#behavior-settings}
 
-The **Behavior** tab controls project removal confirmation, what happens to the launcher after a project opens, automatic startup, and optional project editor links on Windows.
+Open **Settings > Behavior** to choose what happens when you close the Godot Launcher window or open a project, change startup settings, or control project removal confirmation. On Windows, this tab also provides optional editor symlinks.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Settings - Behavior Tab"
+  alt="Behavior settings showing project removal confirmation, window closing options, launch actions, and startup preferences"
   sources={{
     light: '/img/screenshots/screen_settings_behavior_light.webp',
     dark: '/img/screenshots/screen_settings_behavior_dark.webp',
@@ -26,25 +26,36 @@ The **Behavior** tab controls project removal confirmation, what happens to the 
 
 ## Confirm project removal
 
-Enable **Project Confirmation** if you want Godot Launcher to ask before removing a project entry.
+Enable **Ask for confirmation when removing projects.** to show a confirmation before a project is removed from the list. This option is enabled by default.
 
-Removing a project from Godot Launcher does not delete the project folder unless a separate delete action explicitly says so.
+Removing a project leaves its project folder on disk. Godot Launcher removes the project entry and its prepared editor files or links.
+
+## Choose what happens when closing the window
+
+Under **Window Close**, choose what happens when you close the launcher window:
+
+- **Close to system tray**: hide the window and keep Godot Launcher running in the tray. This is the default.
+- **Quit Godot Launcher**: stop the application completely.
+
+Your choice is saved automatically. This setting is separate from **Project Launch Action** below.
+
+If no usable tray is available, closing the window quits Godot Launcher even when **Close to system tray** is selected. During initial setup, closing the window also quits the application.
 
 ## Choose what happens after opening a project
 
-Choose what Godot Launcher does after it launches a project:
+Under **Project Launch Action**, choose what Godot Launcher does after it opens a project:
 
 - **Nothing**: keep the launcher window visible.
-- **Minimize**: minimize the launcher window.
-- **Close to system tray**: hide the launcher window and keep it available from the tray.
+- **Minimize**: minimise the launcher window.
+- **Close to system tray**: hide the launcher window and keep it available from the tray. This is the default.
 
-For tray behavior and recent project quick launch, see [System Tray](./system-tray.mdx).
+If a usable tray is unavailable, **Close to system tray** leaves the window visible. See [System Tray](./system-tray.mdx) to reopen the window or launch a recent project.
 
 ## Save space with editor links on Windows
 
-On Windows, Godot Launcher can create symbolic links to installed editors instead of keeping a local editor copy for each project. This option is off by default.
+Under **Editor symlinks** on Windows, Godot Launcher can create symbolic links to installed editors instead of keeping a copy in each project's separate editor environment. These environments are under the editor install location, outside the Godot project folders. This option is off by default.
 
-This can reduce disk usage, but Windows may require Developer Mode or administrator approval depending on your system.
+This can reduce disk usage, but Windows may require Developer Mode or administrator approval depending on your system. If link creation fails, the launcher falls back to copying the editor.
 
 The setting is used the next time the launcher prepares an editor for a project. Existing projects keep their current setup until you change or reinstall their Godot editor.
 
@@ -52,11 +63,11 @@ See [Godot Launcher Symlink Support on Windows](../platform/windows-symlink.md) 
 
 ## Start the launcher with your computer
 
-On Windows and macOS, startup settings control whether Godot Launcher opens automatically when your computer starts.
+On Windows and macOS, use **Startup Preference** to start Godot Launcher automatically when you sign in:
 
-- **Start when computer starts**: launch Godot Launcher on system startup.
-- **Start in tray**: start hidden in the system tray. This choice is available only while automatic startup is enabled.
+1. Enable **Start when computer starts.**
+2. To keep the main window hidden, enable the nested **Start in tray.** option.
 
-Automatic startup is not currently supported on Linux.
+Both options are enabled by default. **Start in tray.** is available only while automatic startup is enabled.
 
-See [Troubleshooting](../troubleshooting.md#system-tray) when tray options are unavailable or the window stays visible.
+Automatic startup is not supported by Godot Launcher on Linux. For tray availability problems, see [System tray troubleshooting](../troubleshooting.md#system-tray).

@@ -1,8 +1,9 @@
 ---
 id: change-project-editor
-title: Change Project Editor Version
+title: Change a Project's Godot Version
+sidebar_label: Change Godot version
 slug: /editors/change-project-editor
-description: "Choose which official, .NET, or custom-built Godot editor opens a project."
+description: "Change a project to another Godot release within the same major version, download an editor if needed, and keep its code editor choice."
 tags:
   - guides
   - godot
@@ -15,7 +16,7 @@ tags:
 
 import ThemedImage from '@theme/ThemedImage';
 
-# Change Project Editor Version
+# Change a Project's Godot Version {#change-project-editor-version}
 
 Each project in Godot Launcher can use a different Godot editor. Change it when a project needs
 another installed or registered release, a downloadable compatible official
@@ -35,23 +36,17 @@ release, a .NET build, or a custom build.
 1. Open the **Projects** view.
 2. Select **Project settings** on the project card.
 3. Stay on the **Project** tab.
-4. Choose an installed version from **Godot Editor**, or select **Browse releases** to choose a compatible official editor to download.
+4. Choose an installed version from **Godot Editor**, or select **Browse releases** to choose a compatible official editor to download. Choose an editor from the project's current Godot major version.
 5. Select **Update**, or **Install and save** for an editor that is not yet installed.
 
 The project uses the selected editor the next time you open it. Its folder and `project.godot` file do not move.
 
-For a downloadable editor, **Install and save** saves the selected version
-before starting its download. Project Settings closes and the project shows
-the selected version and download progress. You can reopen [Project
-Settings](../projects/project-settings.mdx) to make further changes while the
-editor installs.
+**Install and save** saves the editor choice and closes Project Settings while the download continues. You can reopen [Project Settings](../projects/project-settings.mdx) during the download.
 
-If installation fails or is cancelled, the selected version stays saved.
-Use **Install required editor** on the project to retry, or select another
-installed editor. A completed download does not replace a newer editor choice.
+If installation fails, use **Install required editor** on the project to retry, or choose an installed editor. The saved choice stays in place after a failure, and a completed download does not overwrite a later choice.
 
-:::info
-Godot Launcher offers editors from the project's current Godot major version or newer. An editor appearing in the picker does not guarantee that your project is compatible with it. Follow the [official Godot upgrading guide](https://docs.godotengine.org/en/stable/tutorials/migrating/upgrading_to_godot_4.html) before opening a project with a different major version.
+:::warning Editor changes must stay within the same major version
+Godot Launcher supports changing a project's editor within its current Godot major version. Check project compatibility before opening it with another release. To migrate a Godot 3 project to Godot 4, follow the [official Godot upgrading guide](https://docs.godotengine.org/en/stable/tutorials/migrating/upgrading_to_godot_4.html); changing the editor in Godot Launcher does not perform this migration.
 :::
 
 ## Use an official or custom build

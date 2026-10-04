@@ -1,6 +1,7 @@
 ---
 id: manage-projects
-title: Manage Projects
+sidebar_label: Manage Projects
+title: Manage Godot Projects
 slug: /projects/manage-projects
 description: "Find, open, pin, search, and manage projects from the Godot Launcher Projects view."
 tags:
@@ -12,7 +13,7 @@ tags:
 
 import ThemedImage from '@theme/ThemedImage';
 
-# Manage Projects
+# Manage Godot Projects {#manage-projects}
 
 Use the **Projects** view in Godot Launcher to find and open projects or change how they are organised.
 
@@ -27,20 +28,33 @@ Use the **Projects** view in Godot Launcher to find and open projects or change 
 
 ## Choose a project view
 
-Cards are the default view. They show each project's details and its **Edit in
-Godot** button together.
+Use the three icons to the left of **Search** to choose a view:
 
-To see more projects at once, select the **List** icon to the left of
-**Search**. List rows keep the same groups, order, search results, pinning,
-and project actions. Select the project icon or name to open it in Godot; use
-the copy control beside its path to copy the path without opening the project.
+- **List** fits each project on one line, with its name, tags, tool icons, editor
+  version and actions. Long names shorten with an ellipsis.
+- **Compact** shows two lines, including the project path and last opened time.
+- **Cards**, the default, shows project details with an **Edit in Godot** button.
 
-Godot Launcher remembers your selected view after you close and reopen the
-app. Select the **Cards** icon to return to the card layout.
+All three views keep the same groups, order, search results, tags and actions.
+Godot Launcher remembers your choice after you close and reopen the app.
+
+In List and Compact views, select the project icon or name to open it in Godot.
+In List view, hover or focus the name to see its full name,
+path and last opened time. Select the folder button, then **Copy project path**,
+to copy its location. Compact and Cards keep the copy control beside the path.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Godot Launcher Projects view in List mode with compact project rows and the List and Cards view selector"
+  alt="Godot Launcher List view with single-line projects and the three view icons"
+  sources={{
+    light: '/img/screenshots/screen_projects_dense_view_light.webp',
+    dark: '/img/screenshots/screen_projects_dense_view_dark.webp',
+  }}
+/>
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Godot Launcher Compact view showing project paths beneath the names"
   sources={{
     light: '/img/screenshots/screen_projects_compact_view_light.webp',
     dark: '/img/screenshots/screen_projects_compact_view_dark.webp',
@@ -75,25 +89,29 @@ Projects appear in one of three groups:
 
 The order is based on projects opened from this computer. Activity on another computer does not change it.
 
-Enter part of a project name in **Search** to filter all three groups.
+Enter part of a project name in **Search** to filter all three groups. Use
+**Tags** beside Search to match any selected tag, then narrow the results with
+text search. See [Project Tags](./project-tags.mdx) to add or manage tags.
 
 ## Open or manage a project
 
-Each project shows its folder, selected tools, and status. In Cards view, use
+Each project provides its folder, selected tools, and status. In Cards view, use
 the card actions to:
 
-- Click **Edit in Godot** to launch the project with its selected Godot editor.
+- Select **Edit in Godot** to launch the project with its selected Godot editor.
 - Use the pin button to move the project into or out of **Pinned**.
 - Select **Open Terminal Here** to open the project folder in your selected terminal.
 - Use the folder button to open either the project folder or its Godot editor settings folder.
 - Use the settings button to open [Project Settings](./project-settings.mdx).
 - Use the more-actions button to import or export Godot editor settings, or remove the project from the launcher.
 
-Removing a project from the launcher list does not delete its project folder.
+To remove a project, open its more-actions menu and select **Remove Project From List**. Confirm with **Remove** if prompted. The project disappears from the list; its project folder stays on disk.
+
+For the meaning of tool and warning icons in each view, see [Godot Launcher Project Status Icons](./project-badges.mdx).
 
 ### Open Terminal Here
 
-Select **Open Terminal Here** in a project's actions in either Cards or List
+Select **Open Terminal Here** in a project's actions in any project
 view to open that project's folder in a terminal. Before using it, enable
 Terminal and choose a detected terminal in [Tool Settings](../settings/tools.mdx#set-up-terminal).
 
@@ -101,12 +119,6 @@ If the action reports that Terminal is disabled, enable it in **Tools**. If no
 supported terminal is available, install one in its system location and select
 **Rescan** in the Terminal drawer. See [Tool Settings](../settings/tools.mdx#set-up-terminal)
 for supported terminals and limitations.
-
-In List view, small icons beside the project name show the selected code
-editor, Git repository, and windowed-mode setting. The Godot version and last
-opened time appear below the actions. Hover an icon for its description.
-
-See [Project Badges and Tooltips](./project-badges.mdx) for the status shown on each project. See [Troubleshooting](../troubleshooting.md#project-editor-selection) when a project shows a warning.
 
 ### Install a missing editor
 
@@ -126,24 +138,15 @@ register the build instead.
   }}
 />
 
-In List view, the same warning appears beside the required Godot version. The
+In List and Compact views, the same warning appears beside the required Godot version. The
 download action remains available in the row so you can recover without
 changing views.
-
-<ThemedImage
-  className="docs-media-frame"
-  alt="Compact project row showing a missing Godot editor warning beside the required version and an install action"
-  sources={{
-    light: '/img/screenshots/screen_projects_compact_missing_editor_light.webp',
-    dark: '/img/screenshots/screen_projects_compact_missing_editor_dark.webp',
-  }}
-/>
 
 ## Reorder pinned projects
 
 Drag a pinned project's reorder handle to move it. The handle appears when you
-hover over the project or focus it with the keyboard. The new order is saved on
-this computer.
+hover over the project and stays visible while dragging. The new order is saved
+on this computer.
 
 You can also reorder with the keyboard:
 
@@ -154,17 +157,17 @@ You can also reorder with the keyboard:
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Reordering pinned projects by pointer and keyboard"
+  alt="Pinning a project and changing its order with the keyboard"
   sources={{
     light: '/img/animations/pinned-projects/pinned-projects-anim_light.gif',
     dark: '/img/animations/pinned-projects/pinned-projects-anim_dark.gif',
   }}
 />
 
-Clear any search before reordering pinned projects.
+Clear search and tag filters before reordering pinned projects.
 
 ## Related guides
 
-- [Create Your First Project](./create-project.mdx)
-- [Add an Existing Project](./add-existing-project.mdx)
+- [Create a Godot Project](./create-project.mdx)
+- [Add an Existing Godot Project](./add-existing-project.mdx)
 - [Project Settings](./project-settings.mdx)

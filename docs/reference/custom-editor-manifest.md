@@ -13,7 +13,7 @@ tags:
 
 Godot Launcher registers custom-built Godot editors from a `godotlauncher-editor-manifest.json` file.
 
-Most users should create this file from **Installs -> Custom Editor -> Create custom editor manifest**. Use this reference when you need to inspect, generate, or review a manifest manually.
+To create a manifest in the launcher, open **Installs > Custom Editor > Create custom editor manifest**. Use this reference to inspect or generate the file yourself.
 
 For the canonical machine-readable definition, see the [v1 engine manifest JSON schema](https://github.com/godotlauncher/launcher/blob/main/schemas/v1/engine-manifest.json).
 
@@ -28,10 +28,10 @@ godotlauncher-editor-manifest.json
 | Field | Type | Notes |
 | --- | --- | --- |
 | `schema_version` | number | Must be `1`. |
-| `version` | string | Unique version identifier shown to the launcher, for example `4.4-custom.1`. |
+| `version` | string | Version identifier for this build, for example `4.4-custom.1`. |
 | `name` | string | Display name shown in Godot Launcher. |
 | `base_version` | string | Godot compatibility version in `major.minor` format, for example `4.4`. |
-| `flavor` | string | Use `gdscript` for standard builds or `dotnet` for .NET builds. Custom values are accepted. |
+| `flavor` | string | Use `gdscript` for Standard builds or `dotnet` for .NET builds. Other non-empty values are accepted, but only `dotnet` enables .NET behaviour. |
 | `config_version` | number | Must be `5` for supported Godot 4 project files. |
 | `platforms` | array | One or more platform entries. |
 
@@ -41,22 +41,25 @@ godotlauncher-editor-manifest.json
 | --- | --- | --- |
 | `$schema` | string | Optional JSON schema URL for editor validation. |
 | `prerelease` | boolean | Marks the custom editor as a prerelease build. Defaults to `false`. |
-| `mono` | boolean | Deprecated compatibility field. Godot Launcher derives .NET behavior from `flavor === "dotnet"`. |
+| `mono` | boolean | Deprecated compatibility field. Godot Launcher determines .NET support from `flavor`, so this field does not override it. |
 
 ## Platform entries
 
-Each item in `platforms` must include:
+Each item in `platforms` requires `platform`, `arch`, and a `paths` object containing `editor`:
 
 | Field | Values | Notes |
 | --- | --- | --- |
 | `platform` | `windows`, `linux`, `macos` | Operating system for this editor entry. |
 | `arch` | `x64`, `arm64`, `universal` | CPU architecture. `universal` matches any architecture for the selected platform. |
 | `paths.editor` | string | Path to the editor executable or app bundle. |
-| `paths.console` | string | Optional console executable path. |
 
-Paths are resolved relative to the manifest file location.
+The optional `paths.console` field is a non-empty string containing the console executable path. Omit it if the build has no separate console executable.
+
+Relative paths are resolved from the folder containing the manifest. Absolute paths are also accepted. Use relative paths when distributing the manifest with the editor files.
 
 ## Example
+
+This Windows example includes a separate console executable. Both files must exist beside the manifest when you register it.
 
 ```json
 {
@@ -81,12 +84,12 @@ Paths are resolved relative to the manifest file location.
 }
 ```
 
-## Validation behavior
+## Validation behaviour {#validation-behavior}
 
 When registering a manifest, Godot Launcher:
 
 - Validates the manifest shape.
-- Selects the platform entry matching the current operating system and architecture.
+- Selects the first platform entry matching the current operating system and architecture.
 - Accepts `universal` as a platform architecture match.
 - Verifies that the editor path exists.
 - Verifies the optional console path when it is present.

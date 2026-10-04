@@ -1,8 +1,9 @@
 ---
 id: troubleshooting
-title: Troubleshooting
+sidebar_label: Troubleshooting
+title: Godot Launcher Troubleshooting
 slug: /troubleshooting
-description: "Resolve Godot Launcher installation, editor, project, Git, code editor, update, and system tray problems."
+description: "Troubleshoot unavailable Godot editors, Git detection, GitHub connections, terminal launches, updates, and other Godot Launcher problems."
 tags:
   - troubleshooting
   - help
@@ -11,9 +12,9 @@ tags:
 
 import ThemedImage from '@theme/ThemedImage';
 
-# Troubleshooting
+# Godot Launcher Troubleshooting {#troubleshooting}
 
-Find the problem that matches what you see, try the listed actions, then follow the linked guide when you need more detail.
+Find the symptom that matches your problem. Each section gives recovery steps and links to the relevant guide.
 
 ## Installation and startup
 
@@ -25,13 +26,13 @@ Download the installer from the official [Godot Launcher download page](https://
 2. Open **Digital Signatures**.
 3. Select the signature and confirm that Windows reports it as valid.
 
-For winget installation and upgrade problems, see [Installing Godot Launcher with winget](./platform/windows-winget.mdx#troubleshooting-tips).
+For winget installation and upgrade problems, see [Install Godot Launcher with winget](./platform/windows-winget.mdx#troubleshooting-tips).
 
 ### Linux package or startup problems
 
 - If a `.deb` installation reports missing dependencies, run `sudo apt --fix-broken install`.
 - If an AppImage does not start, confirm that FUSE is available and that the file is executable.
-- If the error mentions `chrome-sandbox` or the Chromium sandbox, see [Running Godot Launcher in No-Sandbox Mode on Linux](./platform/linux-no-sandbox.md).
+- If the error mentions `chrome-sandbox` or the Chromium sandbox, see [Fix Godot Launcher Sandbox Errors on Linux](./platform/linux-no-sandbox.md).
 
 See [Installation](./getting-started/installation.mdx) for the normal steps for each platform.
 
@@ -54,7 +55,7 @@ If no saved list is available, the launcher needs a working connection before it
 
 ### An editor download fails
 
-Check your connection and select the same Standard or .NET action again. If GitHub is limiting requests or temporarily unavailable, wait a few minutes before retrying.
+Check your connection and select the same **Standard** or **.NET** download action again. If GitHub is limiting requests or temporarily unavailable, wait a few minutes before retrying.
 
 ### An editor archive cannot be verified
 
@@ -72,15 +73,11 @@ the installation stops and partial files are removed.
 />
 
 1. Check your connection and select **Refresh** in the Install Editor drawer.
-2. Select the same Standard or .NET action again.
+2. Select the same **Standard** or **.NET** download action again.
 3. If the error continues, update Godot Launcher to the latest release and try
    again later.
 
-Do not extract or register the failed download manually. If the same official
-release continues to fail, include the release version and Godot Launcher logs when
-reporting the problem. Before sharing logs, remove project names, local paths,
-usernames, and other personal information. Never share passwords, access
-tokens, or other credentials.
+Do not extract or register the failed download manually. If the same release continues to fail, [report the problem](#still-need-help) with its version and the Godot Launcher logs.
 
 ### An editor archive or installed executable is rejected
 
@@ -88,11 +85,7 @@ The launcher stops an installation when the archive cannot be extracted
 safely or the resulting editor executable is not valid inside its managed
 install directory. Partial installation files are removed automatically.
 
-Retry the installation once. If the same official release fails again, report
-the release version, operating system, architecture, and Godot Launcher logs. Before
-sharing logs, remove project names, local paths, usernames, and other personal
-information. Never share passwords, access tokens, or other credentials. Use a
-different verified release until the problem is resolved.
+Retry the installation once. If the same release fails again, [report the problem](#still-need-help) with its version, your operating system and architecture, and the Godot Launcher logs. Use another verified release compatible with your project until the problem is resolved.
 
 ### An installed editor is unavailable
 
@@ -102,23 +95,15 @@ Open **Installs** and use the action that matches the problem:
 - **Reinstall** downloads an official release again.
 - **Remove** removes an unavailable entry from the launcher.
 
-Removing a custom editor registration does not delete its files. See [Installing a Godot Editor](./editors/install-editor.mdx) or [Custom-Built Godot Editors](./editors/custom-editors.mdx#troubleshooting) for more detail.
+Removing a custom editor registration does not delete its files. See [Install a Godot Editor](./editors/install-editor.mdx) or [Custom-Built Godot Editors](./editors/custom-editors.mdx#troubleshooting) for more detail.
 
 ## Project editor selection
 
 ### An added project needs a Godot editor
 
-When the project has no saved editor metadata, Godot Launcher reads its major.minor version from `project.godot` and checks for C# project files to choose the Standard or .NET flavour. If it can identify the version, it lists matching official stable editors that are installed or available to download for your platform and recommends the newest. If no stable option is available, it lists only the newest matching prerelease. Matching registered custom editors appear below a divider after the official options.
+Choose an installed or downloadable editor from the import review. If you need to restore or register an editor first, choose **Add With Missing Editor**. The project is added, but **Edit in Godot** remains unavailable until its editor is available.
 
-Choose an installed editor to use it immediately, or choose a downloadable editor to add the project first and download the editor in the background. If the download fails, the project retains the exact editor you selected and stays marked as missing its editor until you retry or repair the installation.
-
-When a project includes `.godotlauncher`, its requested editor remains selected unless you explicitly choose a different available editor. You can also choose **Add With Missing Editor** or **Cancel**. Adding with a missing editor does not change `project.godot`.
-
-For an editor that is not installed, the available actions are:
-
-- Download an available official editor.
-- Use an available installed editor.
-- Add the project with a missing editor.
+If the editor download fails, the selected version stays saved. Select **Install required editor** on the project to retry. For a custom build, restore its location or [register the editor](./editors/custom-editors.mdx).
 
 <ThemedImage
   className="docs-media-frame"
@@ -129,7 +114,7 @@ For an editor that is not installed, the available actions are:
   }}
 />
 
-If you add the project without an editor, **Edit in Godot** remains unavailable until you install, register, or choose a compatible editor.
+See [Add an Existing Godot Project](./projects/add-existing-project.mdx#choose-the-godot-editor) for how the review chooses compatible editors, or [Change Project Editor Version](./editors/change-project-editor.md) to choose a replacement after import.
 
 ### A project card shows an editor warning
 
@@ -137,7 +122,23 @@ If you add the project without an editor, **Edit in Godot** remains unavailable 
 - If `project.godot` is missing, restore the project folder or remove the entry and add the project again from its current location.
 - If the project needs a custom build, restore that build or register its replacement.
 
-Godot Launcher does not open a project with a different major Godot version. Follow the [official Godot upgrading guide](https://docs.godotengine.org/en/stable/tutorials/migrating/upgrading_to_godot_4.html) before changing major versions.
+Godot Launcher can save an editor change only within the project's current Godot major version, even if the picker lists a different major version. Choose a release from the current major version and save again. See [Change Project Editor Version](./editors/change-project-editor.md) for the steps.
+
+To migrate a Godot 3 project to Godot 4, follow the [official Godot upgrading guide](https://docs.godotengine.org/en/stable/tutorials/migrating/upgrading_to_godot_4.html). Changing the editor in Godot Launcher does not perform this migration.
+
+## Terminals
+
+### Godot cannot open in a terminal
+
+On Linux, open **Settings > Tools > Terminal**, select **Rescan**, and choose **Automatic** or an available terminal. Retry opening the project. See [Launch Godot in a Terminal](./projects/launch-godot-in-terminal.mdx#if-the-terminal-cannot-open) for platform behaviour and recovery.
+
+If output stops after **Reload Current Project** in Godot, close Godot and reopen the project from Godot Launcher.
+
+### Open Terminal Here does not work
+
+Use **Open terminal settings** in the error message. Enable **Enable terminal for project folders** if it is off, then rescan or choose another available terminal. If the project folder is missing, restore it before retrying.
+
+For an unsupported saved configuration, follow [Reset unsupported terminal settings](./settings/tools.mdx#reset-unsupported-terminal-settings).
 
 ## Code editors
 
@@ -145,8 +146,9 @@ Godot Launcher does not open a project with a different major Godot version. Fol
 
 1. Confirm that the code editor is installed.
 2. Open **Settings > Code Editors** and select **Rescan** on its card.
-3. If it is installed outside the usual locations, select **Edit** and choose its executable or application bundle.
-4. Keep the editor enabled if you want to choose it for new projects.
+3. If it is installed outside the usual locations, enable its card, select **Edit**, choose its executable or application bundle, and select **Save**.
+
+See [Code Editor Settings](./settings/code-editors.mdx#use-a-custom-executable-path) for custom paths.
 
 ### A selected code editor is unavailable when opening a project
 
@@ -167,7 +169,7 @@ Godot can still open the project. Choose the result you want:
 
 ### Godot does not open scripts in the selected code editor
 
-Open **Project Settings > Code Editor** and select **Reset config**. This restores the project's code editor setup without changing the global Code Editor Settings.
+Open **Project Settings > Code Editor**, select **Reset config**, then confirm with **Reset config**. This restores the project's code editor setup without changing the global Code Editor Settings.
 
 If the launcher cannot read a managed `.vscode` file, it keeps the original as a timestamped `.bad` copy and creates a valid replacement. The warning lists the recovered files so you can compare or restore your custom content.
 
@@ -177,22 +179,19 @@ See [Visual Studio Code Setup](./tools/vscode-setup.md) or [VSCodium Setup](./to
 
 ### Git is not found
 
-Install Git, then open **Settings > Tools** and select **Rescan tools**. See [Installing Git](./tools/install-git.md) for the normal setup.
+Install Git, then open **Settings > Tools** and select **Rescan Git** beside Git. Confirm that its status changes to **Available**. See [Install Git for Godot Launcher](./tools/install-git.md) for installation steps.
 
 ### Git needs a name and email
 
-The first commit for a new project needs an author identity. Choose:
+Select **Add Git identity** and enter the missing name or email, or select **Skip initial commit** to create the local project without a first commit. Skipping the commit also prevents GitHub publishing.
 
-- **Add Git identity** to enter the missing values. Save them for this project only or for all repositories on the computer.
-- **Skip initial commit** to create the project and repository without the first commit.
-
-You can create the first commit later after configuring Git. See [Using Git With Godot Launcher](./tools/using-git-with-godot-launcher.mdx) for the files prepared by the launcher.
+See [Choose a Git identity](./tools/using-git-with-godot-launcher.mdx#choose-a-git-identity) for where the identity is saved and how to configure it later.
 
 ### A new project is inside another Git repository
 
-Before creating the project, the launcher identifies the parent repository and asks whether you want to continue. If you continue, it creates the project without initialising another repository, changing Git LFS settings in the parent, or publishing to GitHub. The final message lists the actions that were skipped.
+Cancel the warning and choose a location outside the parent repository if you want a separate repository or want to publish the new project to GitHub.
 
-Cancel the warning and choose a location outside the parent repository if you want the launcher to create and publish a standalone repository. See [Create Your First Project](./projects/create-project.mdx#choose-the-project-folder) for the warning and completion states.
+If you continue at the current location, the launcher creates the project but skips Git initialisation, Git LFS setup, and GitHub publishing. See [Choose the project folder](./projects/create-project.mdx#choose-the-project-folder) for this warning.
 
 ### GitHub publishing is unavailable
 
@@ -205,9 +204,9 @@ You can turn off **Publish to GitHub** and create the project locally while reso
 
 ### A project was created locally but GitHub publishing failed
 
-The local project is complete and safe. Use the recovery dialog to correct the owner or repository name and retry, or select **Continue locally**.
+The local project remains available. Use the recovery dialog to correct the owner or repository name and retry, or select **Continue locally**.
 
-After an ambiguous network failure, use **Check and retry**. The launcher checks the exact intended repository before it makes another creation request. It may ask whether to use an exact empty repository that GitHub already created. The launcher never deletes that remote automatically.
+After an ambiguous network failure, use **Check and retry**. If GitHub already created an empty repository at the selected owner and name, the launcher may ask whether to use it. The launcher does not delete that remote repository automatically.
 
 See [Publish a new project to GitHub](./projects/create-project.mdx#publish-a-new-project-to-github) for the complete workflow.
 
@@ -257,7 +256,7 @@ Open **Settings > Tools** and confirm that Git is available. The local file opti
 
 ### No GitHub repositories are available
 
-Select **Manage accounts and access** beneath the repository list. Connect or
+Select **Manage accounts and access** above the repository list. Connect or
 reconnect an account, or use **Manage repository access** to allow the GitHub
 App to access the repository. Return to the launcher and refresh the list. The
 connection flow keeps you in the import task. You can also manage connections
@@ -265,21 +264,27 @@ in **Settings > Connections**.
 
 ### The clone destination is rejected
 
-Choose a parent folder that the launcher can create or write to, and use a project folder name that does not already exist. The launcher does not overwrite an existing destination.
+Choose a parent folder that the launcher can create or write to. The repository's destination folder must not already exist; choose a different parent folder if it does. The launcher does not overwrite an existing destination.
 
 ### Submodule initialisation stops
 
-The launcher initialises only anonymous public submodules declared with absolute HTTPS URLs. It stops before requesting a private, credentialed, relative, redirected, non-HTTPS, or private-network source.
+Check the activity list for the failed submodule. The launcher supports anonymous public submodules with absolute HTTPS URLs. Private, credentialed, relative, redirected, non-HTTPS, and private-network sources are not supported.
 
-Review the activity list to find the submodule where initialisation stopped. You can retry, continue without the remaining submodules, or close the modal and finish the partially initialised clone with Git. The launcher does not remove submodules that completed before the failure.
+Retry a temporary failure, continue without the remaining submodules, or close the dialog and finish the clone with Git. Submodules that completed before the failure remain in place.
 
-If you continue without submodules, projects or GDExtension files stored inside them may be unavailable. See [Import a Git Repository](./projects/import-repository.mdx#initialise-public-submodules) for the supported workflow.
+If you continue without submodules, projects or GDExtension files stored inside them may be unavailable. See [Import a Godot Project from Git](./projects/import-repository.mdx#initialise-public-submodules) for the supported workflow.
 
 ### No Godot projects were found
 
-Open the retained clone and confirm that it contains a regular `project.godot` file. The launcher skips symlinks, generated and dependency folders, malformed files, and repositories beyond its safe scan limits. If the project is inside a submodule, initialise the supported submodules before continuing to project review.
+Open the retained clone and confirm that it contains a regular `project.godot` file. The scan skips symlinks, generated and dependency folders, malformed files, and locations beyond its scan limits. If the project is inside a submodule, initialise the supported submodules before continuing to project review.
 
-Select **Delete clone and close** if you do not need the retained repository and no project from it was added. If deletion fails, close applications using the folder and try again. The launcher refuses deletion if the destination has been replaced since the import.
+:::danger Deleting a clone removes its files permanently
+
+**Delete clone and close** permanently removes the cloned folder, including files you added. Copy out any work you need first. See [Recover a retained clone](./projects/import-repository.mdx#recover-a-retained-clone) for the available choices.
+
+:::
+
+This action is available only when no project from the clone was added. If deletion fails, inspect the remaining files and close applications using the folder before retrying. If the folder has been replaced since import, the launcher will not delete it; inspect its contents before removing it yourself.
 
 ### Only some projects were added
 
@@ -287,7 +292,7 @@ Review the result shown for each project. For a conflicting name, return to the 
 
 Select **Review and retry** to try failed projects again. Projects that were added successfully remain added. When at least one project was added, the launcher keeps the clone because the registered project depends on that folder.
 
-See [Import a Git Repository](./projects/import-repository.mdx) for the complete workflow.
+See [Import a Godot Project from Git](./projects/import-repository.mdx) for the complete workflow.
 
 ## System tray
 
@@ -306,17 +311,17 @@ System tray support varies across Linux desktops. When the launcher cannot use t
   }}
 />
 
-The saved preference does not change. The launcher can use it again when a tray becomes available. See [System Tray](./settings/system-tray.mdx) for normal tray behavior.
+The saved preference does not change. The launcher can use it again when a tray becomes available. See [System Tray](./settings/system-tray.mdx) for normal tray behaviour.
 
 ## Updates and platform options
 
-- For launcher update download or retry problems, see [Manage Godot Launcher Updates](./updates/manage-launcher-updates.mdx#errors-and-retry).
-- For manual updates on rpm-ostree systems, see [Manage Godot Launcher Updates](./updates/manage-launcher-updates.mdx#manual-update-required-on-rpm-ostree).
-- For Windows editor link or UAC problems, see [Godot Launcher Symlink Support on Windows](./platform/windows-symlink.md#troubleshooting-godot-launcher-symlink-errors).
-- For winget package problems, see [Installing Godot Launcher with winget](./platform/windows-winget.mdx#troubleshooting-tips).
+- For launcher update download or retry problems, see [Update Godot Launcher](./updates/manage-launcher-updates.mdx#errors-and-retry).
+- For manual updates on rpm-ostree systems, see [Update Godot Launcher](./updates/manage-launcher-updates.mdx#manual-update-required-on-rpm-ostree).
+- For Windows editor link or UAC problems, see [Windows editor links](./platform/windows-symlink.md#troubleshooting-godot-launcher-symlink-errors).
+- For winget package problems, see [Install Godot Launcher with winget](./platform/windows-winget.mdx#troubleshooting-tips).
 
 ## Still need help?
 
-- Visit [Help & Support](./support/help-and-support.md) for official links.
-- Join the [community Discord](./support/community.md) to ask questions and share context.
-- Open a GitHub issue from the launcher project if you have a reproducible bug.
+Use [Help & Support](./support/help-and-support.md) to report a reproducible bug, or ask the [community](./support/community.md). Include the Godot Launcher version, operating system, steps to reproduce the problem, and any relevant editor version or error message.
+
+Before sharing logs, remove project names, local paths, usernames, and other personal information. Never share passwords, access tokens, or other credentials.

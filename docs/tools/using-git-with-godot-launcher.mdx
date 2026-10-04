@@ -1,7 +1,8 @@
 ---
 id: using-git
+sidebar_label: Using Git
 title: "Using Git With Godot Launcher"
-description: "Prepare Git and Git LFS for Godot projects and understand what Godot Launcher adds."
+description: "Set up Git for Godot projects, choose a commit identity, and understand Godot Launcher's Git LFS setup and generated Git files."
 slug: "/integrations/using-git-with-godot-launcher"
 tags:
   - guides
@@ -14,16 +15,31 @@ import ThemedImage from '@theme/ThemedImage';
 
 # Using Git With Godot Launcher
 
-Git keeps a history of changes to your project. Godot Launcher can prepare Git when you create a project or add a repository later from Project Settings.
+Git keeps a history of changes to your project. Godot Launcher can set up a repository when you create a project or add Git later from **Project Settings**. First, [install Git](./install-git.md) and check that it is **Available** in **Settings > Tools**.
 
 The result depends on when you add Git:
 
-- A **new project** gets the recommended Git files, a `main` branch, and an initial commit.
-- An **existing project** gets an empty repository when it is not already inside a Git work tree. The launcher does not change or commit its files.
+- A **new project** gets `.gitignore` and `.gitattributes`. If you enable Git and create a standalone repository, it also gets a `main` branch and an initial commit, unless you choose to skip the commit.
+- An **existing project** gets an empty repository if it is not already inside a Git repository. Its project files are left unchanged and uncommitted.
+
+:::danger Godot 4.0 export credentials
+
+Godot 4.0 may store sensitive credentials in `export_presets.cfg`. The generated `.gitignore` does not exclude this file by default. Before committing it, read the compatibility warning in `.gitignore` and uncomment the `export_presets.cfg` rule if you use Godot 4.0.
+
+If the file is already tracked, run `git rm --cached -- export_presets.cfg` to remove it from Git's index while keeping the local file, then commit that removal with the `.gitignore` change. Earlier copies remain in Git history. Rotate any credentials that may have been committed.
+
+See Godot's [version control guidance](https://docs.godotengine.org/en/stable/tutorials/best_practices/version_control_systems.html#files-to-exclude-from-vcs) for the differences between engine versions.
+
+:::
 
 ## Set up Git for a new project
 
-Open **Projects > New Project** and keep **Initialize Git Repository** enabled.
+1. Open **Projects > New Project** and enter the project details.
+2. Keep **Initialize Git Repository** enabled.
+3. To track assets with Git LFS, enable **Use Git LFS** before creating the project.
+4. Select **Create Project** and choose a Git identity if prompted.
+
+For the full creation workflow, see [Create a New Godot Project](../projects/create-project.mdx).
 
 <ThemedImage
   className="docs-media-frame"
@@ -34,23 +50,35 @@ Open **Projects > New Project** and keep **Initialize Git Repository** enabled.
   }}
 />
 
-The launcher creates `.gitignore` and `.gitattributes`, initializes the repository on a `main` branch, and creates an `Initial commit`.
+The first commit is named `Initial commit`. If the selected folder is inside another repository, a confirmation explains that no separate repository or initial commit will be created.
 
 ### Track large assets with Git LFS
 
-When both Git and Git LFS are available, enable **Use Git LFS for large assets** before creating the project. The help panel lists the fixed policy's tracked patterns for 3D models, images, audio, fonts and icons, and Godot binary resources.
+[Git LFS](https://git-lfs.com/) stores matching files as small pointers in Git and keeps their content separately. Your hosting provider's storage and bandwidth limits may apply.
 
-Godot Launcher runs the repository-local Git LFS setup, adds those patterns to `.gitattributes`, and verifies the result before it can rename the branch or create the initial commit. The existing text normalization rule remains in the file. If setup fails or the project path becomes part of another work tree, project creation stops and the launcher rolls back only the files it created.
+When Git and Git LFS are both **Available**, enable **Use Git LFS** before creating the project. Its help panel lists the tracked patterns for 3D models, images, audio, fonts and icons, and Godot resources. The patterns match file types, regardless of file size.
 
-Git LFS replaces matching files in Git with small pointer files while their content is stored by the configured Git LFS host. The launcher selects file types, not individual files by size, and does not manage your host's storage or bandwidth allowance.
+Godot Launcher sets up Git LFS in the new repository and adds the patterns to `.gitattributes` before the first commit. It keeps the existing text line-ending rule. If LFS setup fails, project creation stops and the launcher attempts to remove only the files it created. Follow any recovery message before trying again.
 
-This option applies only when Godot Launcher creates a new, standalone repository. It does not run for an existing repository, parent repository, submodule, or linked worktree, and it does not migrate tracked files or rewrite history.
+:::info New repositories only
 
-The first commit needs your Git name and email. Godot Launcher can use Git's global identity or write an explicit identity only to the new repository.
+This option applies only to a new, standalone repository. It does not configure an existing repository, parent repository, submodule, or linked worktree, migrate tracked files, or rewrite history. For an existing repository, follow the [Git LFS documentation](https://git-lfs.com/) and review your repository history and hosting limits first.
 
-Open [Settings > Tools > Git](../settings/tools.mdx#manage-git-identities) to inspect or edit the global Git identity and save one separate project identity preset. A preset has no effect until you confirm it during project creation or enable automatic use for new repositories. Automatic use writes the preset as a repository-local identity before the initial commit, so it does not replace the global identity.
+:::
 
-If no usable identity is available, you can enter one and choose whether Godot Launcher should ask again, save it as the automatic local preset, or write it to Git's global configuration. You can also skip the first commit. See [Troubleshooting](../troubleshooting.md#git) for this recovery flow.
+## Choose a Git identity
+
+[Git records a name and email](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup#_your_identity) with each commit. Godot Launcher can use an existing identity or ask you to provide one before the initial commit.
+
+| Identity | Where it applies |
+| --- | --- |
+| Global Git identity | Git uses this name and email when a repository has no local override. Saving it changes Git's global configuration. |
+| Repository-local identity | Applies to commits in one repository and overrides the global identity there. |
+| Project identity preset | Saved by Godot Launcher for use in new repositories. It changes no Git configuration until applied. |
+
+Use [Settings > Tools > Git](../settings/tools.mdx#manage-git-identities) to edit the global identity or save a project identity preset. With **Use automatically for new repositories** enabled, the preset becomes the new repository's local identity before the initial commit. Otherwise, you can review it during project creation.
+
+If no usable identity is available, select **Add Git identity**. Enter your **Name** and **Email**, choose where to save them and how to handle future projects, then select **Save and create project**. You can instead select **Skip initial commit** and commit the project later. See [Git troubleshooting](../troubleshooting.md#git) if the identity or commit cannot be saved.
 
 ## Understand the generated Git files
 
@@ -63,31 +91,33 @@ The generated `.gitignore` is designed for Godot 4.3 and later. It ignores:
 
 The file also contains commented compatibility rules for older Godot project layouts. Enable only the rules your project needs.
 
-The generated `.gitattributes` treats detected text files as text and normalizes their repository line endings to LF.
-
-:::warning Godot 4.0 and export credentials
-Godot 4.0 may store sensitive credentials in `export_presets.cfg`. The generated template does not ignore this file by default. Read the compatibility warning in `.gitignore` and uncomment its `export_presets.cfg` rule before committing that file when it can contain credentials.
-
-If the file is already tracked, follow the `git rm --cached -- export_presets.cfg` guidance in the generated file. Removing it from the current index does not remove it from Git history. Rotate credentials that may already have been committed.
-:::
+The generated `.gitattributes` treats detected text files as text and normalises their repository line endings to LF.
 
 ## Add Git to an existing project
 
 1. Open **Projects**.
-2. Click the project's settings button.
+2. Select **Project settings** on the project card.
 3. Open **Source Control**.
-4. Click **Initialize Git**.
+4. Select **Initialize Git**.
 
 If the project is not already inside a Git work tree, this action creates an empty Git repository in the project folder. It does not add template files, change the branch name, or create a commit.
 
-Project Settings does not configure Git LFS. To add or migrate Git LFS in an existing repository, follow the Git LFS documentation and review the repository's history and hosting limits before making changes.
+This action does not configure Git LFS. See [Track large assets with Git LFS](#track-large-assets-with-git-lfs) before adding it to an existing repository.
 
-After setup, Source Control remains selected and shows a checked **Active** state so you can see that Git is ready for the project.
+After setup, **Source Control** shows **Active**.
 
-The **Commit identity** section shows the effective name and email, including values inherited from Git's wider configuration. Select **Update** to write both values as a repository-local identity when the project is the exact repository root. Parent repositories and linked worktrees remain read-only in Godot Launcher.
+The **Commit identity** section shows the name and email Git will use, including inherited values. To change them:
+
+1. Select **Update** in **Commit identity**.
+2. Enter **Name** and **Email**.
+3. Select **Save identity**.
+
+This saves an identity local to the repository. Editing is available only when the project folder is the repository root. Identities inherited from a parent repository or used by a linked worktree are read-only here.
 
 :::info Existing repositories
-If the project already belongs to a repository, including a parent repository, linked worktree, or submodule, Godot Launcher recognises the existing work tree and makes no Git setup changes. It does not create a nested repository, add metadata, change Git identity, rename a branch, stage files, or create a commit.
+
+If the project already belongs to a repository, including a parent repository, linked worktree, or submodule, Godot Launcher recognises it. Initialisation makes no changes to its files, identity, branch, or commits.
+
 :::
 
 <ThemedImage

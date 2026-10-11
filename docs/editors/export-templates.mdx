@@ -13,14 +13,14 @@ import ThemedImage from '@theme/ThemedImage';
 
 # Manage Godot Export Templates {#export-templates}
 
-Use Godot Launcher to download or import export templates and reuse them across projects. Each project keeps its own editor settings. Open **Export Templates** in the sidebar to manage:
+Use Godot Launcher to download or import export templates and reuse them across projects. Open **Export Templates** in the sidebar to manage:
 
 - **Official** collections: choose which files to install for a Godot version and edition. Projects using **Official** share those files.
 - **Imported** builds: import a complete TPZ package, give it a name and select it for the projects that need it.
 
 :::info Installed files and platform coverage
 
-The displayed sizes and file counts include files installed through Godot and system metadata. Platform badges are based on filenames; they do not guarantee that every template for that platform is installed. An Official collection can contain only the files you need, and you can add more later.
+The totals include both Official collections and Imported builds. Platform badges are based on filenames; they do not guarantee that every template for that platform is installed. You can install only the Official files you need and add more later.
 
 :::
 
@@ -45,21 +45,25 @@ Saving a selection that removes installed files permanently deletes those files.
 2. Select the template files you need. Review the files to add or remove.
 3. Choose **Save changes**. You can also open **Manage templates** on an existing collection to change its installed files.
 
-Standard and .NET collections are separate. Templates for one version and edition do not supply another. For Godot's export presets and platform requirements, see [Exporting projects](https://docs.godotengine.org/en/stable/tutorials/export/exporting_projects.html).
+If the server cannot provide individual files, choose **Download full package** to download and install the complete package for that version and edition. Existing installed files, including extra files, are retained. The drawer shows download and extraction progress. Use **Cancel** while it is available. A cancelled download leaves installed files unchanged.
+
+After cancellation, choose **Retry**. After a failure, follow the displayed recovery action: **Retry**, **Refresh file list**, or **Choose another version**.
+
+Templates must match the project's Godot version and edition (Standard or .NET). For Godot's export presets and platform requirements, see [Exporting projects](https://docs.godotengine.org/en/stable/tutorials/export/exporting_projects.html).
 
 :::warning Shared changes affect other projects
 
-Adding or removing Official files affects every project using that version and edition's Official collection, including Godot editors opened outside Godot Launcher. This also applies when you manage Official files from **Project Settings > Export Templates**.
+Adding or removing Official files affects every project using that collection, including Godot editors opened outside Godot Launcher.
 
 :::
 
 ## Import a named build
 
 1. Choose **Import .tpz**, then **Choose TPZ file**.
-2. Select the package and choose **Next**. Godot Launcher checks it and shows its version, edition, platform badges and file count.
+2. Select the package and choose **Next**. Godot Launcher checks the package and shows its version, edition and file count. Expand **Package details** to review the platform badges and files.
 3. Enter a **Name**, such as `Cloud Build`, then choose **Save**.
 
-The named build appears in **Imported**. Use its folder action to view the files. The original TPZ archive stays where it is.
+The named build appears in **Imported**. Choose **Open template folder** to view its files. The original TPZ archive stays where it is.
 
 You can import several builds for the same Godot version and edition. Importing a build does not change any project's saved selection. [Select the build](#select-a-projects-build) for each project that needs it.
 
@@ -74,13 +78,15 @@ You can import several builds for the same Godot version and edition. Importing 
 
 :::warning Use a trusted package source
 
-Package checks do not establish who created a build or whether it supports encryption or another custom capability. The build name is your description. Import packages from a source you trust.
+Import packages from a source you trust. Package checks do not verify who created a build or whether it supports custom capabilities such as encryption.
 
 :::
 
 Imported builds are managed as complete packages. Their individual files cannot be added or removed through Godot Launcher. See [Rename, replace or delete an import](#rename-replace-or-delete-an-import) to change a package.
 
 ## Select a project's build
+
+If the project still has local templates, [migrate them](#connect-existing-projects) before selecting a build.
 
 Open **Project Settings > Export Templates** and choose an **Export template build** for the selected Godot version and edition:
 
@@ -91,11 +97,9 @@ Open **Project Settings > Export Templates** and choose an **Export template bui
 
 Choose **Update** to save. Orange indicators mark pending changes. Closing the drawer with unsaved changes offers to discard them or go back.
 
-The project uses the selected build directly from shared storage. Switching back to **Official** uses the shared Official collection again. If the project still has local templates awaiting migration, complete the migration review first.
-
 :::info Choices stay on this computer
 
-Build choices are saved separately for each Godot version and edition. They are not included in the project's portable `.godotlauncher` metadata. Custom editor environments are managed separately; manage their export templates in Godot.
+Build choices are saved on this computer for each Godot version and edition. They are not included in the project's portable `.godotlauncher` metadata. For custom Godot editors, manage export templates in Godot.
 
 :::
 
@@ -103,9 +107,7 @@ Build choices are saved separately for each Godot version and edition. They are 
 
 A build with missing files is marked **Unavailable** and cannot be selected. If it was already selected, its name stays visible with a warning. Godot Launcher does not silently switch the project to Official.
 
-Choose **Open Export Templates**, then follow the [replacement steps](#rename-replace-or-delete-an-import) to restore the build's package. Alternatively, choose another matching build or **Official** in Project Settings and select **Update**. If Official has no templates for that version yet, download the required files before exporting.
-
-If files disappear before you save a changed selection, the build stays visible with a warning so you can restore its files or choose another build.
+Choose **Open Export Templates** and [replace the TPZ package](#rename-replace-or-delete-an-import) to restore its files. Alternatively, choose another matching build or **Official** in Project Settings, then choose **Update**. Download any missing Official templates before exporting.
 
 <ThemedImage
   className="docs-media-frame"
@@ -118,44 +120,53 @@ If files disappear before you save a changed selection, the build stays visible 
 
 ## Connect existing projects
 
-Official editor environments with no local export template files use shared templates automatically. For projects with existing local files, open **Migrate projects** from **Export Templates** and review the project and its versions before choosing how to use those files.
-
-:::danger Migration removes the local originals
-
-After a successful migration, the original local files are permanently removed and no backup is retained. **Switch to shared export templates** keeps the shared copy when a filename already exists, so a different local file with that name is lost. **Delete local export templates and use shared** removes local files without copying them. Keep your own copy before migrating if you may need the originals later.
-
-:::
+Projects using official Godot editors automatically use shared templates when they have no local export template files. For projects with existing local files, open **Migrate projects** from **Export Templates**.
 
 | Choice | What happens |
 | --- | --- |
-| **Switch to shared export templates** | Adds missing filenames to the shared collection, keeping the shared copy when a filename already exists. The project then uses shared templates. |
-| **Delete local export templates and use shared** | Removes the local files without adding them to shared storage. The project uses Official, even if its version has no templates installed yet. |
-| **Save as imported templates** | Saves each local version as a named imported package and uses the matching import for the project. Shared Official files stay unchanged. |
+| **Keep current templates** | Moves each local version folder to a named Imported build and keeps the project using its files. Shared Official files stay unchanged. |
+| **Share templates** | Adds missing files to the shared collection, keeps existing shared files, and connects the project to it. Local copies are then removed. |
+| **Use shared templates** | Connects the project to shared Official templates and removes its local files without copying them. You may need to download missing templates before exporting. |
+| **Decide later** | Leaves this version's local files and choice unchanged. Return to it from Export Templates when ready. |
+
+:::danger Share and Use shared remove local files
+
+**Share templates** and **Use shared templates** permanently remove the listed local files without saving a separate copy. If a shared file has the same name but different contents, **Share templates** keeps the shared file and removes the local one. Keep your own copy before choosing either option if you may need those originals later.
+
+:::
+
+1. Choose **See options**, then **Choose for projects**.
+2. Choose how to handle each project's templates. **Keep current templates** is selected initially. Enable **Choose for each version** to make separate decisions for a project's versions.
+3. Choose **Review choices**. Godot Launcher checks the files and lists what will happen to each version. Nothing changes during this review.
+4. Close Godot editors and stop exports. If you selected **Share templates** or **Use shared templates**, acknowledge the removal of the listed local files.
+5. Choose **Move templates** and keep Godot Launcher open until the move finishes. Check the result for each version, then choose **Done** or **Open Export Templates**.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Migration review showing choices for a project's existing local export templates"
+  alt="Migration wizard showing project template versions and choices to keep, share or defer their files"
   sources={{
     light: '/img/screenshots/screen_export_templates_project_migration_light.webp',
     dark: '/img/screenshots/screen_export_templates_project_migration_dark.webp',
   }}
 />
 
-:::warning Review custom templates before migrating
+:::warning Review custom templates before sharing
 
-A folder's location or matching filenames do not prove that its files are official. Use **Save as imported templates** when you need to preserve a custom package independently of the shared collection.
+A folder's location or matching filenames do not prove that its files are official. Choose **Keep current templates** to retain a custom version independently of the shared collection.
 
 :::
 
-Choose an option for each project, then select **Apply changes** beside it. Complete any further review the launcher shows.
+Choose **Finish later** to close the wizard before starting a move. Your local files stay unchanged, and you can return from Export Templates.
 
-Use **Finish later** to leave undecided projects pending and return to them from Export Templates. If an operation fails, review its result before retrying: files already added to the shared collection can remain there while the project's original local files are retained.
+Use **View migration** to reopen progress or results after a window reload. **Try failed versions again** opens a new review for only the failed versions.
+
+If a move is interrupted, follow the [recovery steps](#refresh-and-recover) before starting another migration.
 
 ## Rename, replace or delete an import
 
 :::warning Close affected editors before changing templates
 
-Close affected Godot editors and stop exports before changing connections, replacing packages or deleting templates. Other tools can still change the files while a template operation is running.
+Close affected Godot editors and stop exports before changing connections, replacing packages or deleting templates.
 
 :::
 
@@ -169,7 +180,9 @@ A successful replacement permanently removes the previous package files. Deletin
 
 Use **Replace TPZ** to replace the whole package. The replacement must have the same Godot version and edition. Projects using the build will use its replacement files.
 
-Use **Delete imported build** to remove a package. If projects use it now or remember it for another editor version, the confirmation lists those references. Choose a matching replacement or **Official**, then choose **Switch and delete**. Only the affected version's saved choice changes.
+Use **Delete imported build** to remove a package. If no projects use or remember the build, confirm with **Delete imported build**.
+
+If projects use it now or remember it for another editor version, expand **Affected projects** to review the listed projects. Choose a matching replacement or **Official**, then choose **Switch and delete**. Only the affected version's saved choice changes.
 
 ## Change the Godot export template location {#move-template-storage}
 
@@ -191,20 +204,25 @@ To move Godot export templates to another folder or drive, open **Settings > Exp
 
 :::info Godot's default path stays the same
 
-Godot Launcher relocates the stored Official files while keeping a connection at Godot's default template path. Project connections are updated as part of the move. Open projects through Godot Launcher to keep using their saved template choices.
+Godot's default template path continues to work after moving Official files. Open projects through Godot Launcher to use their saved template choices.
 
 Use **Move back to Godot's default location** to return relocated Official files. Changing the editor install location does not move template storage.
 
 :::
 
-You can cancel while the move offers **Cancel**. If the selected drive is unavailable, reconnect it and retry. If an interrupted move requires recovery, close Godot and use **Recover files** before trying another move. For other storage errors, check the reported location and permissions before retrying.
+Use **Cancel** while it is available. If a move is interrupted, follow the [recovery steps](#refresh-and-recover) before trying another move.
 
 ## Refresh and recover
 
-Visible template views and open build selectors refresh when you return to the launcher window. Expanded folders and unsaved file selections are preserved. You can also use **Refresh** after external file changes.
+Template views and open build selectors refresh when you return to Godot Launcher. Expanded folders and unsaved selections are preserved. You can also choose **Refresh** after external file changes.
 
-If an interrupted template operation needs attention, close Godot and use **Recover files**. If recovery cannot finish because files have changed or a drive is missing, restore access and inspect the reported folders before retrying.
+Recovery buttons appear only when an interrupted operation needs attention. Close Godot editors and stop exports, then use the button shown:
 
-**Recover files** handles interrupted operations. It cannot restore files permanently removed by a completed migration, replacement or deletion.
+- **Recover files** in **Export Templates** or **Settings > Export Templates**.
+- **Recover interrupted move** in the migration wizard.
+
+If recovery fails, reconnect any missing drive and check access to the project's folder and the template storage locations shown in **Settings > Export Templates**, then retry.
+
+Recovery cannot restore files permanently deleted by a completed operation.
 
 See [Storage Paths and Files](../reference/storage-paths.md#shared-export-templates) for default locations and [Godot Editor Settings per Project](./editor-settings.mdx) for editor settings.

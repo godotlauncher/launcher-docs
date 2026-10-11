@@ -45,9 +45,9 @@ Changing the editor install location does not move export templates. Use the tem
 
 :::
 
-In the project's editor environment, `editor_data/export_templates` connects to the shared collection when **Official** is selected. For a selected imported build, it contains a version link to that build. Choices for other editor versions are remembered, but only the current editor's imported build is connected. Other `editor_data` contents remain separate.
+In the project's editor environment, `editor_data/export_templates` can connect to the shared Official collection or contain a separate connection for each migrated version. Each migrated version uses its selected Official collection or Imported build. Versions left for later keep their local folders, and other `editor_data` contents remain separate.
 
-Some project environments also have `editor_data/launcher_export_templates/official` for their managed Official connection. Leave these connections under the launcher's control; use the migration review for existing local template files.
+Some older project environments use `editor_data/launcher_export_templates/official` to hold their template folders and version connections. Leave these connections under the launcher's control; use the migration review for existing local template files.
 
 See [Export Templates](../editors/export-templates.mdx) for downloads, migration, build selection, and storage moves.
 

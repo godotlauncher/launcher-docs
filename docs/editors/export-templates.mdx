@@ -45,6 +45,8 @@ Saving a selection that removes installed files permanently deletes those files.
 2. Select the template files you need. Review the files to add or remove.
 3. Choose **Save changes**. You can also open **Manage templates** on an existing collection to change its installed files.
 
+If the server cannot provide individual files, choose **Download full package** to download and install the complete package for that version and edition. Existing installed files, including extra files, are retained. The drawer shows download and extraction progress. Use **Cancel** while it is available, or **Retry** after a failed or cancelled download. A cancelled download leaves installed files unchanged.
+
 Standard and .NET collections are separate. Templates for one version and edition do not supply another. For Godot's export presets and platform requirements, see [Exporting projects](https://docs.godotengine.org/en/stable/tutorials/export/exporting_projects.html).
 
 :::warning Shared changes affect other projects
@@ -118,38 +120,47 @@ If files disappear before you save a changed selection, the build stays visible 
 
 ## Connect existing projects
 
-Official editor environments with no local export template files use shared templates automatically. For projects with existing local files, open **Migrate projects** from **Export Templates** and review the project and its versions before choosing how to use those files.
+Official editor environments with no local export template files use shared templates automatically. For projects with existing local files, open **Migrate projects** from **Export Templates**.
 
-:::danger Migration removes the local originals
-
-After a successful migration, the original local files are permanently removed and no backup is retained. **Switch to shared export templates** keeps the shared copy when a filename already exists, so a different local file with that name is lost. **Delete local export templates and use shared** removes local files without copying them. Keep your own copy before migrating if you may need the originals later.
-
-:::
+1. Choose **See options**, then **Choose for projects**.
+2. Choose how to handle each project's templates. **Keep current templates** is selected initially. Enable **Choose for each version** to make separate decisions for a project's versions.
+3. Choose **Review choices**. Godot Launcher checks the files and lists what will happen to each version. Nothing changes during this review.
+4. Close Godot editors and stop exports. If you selected **Share templates** or **Use shared templates**, acknowledge the removal of the listed local files.
+5. Choose **Move templates** and keep Godot Launcher open until the move finishes. Check the result for each version, then choose **Done** or **Open Export Templates**.
 
 | Choice | What happens |
 | --- | --- |
-| **Switch to shared export templates** | Adds missing filenames to the shared collection, keeping the shared copy when a filename already exists. The project then uses shared templates. |
-| **Delete local export templates and use shared** | Removes the local files without adding them to shared storage. The project uses Official, even if its version has no templates installed yet. |
-| **Save as imported templates** | Saves each local version as a named imported package and uses the matching import for the project. Shared Official files stay unchanged. |
+| **Keep current templates** | Moves each local version folder to a named Imported build and keeps the project using its files. Shared Official files stay unchanged. |
+| **Share templates** | Adds missing files to the shared collection, keeps existing shared files, and connects the project to it. Local copies are then removed. |
+| **Use shared templates** | Connects the project to shared Official templates and removes its local files without copying them. You may need to download missing templates before exporting. |
+| **Decide later** | Leaves this version's local files and choice unchanged. Return to it from Export Templates when ready. |
+
+:::danger Share and Use shared remove local files
+
+**Share templates** and **Use shared templates** permanently remove the listed local files without saving a separate copy. If a shared file has the same name but different contents, **Share templates** keeps the shared file and removes the local one. Keep your own copy before choosing either option if you may need those originals later.
+
+:::
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Migration review showing choices for a project's existing local export templates"
+  alt="Migration wizard showing project template versions and choices to keep, share or defer their files"
   sources={{
     light: '/img/screenshots/screen_export_templates_project_migration_light.webp',
     dark: '/img/screenshots/screen_export_templates_project_migration_dark.webp',
   }}
 />
 
-:::warning Review custom templates before migrating
+:::warning Review custom templates before sharing
 
-A folder's location or matching filenames do not prove that its files are official. Use **Save as imported templates** when you need to preserve a custom package independently of the shared collection.
+A folder's location or matching filenames do not prove that its files are official. Choose **Keep current templates** to retain a custom version independently of the shared collection.
 
 :::
 
-Choose an option for each project, then select **Apply changes** beside it. Complete any further review the launcher shows.
+Use **Finish later** to close the wizard before starting a move. Your local files stay as they are, and unresolved versions remain available from Export Templates. If every version is set to **Decide later**, the review offers **Finish later** without starting a move.
 
-Use **Finish later** to leave undecided projects pending and return to them from Export Templates. If an operation fails, review its result before retrying: files already added to the shared collection can remain there while the project's original local files are retained.
+Godot Launcher stays open while a migration runs. If the window reloads, use **View migration** to reopen its progress or results. Completed versions remain completed when you choose **Try failed versions again**; the wizard prepares a fresh review for the failed versions and asks for any required removal acknowledgement again.
+
+If an interrupted move needs recovery, close Godot and choose **Recover interrupted move** before reviewing another migration. If recovery fails, restore access to the reported folders or drive and retry. Files already added to the shared collection can remain there while the project's original files are retained after a failed move.
 
 ## Rename, replace or delete an import
 

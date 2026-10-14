@@ -1,0 +1,89 @@
+---
+id: editor-settings
+title: Godot Editor Settings per Project
+sidebar_label: Editor settings per project
+slug: /editors/editor-settings
+description: "Keep separate Godot editor settings for each project, import or export them, and restore code editor setup."
+tags:
+  - guides
+  - godot
+  - editor-settings
+  - project-settings
+  - configuration
+  - code-editor
+---
+
+import ThemedImage from '@theme/ThemedImage';
+
+# Godot Editor Settings per Project {#editor-settings-per-project}
+
+Godot Launcher keeps separate Godot editor settings for each project. Changes made for one project do not affect another.
+
+## Import or export Godot editor settings
+
+Use a project's more-actions menu in **Projects** to save or replace its Godot editor preferences.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Project overflow menu with export and import editor settings actions"
+  sources={{
+    light: '/img/docs/1.13/screenshots/screen_projects_menu_light.webp',
+    dark: '/img/docs/1.13/screenshots/screen_projects_menu_dark.webp',
+  }}
+/>
+
+### Export settings
+
+1. Open the project's more-actions menu.
+2. Select **Export Editor Settings to File**.
+3. Choose a destination and save the file.
+
+The exported `.tres` file is a copy of that project's current editor settings.
+
+### Import settings
+
+Importing replaces the project's current editor settings. If a settings file already exists, Godot Launcher saves a timestamped `.bak` copy beside it before replacement.
+
+1. Close the project's Godot editor before replacing its settings.
+2. Open the project's more-actions menu and select **Import Editor Settings from File**.
+3. Select **Continue** in the confirmation.
+4. Choose the `.tres` settings file and open it.
+5. Open the project in Godot to use the imported preferences.
+
+Importing does not change the project's saved Godot or code editor choice. If scripts no longer open in the selected code editor, [reapply its configuration](#reapply-code-editor-configuration).
+
+## Keep a selected code editor in sync
+
+When you select Visual Studio Code or VSCodium in [Project Settings](../projects/project-settings.mdx#code-editor), Godot opens scripts in that editor. The launcher also updates the files needed for the project.
+
+Changing the Godot editor version updates this setup while keeping other supported settings.
+
+Choose **None** if you no longer want the project to use a code editor. Existing `.vscode` files stay in the project folder.
+
+## Reapply code editor configuration
+
+If Godot stops opening scripts in the selected code editor:
+
+1. Open the project's **Project settings** and select **Code Editor**.
+2. Select **Reset config**.
+3. Confirm with **Reset config**.
+
+The launcher reapplies the selected code editor's project setup, including its Godot script editor settings and supported build and debug files. It does not reset unrelated Godot preferences or change global [Code Editor Settings](../settings/code-editors.mdx). If the reset fails, check that the selected code editor is available; see [code editor troubleshooting](../troubleshooting.md#code-editors).
+
+## Where editor settings are stored
+
+Settings stay outside the project folder, under the configured editor install location:
+
+```text
+<editor-install-location>/.editor_config/<project-editor-folder>/editor_data/
+```
+
+Godot 4.3 and later use `editor_settings-<major.minor>.tres`; for example, Godot 4.4 and 4.4.1 use `editor_settings-4.4.tres`. Godot 4.0 to 4.2 use `editor_settings-4.tres`. See [Storage Paths and Files](../reference/storage-paths.md) for default locations.
+
+[Export templates](./export-templates.mdx) are shared separately. Sharing templates does not share these editor preferences.
+
+## Related guides
+
+- [Project Settings](../projects/project-settings.mdx)
+- [Code Editor Settings](../settings/code-editors.mdx)
+- [Change Project Editor Version](./change-project-editor.md)

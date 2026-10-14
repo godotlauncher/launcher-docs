@@ -1,0 +1,92 @@
+---
+id: connections
+sidebar_label: GitHub Connections
+title: Connect GitHub to Godot Launcher
+slug: /settings/connections
+description: "Connect GitHub to Godot Launcher, choose repository access, and disconnect or reconnect an account."
+tags:
+  - launcher-settings
+  - git
+  - version-control
+---
+
+import ThemedImage from '@theme/ThemedImage';
+
+# Connect GitHub to Godot Launcher {#connections}
+
+Connect GitHub to browse and import repositories you can access, including private repositories, or publish a new project to a private repository. Manage your connections in **Settings > Connections** or use the **Connections** shortcut in the sidebar.
+
+You do not need a GitHub connection to [clone a public Git repository](../projects/import-repository.mdx#clone-a-public-repository).
+
+## Connect GitHub
+
+1. Open **Settings > Connections** and select **Connect GitHub**.
+2. Select **Continue in browser**. Authorise Godot Launcher on GitHub, choose the repositories the GitHub App can access, then return to the launcher.
+3. Select the personal account or organisation installations you want to connect. Use **Select all** to choose every available installation. If an account or organisation is missing, select **Manage access on GitHub**.
+4. Select **Connect selected**. The button includes the number of selected connections. Once saved, they appear in **Settings > Connections**.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="GitHub connection chooser with one organisation selected"
+  sources={{
+    light: '/img/docs/1.13/screenshots/screen_settings_github_connection_selection_light.webp',
+    dark: '/img/docs/1.13/screenshots/screen_settings_github_connection_selection_dark.webp',
+  }}
+/>
+
+Use **Add connection** to connect another GitHub account or installation. Connections are grouped under the GitHub account that authorised them.
+
+Cancelling before you select **Connect selected** leaves existing connections unchanged. Closing the dialog after saving has started does not cancel the save.
+
+## Manage repository access
+
+In **Settings > Connections**, select **Manage GitHub connections**. Select **Manage repository access** beside an installation to change its repository selection on GitHub. Hover over an action icon or focus it with the keyboard to see its label.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="GitHub connections drawer showing the Manage repository access action beside an installation"
+  sources={{
+    light: '/img/docs/1.13/screenshots/screen_settings_github_connections_light.webp',
+    dark: '/img/docs/1.13/screenshots/screen_settings_github_connections_dark.webp',
+  }}
+/>
+
+## Disconnect GitHub
+
+Select **Disconnect** beside an installation, then confirm. When removing the last connection for a GitHub account, select **Disconnect this device** to remove it locally.
+
+:::warning Revoking access affects other devices
+
+Local disconnection leaves the GitHub App installed and does not change repository access or project remotes. When removing the last connection for an account, you can also select the revocation checkbox and **Revoke and disconnect**. This revokes that account's GitHub authorisation on all Godot Launcher devices, which will need to reconnect.
+
+:::
+
+See [Disconnecting and revoking access](../connections/github-connection-security.mdx#disconnecting-and-revoking-access) for the scope of each choice.
+
+## Connection recovery
+
+- **Reconnect required:** Select **Reconnect** and complete the browser flow with the same GitHub account.
+- **Unavailable:** Check that the GitHub App is still installed and has access to the repositories you need. Use **Manage repository access** where available to review the installation on GitHub.
+- If updated permissions are needed, follow the connection action offered when importing or publishing, then review the requested permissions on GitHub. Import access may remain available while publishing is disabled. You can complete the connection dialog and return to your current task.
+- **Secure storage unavailable:** Set up or unlock your system keyring, fully restart Godot Launcher, then try again. The launcher cannot save a connection without secure credential storage.
+
+### Linux credential storage
+
+On Linux, expand **Credential storage** in **Settings > Connections**. **Automatic** is the default. You can choose **Secret Service** if a compatible Secret Service keyring is running in your desktop session.
+
+1. Choose **Automatic** or **Secret Service**.
+2. Select **Save choice** and confirm. Existing credentials are kept, but you may need to reconnect GitHub after the change.
+3. If prompted, select **Restart now** to apply the choice. **Not now** leaves the choice saved until you fully quit Godot Launcher, including its system tray process, and open it again.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Linux credential storage settings showing unavailable storage and the Automatic choice"
+  sources={{
+    light: '/img/docs/1.13/screenshots/screen_settings_credential_storage_expanded_unavailable_light.webp',
+    dark: '/img/docs/1.13/screenshots/screen_settings_credential_storage_expanded_unavailable_dark.webp',
+  }}
+/>
+
+See [Linux credential storage troubleshooting](../troubleshooting.md#linux-credential-storage-and-github-connections) if storage remains unavailable, saving fails, or a launch flag overrides your choice.
+
+For permission and storage details, see [Godot Launcher GitHub permissions](../connections/github-connection-security.mdx). To use a connection, [import a repository](../projects/import-repository.mdx) or [publish a new project](../projects/create-project.mdx#publish-a-new-project-to-github).

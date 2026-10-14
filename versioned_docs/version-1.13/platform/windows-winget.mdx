@@ -1,0 +1,93 @@
+---
+id: windows-winget
+sidebar_label: Install with winget
+title: Install Godot Launcher with winget
+slug: /platform/windows-winget
+description: "Install Godot Launcher on Windows with winget, check for available updates, and upgrade or uninstall the GodotLauncher.Launcher package."
+tags:
+  - setup-guide
+  - getting-started
+  - windows
+  - winget
+keywords:
+  - Godot Launcher winget
+  - winget install GodotLauncher.Launcher
+  - Windows package manager
+  - Godot Launcher Windows installation
+---
+
+import { WingetCommandList } from "@site/src/components/WingetCommandList";
+
+# Install Godot Launcher with winget {#installing-godot-launcher-with-winget}
+
+Use [winget](https://learn.microsoft.com/windows/package-manager/) to install, update, or remove Godot Launcher from PowerShell or Command Prompt. The package ID is `GodotLauncher.Launcher`.
+
+## Requirements
+
+You need Windows 10 version 1809 (build 17763) or later, or Windows 11, with **App Installer** installed.
+
+Run `winget --info` to check whether winget is available. If the command is not recognised, install or update [App Installer](https://apps.microsoft.com/detail/9nblggh4nns1) through the Microsoft Store. See Microsoft's [WinGet installation guidance](https://learn.microsoft.com/windows/package-manager/winget/#install-winget) if it is still unavailable.
+
+## Install Godot Launcher {#install-the-latest-release}
+
+<WingetCommandList
+  commands={[
+    {
+      label: "Install Godot Launcher",
+      command: "winget install --id GodotLauncher.Launcher --exact --source winget",
+    },
+  ]}
+  intro="Run this command to install the latest Godot Launcher version available from the winget source:"
+/>
+
+Follow any agreement or administrator prompts. When installation finishes, open **Godot Launcher** from the Windows Start menu.
+
+## Check for and install updates {#keep-godot-launcher-updated}
+
+<WingetCommandList
+  commands={[
+    {
+      label: "Check available updates without installing",
+      command: "winget upgrade",
+    },
+    {
+      label: "Install the Godot Launcher update",
+      command: "winget upgrade --id GodotLauncher.Launcher --exact --source winget",
+    },
+  ]}
+  intro="Run the first command and look for GodotLauncher.Launcher in the list. Run the second command to install its update."
+/>
+
+The [upgrade command](https://learn.microsoft.com/windows/package-manager/winget/upgrade) without arguments only lists updates. The command with the package ID installs the update.
+
+**No applicable update found** means winget found no applicable update in the selected source. A newer release may appear on [GitHub](https://github.com/godotlauncher/launcher/releases) before it becomes available through winget.
+
+## Check installed and available versions {#discover-other-manifest-details}
+
+- Run `winget list --id GodotLauncher.Launcher --exact` to see the installed version recognised by winget.
+- Run `winget show --id GodotLauncher.Launcher --exact --source winget` to see the version and installer available from the source.
+
+## Uninstall or reinstall
+
+<WingetCommandList
+  commands={[
+    {
+      label: "Uninstall Godot Launcher",
+      command: "winget uninstall --id GodotLauncher.Launcher --exact --source winget",
+    },
+  ]}
+/>
+
+To reinstall, wait for the uninstall to finish, then run the [install command](#install-the-latest-release).
+
+## Troubleshooting {#troubleshooting-tips}
+
+- **Package not found:** Run `winget source update --name winget`, then retry the command.
+- **App Installer or Microsoft Store is restricted:** Ask your administrator about installing winget, or use the [Windows installer](../getting-started/installation.mdx#windows).
+- **A command fails:** Run `winget --open-logs` to find diagnostic logs. When reporting the problem, include the command and error message. Remove personal paths, account names, and credentials from any logs you share.
+
+## Related resources
+
+- [Install Godot Launcher with the Windows installer](../getting-started/installation.mdx#windows)
+- [Manage updates in Godot Launcher](../updates/manage-launcher-updates.mdx)
+- [Godot Launcher release notes](https://github.com/godotlauncher/launcher/releases)

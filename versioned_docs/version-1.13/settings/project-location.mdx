@@ -1,0 +1,46 @@
+---
+id: project-location
+sidebar_label: Default Project Folder
+title: Change the Default Project Folder
+slug: /settings/project-location
+description: "Change the default project folder in Godot Launcher or choose a different location for one new Godot project."
+tags:
+  - launcher-settings
+  - godot-project-setup
+  - configuration
+---
+
+import ThemedImage from '@theme/ThemedImage';
+
+# Change the Default Project Folder {#project-location-settings}
+
+The default project folder in Godot Launcher is the base location for new projects. Change it in **Settings > Projects**. Existing projects stay in their current folders, including projects you add to the launcher.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Projects settings showing the default project folder and Manage tags button"
+  sources={{
+    light: '/img/docs/1.13/screenshots/screen_settings_projects_light.webp',
+    dark: '/img/docs/1.13/screenshots/screen_settings_projects_dark.webp',
+  }}
+/>
+
+## Change the default folder {#project-location}
+
+1. Open **Settings > Projects**.
+2. Under **Project Location**, select **Browse**.
+3. Choose a folder in the system folder picker.
+
+The selected folder appears in **Default Location** and is used for new projects. Use **Browse** to change it; the path field cannot be edited directly.
+
+## Create one project somewhere else
+
+In **New Project**, edit **Project location** or use its folder button to choose another base folder. Godot Launcher appends the project's folder name to this path. The default location in Settings stays unchanged.
+
+To return to the default folder, select **Use default location**. This option appears after you change or clear the path.
+
+See [Creating a Project](../projects/create-project.mdx) for the full project creation flow.
+
+## Manage tags
+
+For the **Manage tags** option on this tab, see [Project Tags](../projects/project-tags.mdx#manage-shared-tags).

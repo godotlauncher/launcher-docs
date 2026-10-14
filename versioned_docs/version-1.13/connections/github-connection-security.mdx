@@ -1,0 +1,63 @@
+---
+id: github-connection-security
+sidebar_label: GitHub Permissions and Security
+title: Godot Launcher GitHub Permissions and Security
+slug: /connections/github-security
+description: "Understand Godot Launcher GitHub permissions, credential storage, sign-in protection, and how to revoke access."
+tags:
+  - git
+  - version-control
+  - support
+---
+
+# Godot Launcher GitHub Permissions and Security {#how-github-connections-are-protected}
+
+Godot Launcher uses a GitHub App connection to import repositories and publish new projects. This page explains its permissions, credential storage, and the effects of disconnecting. For setup instructions, see [Connect GitHub to Godot Launcher](../settings/connections.mdx).
+
+## Sign-in protection
+
+GitHub sign-in opens in your normal web browser. You enter your GitHub password on GitHub, not in Godot Launcher.
+
+Each sign-in attempt is tied to the launcher session that started it. The sign-in result expires after a short time and cannot be reused after a successful connection.
+
+:::warning Only approve sign-in requests you started
+
+Do not approve a GitHub App request that you did not start from Godot Launcher. Close the browser page and start a new connection from **Settings > Connections** when you are ready.
+
+:::
+
+## What Godot Launcher stores
+
+Godot Launcher encrypts saved GitHub credentials using secure storage provided by the operating system. If secure storage is unavailable, the launcher does not save the connection. See [Linux credential storage](../settings/connections.mdx#linux-credential-storage) for Linux setup and recovery.
+
+The launcher stores connection details locally, including the GitHub account name, installation name, and connection status. It does not put connection credentials in project files or Git remote URLs.
+
+The sign-in service handles the GitHub sign-in exchange and token refresh. It does not persist GitHub tokens or handle repository lists, repository contents, or Godot Launcher project data. The launcher requests repository information directly from GitHub.
+
+## Repository permissions
+
+| Action | Required repository access |
+| --- | --- |
+| Import a repository | Contents read access to clone it. |
+| Publish a new project | Administration write access to create the private repository, and Contents write access to push its initial commit. |
+
+When installing the GitHub App, you choose which repositories it can access. To change that selection, open **Settings > Connections > Manage GitHub connections** and select **Manage repository access** beside the installation.
+
+An existing installation may need approval for updated permissions before it can publish. Supported import access remains available while publishing is disabled. Review and approve the requested permission change on GitHub before trying to publish again.
+
+## Disconnecting and revoking access
+
+**Disconnect** removes the selected installation from Godot Launcher on this device. It does not uninstall the GitHub App, change its repository selection, or change project remotes.
+
+When removing the last connection for a GitHub account, the confirmation offers two choices:
+
+- **Disconnect this device** removes the local connection and its saved credentials. Authorisation on other devices remains active. Any copied tokens remain valid until they expire or are revoked.
+- **Revoke and disconnect** also revokes that GitHub account's authorisation for the Godot Launcher GitHub App. Other Godot Launcher devices using the account must reconnect. Select the revocation checkbox to enable this choice.
+
+To change repository access or uninstall the GitHub App, use **Manage repository access** to open its settings on GitHub. Uninstalling the App and revoking a user's authorisation affect different access: installation settings control repository access, while revocation removes that user's authorisation.
+
+## Limits
+
+Operating-system credential storage cannot protect credentials from malicious software that controls your operating-system account or computer. GitHub sign-in and token refresh also require both GitHub and the sign-in service to be available.
+
+Keep your operating system and Godot Launcher updated. Report suspected security problems through the project's [Security Policy](https://github.com/godotlauncher/launcher/security/policy).

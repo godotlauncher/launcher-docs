@@ -4,7 +4,7 @@ sidebar_label: Licence
 title: Godot Launcher Licence
 slug: /license
 description: "Read the MIT License for Godot Launcher and find the full licence text."
-tags: 
+tags:
   - license
   - legal
   - open-source

@@ -1,0 +1,159 @@
+---
+id: import-repository
+sidebar_label: Import from Git
+title: Import a Godot Project from Git
+slug: /getting-started/import-git-repository
+description: "Import Godot projects from GitHub or a public Git repository, choose their editors, and recover an incomplete import."
+tags:
+  - getting-started
+  - project-import
+  - git
+  - version-control
+---
+
+import ThemedImage from '@theme/ThemedImage';
+
+# Import a Godot Project from Git {#import-a-git-repository}
+
+Godot Launcher clones a repository onto your computer, then finds the Godot projects inside it. You choose which projects to add and the editors they use.
+
+To start, make sure Git is available in **Settings > Tools**. Use a public HTTPS clone URL, or connect GitHub to choose a repository you have access to, including private repositories.
+
+## Clone a public repository
+
+1. Open **Projects > Add > Clone public Git repository**.
+2. Enter the public HTTPS clone URL.
+3. Select **Continue** to choose its destination.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Public Git repository URL entry in Add Project"
+  sources={{
+    light: '/img/docs/1.13/screenshots/screen_projects_clone_public_repository_light.webp',
+    dark: '/img/docs/1.13/screenshots/screen_projects_clone_public_repository_dark.webp',
+  }}
+/>
+
+:::note Supported repository URLs
+
+Public imports require anonymous access over HTTPS. URLs containing credentials, queries, or fragments are not supported. SSH URLs, redirects, and destinations on a private network are also rejected. To import a private GitHub repository, use **From GitHub** below.
+
+:::
+
+## Choose a connected GitHub repository
+
+1. Select **From GitHub** on the empty Projects screen, or open **Projects > Add > From GitHub**.
+2. If prompted, connect GitHub and allow access to the repositories you want to import. See [Connections](../settings/connections.mdx) for the browser steps.
+3. Select a repository, then select **Continue**.
+
+Search covers the repositories already loaded. Select **Load more** to search further results. Repositories already represented by a project in the launcher are disabled.
+
+If a repository is missing, select **Manage accounts and access** above the list. Reconnect, add an account, or update repository access, then return to the refreshed list.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Connected GitHub repository selection with an imported repository disabled"
+  sources={{
+    light: '/img/docs/1.13/screenshots/screen_projects_github_repository_selection_light.webp',
+    dark: '/img/docs/1.13/screenshots/screen_projects_github_repository_selection_dark.webp',
+  }}
+/>
+
+## Choose the clone destination
+
+1. Check the full destination path. Edit or browse for a different parent folder if needed. The repository name remains the final folder name, and the destination must not already exist.
+2. Select **Clone repository**.
+3. Wait for cloning to finish. You can cancel while the current stage allows it.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Repository clone destination with an editable parent folder"
+  sources={{
+    light: '/img/docs/1.13/screenshots/screen_projects_remote_clone_destination_light.webp',
+    dark: '/img/docs/1.13/screenshots/screen_projects_remote_clone_destination_dark.webp',
+  }}
+/>
+
+If cloning fails before the destination is created, check the error and retry. If cloning has finished but a later stage fails, the repository stays on disk; see [Recover a retained clone](#recover-a-retained-clone).
+
+## Set the commit identity
+
+After cloning, the launcher uses your configured Git identity or asks you to choose one for future commits. Select **Add Git identity** to enter a name and email, or **Continue without identity** to set it up later. Importing does not create a commit.
+
+If saving an identity fails, the clone is kept and import can continue with a warning. See [Using Git With Godot Launcher](../tools/using-git-with-godot-launcher.mdx) for repository identities, global identities, and saved presets.
+
+## Initialise public submodules
+
+A repository can use Git submodules to include files from other repositories. If submodules are detected, choose:
+
+- **Initialise submodules** to download supported submodules, including nested ones, before reviewing projects.
+- **Continue without submodules** to use the files already present. Projects or dependencies inside uninitialised submodules may be missing.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Repository import information with options to initialise or skip Git submodules"
+  sources={{
+    light: '/img/docs/1.13/screenshots/screen_projects_remote_submodules_detected_light.webp',
+    dark: '/img/docs/1.13/screenshots/screen_projects_remote_submodules_detected_dark.webp',
+  }}
+/>
+
+:::warning Submodules require public HTTPS URLs
+
+Only anonymous public submodules with absolute HTTPS URLs are supported, including when the main repository comes from connected GitHub. Private submodules, relative or SSH URLs, redirects, and private network destinations stop initialisation. Continue without the remaining submodules, or open the clone folder and complete their setup with Git before adding the projects.
+
+:::
+
+If initialisation fails, the partially initialised clone is kept. Use the offered recovery action to retry or continue without the remaining submodules. If you cancel, you can open or keep the clone, or remove it as described below.
+
+## Choose Godot projects and editors
+
+1. Review the discovered projects. Clear the selection for any project you do not want to add.
+2. Check each name and editor choice. Rename entries with conflicting names, and skip folders already registered in the launcher. Renaming an entry does not rename its Godot project or folder.
+3. Choose an installed or downloadable Godot editor for each project, or **Add With Missing Editor** to add it before its editor is available.
+4. Choose a code editor if needed. The available choices include automatic detection, **None**, and configured code editors.
+5. Select **Add selected projects**, which also shows the number selected.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Cloned repository review with project names, Godot editor choices, and code editor choices"
+  sources={{
+    light: '/img/docs/1.13/screenshots/screen_projects_remote_project_review_light.webp',
+    dark: '/img/docs/1.13/screenshots/screen_projects_remote_project_review_dark.webp',
+  }}
+/>
+
+For projects without a saved editor choice, the launcher recommends a matching stable release. Projects with a `.godotlauncher` file keep their saved editor unless you choose another. See [Add an Existing Godot Project](./add-existing-project.mdx#choose-the-godot-editor) for editor choices.
+
+The projects appear in **Projects**. Any selected editor downloads continue in the background; follow their progress in **Installs**. A project becomes available when its editor is ready.
+
+If a download fails, the selected editor stays saved. Select **Install required editor** on the affected project to retry, or see [editor selection troubleshooting](../troubleshooting.md#project-editor-selection).
+
+The import result lists added, renamed, skipped, and failed projects. Successfully added projects stay added. Select **Review and retry** to return the failed projects to review.
+
+## Recover a retained clone
+
+The cloned repository stays at the displayed location if discovery fails, no valid Godot project is found, or you close project review. You can open the folder and [add its projects from this computer](./add-existing-project.mdx) later.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Repository discovery warning with actions to open or delete the retained clone"
+  sources={{
+    light: '/img/docs/1.13/screenshots/screen_projects_remote_clone_preserved_light.webp',
+    dark: '/img/docs/1.13/screenshots/screen_projects_remote_clone_preserved_dark.webp',
+  }}
+/>
+
+:::danger Deleting a clone removes its files permanently
+
+**Delete clone and close** permanently removes the repository folder created by this import, including any files you added there. It does not move the folder to the Trash or Recycle Bin. Copy out any work you want to keep before using it.
+
+:::
+
+- **Open clone folder** opens the repository location.
+- **Close** keeps the repository at that location.
+- **Delete clone and close** removes it. This action is available only when no project from the clone was added successfully.
+
+If even one project was added, the launcher keeps the clone because that project uses its files. If deletion fails, open the clone location and check which files remain before trying again.
+
+See [repository import troubleshooting](../troubleshooting.md#repository-import) for destination, discovery, and connection problems, or [How GitHub Connections Are Protected](../connections/github-connection-security.mdx) for credential details.

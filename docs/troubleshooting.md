@@ -167,6 +167,18 @@ Godot can still open the project. Choose the result you want:
 - **Disable & Launch** stops using this code editor for the project, then opens Godot.
 - **Open settings** lets you find the editor again or choose its location.
 
+### Could not open code editor
+
+If opening the project folder in its code editor fails, select **Open settings**
+in the warning. Check that the editor is enabled and installed, and that its
+executable path is correct in **Settings > Code Editors**. If the project folder is unavailable,
+restore its location or reconnect its drive before trying again.
+
+When [automatic opening](./settings/behavior.mdx#open-the-code-editor-alongside-godot)
+fails after Godot starts, Godot stays open. The launcher shows the warning even
+when you opened the project from the system tray or chose to hide the launcher
+after opening a project.
+
 ### Godot does not open scripts in the selected code editor
 
 Open **Project Settings > Code Editor**, select **Reset config**, then confirm with **Reset config**. This restores the project's code editor setup without changing the global Code Editor Settings.

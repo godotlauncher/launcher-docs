@@ -162,7 +162,7 @@ the card actions to:
 
 - Select **Edit in Godot** to launch the project with its selected Godot editor.
 - Use the pin button to move the project into or out of **Pinned**.
-- Select **Open Terminal Here** to open the project folder in your selected terminal.
+- Use the terminal or code editor button to open the project folder in that tool.
 - Use the folder button to open either the project folder or its Godot editor settings folder.
 - Use the settings button to open [Project Settings](./project-settings.mdx).
 - Use the more-actions button to import or export Godot editor settings, or remove the project from the launcher.
@@ -181,6 +181,44 @@ If the action reports that Terminal is disabled, enable it in **Tools**. If no
 supported terminal is available, install one in its system location and select
 **Rescan** in the Terminal drawer. See [Tool Settings](../settings/tools.mdx#set-up-terminal)
 for supported terminals and limitations.
+
+### Open a project in its code editor {#open-in-code-editor}
+
+When a project has an associated code editor and Terminal is available, select
+the small arrow beside the terminal button. Choose **Open Terminal Here** or
+**Open in Visual Studio Code** (or **Open in VSCodium**). Selecting the terminal
+button itself still opens the terminal directly. These controls work in Cards,
+Compact, and List views.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Project opening options with terminal and Visual Studio Code actions"
+  sources={{
+    light: '/img/screenshots/screen_projects_open_tools_light.webp',
+    dark: '/img/screenshots/screen_projects_open_tools_dark.webp',
+  }}
+/>
+
+If Terminal is disabled or unavailable, the associated code editor's icon
+replaces the terminal button. Select it to open the project folder directly;
+there is no dropdown. Projects without a code editor keep the terminal button
+and its setup guidance.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Direct Visual Studio Code and VSCodium buttons when Terminal is unavailable"
+  sources={{
+    light: '/img/screenshots/screen_projects_editor_only_light.webp',
+    dark: '/img/screenshots/screen_projects_editor_only_dark.webp',
+  }}
+/>
+
+Choose the associated editor in [Project Settings > Code Editor](./project-settings.mdx#code-editor).
+Manual opening opens the folder without starting Godot or changing its last
+opened time. If it fails, check [code editor troubleshooting](../troubleshooting.md#code-editors).
+
+To open the editor whenever you edit a project in Godot, enable the
+[automatic opening setting](../settings/behavior.mdx#open-the-code-editor-alongside-godot).
 
 ### Install a missing editor
 

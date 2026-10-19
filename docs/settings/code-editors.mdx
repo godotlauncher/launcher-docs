@@ -48,6 +48,17 @@ If you have not set a default and only one editor is enabled and available, the 
 
 Existing projects keep their current code editor.
 
+## Open a project's folder
+
+Choose a project's editor in [Project Settings > Code Editor](../projects/project-settings.mdx#code-editor).
+Use the [project's opening options](../projects/manage-projects.mdx#open-in-code-editor)
+to open its folder in that editor, or enable
+[automatic opening alongside Godot](./behavior.mdx#open-the-code-editor-alongside-godot).
+Automatic opening is off by default.
+
+Keep the editor enabled in **Settings > Code Editors** for manual or automatic
+folder opening from Godot Launcher.
+
 ## Enable or disable an editor
 
 Use the toggle on an editor card to show or hide it as a choice for new and imported projects.
@@ -78,6 +89,9 @@ To return to automatic detection, select **Use automatic detection**, then **Sav
 ## Override launch arguments
 
 **Launch arguments** controls how Godot opens files in the code editor. Keep the built-in arguments unless your setup needs different ones.
+
+Opening a project folder from Godot Launcher uses the editor's normal folder
+opening command and does not use these script-navigation arguments.
 
 1. Open **Settings > Code Editors** and select **Edit** on the enabled editor's card.
 2. Change **Launch arguments** under **External Text Editor**.

@@ -3,7 +3,7 @@ id: system-tray
 sidebar_label: System Tray
 slug: /settings/system-tray
 title: Use the Godot Launcher System Tray
-description: "Use the Godot Launcher system tray to launch recent Godot projects, reopen the launcher window, or quit the application."
+description: "Use the Godot Launcher system tray to open pinned and recent Godot projects, reopen the launcher window, or quit the application."
 tags:
   - guides
   - system-tray
@@ -15,11 +15,11 @@ import ThemedImage from '@theme/ThemedImage';
 
 # Use the Godot Launcher System Tray {#system-tray}
 
-The Godot Launcher system tray lets you reopen the launcher window, launch a recent Godot project, or quit the application. Godot Launcher can keep running in the tray while its main window is hidden.
+The Godot Launcher system tray lets you open pinned and recent Godot projects, reopen the launcher window, or quit the application. Godot Launcher can keep running in the tray while its main window is hidden.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Godot Launcher tray menu with recent projects, Show Godot Launcher, and Quit actions"
+  alt="Godot Launcher tray menu with three pinned projects, a More... submenu, recent projects, Show Godot Launcher, and Quit"
   sources={{
     light: '/img/features/System_Tray_Docs_Light.webp',
     dark: '/img/features/System_Tray_Docs_Dark.webp',
@@ -56,8 +56,12 @@ Some Linux desktops do not provide a usable system tray. If no usable tray is av
 
 On Windows and macOS, you can start Godot Launcher in the tray when you sign in. Enable **Start when computer starts.** and **Start in tray.** in **Settings > Behavior**. See [Startup settings](./behavior.mdx#start-the-launcher-with-your-computer) for details and platform support.
 
-## Quick-launch recent projects
+## Quick-launch pinned and recent projects {#quick-launch-recent-projects}
 
-The tray menu lists up to the last three projects opened through Godot Launcher on this computer. Select one to open it in its chosen Godot editor.
+**Pinned Projects** shows your first three pinned projects in their saved order. If you have more pins, select **More...** to see the rest in the same order. To choose which projects appear first, [reorder your pinned projects](../projects/manage-projects.mdx#reorder-pinned-projects).
+
+Below the pins, **Recent Projects** lists up to three projects last opened through Godot Launcher on this computer. The three pins already visible in the main menu are omitted from recents. A project inside **More...** can also appear in **Recent Projects**.
+
+Empty sections are hidden. If neither section has projects, the tray keeps its **Show Godot Launcher** and **Quit** commands. Unavailable projects are disabled; open **Projects** to check the project or choose an available editor.
 
 The project's launch settings also apply when opening it from the tray. See [Launch Godot in a Terminal](../projects/launch-godot-in-terminal.mdx) to keep editor output visible after Godot closes.

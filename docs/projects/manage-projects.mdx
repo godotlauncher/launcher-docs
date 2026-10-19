@@ -19,7 +19,7 @@ Use the **Projects** view in Godot Launcher to find and open projects or change 
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Godot Launcher Projects view in Cards mode with New, Pinned, and Recents groups"
+  alt="Godot Launcher Cards view with Pinned and New groups and the View options button"
   sources={{
     light: '/img/screenshots/screen_projects_view_light.webp',
     dark: '/img/screenshots/screen_projects_view_dark.webp',
@@ -83,15 +83,77 @@ available.
 
 Projects appear in one of three groups:
 
-- **New** contains projects you have not opened from the launcher.
 - **Pinned** keeps chosen projects in the order you set.
-- **Recents** contains projects you opened recently.
+- **New** contains unpinned projects created in the launcher that you have not opened or marked as not new.
+- **Recents** contains other unpinned projects, including projects added from your computer or imported from GitHub.
 
-The order is based on projects opened from this computer. Activity on another computer does not change it.
+Existing unopened projects from earlier versions also appear in **Recents**.
+Projects with an opening date come first, ordered by when you last opened them
+from this computer. Projects without an opening date show **Not opened yet**
+and appear below them. Activity on another computer does not change this order.
 
 Enter part of a project name in **Search** to filter all three groups. Use
 **Tags** beside Search to match any selected tag, then narrow the results with
 text search. See [Project Tags](./project-tags.mdx) to add or manage tags.
+
+## Choose the group order
+
+The default group order is **Pinned**, **New**, then **Recents**. Empty groups
+are hidden from the project list.
+
+1. Select the **View options** icon beside the three view icons.
+2. Drag a whole group row to its new position. The dialog includes all three groups, including empty ones.
+3. Select **Save** to use the order in all three views.
+
+The order is saved on this computer. **Restore default order** resets the draft;
+select **Save** to apply it. **Cancel** or <kbd>Escape</kbd> discards unsaved changes.
+
+To reorder with the keyboard, focus a group row and press <kbd>Space</kbd> or
+<kbd>Enter</kbd>. Use the up and down arrow keys, then press <kbd>Space</kbd> or
+<kbd>Enter</kbd> to drop it. Press <kbd>Escape</kbd> while sorting to cancel the
+move and keep the dialog open.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="View options dialog with draggable Pinned, New, and Recents rows"
+  sources={{
+    light: '/img/screenshots/screen_projects_group_order_light.webp',
+    dark: '/img/screenshots/screen_projects_group_order_dark.webp',
+  }}
+/>
+
+After saving, the bottom-left **Group order saved** notification offers **Undo**
+to restore the previous order and **View options** to reopen the dialog. If saving
+fails, the existing order stays in place and the dialog keeps your draft for retry.
+
+## Mark a project as not new
+
+1. Open a new project's more-actions menu.
+2. Select **Mark as not new**.
+
+The project moves to **Recents**. A pinned project stays in **Pinned**, with its
+position unchanged. This changes only the New status; it does not open the
+project or give it an opening date.
+
+Select **Undo** in the bottom-left **New status cleared** notification to restore
+the status. Undo preserves other changes, such as pinning the project, and is
+available only while the notification remains visible. Opening or removing the
+project makes that Undo unavailable.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="My Prototype in Recents with a New status cleared notification and an Undo button"
+  sources={{
+    light: '/img/screenshots/screen_projects_clear_new_light.webp',
+    dark: '/img/screenshots/screen_projects_clear_new_dark.webp',
+  }}
+/>
+
+These notifications dismiss after three seconds. Hover over a notification or
+focus one of its controls to pause the timer. An open dialog also pauses it.
+Use the close button to dismiss it. If a notification action fails, the notification stays
+visible with its actions available for retry. Restarting the app does not restore
+an Undo notification.
 
 ## Open or manage a project
 

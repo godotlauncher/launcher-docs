@@ -232,7 +232,7 @@ register the build instead.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Project card offering to install its required Godot editor"
+  alt="Project card with a cancel control beside its downloading editor"
   sources={{
     light: '/img/screenshots/screen_projects_missing_editor_download_light.webp',
     dark: '/img/screenshots/screen_projects_missing_editor_download_dark.webp',
@@ -242,6 +242,12 @@ register the build instead.
 In List and Compact views, the same warning appears beside the required Godot version. The
 download action remains available in the row so you can recover without
 changing views.
+
+During a download, select **Cancel editor download**, the X beside its spinner,
+to stop it before extraction starts. This action is available in all three
+views. Cancelling stops the shared download for every project waiting for that
+editor version and edition. The projects stay listed with a missing editor;
+select **Install required editor** to retry.
 
 ## Reorder pinned projects
 

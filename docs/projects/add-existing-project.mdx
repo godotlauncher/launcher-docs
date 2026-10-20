@@ -3,7 +3,7 @@ id: add-existing-project
 sidebar_label: Add an Existing Project
 slug: /getting-started/add-existing-project
 title: Add an Existing Godot Project
-description: "Add an existing Godot project to Godot Launcher, review its name, and choose an installed or downloadable editor."
+description: "Add an existing Godot project or scan a folder for projects, review their names, and choose installed or downloadable editors."
 tags:
   - getting-started
   - project-import
@@ -29,7 +29,7 @@ You can also drag one or more `project.godot` files onto **Projects**.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Add Project menu with options for this computer, a public Git repository, or GitHub"
+  alt="Add Project menu separating local project and folder options from Git imports"
   sources={{
     light: '/img/screenshots/screen_projects_add_source_menu_light.webp',
     dark: '/img/screenshots/screen_projects_add_source_menu_dark.webp',
@@ -37,6 +37,46 @@ You can also drag one or more `project.godot` files onto **Projects**.
 />
 
 The project appears in **Projects** when it is added. If a name or editor needs your attention, the launcher opens a review first.
+
+## Scan a folder for projects
+
+Use a folder scan to find several existing projects together. Godot Launcher checks the selected folder and its subfolders for `project.godot` files.
+
+1. Open **Projects > Add > Scan folder**.
+2. Choose one folder and select **Open**. Scanning starts automatically.
+3. Wait for the scan to finish, or select **Stop scan** to review the projects found so far.
+4. Under **Available**, select the projects to add and check their names, Godot editors, and code editors. Clear a selection to skip that project.
+5. Select **Add selected projects**, then select **Done** after reviewing the results.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Folder scan review with available projects, full folder paths, and editor choices"
+  sources={{
+    light: '/img/screenshots/screen_projects_folder_scan_review_light.webp',
+    dark: '/img/screenshots/screen_projects_folder_scan_review_dark.webp',
+  }}
+/>
+
+**Already added** lists projects registered in the launcher. **Unable to add** lists projects that cannot currently be imported. These entries are read-only, and empty sections are hidden. The path badge copies the complete project folder path, even when the displayed text is shortened.
+
+The projects stay in their existing folders. Successfully added projects remain added if another project fails. Fix the reported problem and scan the folder again to add the remaining projects.
+
+### Review scan problems
+
+An invalid project file or unreadable folder does not discard valid projects found elsewhere. Expand **Scan problems** to see the affected paths and reasons. You can add the available projects and return to the remaining entries after fixing their problems.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Expanded scan problems identifying an invalid project file while available projects remain selected"
+  sources={{
+    light: '/img/screenshots/screen_projects_folder_scan_problems_light.webp',
+    dark: '/img/screenshots/screen_projects_folder_scan_problems_dark.webp',
+  }}
+/>
+
+If the scan reaches a limit, add the projects already found and scan a smaller folder for the rest. Symbolic links and generated folders such as `.godot`, `.git`, and `node_modules` are skipped.
+
+Select **Choose another folder** to start a different scan. Select **Cancel** before adding projects to close the review without adding them.
 
 ## Review names and editors
 

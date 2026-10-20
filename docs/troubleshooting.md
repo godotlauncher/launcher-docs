@@ -264,7 +264,7 @@ session. Remove that flag and restart the launcher to use the saved choice.
 
 ### Remote import choices are disabled
 
-Open **Settings > Tools** and confirm that Git is available. The local file option remains available while the launcher checks Git or when Git cannot be found.
+Open **Settings > Tools** and confirm that Git is available. **From this computer** and **Scan folder** remain available while the launcher checks Git or when Git cannot be found.
 
 ### No GitHub repositories are available
 

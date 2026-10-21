@@ -59,6 +59,7 @@ export default {
           type: "ref",
           id: "projects/add-existing-project",
         },
+        "projects/duplicate-project",
         "projects/project-settings",
         "projects/launch-godot-project-in-windowed-mode",
         "projects/launch-godot-in-terminal",

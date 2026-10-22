@@ -3,7 +3,7 @@ id: project-tags
 sidebar_label: Project Tags
 title: Organise Projects with Tags
 slug: /projects/project-tags
-description: "Add coloured tags to Godot Launcher projects, filter the project list, and manage shared tag names and colours."
+description: "Add coloured tags to one or several Godot Launcher projects, filter the project list, and manage shared tags."
 tags:
   - guides
   - project-settings
@@ -41,6 +41,49 @@ for other projects.
 
 You can also edit tags in [Project Settings](./project-settings.mdx#project-tags),
 where **Update** saves your changes.
+
+## Edit tags for several projects
+
+1. In **Projects**, select **Enable multi-select** and choose projects using their checkboxes or the group checkboxes.
+2. Open **Actions > Bulk edit tags**.
+3. Search for a tag, then select its checkbox to change its assignment.
+
+The tag editor shows membership across the selected projects:
+
+| Checkbox | Current assignment | Selecting it does this |
+| --- | --- | --- |
+| Unchecked | None of the selected projects use the tag. | Adds it to all selected projects. |
+| Mixed | Some selected projects use the tag; the count shows how many. | Adds it to the remaining projects. |
+| Checked | All selected projects use the tag. | Removes it from all selected projects. |
+
+Each change saves immediately. Tags you do not change keep their existing
+assignments. Type a new tag name and select **Create** to create and assign it to
+the selected projects. Close the editor or press <kbd>Escape</kbd> when finished;
+closing keeps saved changes.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Bulk edit tags showing checked, mixed, and unchecked tags with membership counts"
+  sources={{
+    light: '/img/screenshots/screen_projects_bulk_tags_light.webp',
+    dark: '/img/screenshots/screen_projects_bulk_tags_dark.webp',
+  }}
+/>
+
+The editor keeps the same target projects and membership total while open, even
+when a tag change hides a project under the current filter. Closing the editor
+removes hidden projects from the selection. Changing project **Search** or the
+**Tags** filter closes the editor and clears selection; searching inside the tag
+editor does not.
+
+If a change partly fails, successful changes remain saved. The **Tags**
+notification names failures and offers **Retry** for only those targets, using
+the original add or remove action. Projects removed elsewhere are reported as
+unavailable and are not replaced by newly matching projects.
+
+For tag names, colours, or deletion, use [Manage tags](#manage-shared-tags).
+See [Select several projects](./manage-projects.mdx#select-several-projects) for
+selection and the other bulk actions.
 
 ## Filter projects by tag
 

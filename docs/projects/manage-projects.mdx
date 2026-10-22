@@ -3,7 +3,7 @@ id: manage-projects
 sidebar_label: Manage Projects
 title: Manage Godot Projects
 slug: /projects/manage-projects
-description: "Find, open, pin, search, and manage projects from the Godot Launcher Projects view."
+description: "Find, select, tag, pin, and manage Godot projects together from the Godot Launcher Projects view."
 tags:
   - guides
   - godot-project-setup
@@ -99,6 +99,92 @@ Enter part of a project name in **Search** to filter all three groups. Use
 **Tags** beside Search to match any selected tag, then narrow the results with
 text search. See [Project Tags](./project-tags.mdx) to add or manage tags.
 
+## Select several projects
+
+Use multi-select to organise several projects without opening them. It works in
+**Cards**, **Compact**, and **List** views.
+
+1. Select **Enable multi-select**, the checklist icon beside **View options**.
+2. Select the checkbox beside each project you want to change. The toolbar shows the selected count.
+3. Open **Actions** and choose an action. The number beside each action shows how many selected projects it will change; actions with no eligible projects are disabled.
+
+The checkbox beside **Pinned**, **New**, or **Recents** selects all currently
+shown projects in that group. A mixed checkbox means only some are selected;
+select it to select the rest. Clear a checked group checkbox to deselect that
+group without changing other groups.
+
+In **Actions**, **Select all shown** selects every project matching your current
+search and tag filters. **Select New shown** selects shown projects eligible for
+**Mark as not new**. **Clear selection** deselects everything while keeping
+multi-select enabled. Select **Disable multi-select** to leave this mode.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Selected projects across groups, a mixed New checkbox, and the bulk Actions menu"
+  sources={{
+    light: '/img/screenshots/screen_projects_bulk_actions_light.webp',
+    dark: '/img/screenshots/screen_projects_bulk_actions_dark.webp',
+  }}
+/>
+
+Switching views, changing the group order, or moving projects between groups
+preserves selection. Changing project **Search** or the **Tags** filter clears
+it. Projects removed from the list also leave the selection. Drag reordering is
+unavailable while multi-select is enabled.
+
+Use **Actions > Bulk edit tags** to [edit tags for the selected projects](./project-tags.mdx#edit-tags-for-several-projects).
+
+### Clear New status for selected projects
+
+Choose **Actions > Mark as not new** to clear New status only for eligible
+selected projects. This does not open the projects or change their last opened
+time. Unpinned projects move to **Recents**; pinned projects keep their position.
+
+The **Projects** notification offers **Undo** for successful changes. If some
+changes fail, it names the failed projects. **Retry clearing New** retries only
+those failures; **Retry Undo** retries only the unsuccessful restorations.
+Opening or removing a project can make its Undo unavailable.
+
+### Pin or unpin selected projects
+
+Choose **Actions > Pin** or **Actions > Unpin**. Each action changes only
+selected projects whose pin state differs from the requested state.
+
+Newly pinned projects appear together at the top of **Pinned**, in their current
+display order. Previously pinned projects keep their relative order. **Unpin**
+returns projects to **New** or **Recents** as appropriate. Selection stays active
+as projects move between groups.
+
+If an action partly fails, successful changes remain saved. **Retry** in the
+notification retries failed changes. If saving the pinned order fails, retrying
+the order does not repeat successful pin changes.
+
+### Remove selected projects
+
+1. Choose **Actions > Remove from list**.
+2. Review the project names and count in the confirmation.
+3. Select **Remove**, or **Cancel** to keep every project listed.
+
+Bulk removal always asks for confirmation, even when individual-project
+confirmation is turned off in **Settings > Behavior**. Project folders and files
+stay on your device. There is no Undo for removal; [add an existing project](./add-existing-project.mdx)
+to list it again.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Bulk removal confirmation listing the selected project names and Cancel and Remove buttons"
+  sources={{
+    light: '/img/screenshots/screen_projects_bulk_remove_light.webp',
+    dark: '/img/screenshots/screen_projects_bulk_remove_dark.webp',
+  }}
+/>
+
+Successful removals leave the list and selection. If some fail, those projects
+remain selected and the notification names the failures. **Retry** opens another
+confirmation for only the failed projects; it does not repeat successful
+removals. A project removed elsewhere is reported as unavailable rather than
+replaced with another target.
+
 ## Choose the group order
 
 The default group order is **Pinned**, **New**, then **Recents**. Empty groups
@@ -158,7 +244,7 @@ project makes that Undo unavailable.
   }}
 />
 
-These notifications dismiss after three seconds. Hover over a notification or
+Single-project New status notifications dismiss after three seconds. Hover over a notification or
 focus one of its controls to pause the timer. An open dialog also pauses it.
 Use the close button to dismiss it. If a notification action fails, the notification stays
 visible with its actions available for retry. Restarting the app does not restore
@@ -280,7 +366,7 @@ You can also reorder with the keyboard:
   }}
 />
 
-Clear search and tag filters before reordering pinned projects.
+Clear search and tag filters and disable multi-select before reordering pinned projects.
 
 ## Related guides
 

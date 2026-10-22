@@ -59,6 +59,17 @@ Use a folder scan to find several existing projects together. Godot Launcher che
 
 **Already added** lists projects registered in the launcher. **Unable to add** lists projects that cannot currently be imported. These entries are read-only, and empty sections are hidden. The path badge copies the complete project folder path, even when the displayed text is shortened.
 
+While the selected projects are being added, a progress bar and completed/total count show how many projects have been processed. Review the results when importing finishes, then select **Done**.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Folder import progress bar with a readable count of processed projects"
+  sources={{
+    light: '/img/screenshots/screen_projects_folder_scan_adding_light.webp',
+    dark: '/img/screenshots/screen_projects_folder_scan_adding_dark.webp',
+  }}
+/>
+
 The projects stay in their existing folders. Successfully added projects remain added if another project fails. Fix the reported problem and scan the folder again to add the remaining projects.
 
 ### Review scan problems

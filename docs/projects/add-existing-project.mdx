@@ -3,7 +3,7 @@ id: add-existing-project
 sidebar_label: Add an Existing Project
 slug: /getting-started/add-existing-project
 title: Add an Existing Godot Project
-description: "Add an existing Godot project or scan a folder for projects, review their names, and choose installed or downloadable editors."
+description: "Add projects from Godot Project Manager, choose a project file, or scan a folder, then review names and editor downloads."
 tags:
   - getting-started
   - project-import
@@ -22,7 +22,7 @@ You do not need an editor installed before adding the project.
 ## Add the project
 
 1. Open **Projects**.
-2. Select **Add > From this computer**, or **From this computer** on the empty welcome screen.
+2. Select **Add > From this computer**, or **Choose a project file** on the empty Projects screen.
 3. Select the project's `project.godot` file.
 
 You can also drag one or more `project.godot` files onto **Projects**.
@@ -38,11 +38,36 @@ You can also drag one or more `project.godot` files onto **Projects**.
 
 The launcher opens a review before adding the project. Check its name, editor and optional tags, then select **Add projects**.
 
+## Import from Godot Project Manager
+
+Use this option to review projects already registered with Godot, without searching their folders individually.
+
+1. Open **Projects > Add > From Godot Project Manager**, or select **From Godot Project Manager** on the empty Projects screen.
+2. The launcher looks for Godot's project list in the usual locations. If more than one list is found, choose the one to use. For a portable, Steam, or custom location, select **Choose project list** and choose its `projects.cfg` file.
+3. Under **Available**, select the projects to add. Review their names, Godot editors, code editors, and optional tags.
+4. Leave **Download missing editors** checked to download the selected missing editors, or clear it to add the projects without starting editor downloads.
+5. Select **Add selected projects**, review the results, then select **Done**.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Godot Project Manager import review with project groups and fixed selection and download controls"
+  sources={{
+    light: '/img/screenshots/screen_projects_godot_manager_review_light.webp',
+    dark: '/img/screenshots/screen_projects_godot_manager_review_dark.webp',
+  }}
+/>
+
+**Already added** lists projects registered in Godot Launcher. **Unable to add** lists unsupported, missing, or unreadable projects. Godot 4 projects are supported; older projects are shown without conversion. Restore unavailable folders or add a supported project file from its current location.
+
+Projects stay in their existing folders. Importing does not change Godot's project list or `project.godot`. The launcher saves its own project settings and applies your chosen code editor integration when adding a project. Cancelling before adding projects leaves them unregistered.
+
+If no list is found or a list cannot be read, use **Choose project list** or **Choose another project list** to select a different `projects.cfg`. Lists larger than 1 MiB cannot be read. Only the first 100 distinct projects are reviewed; an incomplete-list message appears when this limit is reached. Use **Scan a folder** or **Choose a project file** to add the remaining projects.
+
 ## Scan a folder for projects
 
 Use a folder scan to find several existing projects together. Godot Launcher checks the selected folder and its subfolders for `project.godot` files.
 
-1. Open **Projects > Add > Scan folder**.
+1. Open **Projects > Add > Scan folder**, or select **Scan a folder** on the empty Projects screen.
 2. Choose one folder and select **Open**. Scanning starts automatically.
 3. Wait for the scan to finish, or select **Stop scan** to review the projects found so far.
 4. Under **Available**, select the projects to add and check their names, Godot editors, code editors, and optional tags. Clear a selection to skip that project.
@@ -93,7 +118,7 @@ Select **Choose another folder** to start a different scan. Select **Cancel** be
 
 1. Review each selected project's name and Godot editor.
 2. Change any conflicting name, or clear the selection to skip that project. A folder already registered in the launcher must be skipped.
-3. Optionally use the tag icon beside a name to choose tags for that project. For several projects, use **Tag selected** above the list. See [Choose tags before adding a project](./project-tags.mdx#choose-tags-before-adding-a-project).
+3. Optionally use the tag icon beside a name to choose tags for that project. For several projects, use **Tag selected** above the list. **Select all projects**, **Tag selected**, and **Download missing editors** stay visible while the project list scrolls. See [Choose tags before adding a project](./project-tags.mdx#choose-tags-before-adding-a-project).
 4. Select **Add projects** to add the selected projects.
 
 Changing a name here changes its name in Godot Launcher, without renaming the Godot project or its folder.
@@ -114,6 +139,8 @@ The review offers editors matching the project's Godot version and Standard or .
 - Choose an installed editor so the project is ready to open after adding it.
 - Choose a downloadable editor to add the project and download its editor in the background.
 - Choose **Add With Missing Editor** to add the project before its editor is available.
+
+**Download missing editors** is checked for each new import. Clear it to prevent all editor downloads for that import, including individual downloadable choices. Installed editors are still used, and selected versions remain saved for projects with missing editors. You can install their required editors later from **Projects**. This choice also applies to folder scans, dropped project files, Godot Project Manager imports, and Git imports.
 
 For projects without a saved editor choice, the newest matching stable release is recommended. If no stable release is available, the newest matching prerelease is offered. Matching registered custom builds are also listed.
 

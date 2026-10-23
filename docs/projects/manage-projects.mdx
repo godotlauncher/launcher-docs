@@ -63,15 +63,18 @@ to copy its location. Compact and Cards keep the copy control beside the path.
 
 ## Start with an empty Projects view
 
-You can start creating or adding projects before installing an editor. Select
-**Create project** to choose an editor and start a new project. Select **From
-this computer** to add a project already on your computer, or **From GitHub**
-to connect GitHub and import a repository. When Git is unavailable, **From
-GitHub** stays visible but disabled with an explanation; local import remains
-available.
+When there are no projects, **Add or create a project** fills the Projects view. Choose one of the six tiles:
 
-Use **Add > Scan folder** to find projects in a folder and its subfolders. See
-[Scan a folder for projects](./add-existing-project.mdx#scan-a-folder-for-projects).
+- **Create project** chooses an editor and starts a new project, even before an editor is installed.
+- **From Godot Project Manager** reviews projects already registered with Godot.
+- **Scan a folder** finds projects in a folder and its subfolders.
+- **Choose a project file** adds a single `project.godot` file.
+- **From GitHub** browses your connected repositories.
+- **From public Git URL** clones a public repository.
+
+See [Add an Existing Godot Project](./add-existing-project.mdx) for local imports, or [Import a Godot Project from Git](./import-repository.mdx) for repositories. When Git is unavailable, the Git tiles are disabled with an explanation; local import remains available.
+
+The project header and list controls appear after a project is added. Removing the final project returns to these tiles.
 
 <ThemedImage
   className="docs-media-frame"
@@ -164,6 +167,8 @@ the order does not repeat successful pin changes.
 1. Choose **Actions > Remove from list**.
 2. Review the project names and count in the confirmation.
 3. Select **Remove**, or **Cancel** to keep every project listed.
+
+The project count, message explaining that files stay on your device, and action buttons stay visible while a long list of project names scrolls.
 
 Bulk removal always asks for confirmation, even when individual-project
 confirmation is turned off in **Settings > Behavior**. Project folders and files

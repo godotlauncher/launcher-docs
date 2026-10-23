@@ -103,6 +103,8 @@ Removing a custom editor registration does not delete its files. See [Install a 
 
 Choose an installed or downloadable editor from the import review. If you need to restore or register an editor first, choose **Add With Missing Editor**. The project is added, but **Edit in Godot** remains unavailable until its editor is available.
 
+To add projects without downloading editors, clear **Download missing editors** above the import list. This applies to all editor downloads in that import.
+
 If the editor download fails, the selected version stays saved. Select **Install required editor** on the project to retry. For a custom build, restore its location or [register the editor](./editors/custom-editors.mdx).
 
 <ThemedImage

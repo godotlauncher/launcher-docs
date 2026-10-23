@@ -42,6 +42,51 @@ for other projects.
 You can also edit tags in [Project Settings](./project-settings.mdx#project-tags),
 where **Update** saves your changes.
 
+## Choose tags before adding a project
+
+Use the tag icon beside the project name when creating or duplicating a project,
+or while reviewing projects imported from this computer, a folder, GitHub or a
+public Git repository. A duplicate starts with the source project's tags; you can
+change them for the copy without changing the source.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="New Project tag picker beside the project name"
+  sources={{
+    light: '/img/screenshots/screen_projects_new_project_tags_light.webp',
+    dark: '/img/screenshots/screen_projects_new_project_tags_dark.webp',
+  }}
+/>
+
+For several imported projects, select their checkboxes and open **Tag selected**
+above the list. Use **Select all projects** to include every available project.
+The number on the button shows how many projects the tag changes will affect.
+
+- An unchecked tag is added to all selected projects.
+- A mixed tag is added to the selected projects that do not yet have it.
+- A checked tag is removed from all selected projects.
+
+Other tags keep their assignments. You can still use each project's tag icon to
+make individual changes. Projects selected afterwards do not inherit earlier
+bulk tag changes.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Tag selected above a folder import list, showing mixed, checked and unchecked tags"
+  sources={{
+    light: '/img/screenshots/screen_projects_folder_scan_tags_light.webp',
+    dark: '/img/screenshots/screen_projects_folder_scan_tags_dark.webp',
+  }}
+/>
+
+These choices are saved when the project is successfully created or added.
+Closing the form or cancelling review discards unsaved tag choices. Importing
+several projects saves tags only for those added successfully.
+
+If tags cannot be saved, the project remains added. Select **Retry** to save its
+tags again without recreating or importing the project. **Cancel** continues
+without retrying; you can edit tags from **Projects** later.
+
 ## Edit tags for several projects
 
 1. In **Projects**, select **Enable multi-select** and choose projects using their checkboxes or the group checkboxes.

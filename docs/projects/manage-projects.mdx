@@ -265,11 +265,61 @@ the card actions to:
 - Use the terminal or code editor button to open the project folder in that tool.
 - Use the folder button to open either the project folder or its Godot editor settings folder.
 - Use the settings button to open [Project Settings](./project-settings.mdx).
-- Use the more-actions button to duplicate the project, import or export Godot editor settings, or remove the project from the launcher.
+- Use the more-actions button to run or duplicate the project, import or export Godot editor settings, or remove the project from the launcher.
 
 To remove a project, open its more-actions menu and select **Remove Project From List**. Confirm with **Remove** if prompted. The project disappears from the list; its project folder stays on disk.
 
 For the meaning of tool and warning icons in each view, see [Godot Launcher Project Status Icons](./project-badges.mdx).
+
+### Run a project {#run-project}
+
+Select **Run project** from the project's three-dot more-actions menu to start
+its main scene with the project's selected Godot version. This action is
+available in Cards, Compact, and List views.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Project more-actions menu with Run project as the first action"
+  sources={{
+    light: '/img/screenshots/screen_projects_menu_light.webp',
+    dark: '/img/screenshots/screen_projects_menu_dark.webp',
+  }}
+/>
+
+If no main scene is set, **Run project** is disabled with an explanation. Open
+the project with **Edit in Godot**, set its main scene, then reopen the
+more-actions menu.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Disabled Run project action explaining that a main scene must be set in Godot"
+  sources={{
+    light: '/img/screenshots/screen_projects_run_missing_main_scene_light.webp',
+    dark: '/img/screenshots/screen_projects_run_missing_main_scene_dark.webp',
+  }}
+/>
+
+Run starts the project directly. If a new or imported project needs resource
+imports or a C# build, open it in Godot once, let preparation finish, and confirm
+that it runs there before trying **Run project** again. The project folder and
+its selected editor must be available; the menu explains if either is missing.
+
+If launching fails or Godot reports an error, the launcher shows a dialog with
+any available error detail. Select **Edit in Godot** to investigate, or **Close**
+to dismiss it. Fix the problem in Godot, then retry from the more-actions menu.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Project launch failure dialog offering Close and Edit in Godot"
+  sources={{
+    light: '/img/screenshots/screen_projects_run_failure_light.webp',
+    dark: '/img/screenshots/screen_projects_run_failure_dark.webp',
+  }}
+/>
+
+While the launcher is tracking a running instance, **Run project** is disabled
+with **This project is already running.** Run does not change the project's New
+status or last opened time. Close the running game's window to stop it.
 
 ### Open Terminal Here
 

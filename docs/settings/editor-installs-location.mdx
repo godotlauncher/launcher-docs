@@ -37,10 +37,10 @@ For the download steps, see [Installing Godot Editor](../editors/install-editor.
 
 ## Refresh the Godot release list {#refresh-release-cache}
 
-If a newly published Godot version is missing from the install list, open **Settings > Installs** and select **Refresh cache** under **Refresh Release Cache**. Godot Launcher replaces the cached release list with the latest information from GitHub.
+If a newly published Godot version is missing from the install list, open **Settings > Installs** and select **Refresh cache** under **Refresh Release Cache**. Godot Launcher fetches a complete release list from GitHub and replaces the cached list only after the new list is saved successfully.
 
 :::note Refresh cooldown
 After a successful refresh, the button shows a 60-second countdown before you can refresh again. Wait for the countdown to finish if you need another refresh.
 :::
 
-If **Unable to Refresh Cache** appears, try again later.
+If **Unable to Refresh Cache** appears, the previous release list stays available. Try again later, including when GitHub temporarily limits requests.

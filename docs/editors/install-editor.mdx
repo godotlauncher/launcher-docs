@@ -126,15 +126,17 @@ Removing an installed editor deletes its editor files. Projects assigned to it n
 
 The launcher checks each editor again before removal. An editor selected with **Select unused editors** is kept if a project starts using it. Changed or busy editors are also kept. If a removal fails, the dialog shows the result for each editor; resolve the reported problem and use **Retry failed removals**. Successful removals stay removed.
 
-## Use Godot from a terminal
+## Use Godot from a terminal {#use-godot-from-a-terminal}
 
-Choose one installed editor as the default for the `godot` command. This works
+Choose one installed editor as the default for the `godot` command, or give each
+editor its own named alias, such as `godot472`. An editor can have one named
+alias as well as being the default. Both kinds of command work
 with official editors and registered custom builds on Windows, macOS, and Linux.
 Setup applies to your user account and does not require administrator permissions.
 
 1. In **Installs**, select the terminal icon button beside the editor. Its tooltip
    reads **Use as default command-line Godot**.
-2. Read the editor preferences explanation and select **Ok**.
+2. Read the editor preferences explanation and select **Set as default**.
 3. If prompted, restart your terminal, then run:
 
    ```sh
@@ -170,7 +172,7 @@ Windows build, register its console executable in the manifest's optional
 registered editor executable, whose terminal capabilities depend on the build.
 
 :::info Terminal editor preferences
-Typing `godot` uses the selected editor's normal editor preferences. It does not
+Typing `godot` or a named alias uses the selected editor's normal editor preferences. It does not
 use the separate preferences Godot Launcher keeps for each project, such as editor
 themes and shortcuts. Open the project from Godot Launcher to use its
 [per-project editor preferences](./editor-settings.mdx). The project's own
@@ -187,7 +189,51 @@ Custom builds can also provide their own editor preferences configuration.
   }}
 />
 
+### Create or rename a named alias
+
+1. In **Installs**, open the editor's **Settings** using its gear button.
+2. Under **Command line**, enable **Named alias**.
+3. Enter a **Command name** and wait for **Available**.
+4. Select **Apply** and confirm the terminal editor preferences explanation if prompted.
+5. Open a new terminal if prompted, then run your command, for example `godot472 --version`.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Editor Command line settings with a default terminal editor switch and a named alias"
+  sources={{
+    light: '/img/screenshots/screen_installs_command_line_settings_light.webp',
+    dark: '/img/screenshots/screen_installs_command_line_settings_dark.webp',
+  }}
+/>
+
+Use 1-48 lowercase letters, digits, or hyphens, starting with a letter. The
+name `godot` and reserved system names are unavailable. Names must be unique
+across installed editors and must not conflict with an existing command or file.
+Godot Launcher does not overwrite another command to claim its name. If two
+editions or custom builds suggest the same name, choose a different name for one.
+
+To rename an alias, select **Rename alias**, edit the name, and select **Apply**.
+Typing or checking a name does not change the saved command. **Cancel** keeps
+the saved name. Closing with unapplied changes asks whether to discard them.
+
+To remove an alias, switch **Named alias** off and confirm with **Remove alias**.
+This keeps the editor and the default `godot` command. Removing the editor also
+removes its named alias. Removing commands keeps the shared command directory
+and PATH setup for future use.
+
+If an alias reports that it needs recovery, resolve the reported file or editor
+installation problem, then reopen its settings to retry. An unfinished rename
+can reserve both names until recovery completes. If command files have been
+changed outside Godot Launcher, the launcher can refuse to change or remove
+them; do not replace unrelated files to force the operation.
+
+To create aliases automatically for new editors, see
+[Command line settings](../settings/command-line.mdx).
+
 ### Switch or remove the command-line default
+
+You can also change the default from an editor's **Settings > Command line**
+using the **Default terminal editor** switch.
 
 Select the terminal button on another installed editor to switch the command.
 This changes the terminal default without changing the editor assigned to any
@@ -204,8 +250,9 @@ another installed editor as the default.
 
 ### PATH setup and command conflicts
 
-Godot Launcher adds a fixed directory to your user PATH. The directory contains
-the `godot` command, which points to the selected editor.
+Setting up an individual default command or named alias adds a fixed directory
+to your user PATH. The directory contains the default `godot` command and named
+aliases. Bulk creation from Command line settings keeps existing PATH setup.
 
 | Platform | Command directory |
 | --- | --- |
@@ -221,7 +268,7 @@ On macOS and Linux, automatic setup supports Bash, Zsh, and Fish. Setup adds an
 identifiable configuration block for Bash or Zsh, or a Fish configuration file.
 For other shells, add the command directory to your PATH using that shell's
 configuration. Quit Godot Launcher and start it from the configured terminal before
-selecting the default, so it can read the updated PATH.
+setting up a command, so it can read the updated PATH.
 
 Existing commands keep their priority. If another `godot` command takes
 precedence, the launcher reports it and preserves your command and PATH order.

@@ -1,7 +1,7 @@
 ---
 id: installation
 slug: /getting-started/installation
-description: "Install Godot Launcher on Windows, macOS, or Linux, then complete the four-step first-run setup."
+description: "Install Godot Launcher on Windows, macOS, or Linux, then complete the five-step first-run setup."
 title: Install Godot Launcher
 sidebar_label: Installation
 tags:
@@ -124,11 +124,11 @@ After installing a `.deb` or `.rpm`, open Godot Launcher from your application m
 
 ## Complete first-run setup
 
-On the first run, complete four steps to set up the launcher for your workflow.
+On the first run, complete five steps to set up the launcher for your workflow.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Godot Launcher Welcome screen showing the four first-run setup steps"
+  alt="Godot Launcher Welcome screen showing the five first-run setup steps"
   sources={{
     light: '/img/screenshots/screen_onboarding_welcome_light.webp',
     dark: '/img/screenshots/screen_onboarding_welcome_dark.webp',
@@ -139,13 +139,23 @@ On the first run, complete four steps to set up the launcher for your workflow.
 2. **Appearance** lets you choose the launcher theme.
 3. **Setup** confirms the project, editor, and imported export template locations and lets you choose a default code editor. On Windows, you can also enable editor symlinks to reduce disk use.
 4. **Preferences** lets you choose what happens after opening a project. On Windows and macOS, you can also choose whether the launcher starts with your computer.
+5. **Command line** lets you choose automatic named aliases for new Godot editors. This is off by default. Your choice is applied when you select **Finish and view projects**. The **Godot Launcher CLI** panel is marked **Coming soon** and is not available.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Command line first-run setup with automatic named aliases switched off"
+  sources={{
+    light: '/img/screenshots/screen_onboarding_command_line_light.webp',
+    dark: '/img/screenshots/screen_onboarding_command_line_dark.webp',
+  }}
+/>
 
 Select **Finish and view projects** to open Projects, even when no Godot editor
 is installed. From there, [create a project](../projects/create-project.mdx) and
 choose an editor to download, or [add existing work](../projects/add-existing-project.mdx).
 
 :::info Change setup choices later
-Godot Launcher uses your operating system language when a matching translation is available. Change it later under **Settings > Appearance > Language**. The other setup choices remain available in [Godot Launcher Settings](../settings/launcher-settings.mdx), [Code Editor Settings](../settings/code-editors.mdx), and [Behaviour settings](../settings/behavior.mdx).
+Godot Launcher uses your operating system language when a matching translation is available. Change it later under **Settings > Appearance > Language**. The other setup choices remain available in [Godot Launcher Settings](../settings/launcher-settings.mdx), [Code Editor Settings](../settings/code-editors.mdx), [Behaviour settings](../settings/behavior.mdx), and [Command line settings](../settings/command-line.mdx).
 :::
 
 For package or startup problems, see [Installation and startup troubleshooting](../troubleshooting.md#installation-and-startup). For Linux tray problems, see [System tray troubleshooting](../troubleshooting.md#system-tray).

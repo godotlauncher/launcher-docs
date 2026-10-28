@@ -86,6 +86,7 @@ export default {
         "settings/launcher-settings",
         "settings/project-location",
         "settings/editor-installs-location",
+        "settings/command-line",
         "settings/appearance-language",
         "settings/behavior",
         "settings/code-editors",

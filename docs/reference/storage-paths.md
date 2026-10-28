@@ -86,6 +86,8 @@ Godot Launcher stores these files in `<home>/.gd-launcher`:
 | `releases.json` | Cached official stable Godot release metadata. |
 | `prereleases.json` | Cached official prerelease metadata. |
 | `installed-releases.json` | Registered official and custom editor installs. |
+| `command-line-godot.json` | The editor selected for the default `godot` terminal command. |
+| `command-line-aliases.json` | Named terminal alias registrations and information used to recover interrupted command changes. |
 | `migrations.json` | Internal migration state. |
 
 ## Project folders
@@ -104,6 +106,7 @@ The launcher stores the following information locally:
 - Project tags and their assignments.
 - The project's **Launch in terminal** and **Windowed editor** choices.
 - Per-version imported-build selections.
+- The default `godot` terminal editor, named aliases, and automatic alias preference.
 
 These choices are not restored when you add the project on another computer.
 

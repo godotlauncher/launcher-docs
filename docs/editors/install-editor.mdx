@@ -96,7 +96,7 @@ Use multi-select in **Installs** to remove several editors with one confirmation
 1. Select **Enable multi-select**, the checklist icon at the left of the toolbar.
 2. Tick the editors to remove, or open **Actions > Select unused editors**.
 3. Select **Actions > Remove selected**.
-4. Check the editor list and any projects shown in **Remove selected editors**, then select **Remove selected** to confirm.
+4. Review the consequences and the **Affected items** list, then select **Remove selected** to confirm. Each editor shows its named commands, any default `godot` command, and assigned projects.
 
 <ThemedImage
   className="docs-media-frame"
@@ -109,7 +109,7 @@ Use multi-select in **Installs** to remove several editors with one confirmation
 
 **Select unused editors** selects launcher-managed editors with no assigned projects. Projects with unavailable files still count as using their assigned editor. Custom editors are excluded from this action; select them individually or use **Select all** to include them.
 
-Search filters the visible rows without clearing your selection. **Clear selection** unticks all editors. **Disable multi-select** also clears the selection and restores the individual editor buttons. Editors with an install or another action in progress cannot be selected.
+**Select all** selects every eligible editor matching the current search, including rows outside the scroll area. The checkbox beside a version heading selects or clears that group. **Select unused editors** uses the same search scope. Changing the search clears the selection. **Clear selection** unticks all editors. **Disable multi-select** also clears the selection and restores the individual editor buttons. Editors with an install or another action in progress cannot be selected.
 
 :::warning Projects using a selected editor
 Removing an installed editor deletes its editor files. Projects assigned to it need another editor before they can launch. Removing a custom editor unregisters it from Godot Launcher and keeps its files. Your project files are kept in both cases.
@@ -124,7 +124,7 @@ Removing an installed editor deletes its editor files. Projects assigned to it n
   }}
 />
 
-The launcher checks each editor again before removal. An editor selected with **Select unused editors** is kept if a project starts using it. Changed or busy editors are also kept. If a removal fails, the dialog shows the result for each editor; resolve the reported problem and use **Retry failed removals**. Successful removals stay removed.
+The launcher checks each editor again before removal. An editor selected with **Select unused editors** is kept if a project starts using it. Changed or busy editors are also kept. Removing an editor also removes its named alias and, if selected as the terminal default, the managed `godot` command. No replacement default is chosen. Command cleanup must succeed before editor files are deleted. The confirmation stays open while removal runs and closes when all removals succeed. The confirmation keeps a fixed height. Only the **Affected items** list scrolls; the consequence summary, section heading, title, and action buttons stay visible. If some editors cannot be removed, **Items needing attention** shows their reasons. Use **Retry failed removals** after resolving failures. Successful removals are not repeated, and skipped editors stay listed until you close the dialog.
 
 ## Use Godot from a terminal {#use-godot-from-a-terminal}
 
@@ -230,6 +230,33 @@ them; do not replace unrelated files to force the operation.
 To create aliases automatically for new editors, see
 [Command line settings](../settings/command-line.mdx).
 
+### Manage aliases for selected editors
+
+1. Enable multi-select in **Installs** and tick the editors to change.
+2. Open **Actions** and choose **Create missing aliases** or **Remove named aliases**.
+3. Review the eligible count and confirm, or select **Cancel** to keep commands unchanged.
+
+Creation keeps existing aliases and uses the suggested name for each remaining
+editor. Unavailable names are skipped without adding suffixes or replacing other
+commands. Aliases created from this selection are manual aliases; disabling
+automatic aliases and choosing to remove only automatic aliases keeps them.
+Removing named aliases keeps the editors, the default `godot` command, and shared
+PATH setup. Neither action changes the automatic-alias preference.
+
+The dialog stays open while changes run and closes on success. If some commands
+cannot be changed, expand **View details** for the reasons. **Retry** reviews only
+failed commands again; skipped commands can be selected for a new attempt after
+the reported problem is resolved.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Counted confirmation for creating missing aliases for selected editors"
+  sources={{
+    light: '/img/screenshots/screen_installs_create_selected_aliases_light.webp',
+    dark: '/img/screenshots/screen_installs_create_selected_aliases_dark.webp',
+  }}
+/>
+
 ### Switch or remove the command-line default
 
 You can also change the default from an editor's **Settings > Command line**
@@ -250,7 +277,7 @@ another installed editor as the default.
 
 ### PATH setup and command conflicts
 
-Setting up an individual default command or named alias adds a fixed directory
+Setting up a default command or a named alias, individually or from an editor selection, adds a fixed directory
 to your user PATH. The directory contains the default `godot` command and named
 aliases. Bulk creation from Command line settings keeps existing PATH setup.
 

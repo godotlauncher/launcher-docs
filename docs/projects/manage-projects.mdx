@@ -304,9 +304,26 @@ imports or a C# build, open it in Godot once, let preparation finish, and confir
 that it runs there before trying **Run project** again. The project folder and
 its selected editor must be available; the menu explains if either is missing.
 
-If launching fails or Godot reports an error, the launcher shows a dialog with
-any available error detail. Select **Edit in Godot** to investigate, or **Close**
-to dismiss it. Fix the problem in Godot, then retry from the more-actions menu.
+If Godot reports an error, **Godot reported an error** shows a warning with
+the available error detail. The project may still be running, and Godot can
+recover from some errors automatically. The warning does not confirm that the
+project is working correctly. You see at most one such warning per run.
+
+Select **Edit in Godot** to investigate, or **Close** to dismiss the warning.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Godot error warning with error detail and Close and Edit in Godot actions"
+  sources={{
+    light: '/img/screenshots/screen_projects_run_diagnostic_light.webp',
+    dark: '/img/screenshots/screen_projects_run_diagnostic_dark.webp',
+  }}
+/>
+
+If the project cannot start, the launcher shows **Could not run**. If it starts
+and then exits unsuccessfully, **Project stopped unexpectedly** appears, even
+if an earlier error warning is still open. Use **Edit in Godot**, when available,
+to investigate, or **Close** to dismiss the dialog.
 
 <ThemedImage
   className="docs-media-frame"

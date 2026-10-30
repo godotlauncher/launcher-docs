@@ -39,6 +39,8 @@ release, a .NET build, or a custom build.
 4. Choose an installed version from **Godot Editor**, or select **Browse releases** to choose a compatible official editor to download. Choose an editor from the project's current Godot major version.
 5. Select **Update**, or **Install and save** for an editor that is not yet installed.
 
+In **Browse releases**, select **Reload Release List** beside the release filters to check for new versions without changing your selection.
+
 The project uses the selected editor the next time you open it. Its folder and `project.godot` file do not move.
 
 **Install and save** saves the editor choice and closes Project Settings while the download continues. You can reopen [Project Settings](../projects/project-settings.mdx) during the download.

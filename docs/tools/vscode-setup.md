@@ -71,7 +71,7 @@ For a Godot .NET project using C#, it can also add:
 
 Selecting VS Code adds extension recommendations; it does not install the extensions. Open the project folder in VS Code and install the extensions you need.
 
-When updating workspace files, Godot Launcher keeps settings and entries outside those it manages. Switching from VSCodium replaces the entries managed for that editor, while keeping other valid recommendations, tasks, and launch configurations.
+When updating workspace files, Godot Launcher preserves settings and entries it does not manage. Switching from VSCodium replaces the entries managed for that editor, while keeping other valid recommendations, tasks, and launch configurations.
 
 For manual Godot Tools configuration, see the [Godot Tools extension documentation](https://marketplace.visualstudio.com/items?itemName=geequlim.godot-tools#godot-tools).
 

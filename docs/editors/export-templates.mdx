@@ -45,6 +45,21 @@ Saving a selection that removes installed files permanently deletes those files.
 2. Select the template files you need. Review the files to add or remove.
 3. Choose **Save changes**. You can also open **Manage templates** on an existing collection to change its installed files.
 
+While selected files download, select **Cancel template download**, the X at the
+right-hand end of the progress bar, to stop the download. Installed files stay
+unchanged. Cancellation is unavailable once the launcher starts applying changes.
+To retry, choose **Download templates**, or **Manage templates** for an existing
+collection, and select the files again.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Selected template files downloading with a cancel control at the end of the progress bar"
+  sources={{
+    light: '/img/screenshots/screen_export_templates_selected_download_light.webp',
+    dark: '/img/screenshots/screen_export_templates_selected_download_dark.webp',
+  }}
+/>
+
 If the server cannot provide individual files, choose **Download full package** to download and install the complete package for that version and edition. Existing installed files, including extra files, are retained. The drawer shows download and extraction progress. Use **Cancel** while it is available. A cancelled download leaves installed files unchanged.
 
 After cancellation, choose **Retry**. After a failure, follow the displayed recovery action: **Retry**, **Refresh file list**, or **Choose another version**.

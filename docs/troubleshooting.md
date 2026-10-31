@@ -103,6 +103,8 @@ Removing a custom editor registration does not delete its files. See [Install a 
 
 Choose an installed or downloadable editor from the import review. If you need to restore or register an editor first, choose **Add With Missing Editor**. The project is added, but **Edit in Godot** remains unavailable until its editor is available.
 
+To add projects without downloading editors, clear **Download missing editors** above the import list. This applies to all editor downloads in that import.
+
 If the editor download fails, the selected version stays saved. Select **Install required editor** on the project to retry. For a custom build, restore its location or [register the editor](./editors/custom-editors.mdx).
 
 <ThemedImage
@@ -166,6 +168,18 @@ Godot can still open the project. Choose the result you want:
 - **Launch anyway** opens Godot without changing the project.
 - **Disable & Launch** stops using this code editor for the project, then opens Godot.
 - **Open settings** lets you find the editor again or choose its location.
+
+### Could not open code editor
+
+If opening the project folder in its code editor fails, select **Open settings**
+in the warning. Check that the editor is enabled and installed, and that its
+executable path is correct in **Settings > Code Editors**. If the project folder is unavailable,
+restore its location or reconnect its drive before trying again.
+
+When [automatic opening](./settings/behavior.mdx#open-the-code-editor-alongside-godot)
+fails after Godot starts, Godot stays open. The launcher shows the warning even
+when you opened the project from the system tray or chose to hide the launcher
+after opening a project.
 
 ### Godot does not open scripts in the selected code editor
 
@@ -252,7 +266,7 @@ session. Remove that flag and restart the launcher to use the saved choice.
 
 ### Remote import choices are disabled
 
-Open **Settings > Tools** and confirm that Git is available. The local file option remains available while the launcher checks Git or when Git cannot be found.
+Open **Settings > Tools** and confirm that Git is available. **From this computer** and **Scan folder** remain available while the launcher checks Git or when Git cannot be found.
 
 ### No GitHub repositories are available
 

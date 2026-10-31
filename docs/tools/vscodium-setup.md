@@ -68,7 +68,7 @@ Godot Launcher maintains these files under `.vscode`:
 
 Selecting VSCodium adds extension recommendations; it does not install the extensions. Open the project folder in VSCodium and install the extensions you need from Open VSX.
 
-When updating workspace files, Godot Launcher keeps settings and entries outside those it manages. Switching from Visual Studio Code replaces the entries managed for that editor, while keeping other valid recommendations, tasks, and launch configurations.
+When updating workspace files, Godot Launcher preserves settings and entries it does not manage. Switching from Visual Studio Code replaces the entries managed for that editor, while keeping other valid recommendations, tasks, and launch configurations.
 
 ## Imported projects
 

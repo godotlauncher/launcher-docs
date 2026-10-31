@@ -3,7 +3,7 @@ id: manage-projects
 sidebar_label: Manage Projects
 title: Manage Godot Projects
 slug: /projects/manage-projects
-description: "Find, open, pin, search, and manage projects from the Godot Launcher Projects view."
+description: "Find, select, tag, pin, and manage Godot projects together from the Godot Launcher Projects view."
 tags:
   - guides
   - godot-project-setup
@@ -19,7 +19,7 @@ Use the **Projects** view in Godot Launcher to find and open projects or change 
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Godot Launcher Projects view in Cards mode with New, Pinned, and Recents groups"
+  alt="Godot Launcher Cards view with Pinned and New groups and the View options button"
   sources={{
     light: '/img/screenshots/screen_projects_view_light.webp',
     dark: '/img/screenshots/screen_projects_view_dark.webp',
@@ -63,12 +63,18 @@ to copy its location. Compact and Cards keep the copy control beside the path.
 
 ## Start with an empty Projects view
 
-You can start creating or adding projects before installing an editor. Select
-**Create project** to choose an editor and start a new project. Select **From
-this computer** to add a project already on your computer, or **From GitHub**
-to connect GitHub and import a repository. When Git is unavailable, **From
-GitHub** stays visible but disabled with an explanation; local import remains
-available.
+When there are no projects, **Add or create a project** fills the Projects view. Choose one of the six tiles:
+
+- **Create project** chooses an editor and starts a new project, even before an editor is installed.
+- **From Godot Project Manager** reviews projects already registered with Godot.
+- **Scan a folder** finds projects in a folder and its subfolders.
+- **Choose a project file** adds a single `project.godot` file.
+- **From GitHub** browses your connected repositories.
+- **From public Git URL** clones a public repository.
+
+See [Add an Existing Godot Project](./add-existing-project.mdx) for local imports, or [Import a Godot Project from Git](./import-repository.mdx) for repositories. When Git is unavailable, the Git tiles are disabled with an explanation; local import remains available.
+
+The project header and list controls appear after a project is added. Removing the final project returns to these tiles.
 
 <ThemedImage
   className="docs-media-frame"
@@ -83,15 +89,169 @@ available.
 
 Projects appear in one of three groups:
 
-- **New** contains projects you have not opened from the launcher.
 - **Pinned** keeps chosen projects in the order you set.
-- **Recents** contains projects you opened recently.
+- **New** contains unpinned projects created in the launcher that you have not opened or marked as not new.
+- **Recents** contains other unpinned projects, including projects added from your computer or imported from GitHub.
 
-The order is based on projects opened from this computer. Activity on another computer does not change it.
+Existing unopened projects from earlier versions also appear in **Recents**.
+Projects with an opening date come first, ordered by when you last opened them
+from this computer. Projects without an opening date show **Not opened yet**
+and appear below them. Activity on another computer does not change this order.
 
 Enter part of a project name in **Search** to filter all three groups. Use
 **Tags** beside Search to match any selected tag, then narrow the results with
 text search. See [Project Tags](./project-tags.mdx) to add or manage tags.
+
+## Select several projects
+
+Use multi-select to organise several projects without opening them. It works in
+**Cards**, **Compact**, and **List** views.
+
+1. Select **Enable multi-select**, the checklist icon beside **View options**.
+2. Select the checkbox beside each project you want to change. The toolbar shows the selected count.
+3. Open **Actions** and choose an action. The number beside each action shows how many selected projects it will change; actions with no eligible projects are disabled.
+
+The checkbox beside **Pinned**, **New**, or **Recents** selects all currently
+shown projects in that group. A mixed checkbox means only some are selected;
+select it to select the rest. Clear a checked group checkbox to deselect that
+group without changing other groups.
+
+In **Actions**, **Select all shown** selects every project matching your current
+search and tag filters. **Select New shown** selects shown projects eligible for
+**Mark as not new**. **Clear selection** deselects everything while keeping
+multi-select enabled. Select **Disable multi-select** to leave this mode.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Selected projects across groups, a mixed New checkbox, and the bulk Actions menu"
+  sources={{
+    light: '/img/screenshots/screen_projects_bulk_actions_light.webp',
+    dark: '/img/screenshots/screen_projects_bulk_actions_dark.webp',
+  }}
+/>
+
+Switching views, changing the group order, or moving projects between groups
+preserves selection. Changing project **Search** or the **Tags** filter clears
+it. Projects removed from the list also leave the selection. Drag reordering is
+unavailable while multi-select is enabled.
+
+Use **Actions > Bulk edit tags** to [edit tags for the selected projects](./project-tags.mdx#edit-tags-for-several-projects).
+
+### Clear New status for selected projects
+
+Choose **Actions > Mark as not new** to clear New status only for eligible
+selected projects. This does not open the projects or change their last opened
+time. Unpinned projects move to **Recents**; pinned projects keep their position.
+
+The **Projects** notification offers **Undo** for successful changes. If some
+changes fail, it names the failed projects. **Retry clearing New** retries only
+those failures; **Retry Undo** retries only the unsuccessful restorations.
+Opening or removing a project can make its Undo unavailable.
+
+### Pin or unpin selected projects
+
+Choose **Actions > Pin** or **Actions > Unpin**. Each action changes only
+selected projects whose pin state differs from the requested state.
+
+Newly pinned projects appear together at the top of **Pinned**, in their current
+display order. Previously pinned projects keep their relative order. **Unpin**
+returns projects to **New** or **Recents** as appropriate. Selection stays active
+as projects move between groups.
+
+If an action partly fails, successful changes remain saved. **Retry** in the
+notification retries failed changes. If saving the pinned order fails, retrying
+the order does not repeat successful pin changes.
+
+### Remove selected projects
+
+1. Choose **Actions > Remove from list**.
+2. Review the project names and count in the confirmation.
+3. Select **Remove**, or **Cancel** to keep every project listed.
+
+Bulk removal always asks for confirmation, even when individual-project
+confirmation is turned off in **Settings > Behavior**. Project folders and files
+stay on your device. There is no Undo for removal; [add an existing project](./add-existing-project.mdx)
+to list it again.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Bulk removal confirmation listing the selected project names and Cancel and Remove buttons"
+  sources={{
+    light: '/img/screenshots/screen_projects_bulk_remove_light.webp',
+    dark: '/img/screenshots/screen_projects_bulk_remove_dark.webp',
+  }}
+/>
+
+Successful removals leave the list and selection. If some fail, those projects
+remain selected and the notification names the failures. **Retry** opens another
+confirmation for only the failed projects; it does not repeat successful
+removals. A project removed elsewhere is reported as unavailable rather than
+replaced with another target.
+
+## Choose the group order
+
+The default group order is **Pinned**, **New**, then **Recents**. Empty groups
+are hidden from the project list.
+
+1. Select the **View options** icon beside the three view icons.
+2. Drag a whole group row to its new position. The dialog includes all three groups, including empty ones.
+3. Select **Save** to use the order in all three views.
+
+The order is saved on this computer. **Restore default order** resets the draft;
+select **Save** to apply it. **Cancel** or <kbd>Escape</kbd> discards unsaved changes.
+
+To reorder with the keyboard, focus a group row and press <kbd>Space</kbd> or
+<kbd>Enter</kbd>. Use the up and down arrow keys, then press <kbd>Space</kbd> or
+<kbd>Enter</kbd> to drop it. Press <kbd>Escape</kbd> while sorting to cancel the
+move and keep the dialog open.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="View options dialog with draggable Pinned, New, and Recents rows"
+  sources={{
+    light: '/img/screenshots/screen_projects_group_order_light.webp',
+    dark: '/img/screenshots/screen_projects_group_order_dark.webp',
+  }}
+/>
+
+After saving, the bottom-left **Group order saved** notification offers **Undo**
+to restore the previous order and **View options** to reopen the dialog. If saving
+fails, the existing order stays in place and the dialog keeps your draft for retry.
+
+## Duplicate a project
+
+Open the project's more-actions menu and select **Duplicate** to create an independent copy. Choose the new name, destination, and copied preferences or save data, then set up its tools in **More options**. The source Godot version and renderer stay fixed.
+
+See [Duplicate a Godot Project](./duplicate-project.mdx) for copy choices, GitHub publication, and recovery.
+
+## Mark a project as not new
+
+1. Open a new project's more-actions menu.
+2. Select **Mark as not new**.
+
+The project moves to **Recents**. A pinned project stays in **Pinned**, with its
+position unchanged. This changes only the New status; it does not open the
+project or give it an opening date.
+
+Select **Undo** in the bottom-left **New status cleared** notification to restore
+the status. Undo preserves other changes, such as pinning the project, and is
+available only while the notification remains visible. Opening or removing the
+project makes that Undo unavailable.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="My Prototype in Recents with a New status cleared notification and an Undo button"
+  sources={{
+    light: '/img/screenshots/screen_projects_clear_new_light.webp',
+    dark: '/img/screenshots/screen_projects_clear_new_dark.webp',
+  }}
+/>
+
+Single-project New status notifications dismiss after three seconds. Hover over a notification or
+focus one of its controls to pause the timer. An open dialog also pauses it.
+Use the close button to dismiss it. If a notification action fails, the notification stays
+visible with its actions available for retry. Restarting the app does not restore
+an Undo notification.
 
 ## Open or manage a project
 
@@ -100,14 +260,81 @@ the card actions to:
 
 - Select **Edit in Godot** to launch the project with its selected Godot editor.
 - Use the pin button to move the project into or out of **Pinned**.
-- Select **Open Terminal Here** to open the project folder in your selected terminal.
+- Use the terminal or code editor button to open the project folder in that tool.
 - Use the folder button to open either the project folder or its Godot editor settings folder.
 - Use the settings button to open [Project Settings](./project-settings.mdx).
-- Use the more-actions button to import or export Godot editor settings, or remove the project from the launcher.
+- Use the more-actions button to run or duplicate the project, import or export Godot editor settings, or remove the project from the launcher.
 
 To remove a project, open its more-actions menu and select **Remove Project From List**. Confirm with **Remove** if prompted. The project disappears from the list; its project folder stays on disk.
 
 For the meaning of tool and warning icons in each view, see [Godot Launcher Project Status Icons](./project-badges.mdx).
+
+### Run a project {#run-project}
+
+Select **Run project** from the project's three-dot more-actions menu to start
+its main scene with the project's selected Godot version. This action is
+available in Cards, Compact, and List views.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Project more-actions menu with Run project as the first action"
+  sources={{
+    light: '/img/screenshots/screen_projects_menu_light.webp',
+    dark: '/img/screenshots/screen_projects_menu_dark.webp',
+  }}
+/>
+
+If no main scene is set, **Run project** is disabled with an explanation. Open
+the project with **Edit in Godot**, set its main scene, then reopen the
+more-actions menu.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Disabled Run project action explaining that a main scene must be set in Godot"
+  sources={{
+    light: '/img/screenshots/screen_projects_run_missing_main_scene_light.webp',
+    dark: '/img/screenshots/screen_projects_run_missing_main_scene_dark.webp',
+  }}
+/>
+
+Run starts the project directly. If a new or imported project needs resource
+imports or a C# build, open it in Godot once, let preparation finish, and confirm
+that it runs there before trying **Run project** again. The project folder and
+its selected editor must be available; the menu explains if either is missing.
+
+If Godot reports an error, **Godot reported an error** shows a warning with
+the available error detail. The project may still be running, and Godot can
+recover from some errors automatically. The warning does not confirm that the
+project is working correctly. You see at most one such warning per run.
+
+Select **Edit in Godot** to investigate, or **Close** to dismiss the warning.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Godot error warning with error detail and Close and Edit in Godot actions"
+  sources={{
+    light: '/img/screenshots/screen_projects_run_diagnostic_light.webp',
+    dark: '/img/screenshots/screen_projects_run_diagnostic_dark.webp',
+  }}
+/>
+
+If the project cannot start, the launcher shows **Could not run**. If it starts
+and then exits unsuccessfully, **Project stopped unexpectedly** appears, even
+if an earlier error warning is still open. Use **Edit in Godot**, when available,
+to investigate, or **Close** to dismiss the dialog.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Project launch failure dialog offering Close and Edit in Godot"
+  sources={{
+    light: '/img/screenshots/screen_projects_run_failure_light.webp',
+    dark: '/img/screenshots/screen_projects_run_failure_dark.webp',
+  }}
+/>
+
+While the launcher is tracking a running instance, **Run project** is disabled
+with **This project is already running.** Run does not change the project's New
+status or last opened time. Close the running game's window to stop it.
 
 ### Open Terminal Here
 
@@ -120,6 +347,45 @@ supported terminal is available, install one in its system location and select
 **Rescan** in the Terminal drawer. See [Tool Settings](../settings/tools.mdx#set-up-terminal)
 for supported terminals and limitations.
 
+### Open a project in its code editor {#open-in-code-editor}
+
+When a project has an associated code editor and Terminal is available, select
+the small arrow beside the terminal button. Choose **Open Terminal Here** or
+**Open in Visual Studio Code** (or **Open in VSCodium**). Selecting the terminal
+button itself still opens the terminal directly. These controls work in Cards,
+Compact, and List views.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Project opening options with terminal and Visual Studio Code actions"
+  sources={{
+    light: '/img/screenshots/screen_projects_open_tools_light.webp',
+    dark: '/img/screenshots/screen_projects_open_tools_dark.webp',
+  }}
+/>
+
+If Terminal is disabled or unavailable, the associated code editor's icon
+replaces the terminal button. Select it to open the project folder directly;
+there is no dropdown. Projects without a code editor keep the terminal button
+and its setup guidance.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Direct Visual Studio Code and VSCodium buttons when Terminal is unavailable"
+  sources={{
+    light: '/img/screenshots/screen_projects_editor_only_light.webp',
+    dark: '/img/screenshots/screen_projects_editor_only_dark.webp',
+  }}
+/>
+
+Choose the associated editor in [Project Settings > Code Editor](./project-settings.mdx#code-editor).
+Manual opening opens the folder without starting Godot or changing its last
+opened time. If it fails, check [code editor troubleshooting](../troubleshooting.md#code-editors).
+
+The [automatic opening setting](../settings/behavior.mdx#open-the-code-editor-alongside-godot)
+opens the editor whenever you edit the project in Godot. It is on by default;
+turn it off in **Settings > Behavior** to keep opening the code editor manually.
+
 ### Install a missing editor
 
 When a project needs an official editor that is not installed, its Godot
@@ -131,7 +397,7 @@ register the build instead.
 
 <ThemedImage
   className="docs-media-frame"
-  alt="Project card offering to install its required Godot editor"
+  alt="Project card with a cancel control beside its downloading editor"
   sources={{
     light: '/img/screenshots/screen_projects_missing_editor_download_light.webp',
     dark: '/img/screenshots/screen_projects_missing_editor_download_dark.webp',
@@ -141,6 +407,12 @@ register the build instead.
 In List and Compact views, the same warning appears beside the required Godot version. The
 download action remains available in the row so you can recover without
 changing views.
+
+During a download, select **Cancel editor download**, the X beside its spinner,
+to stop it before extraction starts. This action is available in all three
+views. Cancelling stops the shared download for every project waiting for that
+editor version and edition. The projects stay listed with a missing editor;
+select **Install required editor** to retry.
 
 ## Reorder pinned projects
 
@@ -164,7 +436,7 @@ You can also reorder with the keyboard:
   }}
 />
 
-Clear search and tag filters before reordering pinned projects.
+Clear search and tag filters and disable multi-select before reordering pinned projects.
 
 ## Related guides
 

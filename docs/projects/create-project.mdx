@@ -16,7 +16,7 @@ import ThemedImage from '@theme/ThemedImage';
 
 # Create a Godot Project {#create-your-first-project}
 
-Godot Launcher creates a project folder, prepares the selected tools, and adds the project to **Projects**. You can also publish the new project to a private GitHub repository.
+Godot Launcher creates a project folder, prepares the selected tools, and adds the project to **Projects**. You can also publish the new project to a private GitHub repository. To use an existing project as your starting point, [duplicate the project](./duplicate-project.mdx).
 
 <ThemedImage
   className="docs-media-frame"
@@ -30,7 +30,7 @@ Godot Launcher creates a project folder, prepares the selected tools, and adds t
 ## Create a project
 
 1. Open **Projects** and select **New Project**, or **Create project** from the empty welcome screen.
-2. Enter the project name and check **Project location**.
+2. Enter the project name and check **Project location**. Use the tag icon beside the name to [choose tags](./project-tags.mdx#choose-tags-before-adding-a-project) if needed.
 3. Choose the **Godot editor** and **Renderer**.
 4. Choose a code editor and whether to initialise Git, use Git LFS, or publish to GitHub. The sections below explain these choices.
 5. Leave **Edit now** enabled to open the project when it is ready.
@@ -65,7 +65,23 @@ Choose an installed editor, including a [registered custom build](../editors/cus
   }}
 />
 
+Select **Reload Release List** beside the release filters to check for new versions without changing your selection.
+
 A downloadable editor is installed before project creation. Keep Godot Launcher open while setup finishes. If the release catalogue cannot load, select **Retry**.
+
+Select **Cancel download** beneath the editor progress to stop before extraction
+starts. The form keeps your choices, and no project is created or opened. You
+can submit the form again to retry. If other projects are waiting for the same
+editor, cancellation stops their shared download too.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Create Project progress with Cancel download beneath the editor download"
+  sources={{
+    light: '/img/screenshots/screen_projects_new_project_installing_editor_light.webp',
+    dark: '/img/screenshots/screen_projects_new_project_installing_editor_dark.webp',
+  }}
+/>
 
 If installation fails, the project has not been created. Dismiss the alert to return to the form and try again. If project creation fails, review the error and the chosen folder before retrying. If only the editor launch fails, the created project remains in **Projects**; open it from there.
 

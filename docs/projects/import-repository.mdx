@@ -21,7 +21,7 @@ To start, make sure Git is available in **Settings > Tools**. Use a public HTTPS
 
 ## Clone a public repository
 
-1. Open **Projects > Add > Clone public Git repository**.
+1. Open **Projects > Add > Clone public Git repository**, or select **From public Git URL** on the empty Projects screen.
 2. Enter the public HTTPS clone URL.
 3. Select **Continue** to choose its destination.
 
@@ -112,7 +112,9 @@ If initialisation fails, the partially initialised clone is kept. Use the offere
 2. Check each name and editor choice. Rename entries with conflicting names, and skip folders already registered in the launcher. Renaming an entry does not rename its Godot project or folder.
 3. Choose an installed or downloadable Godot editor for each project, or **Add With Missing Editor** to add it before its editor is available.
 4. Choose a code editor if needed. The available choices include automatic detection, **None**, and configured code editors.
-5. Select **Add selected projects**, which also shows the number selected.
+5. Optionally choose tags with each project's tag icon, or use **Tag selected** above the list to tag the checked projects together. See [Choose tags before adding a project](./project-tags.mdx#choose-tags-before-adding-a-project).
+6. Leave **Download missing editors** checked to start the selected editor downloads. Clear it to add projects without downloading any editors; installed editors are still used.
+7. Select **Add selected projects**, which also shows the number selected.
 
 <ThemedImage
   className="docs-media-frame"
@@ -125,9 +127,9 @@ If initialisation fails, the partially initialised clone is kept. Use the offere
 
 For projects without a saved editor choice, the launcher recommends a matching stable release. Projects with a `.godotlauncher` file keep their saved editor unless you choose another. See [Add an Existing Godot Project](./add-existing-project.mdx#choose-the-godot-editor) for editor choices.
 
-The projects appear in **Projects**. Any selected editor downloads continue in the background; follow their progress in **Installs**. A project becomes available when its editor is ready.
+The projects appear in **Projects**. With **Download missing editors** checked, selected editor downloads continue in the background; follow their progress in **Installs**. A project becomes available when its editor is ready.
 
-If a download fails, the selected editor stays saved. Select **Install required editor** on the affected project to retry, or see [editor selection troubleshooting](../troubleshooting.md#project-editor-selection).
+If an editor download fails or is cancelled, the project and its selected editor stay saved. Use **Cancel editor download** beside the project's spinner or in **Installs** to stop it before extraction. Select **Install required editor** on the affected project to retry, or see [editor selection troubleshooting](../troubleshooting.md#project-editor-selection).
 
 The import result lists added, renamed, skipped, and failed projects. Successfully added projects stay added. Select **Review and retry** to return the failed projects to review.
 

@@ -26,9 +26,31 @@ Open **Settings > Behavior** to choose what happens when you close the Godot Lau
 
 ## Confirm project removal
 
-Enable **Ask for confirmation when removing projects.** to show a confirmation before a project is removed from the list. This option is enabled by default.
+Enable **Ask for confirmation when removing projects.** to show a confirmation
+before removing an individual project from the list. This option is enabled by
+default. [Removing selected projects with multi-select](../projects/manage-projects.mdx#remove-selected-projects)
+always asks for confirmation, regardless of this setting.
 
 Removing a project leaves its project folder on disk. Godot Launcher removes the project entry and its prepared editor files or links.
+
+## Open the code editor alongside Godot
+
+**Open the code editor when editing a project** opens each project's
+associated Visual Studio Code or VSCodium editor when you edit the project in
+Godot. This global option is on by default and applies to projects opened from
+the main window or system tray. Turn it off to open only Godot.
+
+Choose an editor for each project in [Project Settings > Code Editor](../projects/project-settings.mdx#code-editor).
+Projects with **None** selected open only in Godot. With **Launch in terminal**,
+the code editor opens once the terminal accepts the launch command.
+
+If automatic opening fails after Godot starts, Godot stays open and the launcher
+shows **Could not open code editor**. Select **Open settings** to check the
+editor's installation or executable path. Choosing **Launch anyway** in the
+missing-editor warning skips automatic opening for that launch.
+
+To open just the project folder in its code editor, use the
+[project's opening options](../projects/manage-projects.mdx#open-in-code-editor).
 
 ## Choose what happens when closing the window
 

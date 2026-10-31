@@ -43,12 +43,13 @@ the setting is enabled without an additional choice.
 Suggested names include a short prerelease suffix and its number: `4.8-dev1`
 becomes `godot48d1`, `4.8-beta1` becomes `godot48b1`, and `4.8-rc1` becomes
 `godot48rc1`. Alpha builds use `a`, such as `godot48a1`. Stable builds keep names
-such as `godot48` and `godot472`.
+such as `godot48` and `godot472`. .NET editions add `-dotnet`, such as
+`godot48b1-dotnet`.
 
 Existing aliases keep their names. If a suggested name is taken, the launcher
 skips it rather than choosing another name or overwriting a command. This can
-happen when Standard and .NET editors share the same version, or when a custom
-editor uses a name already taken by another editor. Review reported problems and
+happen when a custom editor uses a name already taken by another editor. Review
+reported problems and
 [create a different alias manually](../editors/install-editor.mdx#create-or-rename-a-named-alias).
 An alias failure does not undo a completed editor installation or registration.
 

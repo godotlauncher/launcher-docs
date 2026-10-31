@@ -13,7 +13,7 @@ tags:
 
 Godot Launcher shows update messages in **Settings > Updates**. When an update is available or needs attention, select **Update** in the sidebar to open its details and actions. During a download, this control shows **Downloading**, with a percentage when progress is known.
 
-Automatic checks are enabled by default. You choose when to download an update and restart to install it. **Read release notes** opens the notes for the update's exact version on the Godot Launcher documentation site in your browser. The link appears when the update includes an exact release version.
+Automatic checks are enabled by default. You choose when to download an update and restart to install it. **Read release notes** opens the notes for the update's release on the Godot Launcher documentation site in your browser. Prerelease and stable builds share the same release notes page.
 
 ## States
 

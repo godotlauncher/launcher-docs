@@ -1,0 +1,322 @@
+---
+id: install-editor
+slug: /getting-started/install-editor
+title: Install a Godot Editor
+sidebar_label: Install an editor
+description: "Install official Godot editors with Godot Launcher, choose Standard or .NET, and keep multiple versions installed."
+tags:
+  - godot
+  - editor-installation
+  - setup-guide
+  - getting-started
+  - custom-editor
+---
+
+import ThemedImage from '@theme/ThemedImage';
+
+# Install a Godot Editor {#installing-a-godot-editor}
+
+In **Godot Launcher**, you can install an official editor from **Installs**, register a custom-built editor, or choose an official editor to download while creating a project.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Installed Godot editors in the Installs view"
+  sources={{
+    light: '/img/docs/1.14/screenshots/screen_installs_view_light.webp',
+    dark: '/img/docs/1.14/screenshots/screen_installs_view_dark.webp',
+  }}
+/>
+
+## Install an official Godot editor
+
+1. Go to **Installs** from the left-hand navigation menu.
+2. Click **Install Editor**.
+3. Choose **Latest** for recent releases or **All** to find an older version.
+4. Choose **Stable** or **Prerelease**.
+5. Find the release you need and select **Standard** or **.NET**.
+6. Wait for the installation to finish. The editor appears in **Installs** and can be selected for projects.
+
+Use **Reload Release List** to check for newly published releases. You can install multiple releases side by side.
+
+## Choose Standard or .NET
+
+- **Standard** is the usual choice for GDScript projects.
+- **.NET** is required for projects that use C#.
+
+If you are not sure, choose **Standard**. You can install both variants of the same release.
+
+Godot Launcher works with Godot 4 and newer editor builds.
+
+:::info C# requires the .NET SDK
+To use C# in your project, install the **.NET SDK** from the [Microsoft .NET website](https://dotnet.microsoft.com/download) as well as a .NET-enabled Godot editor. See the [Godot Engine C# documentation](https://docs.godotengine.org/en/stable/tutorials/scripting/c_sharp/index.html) for current requirements.
+:::
+
+## Cancel an editor download
+
+The drawer shows queued, download, and installation progress. You can close it
+while an installation continues. Select **Cancel editor download**, the X beside
+its progress, in **Installs** to stop a queued, preparing, or downloading editor
+and remove its partial download. This also works for downloads started by a
+project.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Install Godot Editor drawer with a cancellable download and a queued editor install"
+  sources={{
+    light: '/img/docs/1.14/screenshots/screen_installs_download_progress_light.webp',
+    dark: '/img/docs/1.14/screenshots/screen_installs_download_progress_dark.webp',
+  }}
+/>
+
+Cancellation is unavailable after extraction starts. If several projects are
+waiting for the same editor version and edition, cancelling stops that shared
+download for all of them. Other editor downloads continue.
+
+Projects already added to the launcher stay listed with a missing editor.
+Select **Install required editor** to try again. Cancelling during Create Project
+returns to the filled form without creating a project.
+
+If a download or archive check fails, the editor is not installed. See [editor installation troubleshooting](../troubleshooting.md#godot-editor-installation-and-availability) for recovery steps.
+
+## Manage installed editors
+
+The **Installs** view groups official and custom editors by Godot version. Standard, .NET, prerelease, and custom entries remain distinct within those groups.
+
+- If an official editor becomes unavailable, select **Retry** after restoring its folder or **Reinstall** to download the same release and variant from the editor catalogue. Projects that used the unavailable editor are repaired to use the recovered installation.
+- If a custom editor becomes unavailable, restore its manifest and editor paths, then select **Retry**. The launcher does not download custom builds.
+- Select **Delete Release from This Device** beside an official editor, then confirm with **Remove** to delete its installation.
+- Change the download location from [editor install location settings](../settings/editor-installs-location.mdx).
+
+Removing an editor does not delete your projects. See [Troubleshooting](../troubleshooting.md#godot-editor-installation-and-availability) if an installation or saved editor location is unavailable.
+
+### Remove several editors
+
+Use multi-select in **Installs** to remove several editors with one confirmation.
+
+1. Select **Enable multi-select**, the checklist icon at the left of the toolbar.
+2. Tick the editors to remove, or open **Actions > Select unused editors**.
+3. Select **Actions > Remove selected**.
+4. Review the consequences and the **Affected items** list, then select **Remove selected** to confirm. Each editor shows its named commands, any default `godot` command, and assigned projects.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Two selected Godot editors with the Actions menu open"
+  sources={{
+    light: '/img/docs/1.14/screenshots/screen_installs_selection_light.webp',
+    dark: '/img/docs/1.14/screenshots/screen_installs_selection_dark.webp',
+  }}
+/>
+
+**Select unused editors** selects launcher-managed editors with no assigned projects. Projects with unavailable files still count as using their assigned editor. Custom editors are excluded from this action; select them individually or use **Select all** to include them.
+
+**Select all** selects every eligible editor matching the current search, including rows outside the scroll area. The checkbox beside a version heading selects or clears that group. **Select unused editors** uses the same search scope. Changing the search clears the selection. **Clear selection** unticks all editors. **Disable multi-select** also clears the selection and restores the individual editor buttons. Editors with an install or another action in progress cannot be selected.
+
+:::warning Projects using a selected editor
+Removing an installed editor deletes its editor files. Projects assigned to it need another editor before they can launch. Removing a custom editor unregisters it from Godot Launcher and keeps its files. Your project files are kept in both cases.
+:::
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Editor removal confirmation showing a project that uses a selected editor"
+  sources={{
+    light: '/img/docs/1.14/screenshots/screen_installs_remove_selected_light.webp',
+    dark: '/img/docs/1.14/screenshots/screen_installs_remove_selected_dark.webp',
+  }}
+/>
+
+The launcher checks each editor again before removal. An editor selected with **Select unused editors** is kept if a project starts using it. Changed or busy editors are also kept. Removing an editor also removes its named alias and, if selected as the terminal default, the managed `godot` command. No replacement default is chosen. Command cleanup must succeed before editor files are deleted. The confirmation stays open while removal runs and closes when all removals succeed. If some editors cannot be removed, **Items needing attention** shows their reasons. Use **Retry failed removals** after resolving failures. Successful removals are not repeated, and skipped editors stay listed until you close the dialog.
+
+## Use Godot from a terminal {#use-godot-from-a-terminal}
+
+Choose one installed editor as the default for the `godot` command, or give each
+editor its own named alias, such as `godot472`. An editor can have one named
+alias as well as being the default. Both kinds of command work
+with official editors and registered custom builds on Windows, macOS, and Linux.
+Setup applies to your user account and does not require administrator permissions.
+
+1. In **Installs**, select the terminal icon button beside the editor. Its tooltip
+   reads **Use as default command-line Godot**.
+2. Read the editor preferences explanation and select **Set as default**.
+3. If prompted, restart your terminal, then run:
+
+   ```sh
+   godot --version
+   ```
+
+The selected editor has a `godot` badge beside its name, and its terminal button
+turns blue. The button shows a spinner while a change is in progress. Hover over
+the selected button for a reminder of
+how the command works. Godot Launcher can be closed while you use the command.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Installed editor selected as the command-line Godot default, with a godot badge and blue terminal button"
+  sources={{
+    light: '/img/docs/1.14/screenshots/screen_installs_command_line_godot_light.webp',
+    dark: '/img/docs/1.14/screenshots/screen_installs_command_line_godot_dark.webp',
+  }}
+/>
+
+The restart reminder appears only when PATH setup changes. Switching editors
+with unchanged setup updates the button without a success dialog. Conflicts and
+errors are still shown.
+
+The command forwards arguments to the selected editor. For example, run
+`godot --headless --path /path/to/project --quit` with a build that supports
+headless operation. Available command-line options depend on the selected build;
+see the [Godot command-line tutorial](https://docs.godotengine.org/en/stable/tutorials/editor/command_line_tutorial.html).
+
+On Windows, official installations use their console executable. For a custom
+Windows build, register its console executable in the manifest's optional
+`paths.console` field when it provides one. Otherwise the command uses the
+registered editor executable, whose terminal capabilities depend on the build.
+
+:::info Terminal editor preferences
+Typing `godot` or a named alias uses the selected editor's normal editor preferences. It does not
+use the separate preferences Godot Launcher keeps for each project, such as editor
+themes and shortcuts. Open the project from Godot Launcher to use its
+[per-project editor preferences](./editor-settings.mdx). The project's own
+configuration, including rendering and input settings, applies in either case.
+Custom builds can also provide their own editor preferences configuration.
+:::
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="First-time command-line Godot confirmation explaining normal and per-project editor preferences"
+  sources={{
+    light: '/img/docs/1.14/screenshots/screen_installs_command_line_preferences_light.webp',
+    dark: '/img/docs/1.14/screenshots/screen_installs_command_line_preferences_dark.webp',
+  }}
+/>
+
+### Create or rename a named alias
+
+1. In **Installs**, open the editor's **Settings** using its gear button.
+2. Under **Command line**, enable **Named alias**.
+3. Enter a **Command name** and wait for **Available**.
+4. Select **Apply** and confirm the terminal editor preferences explanation if prompted.
+5. Open a new terminal if prompted, then run your command, for example `godot472 --version`.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Editor Command line settings with a default terminal editor switch and a named alias"
+  sources={{
+    light: '/img/docs/1.14/screenshots/screen_installs_command_line_settings_light.webp',
+    dark: '/img/docs/1.14/screenshots/screen_installs_command_line_settings_dark.webp',
+  }}
+/>
+
+Use 1-48 lowercase letters, digits, or hyphens, starting with a letter. The
+name `godot` and reserved system names are unavailable. Names must be unique
+across installed editors and must not conflict with an existing command or file.
+Godot Launcher does not overwrite another command to claim its name. Suggested
+names for .NET editors end in `-dotnet`, such as `godot472-dotnet`. If custom
+builds suggest the same name, choose a different name for one.
+
+To rename an alias, select **Rename alias**, edit the name, and select **Apply**.
+Typing or checking a name does not change the saved command. **Cancel** keeps
+the saved name. Closing with unapplied changes asks whether to discard them.
+
+To remove an alias, switch **Named alias** off and confirm with **Remove alias**.
+This keeps the editor and the default `godot` command. Removing the editor also
+removes its named alias. Removing commands keeps the shared command directory
+and PATH setup for future use.
+
+If an alias reports that it needs recovery, resolve the reported file or editor
+installation problem, then reopen its settings to retry. An unfinished rename
+can reserve both names until recovery completes. If command files have been
+changed outside Godot Launcher, the launcher can refuse to change or remove
+them; do not replace unrelated files to force the operation.
+
+To create aliases automatically for new editors, see
+[Command line settings](../settings/command-line.mdx).
+
+### Manage aliases for selected editors
+
+1. Enable multi-select in **Installs** and tick the editors to change.
+2. Open **Actions** and choose **Create missing aliases** or **Remove named aliases**.
+3. Review the eligible count and confirm, or select **Cancel** to keep commands unchanged.
+
+Creation keeps existing aliases and uses the suggested name for each remaining
+editor. Unavailable names are skipped without adding suffixes or replacing other
+commands. Aliases created from this selection are manual aliases; disabling
+automatic aliases and choosing to remove only automatic aliases keeps them.
+Removing named aliases keeps the editors, the default `godot` command, and shared
+PATH setup. Neither action changes the automatic-alias preference.
+
+The dialog stays open while changes run and closes on success. If some commands
+cannot be changed, expand **View details** for the reasons. **Retry** reviews only
+failed commands again; skipped commands can be selected for a new attempt after
+the reported problem is resolved.
+
+<ThemedImage
+  className="docs-media-frame"
+  alt="Counted confirmation for creating missing aliases for selected editors"
+  sources={{
+    light: '/img/docs/1.14/screenshots/screen_installs_create_selected_aliases_light.webp',
+    dark: '/img/docs/1.14/screenshots/screen_installs_create_selected_aliases_dark.webp',
+  }}
+/>
+
+### Switch or remove the command-line default
+
+You can also change the default from an editor's **Settings > Command line**
+using the **Default terminal editor** switch.
+
+Select the terminal button on another installed editor to switch the command.
+This changes the terminal default without changing the editor assigned to any
+project. The previous default stays selected until the change succeeds.
+
+To clear the default, select its blue terminal button again. Its tooltip reads
+**Remove as default command-line Godot**. Removing the selected editor through
+Godot Launcher also removes its command. The bin directory and PATH setup stay
+in place so you can select a default again later without repeating setup.
+
+If the selected editor's files become unavailable, the command reports an error.
+It does not choose another version automatically. Restore the editor or choose
+another installed editor as the default.
+
+### PATH setup and command conflicts
+
+Setting up a default command or a named alias, individually or from an editor selection, adds a fixed directory
+to your user PATH. The directory contains the default `godot` command and named
+aliases. Bulk creation from Command line settings keeps existing PATH setup.
+
+| Platform | Command directory |
+| --- | --- |
+| Windows | `%LOCALAPPDATA%\GodotLauncher\bin` |
+| macOS | `~/Library/Application Support/GodotLauncher/bin` |
+| Linux | `~/.local/share/godot-launcher/bin` |
+
+On Windows, setup updates the user PATH. Close all windows of your terminal
+application and reopen it if a new tab cannot find the command. If it still uses
+the old PATH, sign out and sign in again.
+
+On macOS and Linux, automatic setup supports Bash, Zsh, and Fish. Setup adds an
+identifiable configuration block for Bash or Zsh, or a Fish configuration file.
+For other shells, add the command directory to your PATH using that shell's
+configuration. Quit Godot Launcher and start it from the configured terminal before
+setting up a command, so it can read the updated PATH.
+
+Existing commands keep their priority. If another `godot` command takes
+precedence, the launcher reports it and preserves your command and PATH order.
+Resolve the conflict in your shell or user PATH configuration, then restart your
+terminal. You can inspect command lookup with `where.exe godot` on Windows,
+`command -v godot` in Bash or Zsh, or `type -a godot` in Fish, which also shows
+functions and aliases.
+
+## Add a custom-built Godot editor
+
+Open the **Custom Editor** menu in **Installs** to register a custom-built Godot editor:
+
+- **Select manifest file**: register an existing `godotlauncher-editor-manifest.json`.
+- **Create custom editor manifest**: enter the editor details and create the manifest in the launcher.
+
+Custom editors appear in **Installs** with a **Custom** badge. See [Custom-Built Godot Editors](./custom-editors.mdx) for the full workflow.
+
+## Next steps
+
+- [Create Your First Project](../projects/create-project.mdx)
+- [Add an Existing Project](../projects/add-existing-project.mdx)
+- [Custom-Built Godot Editors](./custom-editors.mdx)
+- [Godot Launcher Settings](../settings/launcher-settings.mdx)

@@ -23,18 +23,18 @@
     "clsx": "^2.1.1",
     "estree-util-value-to-estree": "^3.5.0",
     "image-size": "^2.0.4",
-    "lucide-react": "^1.49.0",
+    "lucide-react": "^1.68.0",
     "prism-react-renderer": "^2.4.1",
-    "react": "^19.3.0",
-    "react-dom": "^19.3.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
     "search-insights": "^2.17.3"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.10.2",
     "@docusaurus/tsconfig": "^3.10.2",
     "@docusaurus/types": "^3.10.2",
-    "@types/node": "^24.19.0",
-    "dotenv": "^18.0.5",
+    "@types/node": "^24.19.2",
+    "dotenv": "^18.0.9",
     "typescript": "~6.0.3"
   },
   "browserslist": {

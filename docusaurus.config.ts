@@ -133,14 +133,9 @@ const config: Config = {
           path: "docs",
           routeBasePath: "/",
           sidebarPath: "./sidebars.ts",
-          includeCurrentVersion: true,
+          includeCurrentVersion: false,
           lastVersion: "1.14",
           versions: {
-            current: {
-              label: "Next",
-              path: "next",
-              banner: "unreleased",
-            },
             "1.14": {
               label: "1.14",
               banner: "none",
